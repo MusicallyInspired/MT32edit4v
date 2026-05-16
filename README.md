@@ -25,6 +25,7 @@ Currently, as you can see, MT32edit4v utilizes the standard Windows GUI control 
 - Reverb & Master Tuning controls
 - Full access to each synth's custom timbre bank (64 timbres * 2 synths = 128 custom timbres)
 - Import/Export SYX files for timbre settings, patch settings, or synth-wide state backup and for use with a real hardware MT-32 (if you have one)
+- Prettier graphics overhaul for entire interface
 
 # Wishlist
 - Implement a way to change each synth's Unit ID # (not possible via SysEx). This is not a high priority as it is only pertinent to replicating EVERY feature of the MT-32 so that it can function as a real one would in certain hardware synth setups. SysEx messages can target individual MT-32's via a unique unit ID # that is only possible to set via the front panel controls. MUNT currently offers no way to do this. This is admittedly a very niche use case and there's no reason to do this in modern setups, and certainly not for gaming.
