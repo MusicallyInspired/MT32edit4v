@@ -1,4 +1,9 @@
 unit SynthSlider;
+{$EXCESSPRECISION OFF}
+{$WEAKLINKRTTI ON}
+{$RTTI EXPLICIT METHODS([]) PROPERTIES([]) FIELDS([])}
+{$IMPORTEDDATA OFF}
+{$O+}
 
 interface
 

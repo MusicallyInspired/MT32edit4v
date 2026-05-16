@@ -1,16 +1,15 @@
-{$ifdef FPC_VERSION}
-{$MODE DELPHI}
-{$endif}
 library MT32edit4v;
+{$EXCESSPRECISION OFF}
+{$WEAKLINKRTTI ON}
+{$RTTI EXPLICIT METHODS([]) PROPERTIES([]) FIELDS([])}
+{$IMPORTEDDATA OFF}
+{$O+}
 
 uses
   Windows,
   SysUtils,
   Dyn_mt32edit,
   Classes,
-  {$ifdef FPC_VERSION}
-  interfaces,
-  {$endif }
   editor in 'editor.pas' {EditorForm};
 
 {$R *.RES}

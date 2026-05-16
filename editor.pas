@@ -1,14 +1,16 @@
-{$IFDEF FPC_VERSION}
-{$MODE DELPHI}
-{$ENDIF}
 unit editor;
+{$EXCESSPRECISION OFF}
+{$WEAKLINKRTTI ON}
+{$RTTI EXPLICIT METHODS([]) PROPERTIES([]) FIELDS([])}
+{$IMPORTEDDATA OFF}
+{$O+}
 
 interface
 
 uses
   Windows, Messages, SysUtils, Classes, Forms, Dyn_mt32edit, UITypes,
   StdCtrls, Controls, ExtCtrls, Vcl.ComCtrls, Vcl.Buttons, Vcl.Dialogs,
-  Vcl.Graphics, Math, Types, IOUtils, Vcl.Samples.Spin, SynthSlider, KnobControl;
+  Vcl.Graphics, Math, Types, IOUtils, Vcl.Samples.Spin, SynthSlider, KnobControl, PatchUxTheme;
 
 const
   SysExHeader: array[0..4] of Byte = (
