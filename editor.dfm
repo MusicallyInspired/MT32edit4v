@@ -1,0 +1,8717 @@
+object EditorForm: TEditorForm
+  Left = 551
+  Top = 228
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'MuntVSTi Editor'
+  ClientHeight = 618
+  ClientWidth = 811
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  Position = poScreenCenter
+  Visible = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  TextHeight = 13
+  object MasterVolume_label: TLabel
+    Left = 760
+    Top = 231
+    Width = 42
+    Height = 26
+    Alignment = taCenter
+    Caption = 'Master'#13#10'Volume'
+    Color = clBtnFace
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = 12014080
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Synth1Toggle: TSpeedButton
+    Left = 756
+    Top = 4
+    Width = 52
+    Height = 24
+    GroupIndex = 1
+    Down = True
+    Caption = 'Synth 1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = 12014080
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    OnClick = Synth1ToggleClick
+  end
+  object Synth2Toggle: TSpeedButton
+    Left = 756
+    Top = 27
+    Width = 52
+    Height = 24
+    GroupIndex = 1
+    Caption = 'Synth 2'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clGreen
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    OnClick = Synth2ToggleClick
+  end
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 3
+    Width = 756
+    Height = 617
+    ActivePage = TimbreTempArea
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    MultiLine = True
+    ParentFont = False
+    TabOrder = 0
+    TabWidth = 100
+    object TimbreTempArea: TTabSheet
+      Caption = 'Patch'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ImageIndex = 1
+      ParentFont = False
+      object TimbreName_label: TLabel
+        Left = 249
+        Top = 16
+        Width = 63
+        Height = 13
+        Caption = 'Timbre Name'
+      end
+      object EnvMode: TSpeedButton
+        Left = 323
+        Top = 14
+        Width = 51
+        Height = 40
+        Hint = 'Sustain On: notes held'#13#10'Sustain Off: notes not held'
+        AllowAllUp = True
+        GroupIndex = 1
+        Down = True
+        Caption = 'Sustain'#13#10'Enable'
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = EnvModeClick
+      end
+      object SelPartial1Button: TSpeedButton
+        Left = 22
+        Top = 76
+        Width = 24
+        Height = 23
+        Hint = 'Select a Partial of the current Part to edit'
+        GroupIndex = 2
+        Down = True
+        Caption = '1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = SelPartial1ButtonClick
+      end
+      object SelPartial2Button: TSpeedButton
+        Left = 22
+        Top = 97
+        Width = 24
+        Height = 23
+        Hint = 'Select a Partial of the current Part to edit'
+        GroupIndex = 2
+        Caption = '2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = SelPartial2ButtonClick
+      end
+      object SelPartial3Button: TSpeedButton
+        Left = 22
+        Top = 118
+        Width = 24
+        Height = 23
+        Hint = 'Select a Partial of the current Part to edit'
+        GroupIndex = 2
+        Caption = '3'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = SelPartial3ButtonClick
+      end
+      object SelPartial4Button: TSpeedButton
+        Left = 22
+        Top = 139
+        Width = 24
+        Height = 23
+        Hint = 'Select a Partial of the current Part to edit'
+        GroupIndex = 2
+        Caption = '4'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = SelPartial4ButtonClick
+      end
+      object Partials_label: TLabel
+        Left = 380
+        Top = 15
+        Width = 14
+        Height = 36
+        Caption = 'Partials'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Orientation = 900
+        Font.Style = []
+        ParentFont = False
+      end
+      object PartialSelect_label: TLabel
+        Left = 5
+        Top = 88
+        Width = 14
+        Height = 63
+        Caption = 'Partial Select'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Orientation = 900
+        Font.Style = []
+        ParentFont = False
+      end
+      object PitchEnvGroup: TGroupBox
+        Left = 5
+        Top = 169
+        Width = 237
+        Height = 419
+        Caption = 'Pitch Envelope'
+        Color = clBtnFace
+        DoubleBuffered = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentColor = False
+        ParentDoubleBuffered = False
+        ParentFont = False
+        TabOrder = 6
+        object PEnvLevel0_label: TLabel
+          Left = 3
+          Top = 17
+          Width = 23
+          Height = 13
+          Caption = 'Lvl 0'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object PEnvLevel1_label: TLabel
+          Left = 35
+          Top = 17
+          Width = 23
+          Height = 13
+          Caption = 'Lvl 1'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object PEnvLevel2_label: TLabel
+          Left = 67
+          Top = 17
+          Width = 23
+          Height = 13
+          Caption = 'Lvl 2'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object PEnvSus_label: TLabel
+          Left = 94
+          Top = 17
+          Width = 35
+          Height = 13
+          Caption = 'Sustain'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object PEnvEnd_label: TLabel
+          Left = 133
+          Top = 17
+          Width = 19
+          Height = 13
+          Caption = 'End'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object PEnvPlot: TPaintBox
+          Left = 3
+          Top = 129
+          Width = 153
+          Height = 59
+          OnPaint = PEnvPlotPaint
+        end
+        object PEnvDepth_label: TLabel
+          Left = 13
+          Top = 284
+          Width = 29
+          Height = 13
+          Caption = 'Depth'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object PEnvVelSens_label: TLabel
+          Left = 13
+          Top = 371
+          Width = 87
+          Height = 13
+          Caption = 'Velocity Sensitivity'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object PEnvTimeKeyFollow_label: TLabel
+          Left = 13
+          Top = 329
+          Width = 77
+          Height = 13
+          Caption = 'Time Key Follow'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object PEnvTime1_label: TLabel
+          Left = 17
+          Top = 197
+          Width = 32
+          Height = 13
+          Caption = 'Time 1'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object PEnvTime2_label: TLabel
+          Left = 71
+          Top = 197
+          Width = 32
+          Height = 13
+          Caption = 'Time 2'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object PEnvTime3_label: TLabel
+          Left = 125
+          Top = 197
+          Width = 32
+          Height = 13
+          Caption = 'Time 3'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object PEnvTime4_label: TLabel
+          Left = 179
+          Top = 197
+          Width = 32
+          Height = 13
+          Caption = 'Time 4'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object PEnvLevel0: TTrackBar
+          Left = 3
+          Top = 31
+          Width = 26
+          Height = 70
+          Hint = 
+            'Starting/Attack level of pitch envelope'#13#10#13#10'0 = no change in pitc' +
+            'h'#13#10'< 0 = pitch down'#13#10'> 0 = pitch up'
+          Max = 50
+          Min = -50
+          Orientation = trVertical
+          ParentShowHint = False
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 0
+          TickMarks = tmBoth
+          TickStyle = tsNone
+          OnChange = PEnvLevel0Change
+        end
+        object PEnvLevel1: TTrackBar
+          Left = 35
+          Top = 31
+          Width = 26
+          Height = 70
+          Hint = 
+            'Second level (Decay 1) of pitch envelope'#13#10#13#10'0 = no change in pit' +
+            'ch'#13#10'< 0 = pitch down'#13#10'> 0 = pitch up'
+          Max = 50
+          Min = -50
+          Orientation = trVertical
+          ParentShowHint = False
+          Position = -2
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 1
+          TickMarks = tmBoth
+          TickStyle = tsNone
+          OnChange = PEnvLevel1Change
+          OnKeyPress = PEnvLevel1_valueKeyPress
+        end
+        object PEnvLevel2: TTrackBar
+          Left = 67
+          Top = 31
+          Width = 26
+          Height = 70
+          Hint = 
+            'Third level (Decay 2) of pitch envelope'#13#10#13#10'0 = no change in pitc' +
+            'h'#13#10'< 0 = pitch down'#13#10'> 0 = pitch up'
+          Max = 50
+          Min = -50
+          Orientation = trVertical
+          ParentShowHint = False
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 2
+          TickMarks = tmBoth
+          TickStyle = tsNone
+          OnChange = PEnvLevel2Change
+        end
+        object PEnvSustain: TTrackBar
+          Left = 99
+          Top = 31
+          Width = 26
+          Height = 70
+          Hint = 
+            'Fourth level (Sustain) of pitch envelope'#13#10#13#10'0 = no change in pit' +
+            'ch'#13#10'< 0 = pitch down'#13#10'> 0 = pitch up'
+          Max = 50
+          Min = -50
+          Orientation = trVertical
+          ParentShowHint = False
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 3
+          TickMarks = tmBoth
+          TickStyle = tsNone
+          OnChange = PEnvSustainChange
+        end
+        object PEnvEnd: TTrackBar
+          Left = 131
+          Top = 31
+          Width = 26
+          Height = 70
+          Hint = 
+            'End level (Release) of pitch envelope'#13#10#13#10'0 = no change in pitch'#13 +
+            #10'< 0 = pitch down'#13#10'> 0 = pitch up'
+          Max = 50
+          Min = -50
+          Orientation = trVertical
+          ParentShowHint = False
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 4
+          TickMarks = tmBoth
+          TickStyle = tsNone
+          OnChange = PEnvEndChange
+        end
+        object PEnvLevel1_value: TEdit
+          Left = 35
+          Top = 101
+          Width = 26
+          Height = 21
+          Hint = '-50 ~ +50'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 6
+          Text = '0'
+          OnExit = PEnvLevel1_valueExit
+          OnKeyPress = PEnvLevel1_valueKeyPress
+        end
+        object PEnvLevel2_value: TEdit
+          Left = 67
+          Top = 101
+          Width = 26
+          Height = 21
+          Hint = '-50 ~ +50'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 7
+          Text = '0'
+          OnExit = PEnvLevel2_valueExit
+          OnKeyPress = PEnvLevel2_valueKeyPress
+        end
+        object PEnvSustain_value: TEdit
+          Left = 99
+          Top = 101
+          Width = 26
+          Height = 21
+          Hint = '-50 ~ +50'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 8
+          Text = '0'
+          OnExit = PEnvSustain_valueExit
+          OnKeyPress = PEnvSustain_valueKeyPress
+        end
+        object PEnvEnd_value: TEdit
+          Left = 131
+          Top = 101
+          Width = 26
+          Height = 21
+          Hint = '-50 ~ +50'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 9
+          Text = '0'
+          OnExit = PEnvEnd_valueExit
+          OnKeyPress = PEnvEnd_valueKeyPress
+        end
+        object PEnvTime1_value: TEdit
+          Left = 21
+          Top = 254
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 10
+          Text = '0'
+          OnExit = PEnvTime1_valueExit
+          OnKeyPress = PEnvTime1_valueKeyPress
+        end
+        object PEnvTime2_value: TEdit
+          Left = 75
+          Top = 254
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 11
+          Text = '0'
+          OnKeyPress = PEnvTime2_valueKeyPress
+        end
+        object PEnvTime3_value: TEdit
+          Left = 129
+          Top = 254
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 12
+          Text = '0'
+          OnKeyPress = PEnvTime3_valueKeyPress
+        end
+        object PEnvTime4_value: TEdit
+          Left = 183
+          Top = 254
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 13
+          Text = '0'
+          OnKeyPress = PEnvTime4_valueKeyPress
+        end
+        object PEnvDepth: TTrackBar
+          Left = 3
+          Top = 297
+          Width = 194
+          Height = 34
+          Hint = 'Depth of Pitch Envelope levels'
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 15
+          ThumbLength = 15
+          TickMarks = tmTopLeft
+          OnChange = PEnvDepthChange
+        end
+        object PEnvDepth_value: TEdit
+          Left = 203
+          Top = 304
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 10'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 16
+          Text = '0'
+          OnExit = PEnvDepth_valueExit
+          OnKeyPress = PEnvDepth_valueKeyPress
+        end
+        object PEnvLevel0_value: TEdit
+          Left = 3
+          Top = 101
+          Width = 26
+          Height = 21
+          Hint = '-50 ~ +50'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 5
+          Text = '0'
+          OnExit = PEnvLevel0_valueExit
+          OnKeyPress = PEnvLevel0_valueKeyPress
+        end
+        object PEnvVelSens_value: TEdit
+          Left = 203
+          Top = 384
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 20
+          Text = '0'
+          OnExit = PEnvVelSens_valueExit
+          OnKeyPress = PEnvVelSens_valueKeyPress
+        end
+        object PEnvVelSens: TTrackBar
+          Left = 3
+          Top = 386
+          Width = 194
+          Height = 21
+          Hint = 
+            'Note velocity sensitivity of the Pitch Envelope depth'#13#10'(louder n' +
+            'otes = deeper envelope levels)'
+          Max = 100
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 19
+          ThumbLength = 15
+          TickMarks = tmBoth
+          TickStyle = tsNone
+          OnChange = PEnvVelSensChange
+        end
+        object PEnvTimeKeyFollow: TTrackBar
+          Left = 3
+          Top = 344
+          Width = 194
+          Height = 29
+          Hint = 
+            'The scale to which the Pitch Envelope rate follows the keyboard ' +
+            'notes'#13#10'(higher notes = faster envelope rate)'
+          Max = 4
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 17
+          ThumbLength = 15
+          OnChange = PEnvTimeKeyFollowChange
+        end
+        object PEnvTimeKeyFollow_value: TEdit
+          Left = 203
+          Top = 341
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 4'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 1
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 18
+          Text = '0'
+          OnExit = PEnvTimeKeyFollow_valueExit
+          OnKeyPress = PEnvTimeKeyFollow_valueKeyPress
+        end
+        object PEnvTime1: TKnobControl
+          Left = 12
+          Top = 209
+          Width = 42
+          Height = 42
+          Hint = 'Envelope delay time to point 1'
+          Max = 100
+          OnChange = PEnvTime1Change
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object PEnvTime2: TKnobControl
+          Left = 66
+          Top = 209
+          Width = 42
+          Height = 42
+          Hint = 'Envelope delay time to point 2'
+          Max = 100
+          OnChange = PEnvTime2Change
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object PEnvTime3: TKnobControl
+          Left = 120
+          Top = 209
+          Width = 42
+          Height = 42
+          Hint = 'Envelope delay time to Sustain point'
+          Max = 100
+          OnChange = PEnvTime3Change
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object PEnvTime4: TKnobControl
+          Left = 174
+          Top = 209
+          Width = 42
+          Height = 42
+          Hint = 'Envelope delay time to End/Release point'
+          Max = 100
+          OnChange = PEnvTime4Change
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object PEnvLFOGroup: TGroupBox
+          Left = 160
+          Top = 11
+          Width = 73
+          Height = 179
+          Caption = 'LFO'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 12014080
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentBackground = False
+          ParentColor = False
+          ParentFont = False
+          TabOrder = 14
+          object PEnvLFODepth_label: TLabel
+            Left = 10
+            Top = 67
+            Width = 29
+            Height = 13
+            Caption = 'Depth'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object PEnvLFOModSens_label: TLabel
+            Left = 10
+            Top = 123
+            Width = 48
+            Height = 13
+            Caption = 'Mod Sens'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object PEnvLFORate_label: TLabel
+            Left = 10
+            Top = 15
+            Width = 23
+            Height = 13
+            Caption = 'Rate'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object PEnvLFODepth: TKnobControl
+            Left = 2
+            Top = 80
+            Width = 40
+            Height = 40
+            Hint = 'Depth of Low Frequency Oscillator'#13#10'(affecting pitch)'
+            Max = 100
+            OnChange = PEnvLFODepthChange
+            StartAngle = 135
+            EndAngle = 405
+          end
+          object PEnvLFODepth_value: TEdit
+            Left = 45
+            Top = 89
+            Width = 25
+            Height = 21
+            Hint = '0 ~ 100'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 1
+            Text = '0'
+            OnExit = PEnvLFODepth_valueExit
+            OnKeyPress = PEnvLFODepth_valueKeyPress
+          end
+          object PEnvLFOModSens: TKnobControl
+            Left = 2
+            Top = 135
+            Width = 40
+            Height = 40
+            Hint = 'LFO Depth sensitivity to Mod Wheel input'#13#10'(affecting pitch)'
+            Max = 100
+            OnChange = PEnvLFOModSensChange
+            StartAngle = 135
+            EndAngle = 405
+          end
+          object PEnvLFOModSens_value: TEdit
+            Left = 45
+            Top = 144
+            Width = 25
+            Height = 21
+            Hint = '0 ~ 100'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 2
+            Text = '0'
+            OnExit = PEnvLFOModSens_valueExit
+            OnKeyPress = PEnvLFOModSens_valueKeyPress
+          end
+          object PEnvLFORate: TKnobControl
+            Left = 2
+            Top = 27
+            Width = 40
+            Height = 40
+            Hint = 'Speed of Low Frequency Oscillator'#13#10'(affecting pitch)'
+            Max = 100
+            OnChange = PEnvLFORateChange
+            StartAngle = 135
+            EndAngle = 405
+          end
+          object PEnvLFORate_value: TEdit
+            Left = 45
+            Top = 36
+            Width = 25
+            Height = 21
+            Hint = '0 ~ 100'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 0
+            Text = '0'
+            OnExit = PEnvLFORate_valueExit
+            OnKeyPress = PEnvLFORate_valueKeyPress
+          end
+        end
+      end
+      object TVFGroup: TGroupBox
+        Left = 251
+        Top = 169
+        Width = 242
+        Height = 419
+        Caption = 'Time Variant Filter'
+        DoubleBuffered = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentDoubleBuffered = False
+        ParentFont = False
+        TabOrder = 7
+        object TVFLevel0_label: TLabel
+          Left = 5
+          Top = 17
+          Width = 23
+          Height = 13
+          Caption = 'Lvl 1'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVFLevel2_label: TLabel
+          Left = 37
+          Top = 17
+          Width = 23
+          Height = 13
+          Caption = 'Lvl 2'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVFLevel3_label: TLabel
+          Left = 69
+          Top = 17
+          Width = 23
+          Height = 13
+          Caption = 'Lvl 3'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVFSustain_label: TLabel
+          Left = 96
+          Top = 17
+          Width = 35
+          Height = 13
+          Caption = 'Sustain'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVFKeyFollow_label: TLabel
+          Left = 138
+          Top = 17
+          Width = 13
+          Height = 13
+          Caption = 'KF'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVFPlot: TPaintBox
+          Left = 5
+          Top = 129
+          Width = 154
+          Height = 59
+          OnPaint = TVFPlotPaint
+        end
+        object TVFTime1_label: TLabel
+          Left = 14
+          Top = 190
+          Width = 32
+          Height = 13
+          Caption = 'Time 1'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVFTime2_label: TLabel
+          Left = 58
+          Top = 190
+          Width = 32
+          Height = 13
+          Caption = 'Time 2'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVFTime3_label: TLabel
+          Left = 102
+          Top = 190
+          Width = 32
+          Height = 13
+          Caption = 'Time 3'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVFTime4_label: TLabel
+          Left = 146
+          Top = 190
+          Width = 32
+          Height = 13
+          Caption = 'Time 4'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVFTime5_label: TLabel
+          Left = 190
+          Top = 190
+          Width = 32
+          Height = 13
+          Caption = 'Time 5'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVFDepth_label: TLabel
+          Left = 13
+          Top = 274
+          Width = 29
+          Height = 13
+          Caption = 'Depth'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVFVelSens_label: TLabel
+          Left = 13
+          Top = 317
+          Width = 87
+          Height = 13
+          Caption = 'Velocity Sensitivity'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVFTimeKeyFollow_label: TLabel
+          Left = 133
+          Top = 317
+          Width = 77
+          Height = 13
+          Caption = 'Time Key Follow'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVFDepthKeyFollow_label: TLabel
+          Left = 133
+          Top = 274
+          Width = 83
+          Height = 13
+          Caption = 'Depth Key Follow'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVFBiasLevel_label: TLabel
+          Left = 104
+          Top = 365
+          Width = 49
+          Height = 13
+          Caption = 'Bias Level'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVFBiasPoint_label: TLabel
+          Left = 13
+          Top = 365
+          Width = 47
+          Height = 13
+          Caption = 'Bias Point'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVFLevel1: TTrackBar
+          Left = 5
+          Top = 31
+          Width = 26
+          Height = 70
+          Max = 100
+          Orientation = trVertical
+          ParentShowHint = False
+          Position = 100
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 0
+          TickMarks = tmBoth
+          TickStyle = tsNone
+          OnChange = TVFLevel1Change
+        end
+        object TVFLevel2: TTrackBar
+          Left = 37
+          Top = 31
+          Width = 26
+          Height = 70
+          Max = 100
+          Orientation = trVertical
+          ParentShowHint = False
+          Position = 100
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 1
+          TickMarks = tmBoth
+          TickStyle = tsNone
+          OnChange = TVFLevel2Change
+        end
+        object TVFLevel3: TTrackBar
+          Left = 69
+          Top = 31
+          Width = 26
+          Height = 70
+          Max = 100
+          Orientation = trVertical
+          ParentShowHint = False
+          Position = 100
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 2
+          TickMarks = tmBoth
+          TickStyle = tsNone
+          OnChange = TVFLevel3Change
+        end
+        object TVFSustain: TTrackBar
+          Left = 101
+          Top = 31
+          Width = 26
+          Height = 70
+          Max = 100
+          Orientation = trVertical
+          ParentShowHint = False
+          Position = 100
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 3
+          TickMarks = tmBoth
+          TickStyle = tsNone
+          OnChange = TVFSustainChange
+        end
+        object TVFKeyFollow: TTrackBar
+          Left = 133
+          Top = 31
+          Width = 26
+          Height = 70
+          Max = 17
+          Orientation = trVertical
+          ParentShowHint = False
+          Frequency = 3
+          Position = 17
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 4
+          OnChange = TVFKeyFollowChange
+        end
+        object TVFLevel2_value: TEdit
+          Left = 37
+          Top = 102
+          Width = 26
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 6
+          Text = '0'
+          OnExit = TVFLevel2_valueExit
+          OnKeyPress = TVFLevel2_valueKeyPress
+        end
+        object TVFLevel3_value: TEdit
+          Left = 69
+          Top = 102
+          Width = 26
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 7
+          Text = '0'
+          OnExit = TVFLevel3_valueExit
+          OnKeyPress = TVFLevel3_valueKeyPress
+        end
+        object TVFSustain_value: TEdit
+          Left = 101
+          Top = 102
+          Width = 26
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 8
+          Text = '0'
+          OnExit = TVFSustain_valueExit
+          OnKeyPress = TVFSustain_valueKeyPress
+        end
+        object TVFKeyFollow_value: TEdit
+          Left = 133
+          Top = 102
+          Width = 26
+          Height = 21
+          Hint = '0 ~ 17'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 9
+          Text = '0'
+          OnExit = TVFKeyFollow_valueExit
+          OnKeyPress = TVFKeyFollow_valueKeyPress
+        end
+        object TVFLevel1_value: TEdit
+          Left = 5
+          Top = 102
+          Width = 26
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 5
+          Text = '0'
+          OnExit = TVFLevel1_valueExit
+          OnKeyPress = TVFLevel1_valueKeyPress
+        end
+        object TVFTime1_value: TEdit
+          Left = 17
+          Top = 247
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 10
+          Text = '0'
+          OnExit = TVFTime1_valueExit
+          OnKeyPress = TVFTime1_valueKeyPress
+        end
+        object TVFTime2_value: TEdit
+          Left = 61
+          Top = 247
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 11
+          Text = '0'
+          OnExit = TVFTime2_valueExit
+          OnKeyPress = TVFTime2_valueKeyPress
+        end
+        object TVFTime3_value: TEdit
+          Left = 105
+          Top = 247
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 12
+          Text = '0'
+          OnExit = TVFTime3_valueExit
+          OnKeyPress = TVFTime3_valueKeyPress
+        end
+        object TVFTime4_value: TEdit
+          Left = 149
+          Top = 247
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 13
+          Text = '0'
+          OnExit = TVFTime4_valueExit
+          OnKeyPress = TVFTime4_valueKeyPress
+        end
+        object TVFTime1: TKnobControl
+          Left = 8
+          Top = 202
+          Width = 42
+          Height = 42
+          Max = 100
+          OnChange = TVFTime1Change
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object TVFTime2: TKnobControl
+          Left = 52
+          Top = 202
+          Width = 42
+          Height = 42
+          Max = 100
+          OnChange = TVFTime2Change
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object TVFTime3: TKnobControl
+          Left = 96
+          Top = 202
+          Width = 42
+          Height = 42
+          Max = 100
+          OnChange = TVFTime3Change
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object TVFTime4: TKnobControl
+          Left = 141
+          Top = 202
+          Width = 42
+          Height = 42
+          Max = 100
+          Value = 1
+          OnChange = TVFTime4Change
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object TVFTime5: TKnobControl
+          Left = 185
+          Top = 202
+          Width = 42
+          Height = 42
+          Max = 100
+          OnChange = TVFTime5Change
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object TVFTime5_value: TEdit
+          Left = 193
+          Top = 247
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 14
+          Text = '0'
+          OnExit = TVFTime5_valueExit
+          OnKeyPress = TVFTime5_valueKeyPress
+        end
+        object TVFDepth_value: TEdit
+          Left = 91
+          Top = 286
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 17
+          Text = '0'
+          OnExit = TVFDepth_valueExit
+          OnKeyPress = TVFDepth_valueKeyPress
+        end
+        object TVFDepth: TTrackBar
+          Left = 3
+          Top = 287
+          Width = 87
+          Height = 24
+          Max = 100
+          ParentShowHint = False
+          Frequency = 10
+          ShowHint = True
+          TabOrder = 16
+          ThumbLength = 15
+          TickMarks = tmTopLeft
+          OnChange = TVFDepthChange
+        end
+        object TVFVelSens: TTrackBar
+          Left = 3
+          Top = 335
+          Width = 87
+          Height = 21
+          Max = 100
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 18
+          ThumbLength = 15
+          TickMarks = tmBoth
+          TickStyle = tsNone
+          OnChange = TVFVelSensChange
+        end
+        object TVFVelSens_value: TEdit
+          Left = 91
+          Top = 333
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 19
+          Text = '0'
+          OnExit = TVFVelSens_valueExit
+          OnKeyPress = TVFVelSens_valueKeyPress
+        end
+        object TVFTimeKeyFollow: TTrackBar
+          Left = 123
+          Top = 335
+          Width = 87
+          Height = 21
+          Max = 4
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 20
+          ThumbLength = 15
+          OnChange = TVFTimeKeyFollowChange
+        end
+        object TVFTimeKeyFollow_value: TEdit
+          Left = 211
+          Top = 333
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 4'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 1
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 21
+          Text = '0'
+          OnExit = TVFTimeKeyFollow_valueExit
+          OnKeyPress = TVFTimeKeyFollow_valueKeyPress
+        end
+        object TVFDepthKeyFollow: TTrackBar
+          Left = 123
+          Top = 290
+          Width = 87
+          Height = 21
+          Max = 4
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 22
+          ThumbLength = 15
+          OnChange = TVFDepthKeyFollowChange
+        end
+        object TVFDepthKeyFollow_value: TEdit
+          Left = 211
+          Top = 286
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 4'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 1
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 23
+          Text = '0'
+          OnExit = TVFDepthKeyFollow_valueExit
+          OnKeyPress = TVFDepthKeyFollow_valueKeyPress
+        end
+        object TVFBiasLevel: TTrackBar
+          Left = 95
+          Top = 376
+          Width = 115
+          Height = 23
+          Max = 7
+          Min = -7
+          ParentShowHint = False
+          SelEnd = -1
+          ShowHint = True
+          TabOrder = 25
+          ThumbLength = 15
+          TickMarks = tmTopLeft
+          OnChange = TVFBiasLevelChange
+        end
+        object TVFBiasLevel_value: TEdit
+          Left = 214
+          Top = 382
+          Width = 25
+          Height = 21
+          Hint = '-7 ~ +7'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 26
+          Text = '0'
+          OnExit = TVFBiasLevel_valueExit
+          OnKeyPress = TVFBiasLevel_valueKeyPress
+        end
+        object TVFBiasPoint: TComboBox
+          Left = 11
+          Top = 381
+          Width = 78
+          Height = 21
+          Style = csDropDownList
+          ItemIndex = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 24
+          Text = '< A0'
+          OnChange = TVFBiasPointChange
+          Items.Strings = (
+            '< A0'
+            '< A#/Bb0'
+            '< B0'
+            '< C1'
+            '< C#/Db1'
+            '< D1'
+            '< D#/Eb1'
+            '< E1'
+            '< F1'
+            '< F#/Gb1'
+            '< G1'
+            '< G#/Ab1'
+            '< A1'
+            '< A#/Bb1'
+            '< B1'
+            '< C2'
+            '< C#/Db2'
+            '< D2'
+            '< D#/Eb2'
+            '< E2'
+            '< F2'
+            '< F#/Gb2'
+            '< G2'
+            '< G#/Ab2'
+            '< A2'
+            '< A#/Bb2'
+            '< B2'
+            '< C3'
+            '< C#/Db3'
+            '< D3'
+            '< D#/Eb3'
+            '< E3'
+            '< F3'
+            '< F#/Gb3'
+            '< G3'
+            '< G#/Ab3'
+            '< A3'
+            '< A#/Bb3'
+            '< B3'
+            '< C4'
+            ' < C#/Db4'
+            '< D4'
+            '< D#/Eb4'
+            '< E4'
+            '< F4'
+            '< F#/Gb4'
+            '< G4'
+            '< G#/Ab4'
+            '< A4'
+            '< A#/Bb4'
+            '< B4'
+            '< C5'
+            ' < C#/Db5'
+            '< D5'
+            '< D#/Eb5'
+            '< E5'
+            '< F5'
+            '< F#/Gb5'
+            '< G5'
+            '< G#/Ab5'
+            '< A5'
+            '< A#/Bb5'
+            '< B5'
+            '< C6'
+            '> A0'
+            '> A#/Bb0'
+            '> B0'
+            '> C1'
+            '> C#/Db1'
+            '> D1'
+            '> D#/Eb1'
+            '> E1'
+            '> F1'
+            '> F#/Gb1'
+            '> G1'
+            '> G#/Ab1'
+            '> A1'
+            '> A#/Bb1'
+            '> B1'
+            '> C2'
+            '> C#/Db2'
+            '> D2'
+            '> D#/Eb2'
+            '> E2'
+            '> F2'
+            '> F#/Gb2'
+            '> G2'
+            '> G#/Ab2'
+            '> A2'
+            '> A#/Bb2'
+            '> B2'
+            '> C3'
+            '> C#/Db3'
+            '> D3'
+            '> D#/Eb3'
+            '> E3'
+            '> F3'
+            '> F#/Gb3'
+            '> G3'
+            '> G#/Ab3'
+            '> A3'
+            '> A#/Bb3'
+            '> B3'
+            '> C4'
+            '> C#/Db4'
+            '> D4'
+            '> D#/Eb4'
+            '> E4'
+            '> F4'
+            '> F#/Gb4'
+            '> G4'
+            '> G#/Ab4'
+            '> A4'
+            '> A#/Bb4'
+            '> B4'
+            '> C5'
+            '> C#/Db5'
+            '> D5'
+            '> D#/Eb5'
+            '> E5'
+            '> F5'
+            '> F#/Gb5'
+            '> G5'
+            '> G#/Ab5'
+            '> A5'
+            '> A#/Bb5'
+            '> B5'
+            '> C6')
+        end
+        object TVFFilterGroup: TGroupBox
+          Left = 164
+          Top = 10
+          Width = 73
+          Height = 181
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentBackground = False
+          ParentColor = False
+          ParentFont = False
+          TabOrder = 15
+          object TVFResonance_label: TLabel
+            Left = 44
+            Top = 7
+            Width = 19
+            Height = 13
+            Caption = 'Res'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object TVFCutoff_label: TLabel
+            Left = 7
+            Top = 7
+            Width = 28
+            Height = 13
+            Caption = 'Cutoff'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object TVFFilterPlot: TPaintBox
+            Left = 3
+            Top = 119
+            Width = 67
+            Height = 59
+            OnPaint = TVFFilterPlotPaint
+          end
+          object TVFResonance_value: TEdit
+            Left = 42
+            Top = 92
+            Width = 25
+            Height = 21
+            Hint = '0 ~ 30'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 3
+            Text = '0'
+            OnExit = TVFResonance_valueExit
+            OnKeyPress = TVFResonance_valueKeyPress
+          end
+          object TVFCutoff_value: TEdit
+            Left = 8
+            Top = 92
+            Width = 25
+            Height = 21
+            Hint = '0 ~ 100'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 2
+            Text = '0'
+            OnExit = TVFCutoff_valueExit
+            OnKeyPress = TVFCutoff_valueKeyPress
+          end
+          object TVFCutoff: TTrackBar
+            Left = 8
+            Top = 21
+            Width = 27
+            Height = 70
+            Max = 100
+            Orientation = trVertical
+            ParentShowHint = False
+            Position = 100
+            ShowHint = True
+            ShowSelRange = False
+            TabOrder = 0
+            TickMarks = tmBoth
+            TickStyle = tsNone
+            OnChange = TVFCutoffChange
+          end
+          object TVFResonance: TTrackBar
+            Left = 42
+            Top = 21
+            Width = 26
+            Height = 70
+            Max = 30
+            Orientation = trVertical
+            ParentShowHint = False
+            Position = 30
+            ShowHint = True
+            ShowSelRange = False
+            TabOrder = 1
+            TickMarks = tmBoth
+            TickStyle = tsNone
+            OnChange = TVFResonanceChange
+          end
+        end
+      end
+      object TVAGroup: TGroupBox
+        Left = 501
+        Top = 169
+        Width = 237
+        Height = 419
+        Caption = 'Time Variant Amplifier'
+        DoubleBuffered = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentDoubleBuffered = False
+        ParentFont = False
+        TabOrder = 8
+        object TVALevel1_label: TLabel
+          Left = 19
+          Top = 17
+          Width = 23
+          Height = 13
+          Caption = 'Lvl 1'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVALevel2_label: TLabel
+          Left = 59
+          Top = 17
+          Width = 23
+          Height = 13
+          Caption = 'Lvl 2'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVALevel3_label: TLabel
+          Left = 99
+          Top = 17
+          Width = 23
+          Height = 13
+          Caption = 'Lvl 3'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVASustain_label: TLabel
+          Left = 132
+          Top = 17
+          Width = 35
+          Height = 13
+          Caption = 'Sustain'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVAPlot: TPaintBox
+          Left = 10
+          Top = 129
+          Width = 151
+          Height = 59
+          OnPaint = TVAPlotPaint
+        end
+        object TVATime1_label: TLabel
+          Left = 14
+          Top = 190
+          Width = 32
+          Height = 13
+          Caption = 'Time 1'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVATime2_label: TLabel
+          Left = 58
+          Top = 190
+          Width = 32
+          Height = 13
+          Caption = 'Time 2'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVATime3_label: TLabel
+          Left = 102
+          Top = 190
+          Width = 32
+          Height = 13
+          Caption = 'Time 3'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVATime4_label: TLabel
+          Left = 146
+          Top = 190
+          Width = 32
+          Height = 13
+          Caption = 'Time 4'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVATime5_label: TLabel
+          Left = 190
+          Top = 190
+          Width = 32
+          Height = 13
+          Caption = 'Time 5'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVAVelSens_label: TLabel
+          Left = 14
+          Top = 270
+          Width = 87
+          Height = 13
+          Caption = 'Velocity Sensitivity'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVATimeKeyFollow_label: TLabel
+          Left = 16
+          Top = 304
+          Width = 77
+          Height = 13
+          Caption = 'Time Key Follow'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVAVelKeyFollow_label: TLabel
+          Left = 126
+          Top = 304
+          Width = 91
+          Height = 13
+          Caption = 'Velocity Key Follow'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVABiasPoint1_label: TLabel
+          Left = 13
+          Top = 341
+          Width = 56
+          Height = 13
+          Caption = 'Bias Point 1'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVABiasLevel1_label: TLabel
+          Left = 104
+          Top = 341
+          Width = 58
+          Height = 13
+          Caption = 'Bias Level 1'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVABiasPoint2_label: TLabel
+          Left = 13
+          Top = 379
+          Width = 56
+          Height = 13
+          Caption = 'Bias Point 2'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVABiasLevel2_label: TLabel
+          Left = 104
+          Top = 379
+          Width = 58
+          Height = 13
+          Caption = 'Bias Level 2'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object TVALevel1: TTrackBar
+          Left = 19
+          Top = 31
+          Width = 26
+          Height = 70
+          Max = 100
+          Orientation = trVertical
+          ParentShowHint = False
+          Position = 100
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 0
+          TickMarks = tmBoth
+          TickStyle = tsNone
+          OnChange = TVALevel1Change
+        end
+        object TVALevel2: TTrackBar
+          Left = 57
+          Top = 31
+          Width = 26
+          Height = 70
+          Max = 100
+          Orientation = trVertical
+          ParentShowHint = False
+          Position = 100
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 1
+          TickMarks = tmBoth
+          TickStyle = tsNone
+          OnChange = TVALevel2Change
+        end
+        object TVALevel3: TTrackBar
+          Left = 99
+          Top = 31
+          Width = 26
+          Height = 70
+          Max = 100
+          Orientation = trVertical
+          ParentShowHint = False
+          Position = 100
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 2
+          TickMarks = tmBoth
+          TickStyle = tsNone
+          OnChange = TVALevel3Change
+        end
+        object TVASustain: TTrackBar
+          Left = 139
+          Top = 31
+          Width = 26
+          Height = 70
+          Max = 100
+          Orientation = trVertical
+          ParentShowHint = False
+          Position = 100
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 3
+          TickMarks = tmBoth
+          TickStyle = tsNone
+          OnChange = TVASustainChange
+        end
+        object TVALevel2_value: TEdit
+          Left = 59
+          Top = 102
+          Width = 26
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 5
+          Text = '0'
+          OnExit = TVALevel2_valueExit
+          OnKeyPress = TVALevel2_valueKeyPress
+        end
+        object TVALevel3_value: TEdit
+          Left = 99
+          Top = 102
+          Width = 26
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 6
+          Text = '0'
+          OnExit = TVALevel3_valueExit
+          OnKeyPress = TVALevel3_valueKeyPress
+        end
+        object TVASustain_value: TEdit
+          Left = 139
+          Top = 102
+          Width = 26
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 7
+          Text = '0'
+          OnExit = TVASustain_valueExit
+          OnKeyPress = TVASustain_valueKeyPress
+        end
+        object TVALevel1_value: TEdit
+          Left = 19
+          Top = 102
+          Width = 26
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 4
+          Text = '0'
+          OnExit = TVALevel1_valueExit
+          OnKeyPress = TVALevel1_valueKeyPress
+        end
+        object TVATime1_value: TEdit
+          Left = 17
+          Top = 247
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 8
+          Text = '0'
+          OnExit = TVATime1_valueExit
+          OnKeyPress = TVATime1_valueKeyPress
+        end
+        object TVATime2_value: TEdit
+          Left = 61
+          Top = 247
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 9
+          Text = '0'
+          OnExit = TVATime2_valueExit
+          OnKeyPress = TVATime2_valueKeyPress
+        end
+        object TVATime3_value: TEdit
+          Left = 105
+          Top = 247
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 10
+          Text = '0'
+          OnExit = TVATime3_valueExit
+          OnKeyPress = TVATime3_valueKeyPress
+        end
+        object TVATime4_value: TEdit
+          Left = 149
+          Top = 247
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 11
+          Text = '0'
+          OnExit = TVATime4_valueExit
+          OnKeyPress = TVATime4_valueKeyPress
+        end
+        object TVATime1: TKnobControl
+          Left = 8
+          Top = 202
+          Width = 42
+          Height = 42
+          Max = 100
+          OnChange = TVATime1Change
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object TVATime2: TKnobControl
+          Left = 52
+          Top = 202
+          Width = 42
+          Height = 42
+          Max = 100
+          OnChange = TVATime2Change
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object TVATime3: TKnobControl
+          Left = 96
+          Top = 202
+          Width = 42
+          Height = 42
+          Max = 100
+          OnChange = TVATime3Change
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object TVATime4: TKnobControl
+          Left = 141
+          Top = 202
+          Width = 42
+          Height = 42
+          Max = 100
+          Value = 1
+          OnChange = TVATime4Change
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object TVATime5: TKnobControl
+          Left = 185
+          Top = 202
+          Width = 42
+          Height = 42
+          Max = 100
+          OnChange = TVATime5Change
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object TVATime5_value: TEdit
+          Left = 193
+          Top = 247
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 12
+          Text = '0'
+          OnExit = TVATime5_valueExit
+          OnKeyPress = TVATime5_valueKeyPress
+        end
+        object TVAVelSens: TTrackBar
+          Left = 3
+          Top = 283
+          Width = 200
+          Height = 23
+          Max = 50
+          Min = -50
+          ParentShowHint = False
+          Frequency = 10
+          SelEnd = -1
+          ShowHint = True
+          TabOrder = 14
+          ThumbLength = 15
+          OnChange = TVAVelSensChange
+        end
+        object TVAVelSens_value: TEdit
+          Left = 206
+          Top = 280
+          Width = 25
+          Height = 21
+          Hint = '-50 ~ +50'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 15
+          Text = '0'
+          OnExit = TVAVelSens_valueExit
+          OnKeyPress = TVAVelSens_valueKeyPress
+        end
+        object TVATimeKeyFollow: TTrackBar
+          Left = 3
+          Top = 317
+          Width = 87
+          Height = 21
+          Max = 4
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 16
+          ThumbLength = 15
+          OnChange = TVATimeKeyFollowChange
+        end
+        object TVATimeKeyFollow_value: TEdit
+          Left = 91
+          Top = 317
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 4'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 1
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 17
+          Text = '0'
+          OnExit = TVATimeKeyFollow_valueExit
+          OnKeyPress = TVATimeKeyFollow_valueKeyPress
+        end
+        object TVAVelKeyFollow: TTrackBar
+          Left = 120
+          Top = 317
+          Width = 87
+          Height = 21
+          Max = 4
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 18
+          ThumbLength = 15
+          OnChange = TVAVelKeyFollowChange
+        end
+        object TVAVelKeyFollow_value: TEdit
+          Left = 206
+          Top = 317
+          Width = 25
+          Height = 21
+          Hint = '0 ~ 4'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 1
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 19
+          Text = '0'
+          OnExit = TVAVelKeyFollow_valueExit
+          OnKeyPress = TVAVelKeyFollow_valueKeyPress
+        end
+        object TVABiasPoint1: TComboBox
+          Left = 11
+          Top = 354
+          Width = 78
+          Height = 21
+          Style = csDropDownList
+          ItemIndex = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 20
+          Text = '< A0'
+          OnChange = TVABiasPoint1Change
+          Items.Strings = (
+            '< A0'
+            '< A#/Bb0'
+            '< B0'
+            '< C1'
+            '< C#/Db1'
+            '< D1'
+            '< D#/Eb1'
+            '< E1'
+            '< F1'
+            '< F#/Gb1'
+            '< G1'
+            '< G#/Ab1'
+            '< A1'
+            '< A#/Bb1'
+            '< B1'
+            '< C2'
+            '< C#/Db2'
+            '< D2'
+            '< D#/Eb2'
+            '< E2'
+            '< F2'
+            '< F#/Gb2'
+            '< G2'
+            '< G#/Ab2'
+            '< A2'
+            '< A#/Bb2'
+            '< B2'
+            '< C3'
+            '< C#/Db3'
+            '< D3'
+            '< D#/Eb3'
+            '< E3'
+            '< F3'
+            '< F#/Gb3'
+            '< G3'
+            '< G#/Ab3'
+            '< A3'
+            '< A#/Bb3'
+            '< B3'
+            '< C4'
+            ' < C#/Db4'
+            '< D4'
+            '< D#/Eb4'
+            '< E4'
+            '< F4'
+            '< F#/Gb4'
+            '< G4'
+            '< G#/Ab4'
+            '< A4'
+            '< A#/Bb4'
+            '< B4'
+            '< C5'
+            ' < C#/Db5'
+            '< D5'
+            '< D#/Eb5'
+            '< E5'
+            '< F5'
+            '< F#/Gb5'
+            '< G5'
+            '< G#/Ab5'
+            '< A5'
+            '< A#/Bb5'
+            '< B5'
+            '< C6'
+            '> A0'
+            '> A#/Bb0'
+            '> B0'
+            '> C1'
+            '> C#/Db1'
+            '> D1'
+            '> D#/Eb1'
+            '> E1'
+            '> F1'
+            '> F#/Gb1'
+            '> G1'
+            '> G#/Ab1'
+            '> A1'
+            '> A#/Bb1'
+            '> B1'
+            '> C2'
+            '> C#/Db2'
+            '> D2'
+            '> D#/Eb2'
+            '> E2'
+            '> F2'
+            '> F#/Gb2'
+            '> G2'
+            '> G#/Ab2'
+            '> A2'
+            '> A#/Bb2'
+            '> B2'
+            '> C3'
+            '> C#/Db3'
+            '> D3'
+            '> D#/Eb3'
+            '> E3'
+            '> F3'
+            '> F#/Gb3'
+            '> G3'
+            '> G#/Ab3'
+            '> A3'
+            '> A#/Bb3'
+            '> B3'
+            '> C4'
+            '> C#/Db4'
+            '> D4'
+            '> D#/Eb4'
+            '> E4'
+            '> F4'
+            '> F#/Gb4'
+            '> G4'
+            '> G#/Ab4'
+            '> A4'
+            '> A#/Bb4'
+            '> B4'
+            '> C5'
+            '> C#/Db5'
+            '> D5'
+            '> D#/Eb5'
+            '> E5'
+            '> F5'
+            '> F#/Gb5'
+            '> G5'
+            '> G#/Ab5'
+            '> A5'
+            '> A#/Bb5'
+            '> B5'
+            '> C6')
+        end
+        object TVABiasLevel1: TTrackBar
+          Left = 95
+          Top = 352
+          Width = 108
+          Height = 23
+          Max = 0
+          Min = -12
+          ParentShowHint = False
+          SelEnd = -1
+          ShowHint = True
+          TabOrder = 21
+          ThumbLength = 15
+          TickMarks = tmTopLeft
+          OnChange = TVABiasLevel1Change
+        end
+        object TVABiasLevel1_value: TEdit
+          Left = 206
+          Top = 357
+          Width = 25
+          Height = 21
+          Hint = '-12 ~ 0'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 22
+          Text = '0'
+          OnExit = TVABiasLevel1_valueExit
+          OnKeyPress = TVABiasLevel1_valueKeyPress
+        end
+        object TVAAmpGroup: TGroupBox
+          Left = 171
+          Top = 11
+          Width = 60
+          Height = 179
+          Color = clBtnFace
+          ParentBackground = False
+          ParentColor = False
+          TabOrder = 13
+          object TVAAmplifier_label: TLabel
+            Left = 11
+            Top = 6
+            Width = 39
+            Height = 13
+            Alignment = taCenter
+            Caption = 'Amplifier'
+            Color = clBtnFace
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentColor = False
+            ParentFont = False
+          end
+          object TVAAmplifier_value: TEdit
+            Left = 15
+            Top = 152
+            Width = 30
+            Height = 21
+            Hint = '0 ~ 100'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            NumbersOnly = True
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 1
+            Text = '0'
+            OnExit = TVAAmplifier_valueExit
+            OnKeyPress = TVAAmplifier_valueKeyPress
+          end
+          object TVAAmplifier: TTrackBar
+            Left = 8
+            Top = 20
+            Width = 45
+            Height = 131
+            Ctl3D = True
+            Max = 100
+            Orientation = trVertical
+            ParentCtl3D = False
+            ParentShowHint = False
+            Frequency = 25
+            Position = 100
+            ShowHint = True
+            ShowSelRange = False
+            TabOrder = 0
+            ThumbLength = 25
+            TickMarks = tmBoth
+            OnChange = TVAAmplifierChange
+          end
+        end
+        object TVABiasPoint2: TComboBox
+          Left = 11
+          Top = 392
+          Width = 78
+          Height = 21
+          Style = csDropDownList
+          ItemIndex = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 23
+          Text = '< A0'
+          OnChange = TVABiasPoint2Change
+          Items.Strings = (
+            '< A0'
+            '< A#/Bb0'
+            '< B0'
+            '< C1'
+            '< C#/Db1'
+            '< D1'
+            '< D#/Eb1'
+            '< E1'
+            '< F1'
+            '< F#/Gb1'
+            '< G1'
+            '< G#/Ab1'
+            '< A1'
+            '< A#/Bb1'
+            '< B1'
+            '< C2'
+            '< C#/Db2'
+            '< D2'
+            '< D#/Eb2'
+            '< E2'
+            '< F2'
+            '< F#/Gb2'
+            '< G2'
+            '< G#/Ab2'
+            '< A2'
+            '< A#/Bb2'
+            '< B2'
+            '< C3'
+            '< C#/Db3'
+            '< D3'
+            '< D#/Eb3'
+            '< E3'
+            '< F3'
+            '< F#/Gb3'
+            '< G3'
+            '< G#/Ab3'
+            '< A3'
+            '< A#/Bb3'
+            '< B3'
+            '< C4'
+            ' < C#/Db4'
+            '< D4'
+            '< D#/Eb4'
+            '< E4'
+            '< F4'
+            '< F#/Gb4'
+            '< G4'
+            '< G#/Ab4'
+            '< A4'
+            '< A#/Bb4'
+            '< B4'
+            '< C5'
+            ' < C#/Db5'
+            '< D5'
+            '< D#/Eb5'
+            '< E5'
+            '< F5'
+            '< F#/Gb5'
+            '< G5'
+            '< G#/Ab5'
+            '< A5'
+            '< A#/Bb5'
+            '< B5'
+            '< C6'
+            '> A0'
+            '> A#/Bb0'
+            '> B0'
+            '> C1'
+            '> C#/Db1'
+            '> D1'
+            '> D#/Eb1'
+            '> E1'
+            '> F1'
+            '> F#/Gb1'
+            '> G1'
+            '> G#/Ab1'
+            '> A1'
+            '> A#/Bb1'
+            '> B1'
+            '> C2'
+            '> C#/Db2'
+            '> D2'
+            '> D#/Eb2'
+            '> E2'
+            '> F2'
+            '> F#/Gb2'
+            '> G2'
+            '> G#/Ab2'
+            '> A2'
+            '> A#/Bb2'
+            '> B2'
+            '> C3'
+            '> C#/Db3'
+            '> D3'
+            '> D#/Eb3'
+            '> E3'
+            '> F3'
+            '> F#/Gb3'
+            '> G3'
+            '> G#/Ab3'
+            '> A3'
+            '> A#/Bb3'
+            '> B3'
+            '> C4'
+            '> C#/Db4'
+            '> D4'
+            '> D#/Eb4'
+            '> E4'
+            '> F4'
+            '> F#/Gb4'
+            '> G4'
+            '> G#/Ab4'
+            '> A4'
+            '> A#/Bb4'
+            '> B4'
+            '> C5'
+            '> C#/Db5'
+            '> D5'
+            '> D#/Eb5'
+            '> E5'
+            '> F5'
+            '> F#/Gb5'
+            '> G5'
+            '> G#/Ab5'
+            '> A5'
+            '> A#/Bb5'
+            '> B5'
+            '> C6')
+        end
+        object TVABiasLevel2: TTrackBar
+          Left = 95
+          Top = 389
+          Width = 108
+          Height = 23
+          Max = 0
+          Min = -12
+          ParentShowHint = False
+          SelEnd = -1
+          ShowHint = True
+          TabOrder = 24
+          ThumbLength = 15
+          TickMarks = tmTopLeft
+          OnChange = TVABiasLevel2Change
+        end
+        object TVABiasLevel2_value: TEdit
+          Left = 206
+          Top = 392
+          Width = 25
+          Height = 21
+          Hint = '-12 ~ 0'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 25
+          Text = '0'
+          OnExit = TVABiasLevel2_valueExit
+          OnKeyPress = TVABiasLevel2_valueKeyPress
+        end
+      end
+      object TimbreName: TEdit
+        Left = 246
+        Top = 37
+        Width = 71
+        Height = 21
+        Hint = 'Set the name of the current Part'#39's Timbre (10 chars max)'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        MaxLength = 10
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        OnExit = TimbreNameExit
+        OnKeyPress = TimbreNameKeyPress
+      end
+      object InitTimbreButton: TButton
+        Left = 591
+        Top = 6
+        Width = 69
+        Height = 24
+        Hint = 'Initialize current Part'#39's Timbre settings (start from scratch)'
+        Caption = 'Init Timbre'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 3
+        OnClick = InitTimbreButtonClick
+      end
+      object OpenSyxButton: TButton
+        Left = 666
+        Top = 6
+        Width = 69
+        Height = 24
+        Hint = 'Load external Timbre settings from SYX file'
+        Caption = 'Open SYX...'
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 1
+        OnClick = OpenSyxButtonClick
+      end
+      object SaveSyxButton: TButton
+        Left = 666
+        Top = 37
+        Width = 69
+        Height = 24
+        Hint = 'Save current Timbre settings to SYX file'
+        Caption = 'Save SYX...'
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 2
+        OnClick = SaveSyxButtonClick
+      end
+      object SyncTimbreButton: TButton
+        Left = 591
+        Top = 37
+        Width = 69
+        Height = 24
+        Hint = 'Refresh the current Part'#39's Timbre settings from MuntVSTi'
+        Caption = 'Sync Timbre'
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 4
+        OnClick = SyncTimbreButtonClick
+      end
+      object WaveGenGroup: TGroupBox
+        Left = 51
+        Top = 70
+        Width = 687
+        Height = 95
+        Caption = 'Wave Generator'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 5
+        object WGPulseWidth_label: TLabel
+          Left = 86
+          Top = 11
+          Width = 57
+          Height = 13
+          Caption = 'Pulse Width'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object WGVelSens_label: TLabel
+          Left = 86
+          Top = 51
+          Width = 87
+          Height = 13
+          Caption = 'Velocity Sensitivity'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object WGPitchBend: TSpeedButton
+          Left = 562
+          Top = 57
+          Width = 105
+          Height = 29
+          Hint = 'Pitch bender toggle for the current partial'
+          AllowAllUp = True
+          GroupIndex = 3
+          Down = True
+          Caption = 'Pitch Bend Enable'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = WGPitchBendClick
+        end
+        object WGCoarse_label: TLabel
+          Left = 414
+          Top = 11
+          Width = 66
+          Height = 13
+          Caption = 'Pitch (Coarse)'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object WGFine_label: TLabel
+          Left = 414
+          Top = 51
+          Width = 53
+          Height = 13
+          Caption = 'Pitch (Fine)'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object WGKeyFollow_label: TLabel
+          Left = 558
+          Top = 11
+          Width = 51
+          Height = 13
+          Caption = 'Key Follow'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object WGSample_label: TLabel
+          Left = 222
+          Top = 11
+          Width = 61
+          Height = 13
+          Caption = 'PCM Sample'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clGrayText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object WGKeyFollowType: TLabel
+          Left = 669
+          Top = 11
+          Width = 8
+          Height = 13
+          Alignment = taRightJustify
+          Caption = '0'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object WGCoarseType: TLabel
+          Left = 524
+          Top = 11
+          Width = 16
+          Height = 13
+          Alignment = taRightJustify
+          Caption = 'C2'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object WGShape: TRadioGroup
+          Left = 6
+          Top = 11
+          Width = 68
+          Height = 76
+          Hint = 'Shape of the waveform that this partial will generate'
+          Caption = ' '
+          ItemIndex = 0
+          Items.Strings = (
+            'Square'
+            'Saw'
+            'PCM')
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          OnClick = WGShapeClick
+        end
+        object WGFine: TTrackBar
+          Left = 404
+          Top = 65
+          Width = 108
+          Height = 24
+          Hint = 'Pitch fine tune of current partial'#13#10'(positive or negative)'
+          Max = 50
+          Min = -50
+          ParentShowHint = False
+          PageSize = 1
+          Frequency = 10
+          SelEnd = -1
+          ShowHint = True
+          TabOrder = 4
+          ThumbLength = 15
+          OnChange = WGFineChange
+        end
+        object WGKeyFollow: TTrackBar
+          Left = 548
+          Top = 25
+          Width = 105
+          Height = 22
+          Hint = 
+            'The scale to which the pitch follows the keyboard notes'#13#10'(positi' +
+            've or negative)'
+          Max = 13
+          Min = -3
+          ParentShowHint = False
+          SelEnd = -1
+          ShowHint = True
+          TabOrder = 6
+          ThumbLength = 15
+          OnChange = WGKeyFollowChange
+        end
+        object WGPulseWidth_value: TEdit
+          Left = 190
+          Top = 27
+          Width = 26
+          Height = 21
+          Cursor = crIBeam
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+          Text = '0'
+          OnExit = WGPulseWidth_valueExit
+          OnKeyPress = WGPulseWidth_valueKeyPress
+        end
+        object WGVelSens_value: TEdit
+          Left = 190
+          Top = 64
+          Width = 26
+          Height = 21
+          Hint = '-7 ~ +7'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+          Text = '0'
+          OnExit = WGVelSens_valueExit
+          OnKeyPress = WGVelSens_valueKeyPress
+        end
+        object WGCoarse_value: TEdit
+          Left = 518
+          Top = 27
+          Width = 26
+          Height = 21
+          Hint = '0 ~ 96'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          NumbersOnly = True
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+          Text = '36'
+          OnExit = WGCoarse_valueExit
+          OnKeyPress = WGCoarse_valueKeyPress
+        end
+        object WGFine_value: TEdit
+          Left = 518
+          Top = 64
+          Width = 26
+          Height = 21
+          Hint = '-50 ~ +50'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 5
+          Text = '0'
+          OnExit = WGFine_valueExit
+          OnKeyPress = WGFine_valueKeyPress
+        end
+        object WGKeyFollow_value: TEdit
+          Left = 655
+          Top = 27
+          Width = 26
+          Height = 21
+          Hint = '-3 ~ +13'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          ParentFont = False
+          TabOrder = 7
+          Text = '0'
+          OnExit = WGKeyFollow_valueExit
+          OnKeyPress = WGKeyFollow_valueKeyPress
+        end
+        object WGSample: TListBox
+          Left = 222
+          Top = 26
+          Width = 179
+          Height = 60
+          Hint = 'PCM sample for this partial (instead of waveform)'
+          Enabled = False
+          ExtendedSelect = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ItemHeight = 13
+          Items.Strings = (
+            '000: Ac. Bass Drum'
+            '001: Ac. Snare Drum'
+            '002: El. Snare Drum'
+            '003: Electric Tom'
+            '004: Closed Hihat'
+            '005: Open Hihat'
+            '006: Crash Cymbal'
+            '007: Crash Cymbal (loop)'
+            '008: Ride cymbal'
+            '009: Rim Shot'
+            '010: Hand Clap'
+            '011: Muted Conga'
+            '012: Conga'
+            '013: Bongo'
+            '014: Cowbell'
+            '015: Tambourine'
+            '016: Agogo Bell'
+            '017: Claves'
+            '018: Timbale'
+            '019: Cabasa'
+            '020: Keypress'
+            '021: Perc Organ'
+            '022: Trombone'
+            '023: Trumpet'
+            '024: Breath Noise (loop)'
+            '025: Clarient'
+            '026: Flute'
+            '027: Pan Pipes'
+            '028: Shakuhachi'
+            '029: Alto Sax'
+            '030: Baritone Sax'
+            '031: Marimba'
+            '032: Glockenspiel'
+            '033: Xylophone'
+            '034: Tubular Bells'
+            '035: Fingered Bass'
+            '036: Slap Bass'
+            '037: Picked Bass (loop)'
+            '038: Acoustic Bass'
+            '039: Nylon Guitar'
+            '040: Steel Guitar'
+            '041: Pizzicato'
+            '042: Harp'
+            '043: Harpsichord (loop)'
+            '044: Bow string'
+            '045: Violin'
+            '046: Timpani'
+            '047: Orchestra Hit'
+            '048: Flute'
+            '049: Organ (loop)'
+            '050: Bowed Glass (loop)'
+            '051: Telephone'
+            '052: Bowed Glass'
+            '053: Reverse Cymbal'
+            '054: Ac. Bass Drum #'
+            '055: Ac. Snare Drum #'
+            '056: El. Snare Drum #'
+            '057: Ac. Tom #'
+            '058: Closed Hihat #'
+            '059: Open Hihat #'
+            '060: Crash Cymbal #'
+            '061: Crash Cymbal (loop) #'
+            '062: Ride Cymbal #'
+            '063: Rim shot #'
+            '064: Hand clap #'
+            '065: Mute Conga #'
+            '066: Conga #'
+            '067: Bongo #'
+            '068: Cowbell #'
+            '069: Tambourine #'
+            '070: Agogo #'
+            '071: Claves #'
+            '072: Timbale #'
+            '073: Cabasa #'
+            '074: Bass Drum (loop)'
+            '075: Snare (loop)'
+            '076: Acoustic Tom (loop)'
+            '077: Electric Tom (loop)'
+            '078: Hihat (loop)'
+            '079: Crash Cymbal (loop)'
+            '080: Ride cymbal (loop)'
+            '081: Ride cymbal 2 (loop)'
+            '082: Rim (loop)'
+            '083: Hand clap (loop)'
+            '084: Bongo (loop)'
+            '085: Conga (loop)'
+            '086: Muted conga (loop)'
+            '087: Cowbell (loop)'
+            '088: Tambourine (loop)'
+            '089: Agogo (loop)'
+            '090: Woodblock (loop)'
+            '091: Timbales (loop)'
+            '092: Maracas (loop)'
+            '093: Sticks (loop)'
+            '094: Perc Organ (loop)'
+            '095: Trombone (loop)'
+            '096: Trumpet (loop)'
+            '097: Clarinet (loop)'
+            '098: Piccolo (loop)'
+            '099: Pan Pipe (loop)'
+            '100: Breath Noise (loop)'
+            '101: Alto Sax (loop)'
+            '102: Baritone Sax (loop)'
+            '103: Xylophone (loop)'
+            '104: Glockenspiel (loop)'
+            '105: Marimba (loop)'
+            '106: Tubular Bells (loop)'
+            '107: Fingered Bass (loop)'
+            '108: Slap Bass (loop)'
+            '109: Acoustic Bass (loop)'
+            '110: Nylon Guitar (loop)'
+            '111: Steel Guitar (loop)'
+            '112: Pizzicato (loop)'
+            '113: Harp (loop)'
+            '114: Bowed string (loop)'
+            '115: String Ensemble (loop)'
+            '116: Timpani (loop)'
+            '117: Orchestra Hit (loop)'
+            '118: Flute (loop)'
+            '119: Perc. loop 1'
+            '120: Perc. loop 2'
+            '121: Orch&Perc loop'
+            '122: Wind&Perc loop'
+            '123: Guitar & Bass loop'
+            '124: Orchestra loop'
+            '125: Perc. loop 3'
+            '126: Bass & Perc. loop'
+            '127: Bass & Snare loop')
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 8
+          OnClick = WGSampleClick
+        end
+        object WGPulseWidth: TSynthSlider
+          Left = 77
+          Top = 23
+          Width = 107
+          Height = 29
+          Hint = 'Pulse Width of the partial'#39's waveform'
+          Orientation = stoHorizontal
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          ThumbSize = 8
+          ParentColor = False
+          TabOrder = 9
+          TabStop = True
+          OnChange = WGPulseWidthChange
+        end
+        object WGVelSens: TSynthSlider
+          Left = 77
+          Top = 65
+          Width = 107
+          Height = 22
+          Hint = 'Note velocity sensitivity of the waveform pulse width'
+          Min = -7
+          Max = 7
+          Orientation = stoHorizontal
+          CenterMark = True
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmBottomRight
+          Frequency = 1
+          ThumbSize = 8
+          ParentColor = False
+          TabOrder = 10
+          TabStop = True
+          OnChange = WGVelSensChange
+        end
+        object WGCoarse: TSynthSlider
+          Left = 407
+          Top = 23
+          Width = 105
+          Height = 29
+          Max = 96
+          Position = 36
+          Orientation = stoHorizontal
+          CenterMark = True
+          CenterValue = 36
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          Frequency = 12
+          ThumbSize = 8
+          ParentColor = False
+          TabOrder = 11
+          TabStop = True
+          OnChange = WGCoarseChange
+        end
+      end
+      object PartialGroup: TGroupBox
+        Left = 397
+        Top = 3
+        Width = 189
+        Height = 64
+        TabOrder = 9
+        object PartialMute_label: TLabel
+          Left = 12
+          Top = 2
+          Width = 24
+          Height = 13
+          Caption = 'Mute'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object PartialStruct_label: TLabel
+          Left = 70
+          Top = 2
+          Width = 43
+          Height = 13
+          Caption = 'Structure'
+        end
+        object PartialMute1: TCheckBox
+          Left = 8
+          Top = 16
+          Width = 27
+          Height = 17
+          Caption = '1'
+          Checked = True
+          ParentShowHint = False
+          ShowHint = True
+          State = cbChecked
+          TabOrder = 0
+          OnClick = PartialMute1Click
+        end
+        object PartialMute2: TCheckBox
+          Left = 34
+          Top = 16
+          Width = 27
+          Height = 17
+          Caption = '2'
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+          OnClick = PartialMute2Click
+        end
+        object PartialMute3: TCheckBox
+          Left = 8
+          Top = 37
+          Width = 27
+          Height = 17
+          Caption = '3'
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+          OnClick = PartialMute3Click
+        end
+        object PartialMute4: TCheckBox
+          Left = 34
+          Top = 37
+          Width = 27
+          Height = 17
+          Caption = '4'
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+          OnClick = PartialMute4Click
+        end
+        object PartialStruct1: TComboBox
+          Left = 66
+          Top = 15
+          Width = 116
+          Height = 21
+          Hint = 
+            'Structure of partial output signals (P1 & P2)'#13#10#13#10'S = Synth, P = ' +
+            'PCM Sample, R = Ring Mod'#13#10'Stereo = P1 -> Left, P2 -> Right'#13#10#13#10'NO' +
+            'TE: The stereo mode structure can only'#13#10'consist of two synth par' +
+            'tials or two PCM '#13#10'partials. They cannot intermix.'
+          Style = csDropDownList
+          ItemIndex = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 4
+          Text = '(P1 + P2)'
+          OnChange = PartialStruct1Change
+          Items.Strings = (
+            '(P1 + P2)'
+            '(P1 + P2 -> R) + P1'
+            '(P1 + P2) -> R'
+            'Stereo (Synth)'
+            'Stereo (PCM)')
+        end
+        object PartialStruct2: TComboBox
+          Left = 66
+          Top = 36
+          Width = 116
+          Height = 21
+          Hint = 
+            'Structure of partial output signals (P3 & P4)'#13#10#13#10'S = Synth, P = ' +
+            'PCM Sample, R = Ring Mod'#13#10'Stereo = P3 -> Left, P4 -> Right'#13#10#13#10'NO' +
+            'TE: The stereo mode structure can only'#13#10'consist of two synth par' +
+            'tials or two PCM '#13#10'partials. They cannot intermix.'
+          Style = csDropDownList
+          ItemIndex = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 5
+          Text = '(P3 + P4)'
+          OnChange = PartialStruct2Change
+          Items.Strings = (
+            '(P3 + P4)'
+            '(P3 + P4 -> R) + P3'
+            '(P3 + P4) -> R'
+            'Stereo (Synth)'
+            'Stereo (PCM)')
+        end
+      end
+      object PartControlsGroup: TGroupBox
+        Left = 3
+        Top = -1
+        Width = 235
+        Height = 68
+        Caption = 'Part'
+        Color = clBtnFace
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentBackground = False
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 10
+        object CurPart_label: TLabel
+          Left = 5
+          Top = 22
+          Width = 37
+          Height = 13
+          Caption = 'Select'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 12014080
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object PartMidiChan_label: TLabel
+          Left = 75
+          Top = 22
+          Width = 47
+          Height = 13
+          Caption = 'Channel'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object PtRevButton: TSpeedButton
+          Left = 132
+          Top = 16
+          Width = 46
+          Height = 40
+          Hint = 'Reverb Enable'
+          AllowAllUp = True
+          GroupIndex = 4
+          Down = True
+          Caption = 'Reverb'#13#10'Enable'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = PtRevButtonClick
+        end
+        object WGPitchBend_label: TLabel
+          Left = 187
+          Top = 9
+          Width = 38
+          Height = 26
+          Caption = 'Bend'#13#10'Range'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object CurPart: TComboBox
+          Left = 5
+          Top = 38
+          Width = 63
+          Height = 21
+          Hint = 'Current active Part'
+          Style = csDropDownList
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ItemIndex = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          Text = 'Part 1'
+          OnChange = CurPartChange
+          Items.Strings = (
+            'Part 1'
+            'Part 2'
+            'Part 3'
+            'Part 4'
+            'Part 5'
+            'Part 6'
+            'Part 7'
+            'Part 8')
+        end
+        object PartMidiChan: TComboBox
+          Left = 75
+          Top = 38
+          Width = 44
+          Height = 21
+          Hint = 
+            'MIDI channel that the selected Part will respond on (1 ~ 16, Off' +
+            ')'
+          DropDownCount = 17
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ItemIndex = 1
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+          Text = '2'
+          OnChange = PartMidiChanChange
+          Items.Strings = (
+            '1'
+            '2'
+            '3'
+            '4'
+            '5'
+            '6'
+            '7'
+            '8'
+            '9'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            'OFF')
+        end
+        object PtBendRange: TSpinEdit
+          Left = 187
+          Top = 37
+          Width = 41
+          Height = 22
+          Hint = 'Pitch Bender Range (0 ~ 24)'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 24
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+          Value = 12
+          OnChange = PtBendRangeChange
+          OnKeyPress = PtBendRangeKeyPress
+        end
+      end
+    end
+    object PatchTempArea: TTabSheet
+      Caption = 'Mixer'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clGreen
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ImageIndex = 2
+      ParentFont = False
+      object MixAdvanceToggle: TSpeedButton
+        Left = 623
+        Top = -1
+        Width = 122
+        Height = 22
+        Hint = 'Toggle advanced controls display'
+        ParentCustomHint = False
+        AllowAllUp = True
+        GroupIndex = 1
+        Down = True
+        Caption = 'Advanced Controls'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = False
+        OnClick = MixAdvanceToggleClick
+      end
+      object Pt1MixPanel: TPanel
+        Left = 1
+        Top = 24
+        Width = 81
+        Height = 564
+        Margins.Left = 2
+        Margins.Right = 2
+        BevelOuter = bvLowered
+        Caption = 'Part 1'
+        DoubleBuffered = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentDoubleBuffered = False
+        ParentFont = False
+        TabOrder = 0
+        VerticalAlignment = taAlignTop
+        object Pt1Reverb: TSpeedButton
+          Left = 45
+          Top = 23
+          Width = 34
+          Height = 22
+          Hint = 'Reverb Enable'
+          AllowAllUp = True
+          GroupIndex = 2
+          Down = True
+          Caption = 'Rev'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = Pt1ReverbClick
+        end
+        object Pt1Output_label: TLabel
+          Left = 7
+          Top = 421
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Output:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt1Pan_label: TLabel
+          Left = 7
+          Top = 371
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Pan:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt1Chan_label: TLabel
+          Left = 6
+          Top = 54
+          Width = 30
+          Height = 13
+          AutoSize = False
+          Caption = 'Chan:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt1Enable: TSpeedButton
+          Left = 6
+          Top = 23
+          Width = 34
+          Height = 22
+          Hint = 'Part Enable'
+          AllowAllUp = True
+          GroupIndex = 1
+          Down = True
+          Caption = 'On'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = Pt1EnableClick
+        end
+        object Pt1Bend_label: TLabel
+          Left = 7
+          Top = 319
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Bend Range:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt1Pan: TKnobControl
+          Left = 7
+          Top = 383
+          Width = 30
+          Height = 30
+          Hint = 'Panning'
+          Min = -7
+          Max = 7
+          OnChange = Pt1PanChange
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object Pt1Pan_value: TSpinEdit
+          Left = 43
+          Top = 391
+          Width = 35
+          Height = 22
+          Hint = '-7 ~ +7'
+          AutoSize = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 7
+          MinValue = -7
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+          Value = 0
+          OnChange = Pt1Pan_valueChange
+        end
+        object Pt1Chan: TSpinEdit
+          Left = 39
+          Top = 51
+          Width = 42
+          Height = 22
+          Hint = 'MIDI channel this Part will respond on (1 ~ 16)'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 16
+          MinValue = 1
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+          Value = 1
+          OnChange = Pt1ChanChange
+        end
+        object Pt1Output_value: TSpinEdit
+          Left = 18
+          Top = 538
+          Width = 48
+          Height = 22
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          MaxValue = 100
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+          Value = 0
+          OnChange = Pt1Output_valueChange
+        end
+        object Pt1Bend_value: TSpinEdit
+          Left = 43
+          Top = 342
+          Width = 35
+          Height = 22
+          Hint = '0 ~ 24'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 24
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 4
+          Value = 0
+          OnChange = Pt1Bend_valueChange
+        end
+        object Pt1Bend: TKnobControl
+          Left = 7
+          Top = 334
+          Width = 30
+          Height = 30
+          Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
+          Max = 24
+          OnChange = Pt1BendChange
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object Pt1AdvPanel: TPanel
+          Left = 1
+          Top = 78
+          Width = 79
+          Height = 238
+          BevelOuter = bvNone
+          DoubleBuffered = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentDoubleBuffered = False
+          ParentFont = False
+          TabOrder = 6
+          VerticalAlignment = taAlignTop
+          object Pt1Bank_label: TLabel
+            Left = 3
+            Top = 94
+            Width = 78
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Bank/Timbre:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt1Key_label: TLabel
+            Left = 5
+            Top = 162
+            Width = 35
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Shift:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Pt1Fine_label: TLabel
+            Left = 41
+            Top = 162
+            Width = 35
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Fine:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Pt1PtlReserve_label: TLabel
+            Left = 5
+            Top = 48
+            Width = 71
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Partial Rsv:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt1Poly_label: TLabel
+            Left = 5
+            Top = 3
+            Width = 71
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Poly Mode:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt1Bank: TComboBox
+            Left = 1
+            Top = 112
+            Width = 79
+            Height = 21
+            Hint = 
+              'Bank Selection'#13#10#13#10'Preset A: The first 64 default timbres'#13#10'Preset' +
+              ' B: The last 64 default timbres'#13#10'Custom: 64 user timbres stored ' +
+              'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
+              'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
+              ' 33 unique sound effects'#13#10'                '
+            Style = csDropDownList
+            DropDownCount = 4
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ItemIndex = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 0
+            Text = 'Preset A'
+            OnChange = Pt1BankChange
+            Items.Strings = (
+              'Preset A'
+              'Preset B'
+              'Custom'
+              'Rhythm')
+          end
+          object Pt1Fine: TKnobControl
+            Left = 44
+            Top = 176
+            Width = 30
+            Height = 30
+            Hint = 'Pitch Fine Tune'
+            Min = -50
+            Max = 50
+            OnChange = Pt1FineChange
+            StartAngle = 135
+            EndAngle = 405
+          end
+          object Pt1Fine_value: TSpinEdit
+            Left = 42
+            Top = 212
+            Width = 38
+            Height = 22
+            Hint = '-50 ~ +50'
+            AutoSize = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            MaxValue = 50
+            MinValue = -50
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 2
+            Value = 0
+            OnChange = Pt1Fine_valueChange
+          end
+          object Pt1Key: TKnobControl
+            Left = 8
+            Top = 176
+            Width = 30
+            Height = 30
+            Hint = 
+              'Key Shift = Transposes the Part up to'#13#10'two octaves higher or low' +
+              'er'
+            Min = -24
+            Max = 24
+            OnChange = Pt1KeyChange
+            StartAngle = 135
+            EndAngle = 405
+          end
+          object Pt1Key_value: TSpinEdit
+            Left = 3
+            Top = 212
+            Width = 38
+            Height = 22
+            Hint = '-24 ~ +24'
+            AutoSize = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            MaxValue = 24
+            MinValue = -24
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 4
+            Value = 0
+            OnChange = Pt1Key_valueChange
+          end
+          object Pt1Timbre: TComboBox
+            Left = 1
+            Top = 134
+            Width = 79
+            Height = 21
+            Hint = 
+              'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
+              ' the'#13#10'four Banks are selected'
+            Style = csDropDownList
+            DropDownCount = 16
+            DropDownWidth = 78
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 5
+            OnChange = Pt1TimbreChange
+          end
+          object Pt1Poly: TComboBox
+            Left = 1
+            Top = 21
+            Width = 79
+            Height = 21
+            Hint = 
+              '1: Single Assign, FIFO (priority given to last note)'#13#10'2: Single ' +
+              'Assign, FILO (priority given to first note)'#13#10'3: Multiple Assign,' +
+              ' FIFO (priority given to last note)'#13#10'4: Multiple Assign, FILO (p' +
+              'riority given to first note)'#13#10#13#10'Single Assign = identical notes ' +
+              'do NOT stack'#13#10'(conserves partials)'#13#10#13#10'Multiple Assign = identica' +
+              'l notes DO stack'#13#10'(uses more partials)'
+            Style = csDropDownList
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ItemIndex = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 6
+            Text = '(S)  FIFO'
+            OnChange = Pt1PolyChange
+            Items.Strings = (
+              '(S)  FIFO'
+              '(S)  FILO'
+              '(M)  FIFO'
+              '(M)  FILO')
+          end
+          object Pt1PtlReserve: TSpinEdit
+            Left = 18
+            Top = 64
+            Width = 48
+            Height = 22
+            Hint = 
+              'Reserves partials for this Part (0 ~ 32)'#13#10#13#10'NOTE: The total sum ' +
+              'of each Part'#39's reserve'#13#10'partial settings cannot exceed 32.'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 2
+            MaxValue = 32
+            MinValue = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 7
+            Value = 0
+            OnChange = Pt1PtlReserveChange
+          end
+        end
+        object Pt1Output: TSynthSlider
+          Left = 18
+          Top = 437
+          Width = 48
+          Height = 104
+          Hint = 'Volume output level'
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          ThumbSize = 15
+          ParentColor = False
+          TabOrder = 7
+          TabStop = True
+          OnChange = Pt1OutputChange
+        end
+      end
+      object Pt2MixPanel: TPanel
+        Left = 84
+        Top = 24
+        Width = 81
+        Height = 564
+        Margins.Left = 2
+        Margins.Right = 2
+        BevelOuter = bvLowered
+        Caption = 'Part 2'
+        DoubleBuffered = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentDoubleBuffered = False
+        ParentFont = False
+        TabOrder = 1
+        VerticalAlignment = taAlignTop
+        object Pt2Reverb: TSpeedButton
+          Left = 45
+          Top = 23
+          Width = 34
+          Height = 22
+          Hint = 'Reverb Enable'
+          AllowAllUp = True
+          GroupIndex = 2
+          Down = True
+          Caption = 'Rev'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = Pt2ReverbClick
+        end
+        object Pt2Output_label: TLabel
+          Left = 7
+          Top = 421
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Output:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt2Pan_label: TLabel
+          Left = 7
+          Top = 371
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Pan:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt2Chan_label: TLabel
+          Left = 6
+          Top = 54
+          Width = 30
+          Height = 13
+          AutoSize = False
+          Caption = 'Chan:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt2Enable: TSpeedButton
+          Left = 6
+          Top = 23
+          Width = 34
+          Height = 22
+          Hint = 'Part Enable'
+          AllowAllUp = True
+          GroupIndex = 1
+          Down = True
+          Caption = 'On'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = Pt2EnableClick
+        end
+        object Pt2Bend_label: TLabel
+          Left = 7
+          Top = 319
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Bend Range:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt2Output: TTrackBar
+          Left = 18
+          Top = 437
+          Width = 48
+          Height = 104
+          Hint = 'Volume output level'
+          Max = 100
+          Orientation = trVertical
+          ParentShowHint = False
+          Frequency = 10
+          Position = 100
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 0
+          ThumbLength = 28
+          TickMarks = tmBoth
+          OnChange = Pt2OutputChange
+        end
+        object Pt2Pan: TKnobControl
+          Left = 7
+          Top = 383
+          Width = 30
+          Height = 30
+          Hint = 'Panning'
+          Min = -7
+          Max = 7
+          OnChange = Pt2PanChange
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object Pt2Pan_value: TSpinEdit
+          Left = 43
+          Top = 391
+          Width = 35
+          Height = 22
+          Hint = '-7 ~ +7'
+          AutoSize = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 7
+          MinValue = -7
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+          Value = 0
+          OnChange = Pt2Pan_valueChange
+        end
+        object Pt2Chan: TSpinEdit
+          Left = 39
+          Top = 51
+          Width = 42
+          Height = 22
+          Hint = 'MIDI channel this Part will respond on (1 ~ 16)'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 16
+          MinValue = 1
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+          Value = 1
+          OnChange = Pt2ChanChange
+        end
+        object Pt2Output_value: TSpinEdit
+          Left = 18
+          Top = 538
+          Width = 48
+          Height = 22
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          MaxValue = 100
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 4
+          Value = 0
+          OnChange = Pt2Output_valueChange
+        end
+        object Pt2Bend_value: TSpinEdit
+          Left = 43
+          Top = 342
+          Width = 35
+          Height = 22
+          Hint = '0 ~ 24'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 24
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 5
+          Value = 0
+          OnChange = Pt2Bend_valueChange
+        end
+        object Pt2Bend: TKnobControl
+          Left = 7
+          Top = 334
+          Width = 30
+          Height = 30
+          Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
+          Max = 24
+          OnChange = Pt2BendChange
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object Pt2AdvPanel: TPanel
+          Left = 1
+          Top = 78
+          Width = 79
+          Height = 238
+          BevelOuter = bvNone
+          DoubleBuffered = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentDoubleBuffered = False
+          ParentFont = False
+          TabOrder = 7
+          VerticalAlignment = taAlignTop
+          object Pt2Bank_label: TLabel
+            Left = 3
+            Top = 94
+            Width = 78
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Bank/Timbre:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt2Key_label: TLabel
+            Left = 5
+            Top = 162
+            Width = 35
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Shift:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Pt2Fine_label: TLabel
+            Left = 41
+            Top = 162
+            Width = 35
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Fine:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Pt2PtlReserve_label: TLabel
+            Left = 5
+            Top = 48
+            Width = 71
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Partial Rsv:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt2Poly_label: TLabel
+            Left = 5
+            Top = 3
+            Width = 71
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Poly Mode:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt2Bank: TComboBox
+            Left = 1
+            Top = 112
+            Width = 79
+            Height = 21
+            Hint = 
+              'Bank Selection'#13#10#13#10'Preset A: The first 64 default timbres'#13#10'Preset' +
+              ' B: The last 64 default timbres'#13#10'Custom: 64 user timbres stored ' +
+              'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
+              'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
+              ' 33 unique sound effects'#13#10'                '
+            Style = csDropDownList
+            DropDownCount = 4
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ItemIndex = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 0
+            Text = 'Preset A'
+            OnChange = Pt2BankChange
+            Items.Strings = (
+              'Preset A'
+              'Preset B'
+              'Custom'
+              'Rhythm')
+          end
+          object Pt2Fine: TKnobControl
+            Left = 44
+            Top = 176
+            Width = 30
+            Height = 30
+            Hint = 'Pitch Fine Tune'
+            Min = -50
+            Max = 50
+            OnChange = Pt2FineChange
+            StartAngle = 135
+            EndAngle = 405
+          end
+          object Pt2Fine_value: TSpinEdit
+            Left = 42
+            Top = 212
+            Width = 38
+            Height = 22
+            Hint = '-50 ~ +50'
+            AutoSize = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            MaxValue = 50
+            MinValue = -50
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 2
+            Value = 0
+            OnChange = Pt2Fine_valueChange
+          end
+          object Pt2Key: TKnobControl
+            Left = 8
+            Top = 176
+            Width = 30
+            Height = 30
+            Hint = 
+              'Key Shift = Transposes the Part up to'#13#10'two octaves higher or low' +
+              'er'
+            Min = -24
+            Max = 24
+            OnChange = Pt2KeyChange
+            StartAngle = 135
+            EndAngle = 405
+          end
+          object Pt2Key_value: TSpinEdit
+            Left = 3
+            Top = 212
+            Width = 38
+            Height = 22
+            Hint = '-24 ~ +24'
+            AutoSize = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            MaxValue = 24
+            MinValue = -24
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 4
+            Value = 0
+            OnChange = Pt2Key_valueChange
+          end
+          object Pt2Timbre: TComboBox
+            Left = 1
+            Top = 134
+            Width = 79
+            Height = 21
+            Hint = 
+              'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
+              ' the'#13#10'four Banks are selected'
+            Style = csDropDownList
+            DropDownCount = 16
+            DropDownWidth = 78
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 5
+            OnChange = Pt2TimbreChange
+          end
+          object Pt2Poly: TComboBox
+            Left = 1
+            Top = 21
+            Width = 79
+            Height = 21
+            Hint = 
+              '1: Single Assign, FIFO (priority given to last note)'#13#10'2: Single ' +
+              'Assign, FILO (priority given to first note)'#13#10'3: Multiple Assign,' +
+              ' FIFO (priority given to last note)'#13#10'4: Multiple Assign, FILO (p' +
+              'riority given to first note)'#13#10#13#10'Single Assign = identical notes ' +
+              'do NOT stack'#13#10'(conserves partials)'#13#10#13#10'Multiple Assign = identica' +
+              'l notes DO stack'#13#10'(uses more partials)'
+            Style = csDropDownList
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ItemIndex = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 6
+            Text = '(S)  FIFO'
+            OnChange = Pt2PolyChange
+            Items.Strings = (
+              '(S)  FIFO'
+              '(S)  FILO'
+              '(M)  FIFO'
+              '(M)  FILO')
+          end
+          object Pt2PtlReserve: TSpinEdit
+            Left = 18
+            Top = 64
+            Width = 48
+            Height = 22
+            Hint = 
+              'Reserves partials for this Part (0 ~ 32)'#13#10#13#10'NOTE: The total sum ' +
+              'of each Part'#39's reserve'#13#10'partial settings cannot exceed 32.'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 2
+            MaxValue = 32
+            MinValue = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 7
+            Value = 0
+            OnChange = Pt2PtlReserveChange
+          end
+        end
+      end
+      object Pt3MixPanel: TPanel
+        Left = 167
+        Top = 24
+        Width = 81
+        Height = 564
+        Margins.Left = 2
+        Margins.Right = 2
+        BevelOuter = bvLowered
+        Caption = 'Part 3'
+        DoubleBuffered = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentDoubleBuffered = False
+        ParentFont = False
+        TabOrder = 2
+        VerticalAlignment = taAlignTop
+        object Pt3Reverb: TSpeedButton
+          Left = 45
+          Top = 23
+          Width = 34
+          Height = 22
+          Hint = 'Reverb Enable'
+          AllowAllUp = True
+          GroupIndex = 2
+          Down = True
+          Caption = 'Rev'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = Pt3ReverbClick
+        end
+        object Pt3Output_label: TLabel
+          Left = 7
+          Top = 421
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Output:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt3Pan_label: TLabel
+          Left = 7
+          Top = 371
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Pan:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt3Chan_label: TLabel
+          Left = 6
+          Top = 54
+          Width = 30
+          Height = 13
+          AutoSize = False
+          Caption = 'Chan:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt3Enable: TSpeedButton
+          Left = 6
+          Top = 23
+          Width = 34
+          Height = 22
+          Hint = 'Part Enable'
+          AllowAllUp = True
+          GroupIndex = 1
+          Down = True
+          Caption = 'On'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = Pt3EnableClick
+        end
+        object Pt3Bend_label: TLabel
+          Left = 7
+          Top = 319
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Bend Range:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt3Output: TTrackBar
+          Left = 18
+          Top = 437
+          Width = 48
+          Height = 104
+          Hint = 'Volume output level'
+          Max = 100
+          Orientation = trVertical
+          ParentShowHint = False
+          Frequency = 10
+          Position = 100
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 0
+          ThumbLength = 28
+          TickMarks = tmBoth
+          OnChange = Pt3OutputChange
+        end
+        object Pt3Pan: TKnobControl
+          Left = 7
+          Top = 383
+          Width = 30
+          Height = 30
+          Hint = 'Panning'
+          Min = -7
+          Max = 7
+          OnChange = Pt3PanChange
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object Pt3Pan_value: TSpinEdit
+          Left = 43
+          Top = 391
+          Width = 35
+          Height = 22
+          Hint = '-7 ~ +7'
+          AutoSize = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 7
+          MinValue = -7
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+          Value = 0
+          OnChange = Pt3Pan_valueChange
+        end
+        object Pt3Chan: TSpinEdit
+          Left = 39
+          Top = 51
+          Width = 42
+          Height = 22
+          Hint = 'MIDI channel this Part will respond on (1 ~ 16)'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 16
+          MinValue = 1
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+          Value = 1
+          OnChange = Pt3ChanChange
+        end
+        object Pt3Output_value: TSpinEdit
+          Left = 18
+          Top = 538
+          Width = 48
+          Height = 22
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          MaxValue = 100
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 4
+          Value = 0
+          OnChange = Pt3Output_valueChange
+        end
+        object Pt3Bend_value: TSpinEdit
+          Left = 43
+          Top = 342
+          Width = 35
+          Height = 22
+          Hint = '0 ~ 24'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 24
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 5
+          Value = 0
+          OnChange = Pt3Bend_valueChange
+        end
+        object Pt3Bend: TKnobControl
+          Left = 7
+          Top = 334
+          Width = 30
+          Height = 30
+          Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
+          Max = 24
+          OnChange = Pt3BendChange
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object Pt3AdvPanel: TPanel
+          Left = 1
+          Top = 78
+          Width = 79
+          Height = 238
+          BevelOuter = bvNone
+          DoubleBuffered = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentDoubleBuffered = False
+          ParentFont = False
+          TabOrder = 7
+          VerticalAlignment = taAlignTop
+          object Pt3Bank_label: TLabel
+            Left = 3
+            Top = 94
+            Width = 78
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Bank/Timbre:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt3Key_label: TLabel
+            Left = 5
+            Top = 162
+            Width = 35
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Shift:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Pt3Fine_label: TLabel
+            Left = 41
+            Top = 162
+            Width = 35
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Fine:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Pt3PtlReserve_label: TLabel
+            Left = 5
+            Top = 48
+            Width = 71
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Partial Rsv:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt3Poly_label: TLabel
+            Left = 5
+            Top = 3
+            Width = 71
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Poly Mode:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt3Bank: TComboBox
+            Left = 1
+            Top = 112
+            Width = 79
+            Height = 21
+            Hint = 
+              'Bank Selection'#13#10#13#10'Preset A: The first 64 default timbres'#13#10'Preset' +
+              ' B: The last 64 default timbres'#13#10'Custom: 64 user timbres stored ' +
+              'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
+              'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
+              ' 33 unique sound effects'#13#10'                '
+            Style = csDropDownList
+            DropDownCount = 4
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ItemIndex = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 0
+            Text = 'Preset A'
+            OnChange = Pt3BankChange
+            Items.Strings = (
+              'Preset A'
+              'Preset B'
+              'Custom'
+              'Rhythm')
+          end
+          object Pt3Fine: TKnobControl
+            Left = 44
+            Top = 176
+            Width = 30
+            Height = 30
+            Hint = 'Pitch Fine Tune'
+            Min = -50
+            Max = 50
+            OnChange = Pt3FineChange
+            StartAngle = 135
+            EndAngle = 405
+          end
+          object Pt3Fine_value: TSpinEdit
+            Left = 42
+            Top = 212
+            Width = 38
+            Height = 22
+            Hint = '-50 ~ +50'
+            AutoSize = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            MaxValue = 50
+            MinValue = -50
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 2
+            Value = 0
+            OnChange = Pt3Fine_valueChange
+          end
+          object Pt3Key: TKnobControl
+            Left = 8
+            Top = 176
+            Width = 30
+            Height = 30
+            Hint = 
+              'Key Shift = Transposes the Part up to'#13#10'two octaves higher or low' +
+              'er'
+            Min = -24
+            Max = 24
+            OnChange = Pt3KeyChange
+            StartAngle = 135
+            EndAngle = 405
+          end
+          object Pt3Key_value: TSpinEdit
+            Left = 3
+            Top = 212
+            Width = 38
+            Height = 22
+            Hint = '-24 ~ +24'
+            AutoSize = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            MaxValue = 24
+            MinValue = -24
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 4
+            Value = 0
+            OnChange = Pt3Key_valueChange
+          end
+          object Pt3Timbre: TComboBox
+            Left = 1
+            Top = 134
+            Width = 79
+            Height = 21
+            Hint = 
+              'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
+              ' the'#13#10'four Banks are selected'
+            Style = csDropDownList
+            DropDownCount = 16
+            DropDownWidth = 78
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 5
+            OnChange = Pt3TimbreChange
+          end
+          object Pt3Poly: TComboBox
+            Left = 1
+            Top = 21
+            Width = 79
+            Height = 21
+            Hint = 
+              '1: Single Assign, FIFO (priority given to last note)'#13#10'2: Single ' +
+              'Assign, FILO (priority given to first note)'#13#10'3: Multiple Assign,' +
+              ' FIFO (priority given to last note)'#13#10'4: Multiple Assign, FILO (p' +
+              'riority given to first note)'#13#10#13#10'Single Assign = identical notes ' +
+              'do NOT stack'#13#10'(conserves partials)'#13#10#13#10'Multiple Assign = identica' +
+              'l notes DO stack'#13#10'(uses more partials)'
+            Style = csDropDownList
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ItemIndex = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 6
+            Text = '(S)  FIFO'
+            OnChange = Pt3PolyChange
+            Items.Strings = (
+              '(S)  FIFO'
+              '(S)  FILO'
+              '(M)  FIFO'
+              '(M)  FILO')
+          end
+          object Pt3PtlReserve: TSpinEdit
+            Left = 18
+            Top = 64
+            Width = 48
+            Height = 22
+            Hint = 
+              'Reserves partials for this Part (0 ~ 32)'#13#10#13#10'NOTE: The total sum ' +
+              'of each Part'#39's reserve'#13#10'partial settings cannot exceed 32.'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 2
+            MaxValue = 32
+            MinValue = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 7
+            Value = 0
+            OnChange = Pt3PtlReserveChange
+          end
+        end
+      end
+      object Pt4MixPanel: TPanel
+        Left = 250
+        Top = 24
+        Width = 81
+        Height = 564
+        Margins.Left = 2
+        Margins.Right = 2
+        BevelOuter = bvLowered
+        Caption = 'Part 4'
+        DoubleBuffered = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentDoubleBuffered = False
+        ParentFont = False
+        TabOrder = 3
+        VerticalAlignment = taAlignTop
+        object Pt4Reverb: TSpeedButton
+          Left = 45
+          Top = 23
+          Width = 34
+          Height = 22
+          Hint = 'Reverb Enable'
+          AllowAllUp = True
+          GroupIndex = 2
+          Down = True
+          Caption = 'Rev'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = Pt4ReverbClick
+        end
+        object Pt4Output_label: TLabel
+          Left = 7
+          Top = 421
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Output:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt4Pan_label: TLabel
+          Left = 7
+          Top = 371
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Pan:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt4Chan_label: TLabel
+          Left = 6
+          Top = 54
+          Width = 30
+          Height = 13
+          AutoSize = False
+          Caption = 'Chan:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt4Enable: TSpeedButton
+          Left = 6
+          Top = 23
+          Width = 34
+          Height = 22
+          Hint = 'Part Enable'
+          AllowAllUp = True
+          GroupIndex = 1
+          Down = True
+          Caption = 'On'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = Pt4EnableClick
+        end
+        object Pt4Bend_label: TLabel
+          Left = 7
+          Top = 319
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Bend Range:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt4Output: TTrackBar
+          Left = 18
+          Top = 437
+          Width = 48
+          Height = 104
+          Hint = 'Volume output level'
+          Max = 100
+          Orientation = trVertical
+          ParentShowHint = False
+          Frequency = 10
+          Position = 100
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 0
+          ThumbLength = 28
+          TickMarks = tmBoth
+          OnChange = Pt4OutputChange
+        end
+        object Pt4Pan: TKnobControl
+          Left = 7
+          Top = 383
+          Width = 30
+          Height = 30
+          Hint = 'Panning'
+          Min = -7
+          Max = 7
+          OnChange = Pt4PanChange
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object Pt4Pan_value: TSpinEdit
+          Left = 43
+          Top = 391
+          Width = 35
+          Height = 22
+          Hint = '-7 ~ +7'
+          AutoSize = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 7
+          MinValue = -7
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+          Value = 0
+          OnChange = Pt4Pan_valueChange
+        end
+        object Pt4Chan: TSpinEdit
+          Left = 39
+          Top = 51
+          Width = 42
+          Height = 22
+          Hint = 'MIDI channel this Part will respond on (1 ~ 16)'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 16
+          MinValue = 1
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+          Value = 1
+          OnChange = Pt4ChanChange
+        end
+        object Pt4Output_value: TSpinEdit
+          Left = 18
+          Top = 538
+          Width = 48
+          Height = 22
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          MaxValue = 100
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 4
+          Value = 0
+          OnChange = Pt4Output_valueChange
+        end
+        object Pt4Bend_value: TSpinEdit
+          Left = 43
+          Top = 342
+          Width = 35
+          Height = 22
+          Hint = '0 ~ 24'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 24
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 5
+          Value = 0
+          OnChange = Pt4Bend_valueChange
+        end
+        object Pt4Bend: TKnobControl
+          Left = 7
+          Top = 334
+          Width = 30
+          Height = 30
+          Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
+          Max = 24
+          OnChange = Pt4BendChange
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object Pt4AdvPanel: TPanel
+          Left = 1
+          Top = 78
+          Width = 79
+          Height = 238
+          BevelOuter = bvNone
+          DoubleBuffered = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentDoubleBuffered = False
+          ParentFont = False
+          TabOrder = 7
+          VerticalAlignment = taAlignTop
+          object Pt4Bank_label: TLabel
+            Left = 3
+            Top = 94
+            Width = 78
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Bank/Timbre:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt4Key_label: TLabel
+            Left = 5
+            Top = 162
+            Width = 35
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Shift:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Pt4Fine_label: TLabel
+            Left = 41
+            Top = 162
+            Width = 35
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Fine:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Pt4PtlReserve_label: TLabel
+            Left = 5
+            Top = 48
+            Width = 71
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Partial Rsv:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt4Poly_label: TLabel
+            Left = 5
+            Top = 3
+            Width = 71
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Poly Mode:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt4Bank: TComboBox
+            Left = 1
+            Top = 112
+            Width = 79
+            Height = 21
+            Hint = 
+              'Bank Selection'#13#10#13#10'Preset A: The first 64 default timbres'#13#10'Preset' +
+              ' B: The last 64 default timbres'#13#10'Custom: 64 user timbres stored ' +
+              'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
+              'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
+              ' 33 unique sound effects'#13#10'                '
+            Style = csDropDownList
+            DropDownCount = 4
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ItemIndex = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 0
+            Text = 'Preset A'
+            OnChange = Pt4BankChange
+            Items.Strings = (
+              'Preset A'
+              'Preset B'
+              'Custom'
+              'Rhythm')
+          end
+          object Pt4Fine: TKnobControl
+            Left = 44
+            Top = 176
+            Width = 30
+            Height = 30
+            Hint = 'Pitch Fine Tune'
+            Min = -50
+            Max = 50
+            OnChange = Pt4FineChange
+            StartAngle = 135
+            EndAngle = 405
+          end
+          object Pt4Fine_value: TSpinEdit
+            Left = 42
+            Top = 212
+            Width = 38
+            Height = 22
+            Hint = '-50 ~ +50'
+            AutoSize = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            MaxValue = 50
+            MinValue = -50
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 2
+            Value = 0
+            OnChange = Pt4Fine_valueChange
+          end
+          object Pt4Key: TKnobControl
+            Left = 8
+            Top = 176
+            Width = 30
+            Height = 30
+            Hint = 
+              'Key Shift = Transposes the Part up to'#13#10'two octaves higher or low' +
+              'er'
+            Min = -24
+            Max = 24
+            OnChange = Pt4KeyChange
+            StartAngle = 135
+            EndAngle = 405
+          end
+          object Pt4Key_value: TSpinEdit
+            Left = 3
+            Top = 212
+            Width = 38
+            Height = 22
+            Hint = '-24 ~ +24'
+            AutoSize = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            MaxValue = 24
+            MinValue = -24
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 4
+            Value = 0
+            OnChange = Pt4Key_valueChange
+          end
+          object Pt4Timbre: TComboBox
+            Left = 1
+            Top = 134
+            Width = 79
+            Height = 21
+            Hint = 
+              'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
+              ' the'#13#10'four Banks are selected'
+            Style = csDropDownList
+            DropDownCount = 16
+            DropDownWidth = 78
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 5
+            OnChange = Pt4TimbreChange
+          end
+          object Pt4Poly: TComboBox
+            Left = 1
+            Top = 21
+            Width = 79
+            Height = 21
+            Hint = 
+              '1: Single Assign, FIFO (priority given to last note)'#13#10'2: Single ' +
+              'Assign, FILO (priority given to first note)'#13#10'3: Multiple Assign,' +
+              ' FIFO (priority given to last note)'#13#10'4: Multiple Assign, FILO (p' +
+              'riority given to first note)'#13#10#13#10'Single Assign = identical notes ' +
+              'do NOT stack'#13#10'(conserves partials)'#13#10#13#10'Multiple Assign = identica' +
+              'l notes DO stack'#13#10'(uses more partials)'
+            Style = csDropDownList
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ItemIndex = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 6
+            Text = '(S)  FIFO'
+            OnChange = Pt4PolyChange
+            Items.Strings = (
+              '(S)  FIFO'
+              '(S)  FILO'
+              '(M)  FIFO'
+              '(M)  FILO')
+          end
+          object Pt4PtlReserve: TSpinEdit
+            Left = 18
+            Top = 64
+            Width = 48
+            Height = 22
+            Hint = 
+              'Reserves partials for this Part (0 ~ 32)'#13#10#13#10'NOTE: The total sum ' +
+              'of each Part'#39's reserve'#13#10'partial settings cannot exceed 32.'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 2
+            MaxValue = 32
+            MinValue = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 7
+            Value = 0
+            OnChange = Pt4PtlReserveChange
+          end
+        end
+      end
+      object Pt5MixPanel: TPanel
+        Left = 333
+        Top = 24
+        Width = 81
+        Height = 564
+        Margins.Left = 2
+        Margins.Right = 2
+        BevelOuter = bvLowered
+        Caption = 'Part 5'
+        DoubleBuffered = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentDoubleBuffered = False
+        ParentFont = False
+        TabOrder = 4
+        VerticalAlignment = taAlignTop
+        object Pt5Reverb: TSpeedButton
+          Left = 45
+          Top = 23
+          Width = 34
+          Height = 22
+          Hint = 'Reverb Enable'
+          AllowAllUp = True
+          GroupIndex = 2
+          Down = True
+          Caption = 'Rev'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = Pt5ReverbClick
+        end
+        object Pt5Output_label: TLabel
+          Left = 7
+          Top = 421
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Output:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt5Pan_label: TLabel
+          Left = 7
+          Top = 371
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Pan:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt5Chan_label: TLabel
+          Left = 6
+          Top = 54
+          Width = 30
+          Height = 13
+          AutoSize = False
+          Caption = 'Chan:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt5Enable: TSpeedButton
+          Left = 6
+          Top = 23
+          Width = 34
+          Height = 22
+          Hint = 'Part Enable'
+          AllowAllUp = True
+          GroupIndex = 1
+          Down = True
+          Caption = 'On'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = Pt5EnableClick
+        end
+        object Pt5Bend_label: TLabel
+          Left = 7
+          Top = 319
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Bend Range:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt5Output: TTrackBar
+          Left = 18
+          Top = 437
+          Width = 48
+          Height = 104
+          Hint = 'Volume output level'
+          Max = 100
+          Orientation = trVertical
+          ParentShowHint = False
+          Frequency = 10
+          Position = 100
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 0
+          ThumbLength = 28
+          TickMarks = tmBoth
+          OnChange = Pt5OutputChange
+        end
+        object Pt5Pan: TKnobControl
+          Left = 7
+          Top = 383
+          Width = 30
+          Height = 30
+          Hint = 'Panning'
+          Min = -7
+          Max = 7
+          OnChange = Pt5PanChange
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object Pt5Pan_value: TSpinEdit
+          Left = 43
+          Top = 391
+          Width = 35
+          Height = 22
+          Hint = '-7 ~ +7'
+          AutoSize = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 7
+          MinValue = -7
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+          Value = 0
+          OnChange = Pt5Pan_valueChange
+        end
+        object Pt5Chan: TSpinEdit
+          Left = 39
+          Top = 51
+          Width = 42
+          Height = 22
+          Hint = 'MIDI channel this Part will respond on (1 ~ 16)'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 16
+          MinValue = 1
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+          Value = 1
+          OnChange = Pt5ChanChange
+        end
+        object Pt5Output_value: TSpinEdit
+          Left = 18
+          Top = 538
+          Width = 48
+          Height = 22
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          MaxValue = 100
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 4
+          Value = 0
+          OnChange = Pt5Output_valueChange
+        end
+        object Pt5Bend_value: TSpinEdit
+          Left = 43
+          Top = 342
+          Width = 35
+          Height = 22
+          Hint = '0 ~ 24'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 24
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 5
+          Value = 0
+          OnChange = Pt5Bend_valueChange
+        end
+        object Pt5Bend: TKnobControl
+          Left = 7
+          Top = 335
+          Width = 30
+          Height = 30
+          Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
+          Max = 24
+          OnChange = Pt5BendChange
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object Pt5AdvPanel: TPanel
+          Left = 1
+          Top = 78
+          Width = 79
+          Height = 238
+          BevelOuter = bvNone
+          DoubleBuffered = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentDoubleBuffered = False
+          ParentFont = False
+          TabOrder = 7
+          VerticalAlignment = taAlignTop
+          object Pt5Bank_label: TLabel
+            Left = 3
+            Top = 94
+            Width = 78
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Bank/Timbre:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt5Key_label: TLabel
+            Left = 5
+            Top = 162
+            Width = 35
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Shift:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Pt5Fine_label: TLabel
+            Left = 41
+            Top = 162
+            Width = 35
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Fine:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Pt5PtlReserve_label: TLabel
+            Left = 5
+            Top = 48
+            Width = 71
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Partial Rsv:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt5Poly_label: TLabel
+            Left = 5
+            Top = 3
+            Width = 71
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Poly Mode:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt5Bank: TComboBox
+            Left = 1
+            Top = 112
+            Width = 79
+            Height = 21
+            Hint = 
+              'Bank Selection'#13#10#13#10'Preset A: The first 64 default timbres'#13#10'Preset' +
+              ' B: The last 64 default timbres'#13#10'Custom: 64 user timbres stored ' +
+              'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
+              'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
+              ' 33 unique sound effects'#13#10'                '
+            Style = csDropDownList
+            DropDownCount = 4
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ItemIndex = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 0
+            Text = 'Preset A'
+            OnChange = Pt5BankChange
+            Items.Strings = (
+              'Preset A'
+              'Preset B'
+              'Custom'
+              'Rhythm')
+          end
+          object Pt5Fine: TKnobControl
+            Left = 44
+            Top = 176
+            Width = 30
+            Height = 30
+            Hint = 'Pitch Fine Tune'
+            Min = -50
+            Max = 50
+            OnChange = Pt5FineChange
+            StartAngle = 135
+            EndAngle = 405
+          end
+          object Pt5Fine_value: TSpinEdit
+            Left = 42
+            Top = 212
+            Width = 38
+            Height = 22
+            Hint = '-50 ~ +50'
+            AutoSize = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            MaxValue = 50
+            MinValue = -50
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 2
+            Value = 0
+            OnChange = Pt5Fine_valueChange
+          end
+          object Pt5Key: TKnobControl
+            Left = 8
+            Top = 176
+            Width = 30
+            Height = 30
+            Hint = 
+              'Key Shift = Transposes the Part up to'#13#10'two octaves higher or low' +
+              'er'
+            Min = -24
+            Max = 24
+            OnChange = Pt5KeyChange
+            StartAngle = 135
+            EndAngle = 405
+          end
+          object Pt5Key_value: TSpinEdit
+            Left = 3
+            Top = 212
+            Width = 38
+            Height = 22
+            Hint = '-24 ~ +24'
+            AutoSize = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            MaxValue = 24
+            MinValue = -24
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 4
+            Value = 0
+            OnChange = Pt5Key_valueChange
+          end
+          object Pt5Timbre: TComboBox
+            Left = 1
+            Top = 134
+            Width = 79
+            Height = 21
+            Hint = 
+              'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
+              ' the'#13#10'four Banks are selected'
+            Style = csDropDownList
+            DropDownCount = 16
+            DropDownWidth = 78
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 5
+            OnChange = Pt5TimbreChange
+          end
+          object Pt5Poly: TComboBox
+            Left = 1
+            Top = 21
+            Width = 79
+            Height = 21
+            Hint = 
+              '1: Single Assign, FIFO (priority given to last note)'#13#10'2: Single ' +
+              'Assign, FILO (priority given to first note)'#13#10'3: Multiple Assign,' +
+              ' FIFO (priority given to last note)'#13#10'4: Multiple Assign, FILO (p' +
+              'riority given to first note)'#13#10#13#10'Single Assign = identical notes ' +
+              'do NOT stack'#13#10'(conserves partials)'#13#10#13#10'Multiple Assign = identica' +
+              'l notes DO stack'#13#10'(uses more partials)'
+            Style = csDropDownList
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ItemIndex = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 6
+            Text = '(S)  FIFO'
+            OnChange = Pt5PolyChange
+            Items.Strings = (
+              '(S)  FIFO'
+              '(S)  FILO'
+              '(M)  FIFO'
+              '(M)  FILO')
+          end
+          object Pt5PtlReserve: TSpinEdit
+            Left = 18
+            Top = 64
+            Width = 48
+            Height = 22
+            Hint = 
+              'Reserves partials for this Part (0 ~ 32)'#13#10#13#10'NOTE: The total sum ' +
+              'of each Part'#39's reserve'#13#10'partial settings cannot exceed 32.'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 2
+            MaxValue = 32
+            MinValue = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 7
+            Value = 0
+            OnChange = Pt5PtlReserveChange
+          end
+        end
+      end
+      object Pt6MixPanel: TPanel
+        Left = 416
+        Top = 24
+        Width = 81
+        Height = 564
+        Margins.Left = 2
+        Margins.Right = 2
+        BevelOuter = bvLowered
+        Caption = 'Part 6'
+        DoubleBuffered = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentDoubleBuffered = False
+        ParentFont = False
+        TabOrder = 5
+        VerticalAlignment = taAlignTop
+        object Pt6Reverb: TSpeedButton
+          Left = 45
+          Top = 23
+          Width = 34
+          Height = 22
+          Hint = 'Reverb Enable'
+          AllowAllUp = True
+          GroupIndex = 2
+          Down = True
+          Caption = 'Rev'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = Pt6ReverbClick
+        end
+        object Pt6Output_label: TLabel
+          Left = 7
+          Top = 421
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Output:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt6Pan_label: TLabel
+          Left = 7
+          Top = 371
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Pan:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt6Chan_label: TLabel
+          Left = 6
+          Top = 54
+          Width = 30
+          Height = 13
+          AutoSize = False
+          Caption = 'Chan:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt6Enable: TSpeedButton
+          Left = 6
+          Top = 23
+          Width = 34
+          Height = 22
+          Hint = 'Part Enable'
+          AllowAllUp = True
+          GroupIndex = 1
+          Down = True
+          Caption = 'On'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = Pt6EnableClick
+        end
+        object Pt6Bend_label: TLabel
+          Left = 7
+          Top = 319
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Bend Range:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt6Output: TTrackBar
+          Left = 18
+          Top = 437
+          Width = 48
+          Height = 104
+          Hint = 'Volume output level'
+          Max = 100
+          Orientation = trVertical
+          ParentShowHint = False
+          Frequency = 10
+          Position = 100
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 0
+          ThumbLength = 28
+          TickMarks = tmBoth
+          OnChange = Pt6OutputChange
+        end
+        object Pt6Pan: TKnobControl
+          Left = 7
+          Top = 383
+          Width = 30
+          Height = 30
+          Hint = 'Panning'
+          Min = -7
+          Max = 7
+          OnChange = Pt6PanChange
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object Pt6Pan_value: TSpinEdit
+          Left = 43
+          Top = 391
+          Width = 35
+          Height = 22
+          Hint = '-7 ~ +7'
+          AutoSize = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 7
+          MinValue = -7
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+          Value = 0
+          OnChange = Pt6Pan_valueChange
+        end
+        object Pt6Chan: TSpinEdit
+          Left = 39
+          Top = 51
+          Width = 42
+          Height = 22
+          Hint = 'MIDI channel this Part will respond on (1 ~ 16)'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 16
+          MinValue = 1
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+          Value = 1
+          OnChange = Pt6ChanChange
+        end
+        object Pt6Output_value: TSpinEdit
+          Left = 18
+          Top = 538
+          Width = 48
+          Height = 22
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          MaxValue = 100
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 4
+          Value = 0
+          OnChange = Pt6Output_valueChange
+        end
+        object Pt6Bend_value: TSpinEdit
+          Left = 43
+          Top = 342
+          Width = 35
+          Height = 22
+          Hint = '0 ~ 24'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 24
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 5
+          Value = 0
+          OnChange = Pt6Bend_valueChange
+        end
+        object Pt6Bend: TKnobControl
+          Left = 7
+          Top = 334
+          Width = 30
+          Height = 30
+          Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
+          Max = 24
+          OnChange = Pt6BendChange
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object Pt6AdvPanel: TPanel
+          Left = 1
+          Top = 78
+          Width = 79
+          Height = 238
+          BevelOuter = bvNone
+          DoubleBuffered = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentDoubleBuffered = False
+          ParentFont = False
+          TabOrder = 7
+          VerticalAlignment = taAlignTop
+          object Pt6Bank_label: TLabel
+            Left = 3
+            Top = 94
+            Width = 78
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Bank/Timbre:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt6Key_label: TLabel
+            Left = 5
+            Top = 162
+            Width = 35
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Shift:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Pt6Fine_label: TLabel
+            Left = 41
+            Top = 162
+            Width = 35
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Fine:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Pt6PtlReserve_label: TLabel
+            Left = 5
+            Top = 48
+            Width = 71
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Partial Rsv:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt6Poly_label: TLabel
+            Left = 5
+            Top = 3
+            Width = 71
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Poly Mode:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt6Bank: TComboBox
+            Left = 1
+            Top = 112
+            Width = 79
+            Height = 21
+            Hint = 
+              'Bank Selection'#13#10#13#10'Preset A: The first 64 default timbres'#13#10'Preset' +
+              ' B: The last 64 default timbres'#13#10'Custom: 64 user timbres stored ' +
+              'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
+              'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
+              ' 33 unique sound effects'#13#10'                '
+            Style = csDropDownList
+            DropDownCount = 4
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ItemIndex = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 0
+            Text = 'Preset A'
+            OnChange = Pt6BankChange
+            Items.Strings = (
+              'Preset A'
+              'Preset B'
+              'Custom'
+              'Rhythm')
+          end
+          object Pt6Fine: TKnobControl
+            Left = 44
+            Top = 176
+            Width = 30
+            Height = 30
+            Hint = 'Pitch Fine Tune'
+            Min = -50
+            Max = 50
+            OnChange = Pt6FineChange
+            StartAngle = 135
+            EndAngle = 405
+          end
+          object Pt6Fine_value: TSpinEdit
+            Left = 42
+            Top = 212
+            Width = 38
+            Height = 22
+            Hint = '-50 ~ +50'
+            AutoSize = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            MaxValue = 50
+            MinValue = -50
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 2
+            Value = 0
+            OnChange = Pt6Fine_valueChange
+          end
+          object Pt6Key: TKnobControl
+            Left = 8
+            Top = 176
+            Width = 30
+            Height = 30
+            Hint = 
+              'Key Shift = Transposes the Part up to'#13#10'two octaves higher or low' +
+              'er'
+            Min = -24
+            Max = 24
+            OnChange = Pt6KeyChange
+            StartAngle = 135
+            EndAngle = 405
+          end
+          object Pt6Key_value: TSpinEdit
+            Left = 3
+            Top = 212
+            Width = 38
+            Height = 22
+            Hint = '-24 ~ +24'
+            AutoSize = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            MaxValue = 24
+            MinValue = -24
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 4
+            Value = 0
+            OnChange = Pt6Key_valueChange
+          end
+          object Pt6Timbre: TComboBox
+            Left = 1
+            Top = 134
+            Width = 79
+            Height = 21
+            Hint = 
+              'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
+              ' the'#13#10'four Banks are selected'
+            Style = csDropDownList
+            DropDownCount = 16
+            DropDownWidth = 78
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 5
+            OnChange = Pt6TimbreChange
+          end
+          object Pt6Poly: TComboBox
+            Left = 1
+            Top = 21
+            Width = 79
+            Height = 21
+            Hint = 
+              '1: Single Assign, FIFO (priority given to last note)'#13#10'2: Single ' +
+              'Assign, FILO (priority given to first note)'#13#10'3: Multiple Assign,' +
+              ' FIFO (priority given to last note)'#13#10'4: Multiple Assign, FILO (p' +
+              'riority given to first note)'#13#10#13#10'Single Assign = identical notes ' +
+              'do NOT stack'#13#10'(conserves partials)'#13#10#13#10'Multiple Assign = identica' +
+              'l notes DO stack'#13#10'(uses more partials)'
+            Style = csDropDownList
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ItemIndex = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 6
+            Text = '(S)  FIFO'
+            OnChange = Pt6PolyChange
+            Items.Strings = (
+              '(S)  FIFO'
+              '(S)  FILO'
+              '(M)  FIFO'
+              '(M)  FILO')
+          end
+          object Pt6PtlReserve: TSpinEdit
+            Left = 18
+            Top = 64
+            Width = 48
+            Height = 22
+            Hint = 
+              'Reserves partials for this Part (0 ~ 32)'#13#10#13#10'NOTE: The total sum ' +
+              'of each Part'#39's reserve'#13#10'partial settings cannot exceed 32.'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 2
+            MaxValue = 32
+            MinValue = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 7
+            Value = 0
+            OnChange = Pt6PtlReserveChange
+          end
+        end
+      end
+      object Pt7MixPanel: TPanel
+        Left = 499
+        Top = 24
+        Width = 81
+        Height = 564
+        Margins.Left = 2
+        Margins.Right = 2
+        BevelOuter = bvLowered
+        Caption = 'Part 7'
+        DoubleBuffered = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentDoubleBuffered = False
+        ParentFont = False
+        TabOrder = 6
+        VerticalAlignment = taAlignTop
+        object Pt7Reverb: TSpeedButton
+          Left = 45
+          Top = 23
+          Width = 34
+          Height = 22
+          Hint = 'Reverb Enable'
+          AllowAllUp = True
+          GroupIndex = 2
+          Down = True
+          Caption = 'Rev'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = Pt7ReverbClick
+        end
+        object Pt7Output_label: TLabel
+          Left = 7
+          Top = 421
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Output:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt7Pan_label: TLabel
+          Left = 7
+          Top = 371
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Pan:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt7Chan_label: TLabel
+          Left = 6
+          Top = 54
+          Width = 30
+          Height = 13
+          AutoSize = False
+          Caption = 'Chan:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt7Enable: TSpeedButton
+          Left = 6
+          Top = 23
+          Width = 34
+          Height = 22
+          Hint = 'Part Enable'
+          AllowAllUp = True
+          GroupIndex = 1
+          Down = True
+          Caption = 'On'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = Pt7EnableClick
+        end
+        object Pt7Bend_label: TLabel
+          Left = 7
+          Top = 319
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Bend Range:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt7Output: TTrackBar
+          Left = 18
+          Top = 437
+          Width = 48
+          Height = 104
+          Hint = 'Volume output level'
+          Max = 100
+          Orientation = trVertical
+          ParentShowHint = False
+          Frequency = 10
+          Position = 100
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 0
+          ThumbLength = 28
+          TickMarks = tmBoth
+          OnChange = Pt7OutputChange
+        end
+        object Pt7Pan: TKnobControl
+          Left = 7
+          Top = 383
+          Width = 30
+          Height = 30
+          Hint = 'Panning'
+          Min = -7
+          Max = 7
+          OnChange = Pt7PanChange
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object Pt7Pan_value: TSpinEdit
+          Left = 43
+          Top = 391
+          Width = 35
+          Height = 22
+          Hint = '-7 ~ +7'
+          AutoSize = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 7
+          MinValue = -7
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+          Value = 0
+          OnChange = Pt7Pan_valueChange
+        end
+        object Pt7Chan: TSpinEdit
+          Left = 39
+          Top = 51
+          Width = 42
+          Height = 22
+          Hint = 'MIDI channel this Part will respond on (1 ~ 16)'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 16
+          MinValue = 1
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+          Value = 1
+          OnChange = Pt7ChanChange
+        end
+        object Pt7Output_value: TSpinEdit
+          Left = 18
+          Top = 538
+          Width = 48
+          Height = 22
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          MaxValue = 100
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 4
+          Value = 0
+          OnChange = Pt7Output_valueChange
+        end
+        object Pt7Bend_value: TSpinEdit
+          Left = 43
+          Top = 342
+          Width = 35
+          Height = 22
+          Hint = '0 ~ 24'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 24
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 5
+          Value = 0
+          OnChange = Pt7Bend_valueChange
+        end
+        object Pt7Bend: TKnobControl
+          Left = 7
+          Top = 334
+          Width = 30
+          Height = 30
+          Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
+          Max = 24
+          OnChange = Pt7BendChange
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object Pt7AdvPanel: TPanel
+          Left = 1
+          Top = 78
+          Width = 79
+          Height = 238
+          BevelOuter = bvNone
+          DoubleBuffered = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentDoubleBuffered = False
+          ParentFont = False
+          TabOrder = 7
+          VerticalAlignment = taAlignTop
+          object Pt7Bank_label: TLabel
+            Left = 3
+            Top = 94
+            Width = 78
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Bank/Timbre:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt7Key_label: TLabel
+            Left = 5
+            Top = 162
+            Width = 35
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Shift:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Pt7Fine_label: TLabel
+            Left = 41
+            Top = 162
+            Width = 35
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Fine:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Pt7PtlReserve_label: TLabel
+            Left = 5
+            Top = 48
+            Width = 71
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Partial Rsv:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt7Poly_label: TLabel
+            Left = 5
+            Top = 3
+            Width = 71
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Poly Mode:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt7Bank: TComboBox
+            Left = 1
+            Top = 112
+            Width = 79
+            Height = 21
+            Hint = 
+              'Bank Selection'#13#10#13#10'Preset A: The first 64 default timbres'#13#10'Preset' +
+              ' B: The last 64 default timbres'#13#10'Custom: 64 user timbres stored ' +
+              'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
+              'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
+              ' 33 unique sound effects'#13#10'                '
+            Style = csDropDownList
+            DropDownCount = 4
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ItemIndex = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 0
+            Text = 'Preset A'
+            OnChange = Pt7BankChange
+            Items.Strings = (
+              'Preset A'
+              'Preset B'
+              'Custom'
+              'Rhythm')
+          end
+          object Pt7Fine: TKnobControl
+            Left = 44
+            Top = 176
+            Width = 30
+            Height = 30
+            Hint = 'Pitch Fine Tune'
+            Min = -50
+            Max = 50
+            OnChange = Pt7FineChange
+            StartAngle = 135
+            EndAngle = 405
+          end
+          object Pt7Fine_value: TSpinEdit
+            Left = 42
+            Top = 212
+            Width = 38
+            Height = 22
+            Hint = '-50 ~ +50'
+            AutoSize = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            MaxValue = 50
+            MinValue = -50
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 2
+            Value = 0
+            OnChange = Pt7Fine_valueChange
+          end
+          object Pt7Key: TKnobControl
+            Left = 8
+            Top = 176
+            Width = 30
+            Height = 30
+            Hint = 
+              'Key Shift = Transposes the Part up to'#13#10'two octaves higher or low' +
+              'er'
+            Min = -24
+            Max = 24
+            OnChange = Pt7KeyChange
+            StartAngle = 135
+            EndAngle = 405
+          end
+          object Pt7Key_value: TSpinEdit
+            Left = 3
+            Top = 212
+            Width = 38
+            Height = 22
+            Hint = '-24 ~ +24'
+            AutoSize = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            MaxValue = 24
+            MinValue = -24
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 4
+            Value = 0
+            OnChange = Pt7Key_valueChange
+          end
+          object Pt7Timbre: TComboBox
+            Left = 1
+            Top = 134
+            Width = 79
+            Height = 21
+            Hint = 
+              'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
+              ' the'#13#10'four Banks are selected'
+            Style = csDropDownList
+            DropDownCount = 16
+            DropDownWidth = 78
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 5
+            OnChange = Pt7TimbreChange
+          end
+          object Pt7Poly: TComboBox
+            Left = 1
+            Top = 21
+            Width = 79
+            Height = 21
+            Hint = 
+              '1: Single Assign, FIFO (priority given to last note)'#13#10'2: Single ' +
+              'Assign, FILO (priority given to first note)'#13#10'3: Multiple Assign,' +
+              ' FIFO (priority given to last note)'#13#10'4: Multiple Assign, FILO (p' +
+              'riority given to first note)'#13#10#13#10'Single Assign = identical notes ' +
+              'do NOT stack'#13#10'(conserves partials)'#13#10#13#10'Multiple Assign = identica' +
+              'l notes DO stack'#13#10'(uses more partials)'
+            Style = csDropDownList
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ItemIndex = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 6
+            Text = '(S)  FIFO'
+            OnChange = Pt7PolyChange
+            Items.Strings = (
+              '(S)  FIFO'
+              '(S)  FILO'
+              '(M)  FIFO'
+              '(M)  FILO')
+          end
+          object Pt7PtlReserve: TSpinEdit
+            Left = 18
+            Top = 64
+            Width = 48
+            Height = 22
+            Hint = 
+              'Reserves partials for this Part (0 ~ 32)'#13#10#13#10'NOTE: The total sum ' +
+              'of each Part'#39's reserve'#13#10'partial settings cannot exceed 32.'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 2
+            MaxValue = 32
+            MinValue = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 7
+            Value = 0
+            OnChange = Pt7PtlReserveChange
+          end
+        end
+      end
+      object Pt8MixPanel: TPanel
+        Left = 582
+        Top = 24
+        Width = 81
+        Height = 564
+        Margins.Left = 2
+        Margins.Right = 2
+        BevelOuter = bvLowered
+        Caption = 'Part 8'
+        DoubleBuffered = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentDoubleBuffered = False
+        ParentFont = False
+        TabOrder = 7
+        VerticalAlignment = taAlignTop
+        object Pt8Reverb: TSpeedButton
+          Left = 45
+          Top = 23
+          Width = 34
+          Height = 22
+          Hint = 'Reverb Enable'
+          AllowAllUp = True
+          GroupIndex = 2
+          Down = True
+          Caption = 'Rev'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = Pt8ReverbClick
+        end
+        object Pt8Output_label: TLabel
+          Left = 7
+          Top = 421
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Output:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt8Pan_label: TLabel
+          Left = 7
+          Top = 371
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Pan:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt8Chan_label: TLabel
+          Left = 6
+          Top = 54
+          Width = 30
+          Height = 13
+          AutoSize = False
+          Caption = 'Chan:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt8Enable: TSpeedButton
+          Left = 6
+          Top = 23
+          Width = 34
+          Height = 22
+          Hint = 'Part Enable'
+          AllowAllUp = True
+          GroupIndex = 1
+          Down = True
+          Caption = 'On'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = Pt8EnableClick
+        end
+        object Pt8Bend_label: TLabel
+          Left = 7
+          Top = 319
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Bend Range:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Pt8Output: TTrackBar
+          Left = 18
+          Top = 437
+          Width = 48
+          Height = 104
+          Hint = 'Volume output level'
+          Max = 100
+          Orientation = trVertical
+          ParentShowHint = False
+          Frequency = 10
+          Position = 100
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 0
+          ThumbLength = 28
+          TickMarks = tmBoth
+          OnChange = Pt8OutputChange
+        end
+        object Pt8Pan: TKnobControl
+          Left = 7
+          Top = 383
+          Width = 30
+          Height = 30
+          Hint = 'Panning'
+          Min = -7
+          Max = 7
+          OnChange = Pt8PanChange
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object Pt8Pan_value: TSpinEdit
+          Left = 43
+          Top = 391
+          Width = 35
+          Height = 22
+          Hint = '-7 ~ +7'
+          AutoSize = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 7
+          MinValue = -7
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+          Value = 0
+          OnChange = Pt8Pan_valueChange
+        end
+        object Pt8Chan: TSpinEdit
+          Left = 41
+          Top = 51
+          Width = 42
+          Height = 22
+          Hint = 'MIDI channel this Part will respond on (1 ~ 16)'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 16
+          MinValue = 1
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+          Value = 1
+          OnChange = Pt8ChanChange
+        end
+        object Pt8Output_value: TSpinEdit
+          Left = 18
+          Top = 538
+          Width = 48
+          Height = 22
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          MaxValue = 100
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 4
+          Value = 0
+          OnChange = Pt8Output_valueChange
+        end
+        object Pt8Bend_value: TSpinEdit
+          Left = 43
+          Top = 342
+          Width = 35
+          Height = 22
+          Hint = '0 ~ 24'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 24
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 5
+          Value = 0
+          OnChange = Pt8Bend_valueChange
+        end
+        object Pt8Bend: TKnobControl
+          Left = 7
+          Top = 334
+          Width = 30
+          Height = 30
+          Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
+          Max = 24
+          OnChange = Pt8BendChange
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object Pt8AdvPanel: TPanel
+          Left = 1
+          Top = 78
+          Width = 79
+          Height = 238
+          BevelOuter = bvNone
+          DoubleBuffered = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentDoubleBuffered = False
+          ParentFont = False
+          TabOrder = 7
+          VerticalAlignment = taAlignTop
+          object Pt8Bank_label: TLabel
+            Left = 3
+            Top = 94
+            Width = 78
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Bank/Timbre:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt8Key_label: TLabel
+            Left = 5
+            Top = 162
+            Width = 35
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Shift:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Pt8Fine_label: TLabel
+            Left = 41
+            Top = 162
+            Width = 35
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Fine:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Pt8PtlReserve_label: TLabel
+            Left = 5
+            Top = 48
+            Width = 71
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Partial Rsv:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt8Poly_label: TLabel
+            Left = 5
+            Top = 3
+            Width = 71
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Poly Mode:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Pt8Bank: TComboBox
+            Left = 1
+            Top = 112
+            Width = 79
+            Height = 21
+            Hint = 
+              'Bank Selection'#13#10#13#10'Preset A: The first 64 default timbres'#13#10'Preset' +
+              ' B: The last 64 default timbres'#13#10'Custom: 64 user timbres stored ' +
+              'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
+              'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
+              ' 33 unique sound effects'#13#10'                '
+            Style = csDropDownList
+            DropDownCount = 4
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ItemIndex = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 0
+            Text = 'Preset A'
+            OnChange = Pt8BankChange
+            Items.Strings = (
+              'Preset A'
+              'Preset B'
+              'Custom'
+              'Rhythm')
+          end
+          object Pt8Fine: TKnobControl
+            Left = 44
+            Top = 176
+            Width = 30
+            Height = 30
+            Hint = 'Pitch Fine Tune'
+            Min = -50
+            Max = 50
+            OnChange = Pt8FineChange
+            StartAngle = 135
+            EndAngle = 405
+          end
+          object Pt8Fine_value: TSpinEdit
+            Left = 42
+            Top = 212
+            Width = 38
+            Height = 22
+            Hint = '-50 ~ +50'
+            AutoSize = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            MaxValue = 50
+            MinValue = -50
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 2
+            Value = 0
+            OnChange = Pt8Fine_valueChange
+          end
+          object Pt8Key: TKnobControl
+            Left = 8
+            Top = 176
+            Width = 30
+            Height = 30
+            Hint = 
+              'Key Shift = Transposes the Part up to'#13#10'two octaves higher or low' +
+              'er'
+            Min = -24
+            Max = 24
+            OnChange = Pt8KeyChange
+            StartAngle = 135
+            EndAngle = 405
+          end
+          object Pt8Key_value: TSpinEdit
+            Left = 3
+            Top = 212
+            Width = 38
+            Height = 22
+            Hint = '-24 ~ +24'
+            AutoSize = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            MaxValue = 24
+            MinValue = -24
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 4
+            Value = 0
+            OnChange = Pt8Key_valueChange
+          end
+          object Pt8Timbre: TComboBox
+            Left = 1
+            Top = 134
+            Width = 79
+            Height = 21
+            Hint = 
+              'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
+              ' the'#13#10'four Banks are selected'
+            Style = csDropDownList
+            DropDownCount = 16
+            DropDownWidth = 78
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 5
+            OnChange = Pt8TimbreChange
+          end
+          object Pt8Poly: TComboBox
+            Left = 1
+            Top = 21
+            Width = 79
+            Height = 21
+            Hint = 
+              '1: Single Assign, FIFO (priority given to last note)'#13#10'2: Single ' +
+              'Assign, FILO (priority given to first note)'#13#10'3: Multiple Assign,' +
+              ' FIFO (priority given to last note)'#13#10'4: Multiple Assign, FILO (p' +
+              'riority given to first note)'#13#10#13#10'Single Assign = identical notes ' +
+              'do NOT stack'#13#10'(conserves partials)'#13#10#13#10'Multiple Assign = identica' +
+              'l notes DO stack'#13#10'(uses more partials)'
+            Style = csDropDownList
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ItemIndex = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 6
+            Text = '(S)  FIFO'
+            OnChange = Pt8PolyChange
+            Items.Strings = (
+              '(S)  FIFO'
+              '(S)  FILO'
+              '(M)  FIFO'
+              '(M)  FILO')
+          end
+          object Pt8PtlReserve: TSpinEdit
+            Left = 18
+            Top = 64
+            Width = 48
+            Height = 22
+            Hint = 
+              'Reserves partials for this Part (0 ~ 32)'#13#10#13#10'NOTE: The total sum ' +
+              'of each Part'#39's reserve'#13#10'partial settings cannot exceed 32.'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 2
+            MaxValue = 32
+            MinValue = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 7
+            Value = 0
+            OnChange = Pt8PtlReserveChange
+          end
+        end
+      end
+      object PtRMixPanel: TPanel
+        Left = 665
+        Top = 24
+        Width = 81
+        Height = 564
+        Margins.Left = 2
+        Margins.Right = 2
+        BevelOuter = bvLowered
+        Caption = 'Part Rhy'
+        DoubleBuffered = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentDoubleBuffered = False
+        ParentFont = False
+        TabOrder = 8
+        VerticalAlignment = taAlignTop
+        object PtROutput_label: TLabel
+          Left = 7
+          Top = 421
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Output:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object PtRChan_label: TLabel
+          Left = 6
+          Top = 54
+          Width = 30
+          Height = 13
+          AutoSize = False
+          Caption = 'Chan:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object PtREnable: TSpeedButton
+          Left = 6
+          Top = 23
+          Width = 34
+          Height = 22
+          Hint = 'Part Enable'
+          AllowAllUp = True
+          GroupIndex = 1
+          Down = True
+          Caption = 'On'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = PtREnableClick
+        end
+        object PtRBend_label: TLabel
+          Left = 7
+          Top = 319
+          Width = 71
+          Height = 13
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Bend Range:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object PtROutput: TTrackBar
+          Left = 18
+          Top = 437
+          Width = 48
+          Height = 104
+          Hint = 'Volume output level'
+          Max = 100
+          Orientation = trVertical
+          ParentShowHint = False
+          Frequency = 10
+          Position = 100
+          ShowHint = True
+          ShowSelRange = False
+          TabOrder = 0
+          ThumbLength = 28
+          TickMarks = tmBoth
+          OnChange = PtROutputChange
+        end
+        object PtRChan: TSpinEdit
+          Left = 41
+          Top = 51
+          Width = 42
+          Height = 22
+          Hint = 'MIDI channel this Part will respond on (1 ~ 16)'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 16
+          MinValue = 1
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+          Value = 1
+          OnChange = PtRChanChange
+        end
+        object PtROutput_value: TSpinEdit
+          Left = 18
+          Top = 538
+          Width = 48
+          Height = 22
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 3
+          MaxValue = 100
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+          Value = 0
+          OnChange = PtROutput_valueChange
+        end
+        object PtRBend_value: TSpinEdit
+          Left = 43
+          Top = 342
+          Width = 35
+          Height = 22
+          Hint = '0 ~ 24'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 24
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+          Value = 0
+          OnChange = PtRBend_valueChange
+        end
+        object PtRBend: TKnobControl
+          Left = 7
+          Top = 334
+          Width = 30
+          Height = 30
+          Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
+          Max = 24
+          OnChange = PtRBendChange
+          StartAngle = 135
+          EndAngle = 405
+        end
+        object PtRAdvPanel: TPanel
+          Left = 1
+          Top = 78
+          Width = 79
+          Height = 238
+          BevelOuter = bvNone
+          DoubleBuffered = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentDoubleBuffered = False
+          ParentFont = False
+          TabOrder = 5
+          VerticalAlignment = taAlignTop
+          object PtRKey_label: TLabel
+            Left = 5
+            Top = 162
+            Width = 35
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Shift:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object PtRFine_label: TLabel
+            Left = 41
+            Top = 162
+            Width = 35
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Fine:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+          end
+          object PtRPtlReserve_label: TLabel
+            Left = 5
+            Top = 48
+            Width = 71
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Partial Rsv:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object PtRPoly_label: TLabel
+            Left = 5
+            Top = 3
+            Width = 71
+            Height = 13
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Poly Mode:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object PtRFine: TKnobControl
+            Left = 44
+            Top = 176
+            Width = 30
+            Height = 30
+            Hint = 'Pitch Fine Tune'
+            Min = -50
+            Max = 50
+            OnChange = PtRFineChange
+            StartAngle = 135
+            EndAngle = 405
+          end
+          object PtRFine_value: TSpinEdit
+            Left = 42
+            Top = 212
+            Width = 38
+            Height = 22
+            Hint = '-50 ~ +50'
+            AutoSize = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            MaxValue = 50
+            MinValue = -50
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 1
+            Value = 0
+            OnChange = PtRFine_valueChange
+          end
+          object PtRKey: TKnobControl
+            Left = 8
+            Top = 176
+            Width = 30
+            Height = 30
+            Hint = 
+              'Key Shift = Transposes the Part up to'#13#10'two octaves higher or low' +
+              'er'
+            Min = -24
+            Max = 24
+            OnChange = PtRKeyChange
+            StartAngle = 135
+            EndAngle = 405
+          end
+          object PtRKey_value: TSpinEdit
+            Left = 3
+            Top = 212
+            Width = 38
+            Height = 22
+            Hint = '-24 ~ +24'
+            AutoSize = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 3
+            MaxValue = 24
+            MinValue = -24
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 3
+            Value = 0
+            OnChange = PtRKey_valueChange
+          end
+          object PtRPoly: TComboBox
+            Left = 1
+            Top = 21
+            Width = 79
+            Height = 21
+            Hint = 
+              '1: Single Assign, FIFO (priority given to last note)'#13#10'2: Single ' +
+              'Assign, FILO (priority given to first note)'#13#10'3: Multiple Assign,' +
+              ' FIFO (priority given to last note)'#13#10'4: Multiple Assign, FILO (p' +
+              'riority given to first note)'#13#10#13#10'Single Assign = identical notes ' +
+              'do NOT stack'#13#10'(conserves partials)'#13#10#13#10'Multiple Assign = identica' +
+              'l notes DO stack'#13#10'(uses more partials)'
+            Style = csDropDownList
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ItemIndex = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 4
+            Text = '(S)  FIFO'
+            OnChange = PtRPolyChange
+            Items.Strings = (
+              '(S)  FIFO'
+              '(S)  FILO'
+              '(M)  FIFO'
+              '(M)  FILO')
+          end
+          object PtRPtlReserve: TSpinEdit
+            Left = 18
+            Top = 64
+            Width = 48
+            Height = 22
+            Hint = 
+              'Reserves partials for this Part (0 ~ 32)'#13#10#13#10'NOTE: The total sum ' +
+              'of each Part'#39's reserve'#13#10'partial settings cannot exceed 32.'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            MaxLength = 2
+            MaxValue = 32
+            MinValue = 0
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 5
+            Value = 0
+            OnChange = PtRPtlReserveChange
+          end
+        end
+      end
+    end
+    object RhythmSetup: TTabSheet
+      Caption = 'Rhythm Setup'
+      ImageIndex = 3
+      TabVisible = False
+      object Label5: TLabel
+        Left = 0
+        Top = 247
+        Width = 741
+        Height = 13
+        Alignment = taCenter
+        AutoSize = False
+        Caption = 'Not yet implemented'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+    end
+    object SystemArea: TTabSheet
+      Caption = 'System'
+      ImageIndex = 4
+      TabVisible = False
+      object Label6: TLabel
+        Left = 0
+        Top = 247
+        Width = 741
+        Height = 13
+        Alignment = taCenter
+        AutoSize = False
+        Caption = 'Not yet implemented'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+    end
+    object Debug: TTabSheet
+      Caption = 'Debug'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabVisible = False
+      object Label1: TLabel
+        Left = 109
+        Top = 61
+        Width = 38
+        Height = 13
+        Caption = 'Address'
+      end
+      object Label2: TLabel
+        Left = 184
+        Top = 61
+        Width = 20
+        Height = 13
+        Caption = 'Size'
+      end
+      object Label3: TLabel
+        Left = 29
+        Top = 109
+        Width = 73
+        Height = 13
+        Caption = 'Returned Bytes'
+      end
+      object Button1: TButton
+        Left = 16
+        Top = 4
+        Width = 75
+        Height = 25
+        Caption = 'Send Note'
+        TabOrder = 0
+        OnClick = Button1Click
+      end
+      object Button2: TButton
+        Left = 16
+        Top = 35
+        Width = 75
+        Height = 25
+        Caption = 'Send SysEx'
+        TabOrder = 1
+        OnClick = Button2Click
+      end
+      object Button3: TButton
+        Left = 16
+        Top = 78
+        Width = 75
+        Height = 25
+        Caption = 'Read Memory'
+        TabOrder = 2
+        OnClick = Button3Click
+      end
+      object Button4: TButton
+        Left = 322
+        Top = 4
+        Width = 95
+        Height = 25
+        Caption = 'Send SysEx String'
+        TabOrder = 3
+        OnClick = Button4Click
+      end
+      object Edit2: TEdit
+        Left = 423
+        Top = 4
+        Width = 306
+        Height = 97
+        AutoSize = False
+        TabOrder = 4
+      end
+      object Edit3: TEdit
+        Left = 97
+        Top = 80
+        Width = 73
+        Height = 21
+        TabOrder = 5
+        Text = '10000'
+      end
+      object Edit4: TEdit
+        Left = 176
+        Top = 80
+        Width = 90
+        Height = 21
+        TabOrder = 6
+        Text = 'F6'
+      end
+      object Memo1: TMemo
+        Left = 17
+        Top = 128
+        Width = 360
+        Height = 401
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Lucida Console'
+        Font.Style = []
+        Lines.Strings = (
+          '')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 7
+      end
+    end
+  end
+  object SyncAllButton: TBitBtn
+    Left = 756
+    Top = 71
+    Width = 52
+    Height = 34
+    Caption = 'Sync'#13#10'All'
+    TabOrder = 1
+    OnClick = SyncAllButtonClick
+  end
+  object MasterVolume_value: TSpinEdit
+    Left = 758
+    Top = 589
+    Width = 48
+    Height = 22
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    MaxLength = 3
+    MaxValue = 100
+    MinValue = 0
+    ParentFont = False
+    TabOrder = 2
+    Value = 0
+    OnChange = MasterVolume_valueChange
+  end
+  object MasterVolume: TSynthSlider
+    Left = 756
+    Top = 256
+    Width = 49
+    Height = 336
+    Hint = 'Master volume output of the MT-32'
+    TrackColor = 14737632
+    FillColor = 16751121
+    ThumbColor = 14120960
+    TickColor = clSilver
+    Frequency = 5
+    ThumbSize = 17
+    ParentColor = False
+    TabOrder = 3
+    TabStop = True
+    OnChange = MasterVolumeChange
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 500
+    OnTimer = Timer1Timer
+    Left = 24
+  end
+end
