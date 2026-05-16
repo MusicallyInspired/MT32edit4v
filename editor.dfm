@@ -3364,23 +3364,6 @@ object EditorForm: TEditorForm
           TabOrder = 0
           OnClick = WGShapeClick
         end
-        object WGFine: TTrackBar
-          Left = 404
-          Top = 65
-          Width = 108
-          Height = 24
-          Hint = 'Pitch fine tune of current partial'#13#10'(positive or negative)'
-          Max = 50
-          Min = -50
-          ParentShowHint = False
-          PageSize = 1
-          Frequency = 10
-          SelEnd = -1
-          ShowHint = True
-          TabOrder = 4
-          ThumbLength = 15
-          OnChange = WGFineChange
-        end
         object WGKeyFollow: TTrackBar
           Left = 548
           Top = 25
@@ -3394,7 +3377,7 @@ object EditorForm: TEditorForm
           ParentShowHint = False
           SelEnd = -1
           ShowHint = True
-          TabOrder = 6
+          TabOrder = 5
           ThumbLength = 15
           OnChange = WGKeyFollowChange
         end
@@ -3476,7 +3459,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 5
+          TabOrder = 4
           Text = '0'
           OnExit = WGFine_valueExit
           OnKeyPress = WGFine_valueKeyPress
@@ -3494,7 +3477,7 @@ object EditorForm: TEditorForm
           Font.Style = []
           MaxLength = 3
           ParentFont = False
-          TabOrder = 7
+          TabOrder = 6
           Text = '0'
           OnExit = WGKeyFollow_valueExit
           OnKeyPress = WGKeyFollow_valueKeyPress
@@ -3645,7 +3628,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 8
+          TabOrder = 7
           OnClick = WGSampleClick
         end
         object WGPulseWidth: TSynthSlider
@@ -3661,7 +3644,7 @@ object EditorForm: TEditorForm
           TickColor = clSilver
           ThumbSize = 8
           ParentColor = False
-          TabOrder = 9
+          TabOrder = 8
           TabStop = True
           OnChange = WGPulseWidthChange
         end
@@ -3683,7 +3666,7 @@ object EditorForm: TEditorForm
           Frequency = 1
           ThumbSize = 8
           ParentColor = False
-          TabOrder = 10
+          TabOrder = 9
           TabStop = True
           OnChange = WGVelSensChange
         end
@@ -3704,9 +3687,29 @@ object EditorForm: TEditorForm
           Frequency = 12
           ThumbSize = 8
           ParentColor = False
-          TabOrder = 11
+          TabOrder = 10
           TabStop = True
           OnChange = WGCoarseChange
+        end
+        object WGFine: TSynthSlider
+          Left = 404
+          Top = 65
+          Width = 105
+          Height = 22
+          Min = -50
+          Max = 50
+          Orientation = stoHorizontal
+          CenterMark = True
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmBottomRight
+          ThumbSize = 8
+          ParentColor = False
+          TabOrder = 11
+          TabStop = True
+          OnChange = WGFineChange
         end
       end
       object PartialGroup: TGroupBox
@@ -3892,7 +3895,7 @@ object EditorForm: TEditorForm
           ShowHint = True
           OnClick = PtRevButtonClick
         end
-        object WGPitchBend_label: TLabel
+        object PtPitchBend_label: TLabel
           Left = 187
           Top = 9
           Width = 38
@@ -4525,10 +4528,13 @@ object EditorForm: TEditorForm
         end
         object Pt1Output: TSynthSlider
           Left = 18
-          Top = 437
+          Top = 440
           Width = 48
           Height = 104
           Hint = 'Volume output level'
+          Position = 50
+          CenterMark = True
+          CenterValue = 50
           TrackColor = 14737632
           FillColor = 16751121
           ThumbColor = 14120960

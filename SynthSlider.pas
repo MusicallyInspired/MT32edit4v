@@ -379,7 +379,6 @@ var
   TickOuter: Integer;
   RangeStart, RangeEnd: Integer;
   TrackStart, TrackEnd: Integer;
-  ValuePos: Integer;
   CenterPos: Integer;
 
   function ValueToPixel(AValue: Integer): Integer;
@@ -419,16 +418,15 @@ var
 
     if FOrientation = stoHorizontal then
     begin
-      MarkPos := 10 +
-        Round(((FCenterValue - FMin) / (FMax - FMin)) * (Width - 20));
+      MarkPos := CenterPos;
 
       C := Height div 2;
 
       if FTickMarks in [stmTopLeft, stmBoth] then
       begin
-        Pts[0] := Point(MarkPos - MarkSize, C - TickInner - MarkDepth);
-        Pts[1] := Point(MarkPos + MarkSize, C - TickInner - MarkDepth);
-        Pts[2] := Point(MarkPos,            C - TickInner);
+        Pts[0] := Point(MarkPos - MarkSize, C - TickInner - MarkDepth - 2);
+        Pts[1] := Point(MarkPos + MarkSize, C - TickInner - MarkDepth - 2);
+        Pts[2] := Point(MarkPos,            C - TickInner - 2);
         Canvas.Polygon(Pts);
       end;
 
@@ -442,16 +440,15 @@ var
     end
     else
     begin
-      MarkPos := 10 +
-        Round(((FCenterValue - FMin) / (FMax - FMin)) * (Height - 20));
+      MarkPos := CenterPos;
 
       C := Width div 2;
 
       if FTickMarks in [stmTopLeft, stmBoth] then
       begin
-        Pts[0] := Point(C - TickInner - MarkDepth, MarkPos - MarkSize);
-        Pts[1] := Point(C - TickInner - MarkDepth, MarkPos + MarkSize);
-        Pts[2] := Point(C - TickInner,             MarkPos);
+        Pts[0] := Point(C - TickInner - MarkDepth - 2, MarkPos - MarkSize);
+        Pts[1] := Point(C - TickInner - MarkDepth - 2, MarkPos + MarkSize);
+        Pts[2] := Point(C - TickInner - 2,             MarkPos);
         Canvas.Polygon(Pts);
       end;
 
@@ -475,6 +472,7 @@ var
     Pts: array[0..5] of TPoint;
     MidX, MidY: Integer;
     ArrowSize: Integer;
+    L, T, R, B: Integer;
   begin
     if Enabled then
       Canvas.Brush.Color := FThumbColor
@@ -483,8 +481,21 @@ var
 
     Canvas.Pen.Color := clBlack;
 
-    MidX := ThumbRect.Left + (ThumbRect.Width div 2);
-    MidY := ThumbRect.Top + (ThumbRect.Height div 2);
+    if FOrientation = stoHorizontal then
+    begin
+      MidX := P;
+      MidY := ThumbRect.Top + (ThumbRect.Height div 2);
+    end
+    else
+    begin
+      MidX := ThumbRect.Left + (ThumbRect.Width div 2);
+      MidY := P;
+    end;
+
+    L := ThumbRect.Left;
+    T := ThumbRect.Top;
+    R := ThumbRect.Right - 1;
+    B := ThumbRect.Bottom - 1;
 
     if FOrientation = stoHorizontal then
     begin
@@ -494,11 +505,11 @@ var
         stmTopLeft:
           begin
             // point upward
-            Pts[0] := Point(MidX, ThumbRect.Top);
-            Pts[1] := Point(ThumbRect.Right, ThumbRect.Top + ArrowSize);
-            Pts[2] := Point(ThumbRect.Right, ThumbRect.Bottom);
-            Pts[3] := Point(ThumbRect.Left, ThumbRect.Bottom);
-            Pts[4] := Point(ThumbRect.Left, ThumbRect.Top + ArrowSize);
+            Pts[0] := Point(MidX, T);
+            Pts[1] := Point(R, T + ArrowSize);
+            Pts[2] := Point(R, B);
+            Pts[3] := Point(L, B);
+            Pts[4] := Point(L, T + ArrowSize);
             Pts[5] := Pts[0];
             Canvas.Polygon(Pts);
           end;
@@ -506,11 +517,11 @@ var
         stmBottomRight:
           begin
             // point downward
-            Pts[0] := Point(ThumbRect.Left, ThumbRect.Top);
-            Pts[1] := Point(ThumbRect.Right, ThumbRect.Top);
-            Pts[2] := Point(ThumbRect.Right, ThumbRect.Bottom - ArrowSize);
-            Pts[3] := Point(MidX, ThumbRect.Bottom);
-            Pts[4] := Point(ThumbRect.Left, ThumbRect.Bottom - ArrowSize);
+            Pts[0] := Point(L, T);
+            Pts[1] := Point(R, T);
+            Pts[2] := Point(R, B - ArrowSize);
+            Pts[3] := Point(MidX, B);
+            Pts[4] := Point(L, B - ArrowSize);
             Pts[5] := Pts[0];
             Canvas.Polygon(Pts);
           end;
@@ -527,11 +538,11 @@ var
         stmTopLeft:
           begin
             // point left
-            Pts[0] := Point(ThumbRect.Left, MidY);
-            Pts[1] := Point(ThumbRect.Left + ArrowSize, ThumbRect.Top);
-            Pts[2] := Point(ThumbRect.Right, ThumbRect.Top);
-            Pts[3] := Point(ThumbRect.Right, ThumbRect.Bottom);
-            Pts[4] := Point(ThumbRect.Left + ArrowSize, ThumbRect.Bottom);
+            Pts[0] := Point(L, MidY);
+            Pts[1] := Point(L + ArrowSize, T);
+            Pts[2] := Point(R, T);
+            Pts[3] := Point(R, B);
+            Pts[4] := Point(L + ArrowSize, B);
             Pts[5] := Pts[0];
             Canvas.Polygon(Pts);
           end;
@@ -539,11 +550,11 @@ var
         stmBottomRight:
           begin
             // point right
-            Pts[0] := Point(ThumbRect.Left, ThumbRect.Top);
-            Pts[1] := Point(ThumbRect.Right - ArrowSize, ThumbRect.Top);
-            Pts[2] := Point(ThumbRect.Right, MidY);
-            Pts[3] := Point(ThumbRect.Right - ArrowSize, ThumbRect.Bottom);
-            Pts[4] := Point(ThumbRect.Left, ThumbRect.Bottom);
+            Pts[0] := Point(L, T);
+            Pts[1] := Point(R - ArrowSize, T);
+            Pts[2] := Point(R, MidY);
+            Pts[3] := Point(R - ArrowSize, B);
+            Pts[4] := Point(L, B);
             Pts[5] := Pts[0];
             Canvas.Polygon(Pts);
           end;
@@ -569,8 +580,8 @@ var
 
       if FTickMarks in [stmTopLeft, stmBoth] then
       begin
-        Canvas.MoveTo(TickPos, Height div 2 - TickOuter);
-        Canvas.LineTo(TickPos, Height div 2 - TickInner);
+        Canvas.MoveTo(TickPos, Height div 2 - TickOuter - 2);
+        Canvas.LineTo(TickPos, Height div 2 - TickInner - 2);
       end;
 
       if FTickMarks in [stmBottomRight, stmBoth] then
@@ -608,14 +619,18 @@ begin
 
   TrackHalf := 3;
   ThumbLength := Round(FThumbSize * 1.95);
+
   ThumbTravelSize := Round(FThumbSize * 1.02);
+  if not Odd(ThumbTravelSize) then
+    Inc(ThumbTravelSize);
+
   ThumbHalf := ThumbTravelSize div 2;
   TickLen := 3;
 
   TickInner := FThumbSize;
   TickOuter := TickInner + TickLen;
 
-  if FOrientation = stoHorizontal then  // Horizontal Slider
+  if FOrientation = stoHorizontal then // Horizontal Slider
   begin
     TrackStart := 10;
     TrackEnd := Width - 10;
@@ -623,8 +638,6 @@ begin
     RangeEnd := TrackEnd - ThumbHalf;
 
     P := PosToPixelLocal;
-
-    ValuePos := ValueToPixel(FPosition);
 
     if FCenterMark then
       CenterPos := ValueToPixel(FCenterValue)
@@ -638,28 +651,26 @@ begin
       Height div 2 + TrackHalf
     );
 
-    ValuePos := ValueToPixel(FPosition);
-
     if FCenterMark then
       CenterPos := ValueToPixel(FCenterValue)
     else
       CenterPos := ValueToPixel(FMin);
 
     FillRect := Rect(
-      System.Math.Min(ValuePos, CenterPos),
+      System.Math.Min(P, CenterPos),
       Height div 2 - TrackHalf,
-      System.Math.Max(ValuePos, CenterPos),
+      System.Math.Max(P, CenterPos),
       Height div 2 + TrackHalf
     );
 
     ThumbRect := Rect(
-      P - (ThumbTravelSize div 2),
+      P - ThumbHalf,
       Height div 2 - (ThumbLength div 2),
-      P + (ThumbTravelSize div 2),
+      P + ThumbHalf + 1,
       Height div 2 + (ThumbLength div 2)
     );
   end
-  else                                  // Vertical Slider
+  else // Vertical Slider
   begin
     TrackStart := 10;
     TrackEnd := Height - 10;
@@ -667,8 +678,6 @@ begin
     RangeEnd := TrackEnd - ThumbHalf;
 
     P := PosToPixelLocal;
-
-    ValuePos := ValueToPixel(FPosition);
 
     if FCenterMark then
       CenterPos := ValueToPixel(FCenterValue)
@@ -682,8 +691,6 @@ begin
       TrackEnd
     );
 
-    ValuePos := ValueToPixel(FPosition);
-
     if FCenterMark then
       CenterPos := ValueToPixel(FCenterValue)
     else
@@ -691,23 +698,23 @@ begin
 
     FillRect := Rect(
       Width div 2 - TrackHalf,
-      System.Math.Min(ValuePos, CenterPos),
+      System.Math.Min(P, CenterPos),
       Width div 2 + TrackHalf,
-      System.Math.Max(ValuePos, CenterPos)
+      System.Math.Max(P, CenterPos)
     );
 
     ThumbRect := Rect(
       Width div 2 - (ThumbLength div 2),
-      P - (ThumbTravelSize div 2),
+      P - ThumbHalf,
       Width div 2 + (ThumbLength div 2),
-      P + (ThumbTravelSize div 2)
+      P + ThumbHalf + 1
     );
   end;
 
   Canvas.Brush.Color := FTrackColor;
   Canvas.FillRect(TrackRect);
 
-  if ValuePos <> CenterPos then
+  if P <> CenterPos then
   begin
     Canvas.Brush.Color := FFillColor;
     Canvas.FillRect(FillRect);

@@ -481,7 +481,6 @@ type
     WGKeyFollowType: TLabel;
     WGCoarseType: TLabel;
     WGShape: TRadioGroup;
-    WGFine: TTrackBar;
     WGKeyFollow: TTrackBar;
     WGPulseWidth_value: TEdit;
     WGVelSens_value: TEdit;
@@ -501,7 +500,7 @@ type
     CurPart_label: TLabel;
     PartMidiChan_label: TLabel;
     PtRevButton: TSpeedButton;
-    WGPitchBend_label: TLabel;
+    PtPitchBend_label: TLabel;
     CurPart: TComboBox;
     PartMidiChan: TComboBox;
     SelPartial1Button: TSpeedButton;
@@ -765,6 +764,7 @@ type
     WGPulseWidth: TSynthSlider;
     WGVelSens: TSynthSlider;
     WGCoarse: TSynthSlider;
+    WGFine: TSynthSlider;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Button1Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -816,7 +816,6 @@ type
     procedure SelPartial3ButtonClick(Sender: TObject);
     procedure SelPartial4ButtonClick(Sender: TObject);
     procedure WGPitchBendClick(Sender: TObject);
-    procedure WGFineChange(Sender: TObject);
     procedure SyncTimbreButtonClick(Sender: TObject);
     procedure WGFine_valueKeyPress(Sender: TObject; var Key: Char);
     procedure WGVelSens_valueKeyPress(Sender: TObject; var Key: Char);
@@ -1152,6 +1151,7 @@ type
     procedure WGVelSensChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure WGCoarseChange(Sender: TObject);
+    procedure WGFineChange(Sender: TObject);
   private
     { Private declarations }
     SysExAddress: TSysExAddr;
@@ -2420,6 +2420,8 @@ begin
     WGVelSens.ThumbColor := clSliderThumb;
     WGCoarse.FillColor := clSliderFill;
     WGCoarse.ThumbColor := clSliderThumb;
+    WGFine.FillColor := clSliderFill;
+    WGFine.ThumbColor := clSliderThumb;
     //WGKeyFollow.FillColor := clSliderFill;
     //WGKeyFollow.ThumbColor := clSliderThumb;
     PitchEnvGroup.Font.Color :=clSynthText;
