@@ -31,5 +31,14 @@ Currently, as you can see, MT32edit4v utilizes the standard Windows GUI control 
 - Implement a way to change each synth's Unit ID # (not possible via SysEx). This is not a high priority as it is only pertinent to replicating EVERY feature of the MT-32 so that it can function as a real one would in certain hardware synth setups. SysEx messages can target individual MT-32's via a unique unit ID # that is only possible to set via the front panel controls. MUNT currently offers no way to do this. This is admittedly a very niche use case and there's no reason to do this in modern setups, and certainly not for gaming.
 - Implement a way to replicate the MT-32's partial overflow mode. Another function only accessible via the front panel controls. This isn't necessary at all as MuntVSTi not only comes with 2 synths accessible out of the box (doubling the available polyphony of a hardware MT-32), but also custom controls to increase the MT-32's partial polyphony above the "hardwired" 32 limit for *both* emulated synths. So you can very well have the equivalent of an MT-128 without even needing this feature.
 
+# Building
+You need Delphi XE+ to build the project (Delphi XE8 and the newest Community edition were tested). The free community edition of Delphi can be downloaded from here:
+
+https://www.embarcadero.com/products/delphi/starter/free-download
+
+First you should install the required design time components with the help of Mt32Edit4v_Components.dpk. Then you should open the project file (MT32edit4v.dproj) and build the project.
+Depending on the Delphi version some warnings related to unknown properties can be shown by the IDE when the editor form is opened. 
+Usually these warnings can be safely ignored. 
+
 # Special Thanks
 Very special thanks and high praise to [Falcosoft](https://github.com/falcosoft) for his collaboration in making this editor happen. From adding the connectivity for MT32edit4v to MuntVSTi and for his many tips, guidances, patches, and words of wisdom as MT32edit4v continues development!
