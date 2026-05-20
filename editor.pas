@@ -2855,7 +2855,7 @@ begin
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
     (0 * $10) +
-    $09
+    $08
   );
   SetLength(SysExData,1);
   SysExData[0] := Synth[CurSyn].Patch[0].Output;
@@ -2874,7 +2874,7 @@ begin
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
     (0 * $10) +
-    $09
+    $08
   );
   SetLength(SysExData,1);
   SysExData[0] := Synth[CurSyn].Patch[0].Output;
@@ -3210,7 +3210,7 @@ begin
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
     (1 * $10) +
-    $09
+    $08
   );
   SetLength(SysExData,1);
   SysExData[0] := Synth[CurSyn].Patch[1].Output;
@@ -3229,7 +3229,7 @@ begin
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
     (1 * $10) +
-    $09
+    $08
   );
   SetLength(SysExData,1);
   SysExData[0] := Synth[CurSyn].Patch[1].Output;
@@ -3566,7 +3566,7 @@ begin
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
     (2 * $10) +
-    $09
+    $08
   );
   SetLength(SysExData,1);
   SysExData[0] := Synth[CurSyn].Patch[2].Output;
@@ -3585,7 +3585,7 @@ begin
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
     (2 * $10) +
-    $09
+    $08
   );
   SetLength(SysExData,1);
   SysExData[0] := Synth[CurSyn].Patch[2].Output;
@@ -3922,7 +3922,7 @@ begin
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
     (3 * $10) +
-    $09
+    $08
   );
   SetLength(SysExData,1);
   SysExData[0] := Synth[CurSyn].Patch[3].Output;
@@ -3941,7 +3941,7 @@ begin
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
     (3 * $10) +
-    $09
+    $08
   );
   SetLength(SysExData,1);
   SysExData[0] := Synth[CurSyn].Patch[3].Output;
@@ -4278,7 +4278,7 @@ begin
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
     (4 * $10) +
-    $09
+    $08
   );
   SetLength(SysExData,1);
   SysExData[0] := Synth[CurSyn].Patch[4].Output;
@@ -4297,7 +4297,7 @@ begin
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
     (4 * $10) +
-    $09
+    $08
   );
   SetLength(SysExData,1);
   SysExData[0] := Synth[CurSyn].Patch[4].Output;
@@ -4634,7 +4634,7 @@ begin
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
     (5 * $10) +
-    $09
+    $08
   );
   SetLength(SysExData,1);
   SysExData[0] := Synth[CurSyn].Patch[5].Output;
@@ -4653,7 +4653,7 @@ begin
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
     (5 * $10) +
-    $09
+    $08
   );
   SetLength(SysExData,1);
   SysExData[0] := Synth[CurSyn].Patch[5].Output;
@@ -4990,7 +4990,7 @@ begin
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
     (6 * $10) +
-    $09
+    $08
   );
   SetLength(SysExData,1);
   SysExData[0] := Synth[CurSyn].Patch[6].Output;
@@ -5009,7 +5009,7 @@ begin
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
     (6 * $10) +
-    $09
+    $08
   );
   SetLength(SysExData,1);
   SysExData[0] := Synth[CurSyn].Patch[6].Output;
@@ -5346,7 +5346,7 @@ begin
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
     (7 * $10) +
-    $09
+    $08
   );
   SetLength(SysExData,1);
   SysExData[0] := Synth[CurSyn].Patch[7].Output;
@@ -5365,7 +5365,7 @@ begin
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
     (7 * $10) +
-    $09
+    $08
   );
   SetLength(SysExData,1);
   SysExData[0] := Synth[CurSyn].Patch[7].Output;
@@ -5669,7 +5669,7 @@ begin
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
     (8 * $10) +
-    $09
+    $08
   );
   SetLength(SysExData,1);
   SysExData[0] := Synth[CurSyn].Patch[8].Output;
@@ -5688,7 +5688,7 @@ begin
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
     (8 * $10) +
-    $09
+    $08
   );
   SetLength(SysExData,1);
   SysExData[0] := Synth[CurSyn].Patch[8].Output;
@@ -9295,15 +9295,15 @@ procedure TEditorForm.MasterVolume_valueChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  if StrToInt(MasterVolume_value.Text) = Synth[CurSyn].System.MasterVolume then Exit;
-  if StrToInt(MasterVolume_value.Text) < MasterVolume.Min then
-    MasterVolume_value.Text := IntToStr(MasterVolume.Min);
-  if StrToInt(MasterVolume_value.Text) > MasterVolume.Max then
-    MasterVolume_value.Text := IntToStr(MasterVolume.Max);
+  if MasterVolume_value.Value = Synth[CurSyn].System.MasterVolume then Exit;
+  if MasterVolume_value.Value < MasterVolume.Min then
+    MasterVolume_value.Value := MasterVolume.Min;
+  if MasterVolume_value.Value > MasterVolume.Max then
+    MasterVolume_value.Value := MasterVolume.Max;
 
-  Synth[CurSyn].System.MasterVolume := StrToInt(MasterVolume_value.Text);
+  Synth[CurSyn].System.MasterVolume := MasterVolume_value.Value;
   UpdatingControls := True;
-  MasterVolume.Position := StrToInt(MasterVolume_value.Text);
+  MasterVolume.Position := MasterVolume_value.Value;
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(

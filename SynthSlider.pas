@@ -116,7 +116,7 @@ implementation
 
 procedure Register;
 begin
-  RegisterComponents('Custom', [TSynthSlider]);
+  RegisterComponents('MT32edit4v', [TSynthSlider]);
 end;
 
 constructor TSynthSlider.Create(AOwner: TComponent);
