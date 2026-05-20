@@ -92,8 +92,8 @@ type
     property ThumbColor: TColor read FThumbColor write SetThumbColor;
     property TickColor: TColor read FTickColor write SetTickColor;
 
-    property TickMarks: TSynthTickMarks read FTickMarks write SetTickMarks default stmBoth;
-    property Frequency: Integer read FFrequency write SetFrequency default 10;
+    property TickMarks: TSynthTickMarks read FTickMarks write SetTickMarks default stmNone;
+    property Frequency: Integer read FFrequency write SetFrequency default 1;
     property ThumbSize: Integer read FThumbSize write SetThumbSize default 12;
     property ThumbBorder: Boolean read FThumbBorder write SetThumbBorder default False;
 
@@ -116,15 +116,15 @@ implementation
 
 procedure Register;
 begin
-  RegisterComponents('MT32edit4v', [TSynthSlider]);
+  RegisterComponents('Custom', [TSynthSlider]);
 end;
 
 constructor TSynthSlider.Create(AOwner: TComponent);
 begin
   inherited;
 
-  Width := 32;
-  Height := 150;
+  Width := 23;
+  Height := 105;
 
   FMin := 0;
   FMax := 100;
@@ -137,9 +137,9 @@ begin
   FFillColor := $00FF9A11;
   FThumbColor := $00D77800;
   FTickColor := clSilver;
-  FTickMarks := stmBoth;
-  FFrequency := 10;
-  FThumbSize := 24;
+  FTickMarks := stmNone;
+  FFrequency := 1;
+  FThumbSize := 12;
   FThumbBorder := False;
 
   Enabled := True;
@@ -716,8 +716,11 @@ begin
 
   if P <> CenterPos then
   begin
-    Canvas.Brush.Color := FFillColor;
-    Canvas.FillRect(FillRect);
+    if Enabled = True then
+    begin
+      Canvas.Brush.Color := FFillColor;
+      Canvas.FillRect(FillRect);
+    end;
   end;
 
   if FFrequency > 0 then

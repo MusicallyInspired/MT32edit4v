@@ -4,13 +4,13 @@ object EditorForm: TEditorForm
   BorderIcons = [biSystemMenu]
   BorderStyle = bsDialog
   Caption = 'MuntVSTi Editor'
-  ClientHeight = 618
-  ClientWidth = 811
+  ClientHeight = 616
+  ClientWidth = 809
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
-  Font.Name = 'MS Sans Serif'
+  Font.Name = 'Tahoma'
   Font.Style = []
   Position = poScreenCenter
   Visible = True
@@ -20,7 +20,7 @@ object EditorForm: TEditorForm
   TextHeight = 13
   object MasterVolume_label: TLabel
     Left = 760
-    Top = 231
+    Top = 228
     Width = 42
     Height = 26
     Alignment = taCenter
@@ -29,7 +29,7 @@ object EditorForm: TEditorForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = 12014080
     Font.Height = -11
-    Font.Name = 'MS Sans Serif'
+    Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
@@ -45,7 +45,7 @@ object EditorForm: TEditorForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = 12014080
     Font.Height = -11
-    Font.Name = 'MS Sans Serif'
+    Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
     OnClick = Synth1ToggleClick
@@ -60,7 +60,7 @@ object EditorForm: TEditorForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clGreen
     Font.Height = -11
-    Font.Name = 'MS Sans Serif'
+    Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
     OnClick = Synth2ToggleClick
@@ -69,12 +69,12 @@ object EditorForm: TEditorForm
     Left = 0
     Top = 3
     Width = 756
-    Height = 617
+    Height = 619
     ActivePage = TimbreTempArea
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'MS Sans Serif'
+    Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     MultiLine = True
     ParentFont = False
@@ -85,14 +85,14 @@ object EditorForm: TEditorForm
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
-      Font.Name = 'MS Sans Serif'
+      Font.Name = 'Tahoma'
       Font.Style = []
       ImageIndex = 1
       ParentFont = False
       object TimbreName_label: TLabel
         Left = 249
         Top = 16
-        Width = 63
+        Width = 62
         Height = 13
         Caption = 'Timbre Name'
       end
@@ -122,7 +122,7 @@ object EditorForm: TEditorForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
         ParentShowHint = False
@@ -140,7 +140,7 @@ object EditorForm: TEditorForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
         ParentShowHint = False
@@ -158,7 +158,7 @@ object EditorForm: TEditorForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
         ParentShowHint = False
@@ -176,7 +176,7 @@ object EditorForm: TEditorForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
         ParentShowHint = False
@@ -186,13 +186,13 @@ object EditorForm: TEditorForm
       object Partials_label: TLabel
         Left = 380
         Top = 15
-        Width = 14
-        Height = 36
+        Width = 15
+        Height = 37
         Caption = 'Partials'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Orientation = 900
         Font.Style = []
         ParentFont = False
@@ -200,20 +200,20 @@ object EditorForm: TEditorForm
       object PartialSelect_label: TLabel
         Left = 5
         Top = 88
-        Width = 14
-        Height = 63
+        Width = 15
+        Height = 65
         Caption = 'Partial Select'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Orientation = 900
         Font.Style = []
         ParentFont = False
       end
       object PitchEnvGroup: TGroupBox
         Left = 5
-        Top = 169
+        Top = 167
         Width = 237
         Height = 419
         Caption = 'Pitch Envelope'
@@ -222,7 +222,7 @@ object EditorForm: TEditorForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = []
         ParentColor = False
         ParentDoubleBuffered = False
@@ -231,14 +231,14 @@ object EditorForm: TEditorForm
         object PEnvLevel0_label: TLabel
           Left = 3
           Top = 17
-          Width = 23
+          Width = 22
           Height = 13
           Caption = 'Lvl 0'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -246,14 +246,14 @@ object EditorForm: TEditorForm
         object PEnvLevel1_label: TLabel
           Left = 35
           Top = 17
-          Width = 23
+          Width = 22
           Height = 13
           Caption = 'Lvl 1'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -261,14 +261,14 @@ object EditorForm: TEditorForm
         object PEnvLevel2_label: TLabel
           Left = 67
           Top = 17
-          Width = 23
+          Width = 22
           Height = 13
           Caption = 'Lvl 2'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -283,7 +283,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -291,14 +291,14 @@ object EditorForm: TEditorForm
         object PEnvEnd_label: TLabel
           Left = 133
           Top = 17
-          Width = 19
+          Width = 18
           Height = 13
           Caption = 'End'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -320,7 +320,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -328,14 +328,14 @@ object EditorForm: TEditorForm
         object PEnvVelSens_label: TLabel
           Left = 13
           Top = 371
-          Width = 87
+          Width = 89
           Height = 13
           Caption = 'Velocity Sensitivity'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -343,14 +343,14 @@ object EditorForm: TEditorForm
         object PEnvTimeKeyFollow_label: TLabel
           Left = 13
           Top = 329
-          Width = 77
+          Width = 76
           Height = 13
           Caption = 'Time Key Follow'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -358,14 +358,14 @@ object EditorForm: TEditorForm
         object PEnvTime1_label: TLabel
           Left = 17
           Top = 197
-          Width = 32
+          Width = 31
           Height = 13
           Caption = 'Time 1'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -373,14 +373,14 @@ object EditorForm: TEditorForm
         object PEnvTime2_label: TLabel
           Left = 71
           Top = 197
-          Width = 32
+          Width = 31
           Height = 13
           Caption = 'Time 2'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -388,14 +388,14 @@ object EditorForm: TEditorForm
         object PEnvTime3_label: TLabel
           Left = 125
           Top = 197
-          Width = 32
+          Width = 31
           Height = 13
           Caption = 'Time 3'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -403,114 +403,17 @@ object EditorForm: TEditorForm
         object PEnvTime4_label: TLabel
           Left = 179
           Top = 197
-          Width = 32
+          Width = 31
           Height = 13
           Caption = 'Time 4'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
-        end
-        object PEnvLevel0: TTrackBar
-          Left = 3
-          Top = 31
-          Width = 26
-          Height = 70
-          Hint = 
-            'Starting/Attack level of pitch envelope'#13#10#13#10'0 = no change in pitc' +
-            'h'#13#10'< 0 = pitch down'#13#10'> 0 = pitch up'
-          Max = 50
-          Min = -50
-          Orientation = trVertical
-          ParentShowHint = False
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 0
-          TickMarks = tmBoth
-          TickStyle = tsNone
-          OnChange = PEnvLevel0Change
-        end
-        object PEnvLevel1: TTrackBar
-          Left = 35
-          Top = 31
-          Width = 26
-          Height = 70
-          Hint = 
-            'Second level (Decay 1) of pitch envelope'#13#10#13#10'0 = no change in pit' +
-            'ch'#13#10'< 0 = pitch down'#13#10'> 0 = pitch up'
-          Max = 50
-          Min = -50
-          Orientation = trVertical
-          ParentShowHint = False
-          Position = -2
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 1
-          TickMarks = tmBoth
-          TickStyle = tsNone
-          OnChange = PEnvLevel1Change
-          OnKeyPress = PEnvLevel1_valueKeyPress
-        end
-        object PEnvLevel2: TTrackBar
-          Left = 67
-          Top = 31
-          Width = 26
-          Height = 70
-          Hint = 
-            'Third level (Decay 2) of pitch envelope'#13#10#13#10'0 = no change in pitc' +
-            'h'#13#10'< 0 = pitch down'#13#10'> 0 = pitch up'
-          Max = 50
-          Min = -50
-          Orientation = trVertical
-          ParentShowHint = False
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 2
-          TickMarks = tmBoth
-          TickStyle = tsNone
-          OnChange = PEnvLevel2Change
-        end
-        object PEnvSustain: TTrackBar
-          Left = 99
-          Top = 31
-          Width = 26
-          Height = 70
-          Hint = 
-            'Fourth level (Sustain) of pitch envelope'#13#10#13#10'0 = no change in pit' +
-            'ch'#13#10'< 0 = pitch down'#13#10'> 0 = pitch up'
-          Max = 50
-          Min = -50
-          Orientation = trVertical
-          ParentShowHint = False
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 3
-          TickMarks = tmBoth
-          TickStyle = tsNone
-          OnChange = PEnvSustainChange
-        end
-        object PEnvEnd: TTrackBar
-          Left = 131
-          Top = 31
-          Width = 26
-          Height = 70
-          Hint = 
-            'End level (Release) of pitch envelope'#13#10#13#10'0 = no change in pitch'#13 +
-            #10'< 0 = pitch down'#13#10'> 0 = pitch up'
-          Max = 50
-          Min = -50
-          Orientation = trVertical
-          ParentShowHint = False
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 4
-          TickMarks = tmBoth
-          TickStyle = tsNone
-          OnChange = PEnvEndChange
         end
         object PEnvLevel1_value: TEdit
           Left = 35
@@ -521,13 +424,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 6
+          TabOrder = 1
           Text = '0'
           OnExit = PEnvLevel1_valueExit
           OnKeyPress = PEnvLevel1_valueKeyPress
@@ -541,13 +444,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 7
+          TabOrder = 2
           Text = '0'
           OnExit = PEnvLevel2_valueExit
           OnKeyPress = PEnvLevel2_valueKeyPress
@@ -561,13 +464,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 8
+          TabOrder = 3
           Text = '0'
           OnExit = PEnvSustain_valueExit
           OnKeyPress = PEnvSustain_valueKeyPress
@@ -581,13 +484,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 9
+          TabOrder = 4
           Text = '0'
           OnExit = PEnvEnd_valueExit
           OnKeyPress = PEnvEnd_valueKeyPress
@@ -601,14 +504,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 10
+          TabOrder = 5
           Text = '0'
           OnExit = PEnvTime1_valueExit
           OnKeyPress = PEnvTime1_valueKeyPress
@@ -622,14 +525,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 11
+          TabOrder = 6
           Text = '0'
           OnKeyPress = PEnvTime2_valueKeyPress
         end
@@ -642,14 +545,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 12
+          TabOrder = 7
           Text = '0'
           OnKeyPress = PEnvTime3_valueKeyPress
         end
@@ -662,29 +565,16 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 13
+          TabOrder = 8
           Text = '0'
           OnKeyPress = PEnvTime4_valueKeyPress
-        end
-        object PEnvDepth: TTrackBar
-          Left = 3
-          Top = 297
-          Width = 194
-          Height = 34
-          Hint = 'Depth of Pitch Envelope levels'
-          ParentShowHint = False
-          ShowHint = True
-          TabOrder = 15
-          ThumbLength = 15
-          TickMarks = tmTopLeft
-          OnChange = PEnvDepthChange
         end
         object PEnvDepth_value: TEdit
           Left = 203
@@ -695,14 +585,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 16
+          TabOrder = 10
           Text = '0'
           OnExit = PEnvDepth_valueExit
           OnKeyPress = PEnvDepth_valueKeyPress
@@ -716,13 +606,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 5
+          TabOrder = 0
           Text = '0'
           OnExit = PEnvLevel0_valueExit
           OnKeyPress = PEnvLevel0_valueKeyPress
@@ -736,49 +626,17 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 20
+          TabOrder = 12
           Text = '0'
           OnExit = PEnvVelSens_valueExit
           OnKeyPress = PEnvVelSens_valueKeyPress
-        end
-        object PEnvVelSens: TTrackBar
-          Left = 3
-          Top = 386
-          Width = 194
-          Height = 21
-          Hint = 
-            'Note velocity sensitivity of the Pitch Envelope depth'#13#10'(louder n' +
-            'otes = deeper envelope levels)'
-          Max = 100
-          ParentShowHint = False
-          ShowHint = True
-          TabOrder = 19
-          ThumbLength = 15
-          TickMarks = tmBoth
-          TickStyle = tsNone
-          OnChange = PEnvVelSensChange
-        end
-        object PEnvTimeKeyFollow: TTrackBar
-          Left = 3
-          Top = 344
-          Width = 194
-          Height = 29
-          Hint = 
-            'The scale to which the Pitch Envelope rate follows the keyboard ' +
-            'notes'#13#10'(higher notes = faster envelope rate)'
-          Max = 4
-          ParentShowHint = False
-          ShowHint = True
-          TabOrder = 17
-          ThumbLength = 15
-          OnChange = PEnvTimeKeyFollowChange
         end
         object PEnvTimeKeyFollow_value: TEdit
           Left = 203
@@ -789,14 +647,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 1
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 18
+          TabOrder = 11
           Text = '0'
           OnExit = PEnvTimeKeyFollow_valueExit
           OnKeyPress = PEnvTimeKeyFollow_valueKeyPress
@@ -855,12 +713,12 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 12014080
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentBackground = False
           ParentColor = False
           ParentFont = False
-          TabOrder = 14
+          TabOrder = 9
           object PEnvLFODepth_label: TLabel
             Left = 10
             Top = 67
@@ -870,20 +728,20 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
           object PEnvLFOModSens_label: TLabel
             Left = 10
             Top = 123
-            Width = 48
+            Width = 46
             Height = 13
             Caption = 'Mod Sens'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
@@ -896,7 +754,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
@@ -920,7 +778,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             NumbersOnly = True
@@ -952,7 +810,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             NumbersOnly = True
@@ -984,7 +842,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             NumbersOnly = True
@@ -997,10 +855,156 @@ object EditorForm: TEditorForm
             OnKeyPress = PEnvLFORate_valueKeyPress
           end
         end
+        object PEnvLevel0: TSynthSlider
+          Left = 4
+          Top = 31
+          Width = 23
+          Height = 70
+          Min = -50
+          Max = 50
+          CenterMark = True
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          Frequency = 10
+          ThumbSize = 10
+          ParentColor = False
+          TabOrder = 17
+          TabStop = True
+          OnChange = PEnvLevel1Change
+        end
+        object PEnvLevel1: TSynthSlider
+          Left = 36
+          Top = 31
+          Width = 23
+          Height = 70
+          Min = -50
+          Max = 50
+          CenterMark = True
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          Frequency = 10
+          ThumbSize = 10
+          ParentColor = False
+          TabOrder = 18
+          TabStop = True
+          OnChange = PEnvLevel1Change
+        end
+        object PEnvLevel2: TSynthSlider
+          Left = 68
+          Top = 31
+          Width = 23
+          Height = 70
+          Min = -50
+          Max = 50
+          CenterMark = True
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          Frequency = 10
+          ThumbSize = 10
+          ParentColor = False
+          TabOrder = 19
+          TabStop = True
+          OnChange = PEnvLevel2Change
+        end
+        object PEnvSustain: TSynthSlider
+          Left = 100
+          Top = 31
+          Width = 23
+          Height = 70
+          Min = -50
+          Max = 50
+          CenterMark = True
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          ThumbSize = 10
+          ParentColor = False
+          TabOrder = 20
+          TabStop = True
+          OnChange = PEnvSustainChange
+        end
+        object PEnvEnd: TSynthSlider
+          Left = 132
+          Top = 31
+          Width = 23
+          Height = 70
+          Min = -50
+          Max = 50
+          CenterMark = True
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          ThumbSize = 10
+          ParentColor = False
+          TabOrder = 21
+          TabStop = True
+          OnChange = PEnvEndChange
+        end
+        object PEnvDepth: TSynthSlider
+          Left = 1
+          Top = 302
+          Width = 194
+          Height = 26
+          Max = 10
+          Orientation = stoHorizontal
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmTopLeft
+          ThumbSize = 7
+          ParentColor = False
+          TabOrder = 22
+          TabStop = True
+          OnChange = PEnvDepthChange
+        end
+        object PEnvTimeKeyFollow: TSynthSlider
+          Left = 1
+          Top = 342
+          Width = 194
+          Height = 22
+          Max = 4
+          Orientation = stoHorizontal
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmBottomRight
+          ThumbSize = 7
+          ParentColor = False
+          TabOrder = 23
+          TabStop = True
+          OnChange = PEnvTimeKeyFollowChange
+        end
+        object PEnvVelSens: TSynthSlider
+          Left = 1
+          Top = 384
+          Width = 194
+          Height = 23
+          Orientation = stoHorizontal
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          Frequency = 10
+          ThumbSize = 7
+          ParentColor = False
+          TabOrder = 24
+          TabStop = True
+          OnChange = PEnvVelSensChange
+        end
       end
       object TVFGroup: TGroupBox
         Left = 251
-        Top = 169
+        Top = 167
         Width = 242
         Height = 419
         Caption = 'Time Variant Filter'
@@ -1008,7 +1012,7 @@ object EditorForm: TEditorForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = []
         ParentDoubleBuffered = False
         ParentFont = False
@@ -1016,14 +1020,14 @@ object EditorForm: TEditorForm
         object TVFLevel0_label: TLabel
           Left = 5
           Top = 17
-          Width = 23
+          Width = 22
           Height = 13
           Caption = 'Lvl 1'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -1031,14 +1035,14 @@ object EditorForm: TEditorForm
         object TVFLevel2_label: TLabel
           Left = 37
           Top = 17
-          Width = 23
+          Width = 22
           Height = 13
           Caption = 'Lvl 2'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -1046,14 +1050,14 @@ object EditorForm: TEditorForm
         object TVFLevel3_label: TLabel
           Left = 69
           Top = 17
-          Width = 23
+          Width = 22
           Height = 13
           Caption = 'Lvl 3'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -1068,7 +1072,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -1076,14 +1080,14 @@ object EditorForm: TEditorForm
         object TVFKeyFollow_label: TLabel
           Left = 138
           Top = 17
-          Width = 13
+          Width = 12
           Height = 13
           Caption = 'KF'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -1098,14 +1102,14 @@ object EditorForm: TEditorForm
         object TVFTime1_label: TLabel
           Left = 14
           Top = 190
-          Width = 32
+          Width = 31
           Height = 13
           Caption = 'Time 1'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -1113,14 +1117,14 @@ object EditorForm: TEditorForm
         object TVFTime2_label: TLabel
           Left = 58
           Top = 190
-          Width = 32
+          Width = 31
           Height = 13
           Caption = 'Time 2'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -1128,14 +1132,14 @@ object EditorForm: TEditorForm
         object TVFTime3_label: TLabel
           Left = 102
           Top = 190
-          Width = 32
+          Width = 31
           Height = 13
           Caption = 'Time 3'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -1143,14 +1147,14 @@ object EditorForm: TEditorForm
         object TVFTime4_label: TLabel
           Left = 146
           Top = 190
-          Width = 32
+          Width = 31
           Height = 13
           Caption = 'Time 4'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -1158,14 +1162,14 @@ object EditorForm: TEditorForm
         object TVFTime5_label: TLabel
           Left = 190
           Top = 190
-          Width = 32
+          Width = 31
           Height = 13
           Caption = 'Time 5'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -1180,7 +1184,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -1188,14 +1192,14 @@ object EditorForm: TEditorForm
         object TVFVelSens_label: TLabel
           Left = 13
           Top = 317
-          Width = 87
+          Width = 89
           Height = 13
           Caption = 'Velocity Sensitivity'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -1203,14 +1207,14 @@ object EditorForm: TEditorForm
         object TVFTimeKeyFollow_label: TLabel
           Left = 133
           Top = 317
-          Width = 77
+          Width = 76
           Height = 13
           Caption = 'Time Key Follow'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -1225,7 +1229,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -1233,14 +1237,14 @@ object EditorForm: TEditorForm
         object TVFBiasLevel_label: TLabel
           Left = 104
           Top = 365
-          Width = 49
+          Width = 47
           Height = 13
           Caption = 'Bias Level'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -1248,96 +1252,17 @@ object EditorForm: TEditorForm
         object TVFBiasPoint_label: TLabel
           Left = 13
           Top = 365
-          Width = 47
+          Width = 46
           Height = 13
           Caption = 'Bias Point'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
-        end
-        object TVFLevel1: TTrackBar
-          Left = 5
-          Top = 31
-          Width = 26
-          Height = 70
-          Max = 100
-          Orientation = trVertical
-          ParentShowHint = False
-          Position = 100
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 0
-          TickMarks = tmBoth
-          TickStyle = tsNone
-          OnChange = TVFLevel1Change
-        end
-        object TVFLevel2: TTrackBar
-          Left = 37
-          Top = 31
-          Width = 26
-          Height = 70
-          Max = 100
-          Orientation = trVertical
-          ParentShowHint = False
-          Position = 100
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 1
-          TickMarks = tmBoth
-          TickStyle = tsNone
-          OnChange = TVFLevel2Change
-        end
-        object TVFLevel3: TTrackBar
-          Left = 69
-          Top = 31
-          Width = 26
-          Height = 70
-          Max = 100
-          Orientation = trVertical
-          ParentShowHint = False
-          Position = 100
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 2
-          TickMarks = tmBoth
-          TickStyle = tsNone
-          OnChange = TVFLevel3Change
-        end
-        object TVFSustain: TTrackBar
-          Left = 101
-          Top = 31
-          Width = 26
-          Height = 70
-          Max = 100
-          Orientation = trVertical
-          ParentShowHint = False
-          Position = 100
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 3
-          TickMarks = tmBoth
-          TickStyle = tsNone
-          OnChange = TVFSustainChange
-        end
-        object TVFKeyFollow: TTrackBar
-          Left = 133
-          Top = 31
-          Width = 26
-          Height = 70
-          Max = 17
-          Orientation = trVertical
-          ParentShowHint = False
-          Frequency = 3
-          Position = 17
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 4
-          OnChange = TVFKeyFollowChange
         end
         object TVFLevel2_value: TEdit
           Left = 37
@@ -1348,14 +1273,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 6
+          TabOrder = 1
           Text = '0'
           OnExit = TVFLevel2_valueExit
           OnKeyPress = TVFLevel2_valueKeyPress
@@ -1369,14 +1294,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 7
+          TabOrder = 2
           Text = '0'
           OnExit = TVFLevel3_valueExit
           OnKeyPress = TVFLevel3_valueKeyPress
@@ -1390,14 +1315,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 8
+          TabOrder = 3
           Text = '0'
           OnExit = TVFSustain_valueExit
           OnKeyPress = TVFSustain_valueKeyPress
@@ -1411,14 +1336,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 9
+          TabOrder = 4
           Text = '0'
           OnExit = TVFKeyFollow_valueExit
           OnKeyPress = TVFKeyFollow_valueKeyPress
@@ -1432,14 +1357,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 5
+          TabOrder = 0
           Text = '0'
           OnExit = TVFLevel1_valueExit
           OnKeyPress = TVFLevel1_valueKeyPress
@@ -1453,14 +1378,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 10
+          TabOrder = 5
           Text = '0'
           OnExit = TVFTime1_valueExit
           OnKeyPress = TVFTime1_valueKeyPress
@@ -1474,14 +1399,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 11
+          TabOrder = 6
           Text = '0'
           OnExit = TVFTime2_valueExit
           OnKeyPress = TVFTime2_valueKeyPress
@@ -1495,14 +1420,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 12
+          TabOrder = 7
           Text = '0'
           OnExit = TVFTime3_valueExit
           OnKeyPress = TVFTime3_valueKeyPress
@@ -1516,14 +1441,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 13
+          TabOrder = 8
           Text = '0'
           OnExit = TVFTime4_valueExit
           OnKeyPress = TVFTime4_valueKeyPress
@@ -1588,14 +1513,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 14
+          TabOrder = 9
           Text = '0'
           OnExit = TVFTime5_valueExit
           OnKeyPress = TVFTime5_valueKeyPress
@@ -1609,45 +1534,17 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 17
+          TabOrder = 11
           Text = '0'
           OnExit = TVFDepth_valueExit
           OnKeyPress = TVFDepth_valueKeyPress
-        end
-        object TVFDepth: TTrackBar
-          Left = 3
-          Top = 287
-          Width = 87
-          Height = 24
-          Max = 100
-          ParentShowHint = False
-          Frequency = 10
-          ShowHint = True
-          TabOrder = 16
-          ThumbLength = 15
-          TickMarks = tmTopLeft
-          OnChange = TVFDepthChange
-        end
-        object TVFVelSens: TTrackBar
-          Left = 3
-          Top = 335
-          Width = 87
-          Height = 21
-          Max = 100
-          ParentShowHint = False
-          ShowHint = True
-          TabOrder = 18
-          ThumbLength = 15
-          TickMarks = tmBoth
-          TickStyle = tsNone
-          OnChange = TVFVelSensChange
         end
         object TVFVelSens_value: TEdit
           Left = 91
@@ -1658,29 +1555,17 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 19
+          TabOrder = 12
           Text = '0'
           OnExit = TVFVelSens_valueExit
           OnKeyPress = TVFVelSens_valueKeyPress
-        end
-        object TVFTimeKeyFollow: TTrackBar
-          Left = 123
-          Top = 335
-          Width = 87
-          Height = 21
-          Max = 4
-          ParentShowHint = False
-          ShowHint = True
-          TabOrder = 20
-          ThumbLength = 15
-          OnChange = TVFTimeKeyFollowChange
         end
         object TVFTimeKeyFollow_value: TEdit
           Left = 211
@@ -1691,29 +1576,17 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 1
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 21
+          TabOrder = 13
           Text = '0'
           OnExit = TVFTimeKeyFollow_valueExit
           OnKeyPress = TVFTimeKeyFollow_valueKeyPress
-        end
-        object TVFDepthKeyFollow: TTrackBar
-          Left = 123
-          Top = 290
-          Width = 87
-          Height = 21
-          Max = 4
-          ParentShowHint = False
-          ShowHint = True
-          TabOrder = 22
-          ThumbLength = 15
-          OnChange = TVFDepthKeyFollowChange
         end
         object TVFDepthKeyFollow_value: TEdit
           Left = 211
@@ -1724,32 +1597,17 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 1
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 23
+          TabOrder = 14
           Text = '0'
           OnExit = TVFDepthKeyFollow_valueExit
           OnKeyPress = TVFDepthKeyFollow_valueKeyPress
-        end
-        object TVFBiasLevel: TTrackBar
-          Left = 95
-          Top = 376
-          Width = 115
-          Height = 23
-          Max = 7
-          Min = -7
-          ParentShowHint = False
-          SelEnd = -1
-          ShowHint = True
-          TabOrder = 25
-          ThumbLength = 15
-          TickMarks = tmTopLeft
-          OnChange = TVFBiasLevelChange
         end
         object TVFBiasLevel_value: TEdit
           Left = 214
@@ -1760,13 +1618,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 26
+          TabOrder = 16
           Text = '0'
           OnExit = TVFBiasLevel_valueExit
           OnKeyPress = TVFBiasLevel_valueKeyPress
@@ -1780,7 +1638,7 @@ object EditorForm: TEditorForm
           ItemIndex = 0
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 24
+          TabOrder = 15
           Text = '< A0'
           OnChange = TVFBiasPointChange
           Items.Strings = (
@@ -1922,35 +1780,35 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentBackground = False
           ParentColor = False
           ParentFont = False
-          TabOrder = 15
+          TabOrder = 10
           object TVFResonance_label: TLabel
             Left = 44
             Top = 7
-            Width = 19
+            Width = 18
             Height = 13
             Caption = 'Res'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
           object TVFCutoff_label: TLabel
             Left = 7
             Top = 7
-            Width = 28
+            Width = 31
             Height = 13
             Caption = 'Cutoff'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
@@ -1970,14 +1828,14 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             NumbersOnly = True
             ParentFont = False
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 3
+            TabOrder = 1
             Text = '0'
             OnExit = TVFResonance_valueExit
             OnKeyPress = TVFResonance_valueKeyPress
@@ -1991,55 +1849,223 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             NumbersOnly = True
             ParentFont = False
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 2
+            TabOrder = 0
             Text = '0'
             OnExit = TVFCutoff_valueExit
             OnKeyPress = TVFCutoff_valueKeyPress
           end
-          object TVFCutoff: TTrackBar
-            Left = 8
+          object TVFCutoff: TSynthSlider
+            Left = 9
             Top = 21
-            Width = 27
+            Width = 23
             Height = 70
-            Max = 100
-            Orientation = trVertical
-            ParentShowHint = False
-            Position = 100
-            ShowHint = True
-            ShowSelRange = False
-            TabOrder = 0
-            TickMarks = tmBoth
-            TickStyle = tsNone
+            TrackColor = 14737632
+            FillColor = 16751121
+            ThumbColor = 14120960
+            TickColor = clSilver
+            ThumbSize = 10
+            ParentColor = False
+            TabOrder = 2
+            TabStop = True
             OnChange = TVFCutoffChange
           end
-          object TVFResonance: TTrackBar
-            Left = 42
+          object TVFResonance: TSynthSlider
+            Left = 43
             Top = 21
-            Width = 26
+            Width = 23
             Height = 70
             Max = 30
-            Orientation = trVertical
-            ParentShowHint = False
-            Position = 30
-            ShowHint = True
-            ShowSelRange = False
-            TabOrder = 1
-            TickMarks = tmBoth
-            TickStyle = tsNone
+            TrackColor = 14737632
+            FillColor = 16751121
+            ThumbColor = 14120960
+            TickColor = clSilver
+            ThumbSize = 10
+            ParentColor = False
+            TabOrder = 3
+            TabStop = True
             OnChange = TVFResonanceChange
           end
+        end
+        object TVFLevel1: TSynthSlider
+          Left = 6
+          Top = 31
+          Width = 23
+          Height = 70
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          ThumbSize = 10
+          ParentColor = False
+          TabOrder = 22
+          TabStop = True
+          OnChange = TVFLevel1Change
+        end
+        object TVFLevel3: TSynthSlider
+          Left = 70
+          Top = 31
+          Width = 23
+          Height = 70
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          ThumbSize = 10
+          ParentColor = False
+          TabOrder = 23
+          TabStop = True
+          OnChange = TVFLevel3Change
+        end
+        object TVFLevel2: TSynthSlider
+          Left = 38
+          Top = 31
+          Width = 23
+          Height = 70
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          ThumbSize = 10
+          ParentColor = False
+          TabOrder = 24
+          TabStop = True
+          OnChange = TVFLevel2Change
+        end
+        object TVFSustain: TSynthSlider
+          Left = 102
+          Top = 31
+          Width = 23
+          Height = 70
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          ThumbSize = 10
+          ParentColor = False
+          TabOrder = 25
+          TabStop = True
+          OnChange = TVFSustainChange
+        end
+        object TVFKeyFollow: TSynthSlider
+          Left = 132
+          Top = 31
+          Width = 29
+          Height = 70
+          Max = 17
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmBottomRight
+          Frequency = 3
+          ThumbSize = 10
+          ParentColor = False
+          TabOrder = 26
+          TabStop = True
+          OnChange = TVFKeyFollowChange
+        end
+        object TVFDepth: TSynthSlider
+          Left = 1
+          Top = 291
+          Width = 91
+          Height = 24
+          Orientation = stoHorizontal
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmTopLeft
+          Frequency = 10
+          ThumbSize = 7
+          ParentColor = False
+          TabOrder = 27
+          TabStop = True
+          OnChange = TVFDepthChange
+        end
+        object TVFDepthKeyFollow: TSynthSlider
+          Left = 120
+          Top = 290
+          Width = 91
+          Height = 23
+          Max = 4
+          Orientation = stoHorizontal
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmBottomRight
+          ThumbSize = 7
+          ParentColor = False
+          TabOrder = 28
+          TabStop = True
+          OnChange = TVFDepthKeyFollowChange
+        end
+        object TVFVelSens: TSynthSlider
+          Left = 1
+          Top = 333
+          Width = 91
+          Height = 23
+          Orientation = stoHorizontal
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          Frequency = 10
+          ThumbSize = 7
+          ParentColor = False
+          TabOrder = 29
+          TabStop = True
+          OnChange = TVFVelSensChange
+        end
+        object TVFTimeKeyFollow: TSynthSlider
+          Left = 120
+          Top = 333
+          Width = 91
+          Height = 23
+          Max = 4
+          Orientation = stoHorizontal
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmBottomRight
+          ThumbSize = 7
+          ParentColor = False
+          TabOrder = 30
+          TabStop = True
+          OnChange = TVFTimeKeyFollowChange
+        end
+        object TVFBiasLevel: TSynthSlider
+          Left = 92
+          Top = 384
+          Width = 122
+          Height = 23
+          Min = -7
+          Max = 7
+          Orientation = stoHorizontal
+          CenterMark = True
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmTopLeft
+          ThumbSize = 7
+          ParentColor = False
+          TabOrder = 31
+          TabStop = True
+          OnChange = TVFBiasLevelChange
         end
       end
       object TVAGroup: TGroupBox
         Left = 501
-        Top = 169
+        Top = 167
         Width = 237
         Height = 419
         Caption = 'Time Variant Amplifier'
@@ -2047,7 +2073,7 @@ object EditorForm: TEditorForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = []
         ParentDoubleBuffered = False
         ParentFont = False
@@ -2055,14 +2081,14 @@ object EditorForm: TEditorForm
         object TVALevel1_label: TLabel
           Left = 19
           Top = 17
-          Width = 23
+          Width = 22
           Height = 13
           Caption = 'Lvl 1'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -2070,14 +2096,14 @@ object EditorForm: TEditorForm
         object TVALevel2_label: TLabel
           Left = 59
           Top = 17
-          Width = 23
+          Width = 22
           Height = 13
           Caption = 'Lvl 2'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -2085,14 +2111,14 @@ object EditorForm: TEditorForm
         object TVALevel3_label: TLabel
           Left = 99
           Top = 17
-          Width = 23
+          Width = 22
           Height = 13
           Caption = 'Lvl 3'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -2107,7 +2133,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -2122,14 +2148,14 @@ object EditorForm: TEditorForm
         object TVATime1_label: TLabel
           Left = 14
           Top = 190
-          Width = 32
+          Width = 31
           Height = 13
           Caption = 'Time 1'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -2137,14 +2163,14 @@ object EditorForm: TEditorForm
         object TVATime2_label: TLabel
           Left = 58
           Top = 190
-          Width = 32
+          Width = 31
           Height = 13
           Caption = 'Time 2'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -2152,14 +2178,14 @@ object EditorForm: TEditorForm
         object TVATime3_label: TLabel
           Left = 102
           Top = 190
-          Width = 32
+          Width = 31
           Height = 13
           Caption = 'Time 3'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -2167,14 +2193,14 @@ object EditorForm: TEditorForm
         object TVATime4_label: TLabel
           Left = 146
           Top = 190
-          Width = 32
+          Width = 31
           Height = 13
           Caption = 'Time 4'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -2182,14 +2208,14 @@ object EditorForm: TEditorForm
         object TVATime5_label: TLabel
           Left = 190
           Top = 190
-          Width = 32
+          Width = 31
           Height = 13
           Caption = 'Time 5'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -2197,14 +2223,14 @@ object EditorForm: TEditorForm
         object TVAVelSens_label: TLabel
           Left = 14
           Top = 270
-          Width = 87
+          Width = 89
           Height = 13
           Caption = 'Velocity Sensitivity'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -2212,14 +2238,14 @@ object EditorForm: TEditorForm
         object TVATimeKeyFollow_label: TLabel
           Left = 16
           Top = 304
-          Width = 77
+          Width = 76
           Height = 13
           Caption = 'Time Key Follow'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -2234,134 +2260,70 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
         end
         object TVABiasPoint1_label: TLabel
           Left = 13
-          Top = 341
-          Width = 56
+          Top = 340
+          Width = 55
           Height = 13
           Caption = 'Bias Point 1'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
         end
         object TVABiasLevel1_label: TLabel
           Left = 104
-          Top = 341
-          Width = 58
+          Top = 340
+          Width = 56
           Height = 13
           Caption = 'Bias Level 1'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
         end
         object TVABiasPoint2_label: TLabel
           Left = 13
-          Top = 379
-          Width = 56
+          Top = 378
+          Width = 55
           Height = 13
           Caption = 'Bias Point 2'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
         end
         object TVABiasLevel2_label: TLabel
           Left = 104
-          Top = 379
-          Width = 58
+          Top = 378
+          Width = 56
           Height = 13
           Caption = 'Bias Level 2'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
-        end
-        object TVALevel1: TTrackBar
-          Left = 19
-          Top = 31
-          Width = 26
-          Height = 70
-          Max = 100
-          Orientation = trVertical
-          ParentShowHint = False
-          Position = 100
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 0
-          TickMarks = tmBoth
-          TickStyle = tsNone
-          OnChange = TVALevel1Change
-        end
-        object TVALevel2: TTrackBar
-          Left = 57
-          Top = 31
-          Width = 26
-          Height = 70
-          Max = 100
-          Orientation = trVertical
-          ParentShowHint = False
-          Position = 100
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 1
-          TickMarks = tmBoth
-          TickStyle = tsNone
-          OnChange = TVALevel2Change
-        end
-        object TVALevel3: TTrackBar
-          Left = 99
-          Top = 31
-          Width = 26
-          Height = 70
-          Max = 100
-          Orientation = trVertical
-          ParentShowHint = False
-          Position = 100
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 2
-          TickMarks = tmBoth
-          TickStyle = tsNone
-          OnChange = TVALevel3Change
-        end
-        object TVASustain: TTrackBar
-          Left = 139
-          Top = 31
-          Width = 26
-          Height = 70
-          Max = 100
-          Orientation = trVertical
-          ParentShowHint = False
-          Position = 100
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 3
-          TickMarks = tmBoth
-          TickStyle = tsNone
-          OnChange = TVASustainChange
         end
         object TVALevel2_value: TEdit
           Left = 59
@@ -2372,14 +2334,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 5
+          TabOrder = 1
           Text = '0'
           OnExit = TVALevel2_valueExit
           OnKeyPress = TVALevel2_valueKeyPress
@@ -2393,14 +2355,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 6
+          TabOrder = 2
           Text = '0'
           OnExit = TVALevel3_valueExit
           OnKeyPress = TVALevel3_valueKeyPress
@@ -2414,14 +2376,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 7
+          TabOrder = 3
           Text = '0'
           OnExit = TVASustain_valueExit
           OnKeyPress = TVASustain_valueKeyPress
@@ -2435,14 +2397,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 4
+          TabOrder = 0
           Text = '0'
           OnExit = TVALevel1_valueExit
           OnKeyPress = TVALevel1_valueKeyPress
@@ -2456,14 +2418,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 8
+          TabOrder = 4
           Text = '0'
           OnExit = TVATime1_valueExit
           OnKeyPress = TVATime1_valueKeyPress
@@ -2477,14 +2439,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 9
+          TabOrder = 5
           Text = '0'
           OnExit = TVATime2_valueExit
           OnKeyPress = TVATime2_valueKeyPress
@@ -2498,14 +2460,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 10
+          TabOrder = 6
           Text = '0'
           OnExit = TVATime3_valueExit
           OnKeyPress = TVATime3_valueKeyPress
@@ -2519,14 +2481,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 11
+          TabOrder = 7
           Text = '0'
           OnExit = TVATime4_valueExit
           OnKeyPress = TVATime4_valueKeyPress
@@ -2591,32 +2553,17 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 12
+          TabOrder = 8
           Text = '0'
           OnExit = TVATime5_valueExit
           OnKeyPress = TVATime5_valueKeyPress
-        end
-        object TVAVelSens: TTrackBar
-          Left = 3
-          Top = 283
-          Width = 200
-          Height = 23
-          Max = 50
-          Min = -50
-          ParentShowHint = False
-          Frequency = 10
-          SelEnd = -1
-          ShowHint = True
-          TabOrder = 14
-          ThumbLength = 15
-          OnChange = TVAVelSensChange
         end
         object TVAVelSens_value: TEdit
           Left = 206
@@ -2627,28 +2574,16 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 15
+          TabOrder = 10
           Text = '0'
           OnExit = TVAVelSens_valueExit
           OnKeyPress = TVAVelSens_valueKeyPress
-        end
-        object TVATimeKeyFollow: TTrackBar
-          Left = 3
-          Top = 317
-          Width = 87
-          Height = 21
-          Max = 4
-          ParentShowHint = False
-          ShowHint = True
-          TabOrder = 16
-          ThumbLength = 15
-          OnChange = TVATimeKeyFollowChange
         end
         object TVATimeKeyFollow_value: TEdit
           Left = 91
@@ -2659,29 +2594,17 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 1
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 17
+          TabOrder = 11
           Text = '0'
           OnExit = TVATimeKeyFollow_valueExit
           OnKeyPress = TVATimeKeyFollow_valueKeyPress
-        end
-        object TVAVelKeyFollow: TTrackBar
-          Left = 120
-          Top = 317
-          Width = 87
-          Height = 21
-          Max = 4
-          ParentShowHint = False
-          ShowHint = True
-          TabOrder = 18
-          ThumbLength = 15
-          OnChange = TVAVelKeyFollowChange
         end
         object TVAVelKeyFollow_value: TEdit
           Left = 206
@@ -2692,14 +2615,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 1
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 19
+          TabOrder = 12
           Text = '0'
           OnExit = TVAVelKeyFollow_valueExit
           OnKeyPress = TVAVelKeyFollow_valueKeyPress
@@ -2713,7 +2636,7 @@ object EditorForm: TEditorForm
           ItemIndex = 0
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 20
+          TabOrder = 13
           Text = '< A0'
           OnChange = TVABiasPoint1Change
           Items.Strings = (
@@ -2846,21 +2769,6 @@ object EditorForm: TEditorForm
             '> B5'
             '> C6')
         end
-        object TVABiasLevel1: TTrackBar
-          Left = 95
-          Top = 352
-          Width = 108
-          Height = 23
-          Max = 0
-          Min = -12
-          ParentShowHint = False
-          SelEnd = -1
-          ShowHint = True
-          TabOrder = 21
-          ThumbLength = 15
-          TickMarks = tmTopLeft
-          OnChange = TVABiasLevel1Change
-        end
         object TVABiasLevel1_value: TEdit
           Left = 206
           Top = 357
@@ -2870,13 +2778,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 22
+          TabOrder = 14
           Text = '0'
           OnExit = TVABiasLevel1_valueExit
           OnKeyPress = TVABiasLevel1_valueKeyPress
@@ -2889,11 +2797,11 @@ object EditorForm: TEditorForm
           Color = clBtnFace
           ParentBackground = False
           ParentColor = False
-          TabOrder = 13
+          TabOrder = 9
           object TVAAmplifier_label: TLabel
             Left = 11
             Top = 6
-            Width = 39
+            Width = 41
             Height = 13
             Alignment = taCenter
             Caption = 'Amplifier'
@@ -2901,7 +2809,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentColor = False
             ParentFont = False
@@ -2915,35 +2823,33 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             NumbersOnly = True
             ParentFont = False
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 1
+            TabOrder = 0
             Text = '0'
             OnExit = TVAAmplifier_valueExit
             OnKeyPress = TVAAmplifier_valueKeyPress
           end
-          object TVAAmplifier: TTrackBar
-            Left = 8
+          object TVAAmplifier: TSynthSlider
+            Left = 15
             Top = 20
-            Width = 45
+            Width = 30
             Height = 131
-            Ctl3D = True
-            Max = 100
-            Orientation = trVertical
-            ParentCtl3D = False
-            ParentShowHint = False
+            TrackColor = 14737632
+            FillColor = 16751121
+            ThumbColor = 14120960
+            TickColor = clSilver
+            TickMarks = stmBoth
             Frequency = 25
-            Position = 100
-            ShowHint = True
-            ShowSelRange = False
-            TabOrder = 0
-            ThumbLength = 25
-            TickMarks = tmBoth
+            ThumbSize = 13
+            ParentColor = False
+            TabOrder = 1
+            TabStop = True
             OnChange = TVAAmplifierChange
           end
         end
@@ -2956,7 +2862,7 @@ object EditorForm: TEditorForm
           ItemIndex = 0
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 23
+          TabOrder = 15
           Text = '< A0'
           OnChange = TVABiasPoint2Change
           Items.Strings = (
@@ -3089,21 +2995,6 @@ object EditorForm: TEditorForm
             '> B5'
             '> C6')
         end
-        object TVABiasLevel2: TTrackBar
-          Left = 95
-          Top = 389
-          Width = 108
-          Height = 23
-          Max = 0
-          Min = -12
-          ParentShowHint = False
-          SelEnd = -1
-          ShowHint = True
-          TabOrder = 24
-          ThumbLength = 15
-          TickMarks = tmTopLeft
-          OnChange = TVABiasLevel2Change
-        end
         object TVABiasLevel2_value: TEdit
           Left = 206
           Top = 392
@@ -3113,16 +3004,173 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 25
+          TabOrder = 16
           Text = '0'
           OnExit = TVABiasLevel2_valueExit
           OnKeyPress = TVABiasLevel2_valueKeyPress
+        end
+        object TVALevel1: TSynthSlider
+          Left = 20
+          Top = 31
+          Width = 23
+          Height = 70
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          ThumbSize = 10
+          ParentColor = False
+          TabOrder = 22
+          TabStop = True
+          OnChange = TVALevel1Change
+        end
+        object TVALevel2: TSynthSlider
+          Left = 60
+          Top = 31
+          Width = 23
+          Height = 70
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          ThumbSize = 10
+          ParentColor = False
+          TabOrder = 23
+          TabStop = True
+          OnChange = TVALevel2Change
+        end
+        object TVALevel3: TSynthSlider
+          Left = 100
+          Top = 31
+          Width = 23
+          Height = 70
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          ThumbSize = 10
+          ParentColor = False
+          TabOrder = 24
+          TabStop = True
+          OnChange = TVALevel3Change
+        end
+        object TVASustain: TSynthSlider
+          Left = 140
+          Top = 31
+          Width = 23
+          Height = 70
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          ThumbSize = 10
+          ParentColor = False
+          TabOrder = 25
+          TabStop = True
+          OnChange = TVASustainChange
+        end
+        object TVAVelSens: TSynthSlider
+          Left = 1
+          Top = 281
+          Width = 202
+          Height = 23
+          Min = -50
+          Max = 50
+          Orientation = stoHorizontal
+          CenterMark = True
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmBottomRight
+          Frequency = 10
+          ThumbSize = 7
+          ParentColor = False
+          TabOrder = 26
+          TabStop = True
+          OnChange = TVAVelSensChange
+        end
+        object TVATimeKeyFollow: TSynthSlider
+          Left = 1
+          Top = 315
+          Width = 89
+          Height = 23
+          Max = 4
+          Orientation = stoHorizontal
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmBottomRight
+          ThumbSize = 7
+          ParentColor = False
+          TabOrder = 27
+          TabStop = True
+          OnChange = TVATimeKeyFollowChange
+        end
+        object TVAVelKeyFollow: TSynthSlider
+          Left = 118
+          Top = 315
+          Width = 89
+          Height = 23
+          Max = 4
+          Orientation = stoHorizontal
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmBottomRight
+          ThumbSize = 7
+          ParentColor = False
+          TabOrder = 28
+          TabStop = True
+          OnChange = TVAVelKeyFollowChange
+        end
+        object TVABiasLevel1: TSynthSlider
+          Left = 92
+          Top = 356
+          Width = 115
+          Height = 24
+          Min = -12
+          Max = 0
+          Orientation = stoHorizontal
+          CenterMark = True
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmTopLeft
+          ThumbSize = 7
+          ParentColor = False
+          TabOrder = 29
+          TabStop = True
+          OnChange = TVABiasLevel1Change
+        end
+        object TVABiasLevel2: TSynthSlider
+          Left = 92
+          Top = 393
+          Width = 115
+          Height = 24
+          Min = -12
+          Max = 0
+          Orientation = stoHorizontal
+          CenterMark = True
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmTopLeft
+          ThumbSize = 7
+          ParentColor = False
+          TabOrder = 30
+          TabStop = True
+          OnChange = TVABiasLevel2Change
         end
       end
       object TimbreName: TEdit
@@ -3134,7 +3182,7 @@ object EditorForm: TEditorForm
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = []
         MaxLength = 10
         ParentFont = False
@@ -3154,7 +3202,7 @@ object EditorForm: TEditorForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
@@ -3207,21 +3255,21 @@ object EditorForm: TEditorForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
         TabOrder = 5
         object WGPulseWidth_label: TLabel
           Left = 86
           Top = 11
-          Width = 57
+          Width = 56
           Height = 13
           Caption = 'Pulse Width'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -3229,14 +3277,14 @@ object EditorForm: TEditorForm
         object WGVelSens_label: TLabel
           Left = 86
           Top = 51
-          Width = 87
+          Width = 89
           Height = 13
           Caption = 'Velocity Sensitivity'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -3254,7 +3302,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
@@ -3264,14 +3312,14 @@ object EditorForm: TEditorForm
         object WGCoarse_label: TLabel
           Left = 414
           Top = 11
-          Width = 66
+          Width = 68
           Height = 13
           Caption = 'Pitch (Coarse)'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -3279,14 +3327,14 @@ object EditorForm: TEditorForm
         object WGFine_label: TLabel
           Left = 414
           Top = 51
-          Width = 53
+          Width = 54
           Height = 13
           Caption = 'Pitch (Fine)'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -3301,7 +3349,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
           ParentFont = False
@@ -3309,41 +3357,41 @@ object EditorForm: TEditorForm
         object WGSample_label: TLabel
           Left = 222
           Top = 11
-          Width = 61
+          Width = 58
           Height = 13
           Caption = 'PCM Sample'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clGrayText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
         object WGKeyFollowType: TLabel
-          Left = 669
+          Left = 670
           Top = 11
-          Width = 8
+          Width = 7
           Height = 13
           Alignment = taRightJustify
           Caption = '0'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentFont = False
         end
         object WGCoarseType: TLabel
-          Left = 524
+          Left = 526
           Top = 11
-          Width = 16
+          Width = 14
           Height = 13
           Alignment = taRightJustify
           Caption = 'C2'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentFont = False
         end
@@ -3364,23 +3412,6 @@ object EditorForm: TEditorForm
           TabOrder = 0
           OnClick = WGShapeClick
         end
-        object WGKeyFollow: TTrackBar
-          Left = 548
-          Top = 25
-          Width = 105
-          Height = 22
-          Hint = 
-            'The scale to which the pitch follows the keyboard notes'#13#10'(positi' +
-            've or negative)'
-          Max = 13
-          Min = -3
-          ParentShowHint = False
-          SelEnd = -1
-          ShowHint = True
-          TabOrder = 5
-          ThumbLength = 15
-          OnChange = WGKeyFollowChange
-        end
         object WGPulseWidth_value: TEdit
           Left = 190
           Top = 27
@@ -3391,7 +3422,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           NumbersOnly = True
@@ -3412,7 +3443,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           ParentFont = False
@@ -3432,7 +3463,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           NumbersOnly = True
@@ -3453,7 +3484,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           ParentFont = False
@@ -3473,11 +3504,11 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           ParentFont = False
-          TabOrder = 6
+          TabOrder = 5
           Text = '0'
           OnExit = WGKeyFollow_valueExit
           OnKeyPress = WGKeyFollow_valueKeyPress
@@ -3493,7 +3524,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ItemHeight = 13
           Items.Strings = (
@@ -3628,7 +3659,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 7
+          TabOrder = 6
           OnClick = WGSampleClick
         end
         object WGPulseWidth: TSynthSlider
@@ -3642,9 +3673,11 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          TickMarks = stmBoth
+          Frequency = 10
           ThumbSize = 8
           ParentColor = False
-          TabOrder = 8
+          TabOrder = 7
           TabStop = True
           OnChange = WGPulseWidthChange
         end
@@ -3663,10 +3696,9 @@ object EditorForm: TEditorForm
           ThumbColor = 14120960
           TickColor = clSilver
           TickMarks = stmBottomRight
-          Frequency = 1
           ThumbSize = 8
           ParentColor = False
-          TabOrder = 9
+          TabOrder = 8
           TabStop = True
           OnChange = WGVelSensChange
         end
@@ -3684,10 +3716,11 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          TickMarks = stmBoth
           Frequency = 12
           ThumbSize = 8
           ParentColor = False
-          TabOrder = 10
+          TabOrder = 9
           TabStop = True
           OnChange = WGCoarseChange
         end
@@ -3705,11 +3738,32 @@ object EditorForm: TEditorForm
           ThumbColor = 14120960
           TickColor = clSilver
           TickMarks = stmBottomRight
+          Frequency = 10
+          ThumbSize = 8
+          ParentColor = False
+          TabOrder = 10
+          TabStop = True
+          OnChange = WGFineChange
+        end
+        object WGKeyFollow: TSynthSlider
+          Left = 550
+          Top = 23
+          Width = 105
+          Height = 29
+          Min = -3
+          Max = 13
+          Orientation = stoHorizontal
+          CenterMark = True
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmBottomRight
           ThumbSize = 8
           ParentColor = False
           TabOrder = 11
           TabStop = True
-          OnChange = WGFineChange
+          OnChange = WGKeyFollowChange
         end
       end
       object PartialGroup: TGroupBox
@@ -3727,14 +3781,14 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
         object PartialStruct_label: TLabel
           Left = 70
           Top = 2
-          Width = 43
+          Width = 45
           Height = 13
           Caption = 'Structure'
         end
@@ -3843,7 +3897,7 @@ object EditorForm: TEditorForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentBackground = False
         ParentColor = False
@@ -3852,26 +3906,26 @@ object EditorForm: TEditorForm
         object CurPart_label: TLabel
           Left = 5
           Top = 22
-          Width = 37
+          Width = 35
           Height = 13
           Caption = 'Select'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 12014080
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentFont = False
         end
         object PartMidiChan_label: TLabel
           Left = 75
           Top = 22
-          Width = 47
+          Width = 45
           Height = 13
           Caption = 'Channel'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentFont = False
         end
@@ -3888,7 +3942,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
@@ -3898,13 +3952,13 @@ object EditorForm: TEditorForm
         object PtPitchBend_label: TLabel
           Left = 187
           Top = 9
-          Width = 38
+          Width = 36
           Height = 26
           Caption = 'Bend'#13#10'Range'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentFont = False
         end
@@ -3918,7 +3972,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ItemIndex = 0
           ParentFont = False
@@ -3949,7 +4003,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ItemIndex = 1
           ParentFont = False
@@ -3986,7 +4040,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 24
@@ -4006,7 +4060,7 @@ object EditorForm: TEditorForm
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clGreen
       Font.Height = -11
-      Font.Name = 'MS Sans Serif'
+      Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ImageIndex = 2
       ParentFont = False
@@ -4019,12 +4073,11 @@ object EditorForm: TEditorForm
         ParentCustomHint = False
         AllowAllUp = True
         GroupIndex = 1
-        Down = True
         Caption = 'Advanced Controls'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
@@ -4044,7 +4097,7 @@ object EditorForm: TEditorForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentDoubleBuffered = False
         ParentFont = False
@@ -4063,7 +4116,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
@@ -4072,7 +4125,7 @@ object EditorForm: TEditorForm
         end
         object Pt1Output_label: TLabel
           Left = 7
-          Top = 421
+          Top = 187
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -4081,13 +4134,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
         object Pt1Pan_label: TLabel
           Left = 7
-          Top = 371
+          Top = 140
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -4096,7 +4149,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
@@ -4110,7 +4163,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
@@ -4127,7 +4180,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
@@ -4136,7 +4189,7 @@ object EditorForm: TEditorForm
         end
         object Pt1Bend_label: TLabel
           Left = 7
-          Top = 319
+          Top = 88
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -4145,13 +4198,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
         object Pt1Pan: TKnobControl
           Left = 7
-          Top = 383
+          Top = 152
           Width = 30
           Height = 30
           Hint = 'Panning'
@@ -4163,7 +4216,7 @@ object EditorForm: TEditorForm
         end
         object Pt1Pan_value: TSpinEdit
           Left = 43
-          Top = 391
+          Top = 160
           Width = 35
           Height = 22
           Hint = '-7 ~ +7'
@@ -4171,7 +4224,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 7
@@ -4192,7 +4245,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 16
@@ -4206,14 +4259,14 @@ object EditorForm: TEditorForm
         end
         object Pt1Output_value: TSpinEdit
           Left = 18
-          Top = 538
+          Top = 537
           Width = 48
           Height = 22
           Hint = '0 ~ 100'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           MaxValue = 100
@@ -4227,14 +4280,14 @@ object EditorForm: TEditorForm
         end
         object Pt1Bend_value: TSpinEdit
           Left = 43
-          Top = 342
+          Top = 111
           Width = 35
           Height = 22
           Hint = '0 ~ 24'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 24
@@ -4248,7 +4301,7 @@ object EditorForm: TEditorForm
         end
         object Pt1Bend: TKnobControl
           Left = 7
-          Top = 334
+          Top = 103
           Width = 30
           Height = 30
           Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
@@ -4261,13 +4314,13 @@ object EditorForm: TEditorForm
           Left = 1
           Top = 78
           Width = 79
-          Height = 238
+          Height = 2
           BevelOuter = bvNone
           DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentDoubleBuffered = False
           ParentFont = False
@@ -4284,7 +4337,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -4299,7 +4352,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
@@ -4314,7 +4367,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
@@ -4329,7 +4382,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -4344,7 +4397,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -4364,7 +4417,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ItemIndex = 0
             ParentFont = False
@@ -4401,7 +4454,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             MaxValue = 50
@@ -4437,7 +4490,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             MaxValue = 24
@@ -4463,13 +4516,78 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
             ShowHint = True
             TabOrder = 5
             OnChange = Pt1TimbreChange
+            Items.Strings = (
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          ')
           end
           object Pt1Poly: TComboBox
             Left = 1
@@ -4487,7 +4605,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ItemIndex = 0
             ParentFont = False
@@ -4513,7 +4631,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 2
             MaxValue = 32
@@ -4528,17 +4646,16 @@ object EditorForm: TEditorForm
         end
         object Pt1Output: TSynthSlider
           Left = 18
-          Top = 440
+          Top = 202
           Width = 48
-          Height = 104
+          Height = 335
           Hint = 'Volume output level'
-          Position = 50
-          CenterMark = True
-          CenterValue = 50
           TrackColor = 14737632
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          TickMarks = stmBoth
+          Frequency = 5
           ThumbSize = 15
           ParentColor = False
           TabOrder = 7
@@ -4559,7 +4676,7 @@ object EditorForm: TEditorForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentDoubleBuffered = False
         ParentFont = False
@@ -4578,7 +4695,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
@@ -4587,7 +4704,7 @@ object EditorForm: TEditorForm
         end
         object Pt2Output_label: TLabel
           Left = 7
-          Top = 421
+          Top = 187
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -4596,13 +4713,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
         object Pt2Pan_label: TLabel
           Left = 7
-          Top = 371
+          Top = 140
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -4611,7 +4728,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
@@ -4625,7 +4742,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
@@ -4642,7 +4759,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
@@ -4651,7 +4768,7 @@ object EditorForm: TEditorForm
         end
         object Pt2Bend_label: TLabel
           Left = 7
-          Top = 319
+          Top = 88
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -4660,31 +4777,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
-        object Pt2Output: TTrackBar
-          Left = 18
-          Top = 437
-          Width = 48
-          Height = 104
-          Hint = 'Volume output level'
-          Max = 100
-          Orientation = trVertical
-          ParentShowHint = False
-          Frequency = 10
-          Position = 100
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 0
-          ThumbLength = 28
-          TickMarks = tmBoth
-          OnChange = Pt2OutputChange
-        end
         object Pt2Pan: TKnobControl
           Left = 7
-          Top = 383
+          Top = 152
           Width = 30
           Height = 30
           Hint = 'Panning'
@@ -4696,7 +4795,7 @@ object EditorForm: TEditorForm
         end
         object Pt2Pan_value: TSpinEdit
           Left = 43
-          Top = 391
+          Top = 160
           Width = 35
           Height = 22
           Hint = '-7 ~ +7'
@@ -4704,7 +4803,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 7
@@ -4712,7 +4811,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 2
+          TabOrder = 1
           Value = 0
           OnChange = Pt2Pan_valueChange
         end
@@ -4725,7 +4824,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 16
@@ -4733,20 +4832,20 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 3
+          TabOrder = 2
           Value = 1
           OnChange = Pt2ChanChange
         end
         object Pt2Output_value: TSpinEdit
           Left = 18
-          Top = 538
+          Top = 537
           Width = 48
           Height = 22
           Hint = '0 ~ 100'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           MaxValue = 100
@@ -4754,20 +4853,20 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 4
+          TabOrder = 3
           Value = 0
           OnChange = Pt2Output_valueChange
         end
         object Pt2Bend_value: TSpinEdit
           Left = 43
-          Top = 342
+          Top = 111
           Width = 35
           Height = 22
           Hint = '0 ~ 24'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 24
@@ -4775,13 +4874,13 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 5
+          TabOrder = 4
           Value = 0
           OnChange = Pt2Bend_valueChange
         end
         object Pt2Bend: TKnobControl
           Left = 7
-          Top = 334
+          Top = 103
           Width = 30
           Height = 30
           Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
@@ -4794,17 +4893,17 @@ object EditorForm: TEditorForm
           Left = 1
           Top = 78
           Width = 79
-          Height = 238
+          Height = 2
           BevelOuter = bvNone
           DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentDoubleBuffered = False
           ParentFont = False
-          TabOrder = 7
+          TabOrder = 6
           VerticalAlignment = taAlignTop
           object Pt2Bank_label: TLabel
             Left = 3
@@ -4817,7 +4916,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -4832,7 +4931,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
@@ -4847,7 +4946,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
@@ -4862,7 +4961,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -4877,7 +4976,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -4897,7 +4996,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ItemIndex = 0
             ParentFont = False
@@ -4934,7 +5033,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             MaxValue = 50
@@ -4970,7 +5069,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             MaxValue = 24
@@ -4996,13 +5095,78 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
             ShowHint = True
             TabOrder = 5
             OnChange = Pt2TimbreChange
+            Items.Strings = (
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          ')
           end
           object Pt2Poly: TComboBox
             Left = 1
@@ -5020,7 +5184,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ItemIndex = 0
             ParentFont = False
@@ -5046,7 +5210,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 2
             MaxValue = 32
@@ -5058,6 +5222,23 @@ object EditorForm: TEditorForm
             Value = 0
             OnChange = Pt2PtlReserveChange
           end
+        end
+        object Pt2Output: TSynthSlider
+          Left = 18
+          Top = 202
+          Width = 48
+          Height = 335
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmBoth
+          Frequency = 5
+          ThumbSize = 15
+          ParentColor = False
+          TabOrder = 7
+          TabStop = True
+          OnChange = Pt2OutputChange
         end
       end
       object Pt3MixPanel: TPanel
@@ -5073,7 +5254,7 @@ object EditorForm: TEditorForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentDoubleBuffered = False
         ParentFont = False
@@ -5092,7 +5273,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
@@ -5101,7 +5282,7 @@ object EditorForm: TEditorForm
         end
         object Pt3Output_label: TLabel
           Left = 7
-          Top = 421
+          Top = 187
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -5110,13 +5291,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
         object Pt3Pan_label: TLabel
           Left = 7
-          Top = 371
+          Top = 140
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -5125,7 +5306,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
@@ -5139,7 +5320,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
@@ -5156,7 +5337,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
@@ -5165,7 +5346,7 @@ object EditorForm: TEditorForm
         end
         object Pt3Bend_label: TLabel
           Left = 7
-          Top = 319
+          Top = 88
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -5174,31 +5355,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
-        object Pt3Output: TTrackBar
-          Left = 18
-          Top = 437
-          Width = 48
-          Height = 104
-          Hint = 'Volume output level'
-          Max = 100
-          Orientation = trVertical
-          ParentShowHint = False
-          Frequency = 10
-          Position = 100
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 0
-          ThumbLength = 28
-          TickMarks = tmBoth
-          OnChange = Pt3OutputChange
-        end
         object Pt3Pan: TKnobControl
           Left = 7
-          Top = 383
+          Top = 152
           Width = 30
           Height = 30
           Hint = 'Panning'
@@ -5210,7 +5373,7 @@ object EditorForm: TEditorForm
         end
         object Pt3Pan_value: TSpinEdit
           Left = 43
-          Top = 391
+          Top = 160
           Width = 35
           Height = 22
           Hint = '-7 ~ +7'
@@ -5218,7 +5381,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 7
@@ -5226,7 +5389,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 2
+          TabOrder = 1
           Value = 0
           OnChange = Pt3Pan_valueChange
         end
@@ -5239,7 +5402,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 16
@@ -5247,20 +5410,20 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 3
+          TabOrder = 2
           Value = 1
           OnChange = Pt3ChanChange
         end
         object Pt3Output_value: TSpinEdit
           Left = 18
-          Top = 538
+          Top = 537
           Width = 48
           Height = 22
           Hint = '0 ~ 100'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           MaxValue = 100
@@ -5268,20 +5431,20 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 4
+          TabOrder = 3
           Value = 0
           OnChange = Pt3Output_valueChange
         end
         object Pt3Bend_value: TSpinEdit
           Left = 43
-          Top = 342
+          Top = 111
           Width = 35
           Height = 22
           Hint = '0 ~ 24'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 24
@@ -5289,13 +5452,13 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 5
+          TabOrder = 4
           Value = 0
           OnChange = Pt3Bend_valueChange
         end
         object Pt3Bend: TKnobControl
           Left = 7
-          Top = 334
+          Top = 103
           Width = 30
           Height = 30
           Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
@@ -5308,17 +5471,17 @@ object EditorForm: TEditorForm
           Left = 1
           Top = 78
           Width = 79
-          Height = 238
+          Height = 2
           BevelOuter = bvNone
           DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentDoubleBuffered = False
           ParentFont = False
-          TabOrder = 7
+          TabOrder = 6
           VerticalAlignment = taAlignTop
           object Pt3Bank_label: TLabel
             Left = 3
@@ -5331,7 +5494,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -5346,7 +5509,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
@@ -5361,7 +5524,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
@@ -5376,7 +5539,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -5391,7 +5554,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -5411,7 +5574,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ItemIndex = 0
             ParentFont = False
@@ -5448,7 +5611,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             MaxValue = 50
@@ -5484,7 +5647,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             MaxValue = 24
@@ -5510,13 +5673,78 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
             ShowHint = True
             TabOrder = 5
             OnChange = Pt3TimbreChange
+            Items.Strings = (
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          ')
           end
           object Pt3Poly: TComboBox
             Left = 1
@@ -5534,7 +5762,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ItemIndex = 0
             ParentFont = False
@@ -5560,7 +5788,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 2
             MaxValue = 32
@@ -5572,6 +5800,23 @@ object EditorForm: TEditorForm
             Value = 0
             OnChange = Pt3PtlReserveChange
           end
+        end
+        object Pt3Output: TSynthSlider
+          Left = 18
+          Top = 202
+          Width = 48
+          Height = 335
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmBoth
+          Frequency = 5
+          ThumbSize = 15
+          ParentColor = False
+          TabOrder = 7
+          TabStop = True
+          OnChange = Pt3OutputChange
         end
       end
       object Pt4MixPanel: TPanel
@@ -5587,7 +5832,7 @@ object EditorForm: TEditorForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentDoubleBuffered = False
         ParentFont = False
@@ -5606,7 +5851,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
@@ -5615,7 +5860,7 @@ object EditorForm: TEditorForm
         end
         object Pt4Output_label: TLabel
           Left = 7
-          Top = 421
+          Top = 187
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -5624,13 +5869,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
         object Pt4Pan_label: TLabel
           Left = 7
-          Top = 371
+          Top = 140
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -5639,7 +5884,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
@@ -5653,7 +5898,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
@@ -5670,7 +5915,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
@@ -5679,7 +5924,7 @@ object EditorForm: TEditorForm
         end
         object Pt4Bend_label: TLabel
           Left = 7
-          Top = 319
+          Top = 88
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -5688,31 +5933,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
-        object Pt4Output: TTrackBar
-          Left = 18
-          Top = 437
-          Width = 48
-          Height = 104
-          Hint = 'Volume output level'
-          Max = 100
-          Orientation = trVertical
-          ParentShowHint = False
-          Frequency = 10
-          Position = 100
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 0
-          ThumbLength = 28
-          TickMarks = tmBoth
-          OnChange = Pt4OutputChange
-        end
         object Pt4Pan: TKnobControl
           Left = 7
-          Top = 383
+          Top = 152
           Width = 30
           Height = 30
           Hint = 'Panning'
@@ -5724,7 +5951,7 @@ object EditorForm: TEditorForm
         end
         object Pt4Pan_value: TSpinEdit
           Left = 43
-          Top = 391
+          Top = 160
           Width = 35
           Height = 22
           Hint = '-7 ~ +7'
@@ -5732,7 +5959,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 7
@@ -5740,7 +5967,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 2
+          TabOrder = 1
           Value = 0
           OnChange = Pt4Pan_valueChange
         end
@@ -5753,7 +5980,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 16
@@ -5761,20 +5988,20 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 3
+          TabOrder = 2
           Value = 1
           OnChange = Pt4ChanChange
         end
         object Pt4Output_value: TSpinEdit
           Left = 18
-          Top = 538
+          Top = 537
           Width = 48
           Height = 22
           Hint = '0 ~ 100'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           MaxValue = 100
@@ -5782,20 +6009,20 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 4
+          TabOrder = 3
           Value = 0
           OnChange = Pt4Output_valueChange
         end
         object Pt4Bend_value: TSpinEdit
           Left = 43
-          Top = 342
+          Top = 111
           Width = 35
           Height = 22
           Hint = '0 ~ 24'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 24
@@ -5803,13 +6030,13 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 5
+          TabOrder = 4
           Value = 0
           OnChange = Pt4Bend_valueChange
         end
         object Pt4Bend: TKnobControl
           Left = 7
-          Top = 334
+          Top = 103
           Width = 30
           Height = 30
           Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
@@ -5822,17 +6049,17 @@ object EditorForm: TEditorForm
           Left = 1
           Top = 78
           Width = 79
-          Height = 238
+          Height = 2
           BevelOuter = bvNone
           DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentDoubleBuffered = False
           ParentFont = False
-          TabOrder = 7
+          TabOrder = 6
           VerticalAlignment = taAlignTop
           object Pt4Bank_label: TLabel
             Left = 3
@@ -5845,7 +6072,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -5860,7 +6087,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
@@ -5875,7 +6102,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
@@ -5890,7 +6117,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -5905,7 +6132,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -5925,7 +6152,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ItemIndex = 0
             ParentFont = False
@@ -5962,7 +6189,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             MaxValue = 50
@@ -5998,7 +6225,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             MaxValue = 24
@@ -6024,13 +6251,78 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
             ShowHint = True
             TabOrder = 5
             OnChange = Pt4TimbreChange
+            Items.Strings = (
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          ')
           end
           object Pt4Poly: TComboBox
             Left = 1
@@ -6048,7 +6340,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ItemIndex = 0
             ParentFont = False
@@ -6074,7 +6366,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 2
             MaxValue = 32
@@ -6086,6 +6378,23 @@ object EditorForm: TEditorForm
             Value = 0
             OnChange = Pt4PtlReserveChange
           end
+        end
+        object Pt4Output: TSynthSlider
+          Left = 18
+          Top = 202
+          Width = 48
+          Height = 335
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmBoth
+          Frequency = 5
+          ThumbSize = 15
+          ParentColor = False
+          TabOrder = 7
+          TabStop = True
+          OnChange = Pt4OutputChange
         end
       end
       object Pt5MixPanel: TPanel
@@ -6101,7 +6410,7 @@ object EditorForm: TEditorForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentDoubleBuffered = False
         ParentFont = False
@@ -6120,7 +6429,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
@@ -6129,7 +6438,7 @@ object EditorForm: TEditorForm
         end
         object Pt5Output_label: TLabel
           Left = 7
-          Top = 421
+          Top = 187
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -6138,13 +6447,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
         object Pt5Pan_label: TLabel
           Left = 7
-          Top = 371
+          Top = 140
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -6153,7 +6462,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
@@ -6167,7 +6476,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
@@ -6184,7 +6493,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
@@ -6193,7 +6502,7 @@ object EditorForm: TEditorForm
         end
         object Pt5Bend_label: TLabel
           Left = 7
-          Top = 319
+          Top = 88
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -6202,31 +6511,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
-        object Pt5Output: TTrackBar
-          Left = 18
-          Top = 437
-          Width = 48
-          Height = 104
-          Hint = 'Volume output level'
-          Max = 100
-          Orientation = trVertical
-          ParentShowHint = False
-          Frequency = 10
-          Position = 100
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 0
-          ThumbLength = 28
-          TickMarks = tmBoth
-          OnChange = Pt5OutputChange
-        end
         object Pt5Pan: TKnobControl
           Left = 7
-          Top = 383
+          Top = 152
           Width = 30
           Height = 30
           Hint = 'Panning'
@@ -6238,7 +6529,7 @@ object EditorForm: TEditorForm
         end
         object Pt5Pan_value: TSpinEdit
           Left = 43
-          Top = 391
+          Top = 160
           Width = 35
           Height = 22
           Hint = '-7 ~ +7'
@@ -6246,7 +6537,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 7
@@ -6254,7 +6545,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 2
+          TabOrder = 1
           Value = 0
           OnChange = Pt5Pan_valueChange
         end
@@ -6267,7 +6558,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 16
@@ -6275,20 +6566,20 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 3
+          TabOrder = 2
           Value = 1
           OnChange = Pt5ChanChange
         end
         object Pt5Output_value: TSpinEdit
           Left = 18
-          Top = 538
+          Top = 537
           Width = 48
           Height = 22
           Hint = '0 ~ 100'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           MaxValue = 100
@@ -6296,20 +6587,20 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 4
+          TabOrder = 3
           Value = 0
           OnChange = Pt5Output_valueChange
         end
         object Pt5Bend_value: TSpinEdit
           Left = 43
-          Top = 342
+          Top = 111
           Width = 35
           Height = 22
           Hint = '0 ~ 24'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 24
@@ -6317,13 +6608,13 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 5
+          TabOrder = 4
           Value = 0
           OnChange = Pt5Bend_valueChange
         end
         object Pt5Bend: TKnobControl
           Left = 7
-          Top = 335
+          Top = 103
           Width = 30
           Height = 30
           Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
@@ -6336,17 +6627,17 @@ object EditorForm: TEditorForm
           Left = 1
           Top = 78
           Width = 79
-          Height = 238
+          Height = 2
           BevelOuter = bvNone
           DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentDoubleBuffered = False
           ParentFont = False
-          TabOrder = 7
+          TabOrder = 6
           VerticalAlignment = taAlignTop
           object Pt5Bank_label: TLabel
             Left = 3
@@ -6359,7 +6650,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -6374,7 +6665,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
@@ -6389,7 +6680,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
@@ -6404,7 +6695,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -6419,7 +6710,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -6439,7 +6730,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ItemIndex = 0
             ParentFont = False
@@ -6476,7 +6767,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             MaxValue = 50
@@ -6512,7 +6803,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             MaxValue = 24
@@ -6538,13 +6829,78 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
             ShowHint = True
             TabOrder = 5
             OnChange = Pt5TimbreChange
+            Items.Strings = (
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          ')
           end
           object Pt5Poly: TComboBox
             Left = 1
@@ -6562,7 +6918,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ItemIndex = 0
             ParentFont = False
@@ -6588,7 +6944,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 2
             MaxValue = 32
@@ -6600,6 +6956,23 @@ object EditorForm: TEditorForm
             Value = 0
             OnChange = Pt5PtlReserveChange
           end
+        end
+        object Pt5Output: TSynthSlider
+          Left = 18
+          Top = 202
+          Width = 48
+          Height = 335
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmBoth
+          Frequency = 5
+          ThumbSize = 15
+          ParentColor = False
+          TabOrder = 7
+          TabStop = True
+          OnChange = Pt5OutputChange
         end
       end
       object Pt6MixPanel: TPanel
@@ -6615,7 +6988,7 @@ object EditorForm: TEditorForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentDoubleBuffered = False
         ParentFont = False
@@ -6634,7 +7007,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
@@ -6643,7 +7016,7 @@ object EditorForm: TEditorForm
         end
         object Pt6Output_label: TLabel
           Left = 7
-          Top = 421
+          Top = 187
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -6652,13 +7025,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
         object Pt6Pan_label: TLabel
           Left = 7
-          Top = 371
+          Top = 140
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -6667,7 +7040,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
@@ -6681,7 +7054,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
@@ -6698,7 +7071,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
@@ -6707,7 +7080,7 @@ object EditorForm: TEditorForm
         end
         object Pt6Bend_label: TLabel
           Left = 7
-          Top = 319
+          Top = 88
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -6716,31 +7089,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
-        object Pt6Output: TTrackBar
-          Left = 18
-          Top = 437
-          Width = 48
-          Height = 104
-          Hint = 'Volume output level'
-          Max = 100
-          Orientation = trVertical
-          ParentShowHint = False
-          Frequency = 10
-          Position = 100
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 0
-          ThumbLength = 28
-          TickMarks = tmBoth
-          OnChange = Pt6OutputChange
-        end
         object Pt6Pan: TKnobControl
           Left = 7
-          Top = 383
+          Top = 152
           Width = 30
           Height = 30
           Hint = 'Panning'
@@ -6752,7 +7107,7 @@ object EditorForm: TEditorForm
         end
         object Pt6Pan_value: TSpinEdit
           Left = 43
-          Top = 391
+          Top = 160
           Width = 35
           Height = 22
           Hint = '-7 ~ +7'
@@ -6760,7 +7115,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 7
@@ -6768,7 +7123,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 2
+          TabOrder = 1
           Value = 0
           OnChange = Pt6Pan_valueChange
         end
@@ -6781,7 +7136,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 16
@@ -6789,20 +7144,20 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 3
+          TabOrder = 2
           Value = 1
           OnChange = Pt6ChanChange
         end
         object Pt6Output_value: TSpinEdit
           Left = 18
-          Top = 538
+          Top = 537
           Width = 48
           Height = 22
           Hint = '0 ~ 100'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           MaxValue = 100
@@ -6810,20 +7165,20 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 4
+          TabOrder = 3
           Value = 0
           OnChange = Pt6Output_valueChange
         end
         object Pt6Bend_value: TSpinEdit
           Left = 43
-          Top = 342
+          Top = 111
           Width = 35
           Height = 22
           Hint = '0 ~ 24'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 24
@@ -6831,13 +7186,13 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 5
+          TabOrder = 4
           Value = 0
           OnChange = Pt6Bend_valueChange
         end
         object Pt6Bend: TKnobControl
           Left = 7
-          Top = 334
+          Top = 103
           Width = 30
           Height = 30
           Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
@@ -6850,17 +7205,17 @@ object EditorForm: TEditorForm
           Left = 1
           Top = 78
           Width = 79
-          Height = 238
+          Height = 2
           BevelOuter = bvNone
           DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentDoubleBuffered = False
           ParentFont = False
-          TabOrder = 7
+          TabOrder = 6
           VerticalAlignment = taAlignTop
           object Pt6Bank_label: TLabel
             Left = 3
@@ -6873,7 +7228,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -6888,7 +7243,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
@@ -6903,7 +7258,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
@@ -6918,7 +7273,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -6933,7 +7288,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -6953,7 +7308,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ItemIndex = 0
             ParentFont = False
@@ -6990,7 +7345,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             MaxValue = 50
@@ -7026,7 +7381,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             MaxValue = 24
@@ -7052,13 +7407,78 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
             ShowHint = True
             TabOrder = 5
             OnChange = Pt6TimbreChange
+            Items.Strings = (
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          ')
           end
           object Pt6Poly: TComboBox
             Left = 1
@@ -7076,7 +7496,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ItemIndex = 0
             ParentFont = False
@@ -7102,7 +7522,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 2
             MaxValue = 32
@@ -7114,6 +7534,23 @@ object EditorForm: TEditorForm
             Value = 0
             OnChange = Pt6PtlReserveChange
           end
+        end
+        object Pt6Output: TSynthSlider
+          Left = 18
+          Top = 202
+          Width = 48
+          Height = 335
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmBoth
+          Frequency = 5
+          ThumbSize = 15
+          ParentColor = False
+          TabOrder = 7
+          TabStop = True
+          OnChange = Pt6OutputChange
         end
       end
       object Pt7MixPanel: TPanel
@@ -7129,7 +7566,7 @@ object EditorForm: TEditorForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentDoubleBuffered = False
         ParentFont = False
@@ -7148,7 +7585,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
@@ -7157,7 +7594,7 @@ object EditorForm: TEditorForm
         end
         object Pt7Output_label: TLabel
           Left = 7
-          Top = 421
+          Top = 187
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -7166,13 +7603,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
         object Pt7Pan_label: TLabel
           Left = 7
-          Top = 371
+          Top = 140
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -7181,7 +7618,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
@@ -7195,7 +7632,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
@@ -7212,7 +7649,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
@@ -7221,7 +7658,7 @@ object EditorForm: TEditorForm
         end
         object Pt7Bend_label: TLabel
           Left = 7
-          Top = 319
+          Top = 88
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -7230,31 +7667,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
-        object Pt7Output: TTrackBar
-          Left = 18
-          Top = 437
-          Width = 48
-          Height = 104
-          Hint = 'Volume output level'
-          Max = 100
-          Orientation = trVertical
-          ParentShowHint = False
-          Frequency = 10
-          Position = 100
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 0
-          ThumbLength = 28
-          TickMarks = tmBoth
-          OnChange = Pt7OutputChange
-        end
         object Pt7Pan: TKnobControl
           Left = 7
-          Top = 383
+          Top = 152
           Width = 30
           Height = 30
           Hint = 'Panning'
@@ -7266,7 +7685,7 @@ object EditorForm: TEditorForm
         end
         object Pt7Pan_value: TSpinEdit
           Left = 43
-          Top = 391
+          Top = 160
           Width = 35
           Height = 22
           Hint = '-7 ~ +7'
@@ -7274,7 +7693,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 7
@@ -7282,7 +7701,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 2
+          TabOrder = 1
           Value = 0
           OnChange = Pt7Pan_valueChange
         end
@@ -7295,7 +7714,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 16
@@ -7303,20 +7722,20 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 3
+          TabOrder = 2
           Value = 1
           OnChange = Pt7ChanChange
         end
         object Pt7Output_value: TSpinEdit
           Left = 18
-          Top = 538
+          Top = 537
           Width = 48
           Height = 22
           Hint = '0 ~ 100'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           MaxValue = 100
@@ -7324,20 +7743,20 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 4
+          TabOrder = 3
           Value = 0
           OnChange = Pt7Output_valueChange
         end
         object Pt7Bend_value: TSpinEdit
           Left = 43
-          Top = 342
+          Top = 111
           Width = 35
           Height = 22
           Hint = '0 ~ 24'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 24
@@ -7345,13 +7764,13 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 5
+          TabOrder = 4
           Value = 0
           OnChange = Pt7Bend_valueChange
         end
         object Pt7Bend: TKnobControl
           Left = 7
-          Top = 334
+          Top = 103
           Width = 30
           Height = 30
           Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
@@ -7364,17 +7783,17 @@ object EditorForm: TEditorForm
           Left = 1
           Top = 78
           Width = 79
-          Height = 238
+          Height = 2
           BevelOuter = bvNone
           DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentDoubleBuffered = False
           ParentFont = False
-          TabOrder = 7
+          TabOrder = 6
           VerticalAlignment = taAlignTop
           object Pt7Bank_label: TLabel
             Left = 3
@@ -7387,7 +7806,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -7402,7 +7821,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
@@ -7417,7 +7836,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
@@ -7432,7 +7851,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -7447,7 +7866,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -7467,7 +7886,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ItemIndex = 0
             ParentFont = False
@@ -7504,7 +7923,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             MaxValue = 50
@@ -7540,7 +7959,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             MaxValue = 24
@@ -7566,13 +7985,78 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
             ShowHint = True
             TabOrder = 5
             OnChange = Pt7TimbreChange
+            Items.Strings = (
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          ')
           end
           object Pt7Poly: TComboBox
             Left = 1
@@ -7590,7 +8074,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ItemIndex = 0
             ParentFont = False
@@ -7616,7 +8100,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 2
             MaxValue = 32
@@ -7628,6 +8112,23 @@ object EditorForm: TEditorForm
             Value = 0
             OnChange = Pt7PtlReserveChange
           end
+        end
+        object Pt7Output: TSynthSlider
+          Left = 18
+          Top = 202
+          Width = 48
+          Height = 335
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmBoth
+          Frequency = 5
+          ThumbSize = 15
+          ParentColor = False
+          TabOrder = 7
+          TabStop = True
+          OnChange = Pt7OutputChange
         end
       end
       object Pt8MixPanel: TPanel
@@ -7643,7 +8144,7 @@ object EditorForm: TEditorForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentDoubleBuffered = False
         ParentFont = False
@@ -7662,7 +8163,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
@@ -7671,7 +8172,7 @@ object EditorForm: TEditorForm
         end
         object Pt8Output_label: TLabel
           Left = 7
-          Top = 421
+          Top = 187
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -7680,13 +8181,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
         object Pt8Pan_label: TLabel
           Left = 7
-          Top = 371
+          Top = 140
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -7695,7 +8196,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
@@ -7709,7 +8210,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
@@ -7726,7 +8227,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
@@ -7735,7 +8236,7 @@ object EditorForm: TEditorForm
         end
         object Pt8Bend_label: TLabel
           Left = 7
-          Top = 319
+          Top = 88
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -7744,31 +8245,13 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
-        object Pt8Output: TTrackBar
-          Left = 18
-          Top = 437
-          Width = 48
-          Height = 104
-          Hint = 'Volume output level'
-          Max = 100
-          Orientation = trVertical
-          ParentShowHint = False
-          Frequency = 10
-          Position = 100
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 0
-          ThumbLength = 28
-          TickMarks = tmBoth
-          OnChange = Pt8OutputChange
-        end
         object Pt8Pan: TKnobControl
           Left = 7
-          Top = 383
+          Top = 152
           Width = 30
           Height = 30
           Hint = 'Panning'
@@ -7780,7 +8263,7 @@ object EditorForm: TEditorForm
         end
         object Pt8Pan_value: TSpinEdit
           Left = 43
-          Top = 391
+          Top = 160
           Width = 35
           Height = 22
           Hint = '-7 ~ +7'
@@ -7788,7 +8271,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 7
@@ -7796,7 +8279,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 2
+          TabOrder = 1
           Value = 0
           OnChange = Pt8Pan_valueChange
         end
@@ -7809,7 +8292,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 16
@@ -7817,20 +8300,20 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 3
+          TabOrder = 2
           Value = 1
           OnChange = Pt8ChanChange
         end
         object Pt8Output_value: TSpinEdit
           Left = 18
-          Top = 538
+          Top = 537
           Width = 48
           Height = 22
           Hint = '0 ~ 100'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           MaxValue = 100
@@ -7838,20 +8321,20 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 4
+          TabOrder = 3
           Value = 0
           OnChange = Pt8Output_valueChange
         end
         object Pt8Bend_value: TSpinEdit
           Left = 43
-          Top = 342
+          Top = 111
           Width = 35
           Height = 22
           Hint = '0 ~ 24'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 24
@@ -7859,13 +8342,13 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 5
+          TabOrder = 4
           Value = 0
           OnChange = Pt8Bend_valueChange
         end
         object Pt8Bend: TKnobControl
           Left = 7
-          Top = 334
+          Top = 103
           Width = 30
           Height = 30
           Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
@@ -7878,17 +8361,17 @@ object EditorForm: TEditorForm
           Left = 1
           Top = 78
           Width = 79
-          Height = 238
+          Height = 2
           BevelOuter = bvNone
           DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentDoubleBuffered = False
           ParentFont = False
-          TabOrder = 7
+          TabOrder = 6
           VerticalAlignment = taAlignTop
           object Pt8Bank_label: TLabel
             Left = 3
@@ -7901,7 +8384,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -7916,7 +8399,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
@@ -7931,7 +8414,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
@@ -7946,7 +8429,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -7961,7 +8444,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -7981,7 +8464,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ItemIndex = 0
             ParentFont = False
@@ -8018,7 +8501,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             MaxValue = 50
@@ -8054,7 +8537,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             MaxValue = 24
@@ -8080,13 +8563,78 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
             ShowHint = True
             TabOrder = 5
             OnChange = Pt8TimbreChange
+            Items.Strings = (
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          '
+              '          ')
           end
           object Pt8Poly: TComboBox
             Left = 1
@@ -8104,7 +8652,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ItemIndex = 0
             ParentFont = False
@@ -8130,7 +8678,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 2
             MaxValue = 32
@@ -8142,6 +8690,23 @@ object EditorForm: TEditorForm
             Value = 0
             OnChange = Pt8PtlReserveChange
           end
+        end
+        object Pt8Output: TSynthSlider
+          Left = 18
+          Top = 202
+          Width = 48
+          Height = 335
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmBoth
+          Frequency = 5
+          ThumbSize = 15
+          ParentColor = False
+          TabOrder = 7
+          TabStop = True
+          OnChange = Pt8OutputChange
         end
       end
       object PtRMixPanel: TPanel
@@ -8157,7 +8722,7 @@ object EditorForm: TEditorForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentDoubleBuffered = False
         ParentFont = False
@@ -8165,7 +8730,7 @@ object EditorForm: TEditorForm
         VerticalAlignment = taAlignTop
         object PtROutput_label: TLabel
           Left = 7
-          Top = 421
+          Top = 187
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -8174,7 +8739,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
@@ -8188,7 +8753,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
         end
@@ -8205,7 +8770,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
@@ -8214,7 +8779,7 @@ object EditorForm: TEditorForm
         end
         object PtRBend_label: TLabel
           Left = 7
-          Top = 319
+          Top = 88
           Width = 71
           Height = 13
           Alignment = taCenter
@@ -8223,27 +8788,9 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
-        end
-        object PtROutput: TTrackBar
-          Left = 18
-          Top = 437
-          Width = 48
-          Height = 104
-          Hint = 'Volume output level'
-          Max = 100
-          Orientation = trVertical
-          ParentShowHint = False
-          Frequency = 10
-          Position = 100
-          ShowHint = True
-          ShowSelRange = False
-          TabOrder = 0
-          ThumbLength = 28
-          TickMarks = tmBoth
-          OnChange = PtROutputChange
         end
         object PtRChan: TSpinEdit
           Left = 41
@@ -8254,7 +8801,7 @@ object EditorForm: TEditorForm
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 16
@@ -8262,20 +8809,20 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 1
+          TabOrder = 0
           Value = 1
           OnChange = PtRChanChange
         end
         object PtROutput_value: TSpinEdit
           Left = 18
-          Top = 538
+          Top = 537
           Width = 48
           Height = 22
           Hint = '0 ~ 100'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 3
           MaxValue = 100
@@ -8283,20 +8830,20 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 2
+          TabOrder = 1
           Value = 0
           OnChange = PtROutput_valueChange
         end
         object PtRBend_value: TSpinEdit
           Left = 43
-          Top = 342
+          Top = 111
           Width = 35
           Height = 22
           Hint = '0 ~ 24'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = []
           MaxLength = 2
           MaxValue = 24
@@ -8304,13 +8851,13 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 3
+          TabOrder = 2
           Value = 0
           OnChange = PtRBend_valueChange
         end
         object PtRBend: TKnobControl
           Left = 7
-          Top = 334
+          Top = 103
           Width = 30
           Height = 30
           Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
@@ -8323,17 +8870,17 @@ object EditorForm: TEditorForm
           Left = 1
           Top = 78
           Width = 79
-          Height = 238
+          Height = 2
           BevelOuter = bvNone
           DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentDoubleBuffered = False
           ParentFont = False
-          TabOrder = 5
+          TabOrder = 4
           VerticalAlignment = taAlignTop
           object PtRKey_label: TLabel
             Left = 5
@@ -8346,7 +8893,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
@@ -8361,7 +8908,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
           end
@@ -8376,7 +8923,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -8391,7 +8938,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
           end
@@ -8417,7 +8964,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             MaxValue = 50
@@ -8453,7 +9000,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 3
             MaxValue = 24
@@ -8481,7 +9028,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             ItemIndex = 0
             ParentFont = False
@@ -8507,7 +9054,7 @@ object EditorForm: TEditorForm
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
-            Font.Name = 'MS Sans Serif'
+            Font.Name = 'Tahoma'
             Font.Style = []
             MaxLength = 2
             MaxValue = 32
@@ -8519,6 +9066,23 @@ object EditorForm: TEditorForm
             Value = 0
             OnChange = PtRPtlReserveChange
           end
+        end
+        object PtROutput: TSynthSlider
+          Left = 18
+          Top = 202
+          Width = 48
+          Height = 335
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmBoth
+          Frequency = 5
+          ThumbSize = 15
+          ParentColor = False
+          TabOrder = 5
+          TabStop = True
+          OnChange = PtROutputChange
         end
       end
     end
@@ -8537,7 +9101,7 @@ object EditorForm: TEditorForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
       end
@@ -8557,7 +9121,7 @@ object EditorForm: TEditorForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
       end
@@ -8567,28 +9131,28 @@ object EditorForm: TEditorForm
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
-      Font.Name = 'MS Sans Serif'
+      Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
       TabVisible = False
       object Label1: TLabel
         Left = 109
         Top = 61
-        Width = 38
+        Width = 39
         Height = 13
         Caption = 'Address'
       end
       object Label2: TLabel
         Left = 184
         Top = 61
-        Width = 20
+        Width = 19
         Height = 13
         Caption = 'Size'
       end
       object Label3: TLabel
         Left = 29
         Top = 109
-        Width = 73
+        Width = 75
         Height = 13
         Caption = 'Returned Bytes'
       end
@@ -8681,13 +9245,13 @@ object EditorForm: TEditorForm
   end
   object MasterVolume_value: TSpinEdit
     Left = 758
-    Top = 589
+    Top = 588
     Width = 48
     Height = 22
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'MS Sans Serif'
+    Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     MaxLength = 3
     MaxValue = 100
@@ -8699,7 +9263,7 @@ object EditorForm: TEditorForm
   end
   object MasterVolume: TSynthSlider
     Left = 756
-    Top = 256
+    Top = 252
     Width = 49
     Height = 336
     Hint = 'Master volume output of the MT-32'
@@ -8707,6 +9271,7 @@ object EditorForm: TEditorForm
     FillColor = 16751121
     ThumbColor = 14120960
     TickColor = clSilver
+    TickMarks = stmBoth
     Frequency = 5
     ThumbSize = 17
     ParentColor = False

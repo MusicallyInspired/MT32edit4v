@@ -390,7 +390,7 @@ end;
 
 procedure Register;
 begin
-  RegisterComponents('MT32edit4v', [TKnobControl]);
+  RegisterComponents('Samples', [TKnobControl]);
 end;
 
 initialization

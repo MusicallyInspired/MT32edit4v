@@ -301,16 +301,11 @@ type
     PitchEnvGroup: TGroupBox;
     TVFGroup: TGroupBox;
     TVAGroup: TGroupBox;
-    PEnvLevel0: TTrackBar;
     PEnvLevel0_label: TLabel;
-    PEnvLevel1: TTrackBar;
     PEnvLevel1_label: TLabel;
-    PEnvLevel2: TTrackBar;
     PEnvLevel2_label: TLabel;
-    PEnvSustain: TTrackBar;
     PEnvSus_label: TLabel;
     PEnvEnd_label: TLabel;
-    PEnvEnd: TTrackBar;
     PEnvPlot: TPaintBox;
     PEnvLevel1_value: TEdit;
     PEnvLevel2_value: TEdit;
@@ -322,11 +317,6 @@ type
     TVFSustain_label: TLabel;
     TVFKeyFollow_label: TLabel;
     TVFPlot: TPaintBox;
-    TVFLevel1: TTrackBar;
-    TVFLevel2: TTrackBar;
-    TVFLevel3: TTrackBar;
-    TVFSustain: TTrackBar;
-    TVFKeyFollow: TTrackBar;
     TVFLevel2_value: TEdit;
     TVFLevel3_value: TEdit;
     TVFSustain_value: TEdit;
@@ -336,11 +326,6 @@ type
     TVALevel3_label: TLabel;
     TVASustain_label: TLabel;
     TVAPlot: TPaintBox;
-    TVALevel1: TTrackBar;
-    TVALevel2: TTrackBar;
-    TVALevel3: TTrackBar;
-    TVASustain: TTrackBar;
-    TVAAmplifier: TTrackBar;
     TVALevel2_value: TEdit;
     TVALevel3_value: TEdit;
     TVASustain_value: TEdit;
@@ -351,14 +336,11 @@ type
     PEnvTime2_value: TEdit;
     PEnvTime3_value: TEdit;
     PEnvTime4_value: TEdit;
-    PEnvDepth: TTrackBar;
     PEnvDepth_value: TEdit;
     PEnvLevel0_value: TEdit;
     PEnvVelSens_value: TEdit;
-    PEnvVelSens: TTrackBar;
     PEnvDepth_label: TLabel;
     PEnvVelSens_label: TLabel;
-    PEnvTimeKeyFollow: TTrackBar;
     PEnvTimeKeyFollow_value: TEdit;
     PEnvTimeKeyFollow_label: TLabel;
     PEnvLFORate_label: TLabel;
@@ -396,17 +378,12 @@ type
     PEnvLFOGroup: TGroupBox;
     TVFDepth_value: TEdit;
     TVFDepth_label: TLabel;
-    TVFDepth: TTrackBar;
     TVFVelSens_label: TLabel;
-    TVFVelSens: TTrackBar;
     TVFVelSens_value: TEdit;
     TVFTimeKeyFollow_label: TLabel;
-    TVFTimeKeyFollow: TTrackBar;
     TVFTimeKeyFollow_value: TEdit;
     TVFDepthKeyFollow_label: TLabel;
-    TVFDepthKeyFollow: TTrackBar;
     TVFDepthKeyFollow_value: TEdit;
-    TVFBiasLevel: TTrackBar;
     TVFBiasLevel_label: TLabel;
     TVFBiasLevel_value: TEdit;
     TVFBiasPoint: TComboBox;
@@ -416,8 +393,6 @@ type
     TVFCutoff_label: TLabel;
     TVFResonance_value: TEdit;
     TVFCutoff_value: TEdit;
-    TVFCutoff: TTrackBar;
-    TVFResonance: TTrackBar;
     TVFFilterPlot: TPaintBox;
     TVATime1_label: TLabel;
     TVATime2_label: TLabel;
@@ -434,26 +409,21 @@ type
     TVATime4: TKnobControl;
     TVATime5: TKnobControl;
     TVATime5_value: TEdit;
-    TVAVelSens: TTrackBar;
     TVAVelSens_value: TEdit;
     TVAVelSens_label: TLabel;
     TVATimeKeyFollow_label: TLabel;
-    TVATimeKeyFollow: TTrackBar;
     TVATimeKeyFollow_value: TEdit;
     TVAVelKeyFollow_label: TLabel;
-    TVAVelKeyFollow: TTrackBar;
     TVAVelKeyFollow_value: TEdit;
     TVABiasPoint1_label: TLabel;
     TVABiasPoint1: TComboBox;
     TVABiasLevel1_label: TLabel;
-    TVABiasLevel1: TTrackBar;
     TVABiasLevel1_value: TEdit;
     TVAAmpGroup: TGroupBox;
     TVAAmplifier_label: TLabel;
     TVABiasPoint2_label: TLabel;
     TVABiasPoint2: TComboBox;
     TVABiasLevel2_label: TLabel;
-    TVABiasLevel2: TTrackBar;
     TVABiasLevel2_value: TEdit;
     Memo1: TMemo;
     TimbreName_label: TLabel;
@@ -481,7 +451,6 @@ type
     WGKeyFollowType: TLabel;
     WGCoarseType: TLabel;
     WGShape: TRadioGroup;
-    WGKeyFollow: TTrackBar;
     WGPulseWidth_value: TEdit;
     WGVelSens_value: TEdit;
     WGCoarse_value: TEdit;
@@ -544,7 +513,6 @@ type
     Pt2Chan_label: TLabel;
     Pt2Enable: TSpeedButton;
     Pt2Bend_label: TLabel;
-    Pt2Output: TTrackBar;
     Pt2Pan: TKnobControl;
     Pt2Pan_value: TSpinEdit;
     Pt2Chan: TSpinEdit;
@@ -572,7 +540,6 @@ type
     Pt3Chan_label: TLabel;
     Pt3Enable: TSpeedButton;
     Pt3Bend_label: TLabel;
-    Pt3Output: TTrackBar;
     Pt3Pan: TKnobControl;
     Pt3Pan_value: TSpinEdit;
     Pt3Chan: TSpinEdit;
@@ -600,7 +567,6 @@ type
     Pt4Chan_label: TLabel;
     Pt4Enable: TSpeedButton;
     Pt4Bend_label: TLabel;
-    Pt4Output: TTrackBar;
     Pt4Pan: TKnobControl;
     Pt4Pan_value: TSpinEdit;
     Pt4Chan: TSpinEdit;
@@ -628,7 +594,6 @@ type
     Pt5Chan_label: TLabel;
     Pt5Enable: TSpeedButton;
     Pt5Bend_label: TLabel;
-    Pt5Output: TTrackBar;
     Pt5Pan: TKnobControl;
     Pt5Pan_value: TSpinEdit;
     Pt5Chan: TSpinEdit;
@@ -656,7 +621,6 @@ type
     Pt6Chan_label: TLabel;
     Pt6Enable: TSpeedButton;
     Pt6Bend_label: TLabel;
-    Pt6Output: TTrackBar;
     Pt6Pan: TKnobControl;
     Pt6Pan_value: TSpinEdit;
     Pt6Chan: TSpinEdit;
@@ -684,7 +648,6 @@ type
     Pt7Chan_label: TLabel;
     Pt7Enable: TSpeedButton;
     Pt7Bend_label: TLabel;
-    Pt7Output: TTrackBar;
     Pt7Pan: TKnobControl;
     Pt7Pan_value: TSpinEdit;
     Pt7Chan: TSpinEdit;
@@ -712,7 +675,6 @@ type
     Pt8Chan_label: TLabel;
     Pt8Enable: TSpeedButton;
     Pt8Bend_label: TLabel;
-    Pt8Output: TTrackBar;
     Pt8Pan: TKnobControl;
     Pt8Pan_value: TSpinEdit;
     Pt8Chan: TSpinEdit;
@@ -738,7 +700,6 @@ type
     PtRChan_label: TLabel;
     PtREnable: TSpeedButton;
     PtRBend_label: TLabel;
-    PtROutput: TTrackBar;
     PtRChan: TSpinEdit;
     PtROutput_value: TSpinEdit;
     PtRBend_value: TSpinEdit;
@@ -765,7 +726,47 @@ type
     WGVelSens: TSynthSlider;
     WGCoarse: TSynthSlider;
     WGFine: TSynthSlider;
+    WGKeyFollow: TSynthSlider;
+    PEnvLevel0: TSynthSlider;
+    PEnvLevel1: TSynthSlider;
+    PEnvLevel2: TSynthSlider;
+    PEnvSustain: TSynthSlider;
+    PEnvEnd: TSynthSlider;
+    TVFLevel1: TSynthSlider;
+    TVFLevel3: TSynthSlider;
+    TVFLevel2: TSynthSlider;
+    TVFSustain: TSynthSlider;
+    TVFKeyFollow: TSynthSlider;
+    PEnvDepth: TSynthSlider;
+    PEnvTimeKeyFollow: TSynthSlider;
+    PEnvVelSens: TSynthSlider;
+    TVFCutoff: TSynthSlider;
+    TVFResonance: TSynthSlider;
+    TVFDepth: TSynthSlider;
+    TVFDepthKeyFollow: TSynthSlider;
+    TVFVelSens: TSynthSlider;
+    TVFTimeKeyFollow: TSynthSlider;
+    TVFBiasLevel: TSynthSlider;
+    TVALevel1: TSynthSlider;
+    TVALevel2: TSynthSlider;
+    TVALevel3: TSynthSlider;
+    TVASustain: TSynthSlider;
+    TVAAmplifier: TSynthSlider;
+    TVAVelSens: TSynthSlider;
+    TVATimeKeyFollow: TSynthSlider;
+    TVAVelKeyFollow: TSynthSlider;
+    TVABiasLevel1: TSynthSlider;
+    TVABiasLevel2: TSynthSlider;
+    Pt2Output: TSynthSlider;
+    Pt3Output: TSynthSlider;
+    Pt4Output: TSynthSlider;
+    Pt5Output: TSynthSlider;
+    Pt6Output: TSynthSlider;
+    Pt7Output: TSynthSlider;
+    Pt8Output: TSynthSlider;
+    PtROutput: TSynthSlider;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure Button2Click(Sender: TObject);
@@ -788,6 +789,7 @@ type
     procedure RefreshStructs;
     procedure RefreshEnvelopePlots;
     procedure RefreshPatchControls;
+    procedure RefreshAllGroupMemCombos;
     procedure SetSynthColors;
 
     procedure SetWGSynth;
@@ -800,57 +802,71 @@ type
     function AllowSignedNumericKey(Edit: TEdit; var Key: Char): Boolean;
     procedure PressedKey(Sender: TObject; var Key: Char);
 
-    procedure WGShapeClick(Sender: TObject);
-    procedure PartialStruct1Change(Sender: TObject);
-    procedure PartialStruct2Change(Sender: TObject);
+    procedure CurPartChange(Sender: TObject);
+    procedure PartMidiChanChange(Sender: TObject);
+
     procedure PartialMute1Click(Sender: TObject);
     procedure PartialMute2Click(Sender: TObject);
     procedure PartialMute3Click(Sender: TObject);
     procedure PartialMute4Click(Sender: TObject);
-    procedure EnvModeClick(Sender: TObject);
-    procedure CurPartChange(Sender: TObject);
-    procedure PartMidiChanChange(Sender: TObject);
+    procedure PartialStruct1Change(Sender: TObject);
+    procedure PartialStruct2Change(Sender: TObject);
     procedure TimbreNameExit(Sender: TObject);
+    procedure TimbreNameKeyPress(Sender: TObject; var Key: Char);
+    procedure EnvModeClick(Sender: TObject);
+    procedure PtRevButtonClick(Sender: TObject);
+    procedure PtBendRangeChange(Sender: TObject);
+    procedure PtBendRangeKeyPress(Sender: TObject; var Key: Char);
+
+    procedure OpenSyxButtonClick(Sender: TObject);
+    procedure SaveSyxButtonClick(Sender: TObject);
+    procedure SyncTimbreButtonClick(Sender: TObject);
+    procedure InitTimbreButtonClick(Sender: TObject);
+
     procedure SelPartial1ButtonClick(Sender: TObject);
     procedure SelPartial2ButtonClick(Sender: TObject);
     procedure SelPartial3ButtonClick(Sender: TObject);
     procedure SelPartial4ButtonClick(Sender: TObject);
+
+    procedure WGShapeClick(Sender: TObject);
     procedure WGPitchBendClick(Sender: TObject);
-    procedure SyncTimbreButtonClick(Sender: TObject);
     procedure WGFine_valueKeyPress(Sender: TObject; var Key: Char);
     procedure WGVelSens_valueKeyPress(Sender: TObject; var Key: Char);
-    procedure TimbreNameKeyPress(Sender: TObject; var Key: Char);
-    procedure InitTimbreButtonClick(Sender: TObject);
     procedure WGPulseWidth_valueKeyPress(Sender: TObject; var Key: Char);
-    procedure WGKeyFollowChange(Sender: TObject);
     procedure WGKeyFollow_valueKeyPress(Sender: TObject; var Key: Char);
     procedure WGCoarse_valueKeyPress(Sender: TObject; var Key: Char);
-    procedure WGSampleChange(Sender: TObject);
-    procedure PEnvLevel0Change(Sender: TObject);
-    procedure PEnvLevel0_valueKeyPress(Sender: TObject; var Key: Char);
+    procedure WGSampleClick(Sender: TObject);
+    procedure WGPulseWidthChange(Sender: TObject);
+    procedure WGVelSensChange(Sender: TObject);
+    procedure WGCoarseChange(Sender: TObject);
+    procedure WGFineChange(Sender: TObject);
+    procedure WGKeyFollowChange(Sender: TObject);
+    procedure WGCoarse_valueExit(Sender: TObject);
+    procedure WGKeyFollow_valueExit(Sender: TObject);
+    procedure WGFine_valueExit(Sender: TObject);
+    procedure WGPulseWidth_valueExit(Sender: TObject);
+    procedure WGVelSens_valueExit(Sender: TObject);
+
     procedure PEnvLevel1Change(Sender: TObject);
-    procedure PEnvLevel1_valueKeyPress(Sender: TObject; var Key: Char);
     procedure PEnvLevel2Change(Sender: TObject);
-    procedure PEnvLevel2_valueKeyPress(Sender: TObject; var Key: Char);
     procedure PEnvSustainChange(Sender: TObject);
-    procedure PEnvSustain_valueKeyPress(Sender: TObject; var Key: Char);
     procedure PEnvEndChange(Sender: TObject);
+    procedure PEnvLevel0_valueKeyPress(Sender: TObject; var Key: Char);
+    procedure PEnvLevel1_valueKeyPress(Sender: TObject; var Key: Char);
+    procedure PEnvLevel2_valueKeyPress(Sender: TObject; var Key: Char);
+    procedure PEnvSustain_valueKeyPress(Sender: TObject; var Key: Char);
     procedure PEnvEnd_valueKeyPress(Sender: TObject; var Key: Char);
     procedure PEnvTime1Change(Sender: TObject);
     procedure PEnvTime2Change(Sender: TObject);
     procedure PEnvTime3Change(Sender: TObject);
     procedure PEnvTime4Change(Sender: TObject);
-    procedure PEnvTimeKeyFollowChange(Sender: TObject);
-    procedure PEnvVelSensChange(Sender: TObject);
     procedure PEnvTime1_valueKeyPress(Sender: TObject; var Key: Char);
     procedure PEnvTime2_valueKeyPress(Sender: TObject; var Key: Char);
     procedure PEnvTime3_valueKeyPress(Sender: TObject; var Key: Char);
     procedure PEnvTime4_valueKeyPress(Sender: TObject; var Key: Char);
     procedure PEnvVelSens_valueKeyPress(Sender: TObject; var Key: Char);
-    procedure PEnvDepthChange(Sender: TObject);
     procedure PEnvDepth_valueKeyPress(Sender: TObject; var Key: Char);
     procedure PEnvPlotPaint(Sender: TObject);
-    procedure TVFPlotPaint(Sender: TObject);
     procedure PEnvTimeKeyFollow_valueKeyPress(Sender: TObject; var Key: Char);
     procedure PEnvLFORateChange(Sender: TObject);
     procedure PEnvLFODepthChange(Sender: TObject);
@@ -870,27 +886,26 @@ type
     procedure PEnvTime1_valueExit(Sender: TObject);
     procedure PEnvTimeKeyFollow_valueExit(Sender: TObject);
     procedure PEnvVelSens_valueExit(Sender: TObject);
-    procedure TVFLevel1Change(Sender: TObject);
+    procedure PEnvDepthChange(Sender: TObject);
+    procedure PEnvTimeKeyFollowChange(Sender: TObject);
+    procedure PEnvVelSensChange(Sender: TObject);
+
     procedure TVFLevel1_valueKeyPress(Sender: TObject; var Key: Char);
     procedure TVFLevel1_valueExit(Sender: TObject);
-    procedure TVFLevel2Change(Sender: TObject);
     procedure TVFLevel2_valueKeyPress(Sender: TObject; var Key: Char);
     procedure TVFLevel2_valueExit(Sender: TObject);
     procedure TVFLevel3_valueKeyPress(Sender: TObject; var Key: Char);
-    procedure TVFCutoffChange(Sender: TObject);
     procedure TVFSustain_valueKeyPress(Sender: TObject; var Key: Char);
     procedure TVFKeyFollow_valueKeyPress(Sender: TObject; var Key: Char);
+    procedure TVFPlotPaint(Sender: TObject);
     procedure TVFCutoff_valueExit(Sender: TObject);
     procedure TVFCutoff_valueKeyPress(Sender: TObject; var Key: Char);
     procedure TVFResonance_valueKeyPress(Sender: TObject; var Key: Char);
-    procedure TVFKeyFollowChange(Sender: TObject);
+    procedure TVFFilterPlotPaint(Sender: TObject);
     procedure TVFKeyFollow_valueExit(Sender: TObject);
-    procedure TVFLevel3Change(Sender: TObject);
     procedure TVFLevel3_valueExit(Sender: TObject);
-    procedure TVFResonanceChange(Sender: TObject);
     procedure TVFResonance_valueExit(Sender: TObject);
     procedure TVFSustain_valueExit(Sender: TObject);
-    procedure TVFSustainChange(Sender: TObject);
     procedure TVFTime1Change(Sender: TObject);
     procedure TVFTime1_valueKeyPress(Sender: TObject; var Key: Char);
     procedure TVFTime1_valueExit(Sender: TObject);
@@ -906,58 +921,61 @@ type
     procedure TVFTime3_valueExit(Sender: TObject);
     procedure TVFTime4_valueExit(Sender: TObject);
     procedure TVFTime5_valueExit(Sender: TObject);
-    procedure TVFDepthChange(Sender: TObject);
     procedure TVFDepth_valueKeyPress(Sender: TObject; var Key: Char);
     procedure TVFDepth_valueExit(Sender: TObject);
-    procedure TVFVelSensChange(Sender: TObject);
     procedure TVFVelSens_valueKeyPress(Sender: TObject; var Key: Char);
     procedure TVFVelSens_valueExit(Sender: TObject);
-    procedure TVFTimeKeyFollowChange(Sender: TObject);
     procedure TVFTimeKeyFollow_valueKeyPress(Sender: TObject; var Key: Char);
     procedure TVFTimeKeyFollow_valueExit(Sender: TObject);
     procedure TVFBiasPointChange(Sender: TObject);
-    procedure TVFBiasLevelChange(Sender: TObject);
     procedure TVFBiasLevel_valueKeyPress(Sender: TObject; var Key: Char);
     procedure TVFBiasLevel_valueExit(Sender: TObject);
-    procedure TVFDepthKeyFollowChange(Sender: TObject);
-    procedure WGCoarse_valueExit(Sender: TObject);
-    procedure WGKeyFollow_valueExit(Sender: TObject);
-    procedure WGFine_valueExit(Sender: TObject);
-    procedure WGPulseWidth_valueExit(Sender: TObject);
-    procedure WGVelSens_valueExit(Sender: TObject);
     procedure TVFDepthKeyFollow_valueKeyPress(Sender: TObject; var Key: Char);
     procedure TVFDepthKeyFollow_valueExit(Sender: TObject);
-    procedure TVALevel1Change(Sender: TObject);
-    procedure TVALevel2Change(Sender: TObject);
-    procedure TVALevel3Change(Sender: TObject);
-    procedure TVASustainChange(Sender: TObject);
-    procedure TVAAmplifierChange(Sender: TObject);
+    procedure TVFLevel1Change(Sender: TObject);
+    procedure TVFLevel2Change(Sender: TObject);
+    procedure TVFLevel3Change(Sender: TObject);
+    procedure TVFSustainChange(Sender: TObject);
+    procedure TVFKeyFollowChange(Sender: TObject);
+    procedure TVFCutoffChange(Sender: TObject);
+    procedure TVFResonanceChange(Sender: TObject);
+    procedure TVFDepthChange(Sender: TObject);
+    procedure TVFDepthKeyFollowChange(Sender: TObject);
+    procedure TVFVelSensChange(Sender: TObject);
+    procedure TVFTimeKeyFollowChange(Sender: TObject);
+    procedure TVFBiasLevelChange(Sender: TObject);
+
     procedure TVATime1Change(Sender: TObject);
+    procedure TVATime1_valueKeyPress(Sender: TObject; var Key: Char);
     procedure TVATime2Change(Sender: TObject);
+    procedure TVATime2_valueKeyPress(Sender: TObject; var Key: Char);
     procedure TVATime3Change(Sender: TObject);
+    procedure TVATime3_valueKeyPress(Sender: TObject; var Key: Char);
     procedure TVATime4Change(Sender: TObject);
+    procedure TVATime4_valueKeyPress(Sender: TObject; var Key: Char);
     procedure TVATime5Change(Sender: TObject);
-    procedure TVAVelSensChange(Sender: TObject);
-    procedure TVATimeKeyFollowChange(Sender: TObject);
-    procedure TVAVelKeyFollowChange(Sender: TObject);
+    procedure TVATime5_valueKeyPress(Sender: TObject; var Key: Char);
     procedure TVABiasPoint1Change(Sender: TObject);
     procedure TVABiasPoint2Change(Sender: TObject);
-    procedure TVABiasLevel1Change(Sender: TObject);
-    procedure TVABiasLevel2Change(Sender: TObject);
+    procedure TVALevel1Change(Sender: TObject);
     procedure TVALevel1_valueKeyPress(Sender: TObject; var Key: Char);
+    procedure TVALevel2Change(Sender: TObject);
     procedure TVALevel2_valueKeyPress(Sender: TObject; var Key: Char);
+    procedure TVALevel3Change(Sender: TObject);
     procedure TVALevel3_valueKeyPress(Sender: TObject; var Key: Char);
+    procedure TVASustainChange(Sender: TObject);
     procedure TVASustain_valueKeyPress(Sender: TObject; var Key: Char);
+    procedure TVAAmplifierChange(Sender: TObject);
     procedure TVAAmplifier_valueKeyPress(Sender: TObject; var Key: Char);
-    procedure TVATime1_valueKeyPress(Sender: TObject; var Key: Char);
-    procedure TVATime2_valueKeyPress(Sender: TObject; var Key: Char);
-    procedure TVATime3_valueKeyPress(Sender: TObject; var Key: Char);
-    procedure TVATime4_valueKeyPress(Sender: TObject; var Key: Char);
-    procedure TVATime5_valueKeyPress(Sender: TObject; var Key: Char);
+    procedure TVAVelSensChange(Sender: TObject);
     procedure TVAVelSens_valueKeyPress(Sender: TObject; var Key: Char);
+    procedure TVATimeKeyFollowChange(Sender: TObject);
     procedure TVATimeKeyFollow_valueKeyPress(Sender: TObject; var Key: Char);
+    procedure TVAVelKeyFollowChange(Sender: TObject);
     procedure TVAVelKeyFollow_valueKeyPress(Sender: TObject; var Key: Char);
+    procedure TVABiasLevel1Change(Sender: TObject);
     procedure TVABiasLevel1_valueKeyPress(Sender: TObject; var Key: Char);
+    procedure TVABiasLevel2Change(Sender: TObject);
     procedure TVABiasLevel2_valueKeyPress(Sender: TObject; var Key: Char);
     procedure TVALevel1_valueExit(Sender: TObject);
     procedure TVALevel2_valueExit(Sender: TObject);
@@ -975,18 +993,7 @@ type
     procedure TVABiasLevel1_valueExit(Sender: TObject);
     procedure TVABiasLevel2_valueExit(Sender: TObject);
     procedure TVAPlotPaint(Sender: TObject);
-    //procedure OLDMasterVolume_valueKeyPress(Sender: TObject; var Key: Char);
-    //procedure OLDMasterVolume_valueExit(Sender: TObject);
-    procedure TVFFilterPlotPaint(Sender: TObject);
-    procedure SyncAllButtonClick(Sender: TObject);
-    procedure PtRevButtonClick(Sender: TObject);
-    procedure OpenSyxButtonClick(Sender: TObject);
-    procedure SaveSyxButtonClick(Sender: TObject);
-    procedure PtBendRangeChange(Sender: TObject);
-    procedure PtBendRangeKeyPress(Sender: TObject; var Key: Char);
-    procedure WGSampleClick(Sender: TObject);
-    procedure Synth1ToggleClick(Sender: TObject);
-    procedure Synth2ToggleClick(Sender: TObject);
+
     procedure MixAdvanceToggleClick(Sender: TObject);
 
     procedure Pt1ReverbClick(Sender: TObject);
@@ -1004,6 +1011,7 @@ type
     procedure Pt1Bend_valueChange(Sender: TObject);
     procedure Pt1PanChange(Sender: TObject);
     procedure Pt1Pan_valueChange(Sender: TObject);
+    procedure Pt1OutputChange(Sender: TObject);
     procedure Pt1Output_valueChange(Sender: TObject);
 
     procedure Pt2EnableClick(Sender: TObject);
@@ -1144,14 +1152,13 @@ type
     procedure PtRBend_valueChange(Sender: TObject);
     procedure PtROutputChange(Sender: TObject);
     procedure PtROutput_valueChange(Sender: TObject);
+
+    procedure SyncAllButtonClick(Sender: TObject);
+    procedure Synth1ToggleClick(Sender: TObject);
+    procedure Synth2ToggleClick(Sender: TObject);
     procedure MasterVolume_valueChange(Sender: TObject);
-    procedure Pt1OutputChange(Sender: TObject);
     procedure MasterVolumeChange(Sender: TObject);
-    procedure WGPulseWidthChange(Sender: TObject);
-    procedure WGVelSensChange(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
-    procedure WGCoarseChange(Sender: TObject);
-    procedure WGFineChange(Sender: TObject);
+
   private
     { Private declarations }
     SysExAddress: TSysExAddr;
@@ -1171,15 +1178,16 @@ type
 
     function BuildSysEx: TBytes;
     function MuntReady: Boolean;
-    function GetByte(Addr: Cardinal; Synth: Integer): Byte; overload;
-    function GetByte(Addr: Cardinal): Byte; overload;
-    procedure GetData(Addr: Cardinal; Size: Cardinal; Data: Pointer; Synth: Integer); overload;
-    procedure GetData(Addr: Cardinal; Size: Cardinal; Data: Pointer); overload;
+    function GetByte(Addr: Cardinal; Synth: Integer): Byte;{ overload;
+    function GetByte(Addr: Cardinal): Byte; overload;       }
+    procedure GetData(Addr: Cardinal; Size: Cardinal; Data: Pointer; Synth: Integer); {overload;
+    procedure GetData(Addr: Cardinal; Size: Cardinal; Data: Pointer); overload;        }
     function BytesToStr(const Buf: array of Byte; Offset, Count: Integer): string;
     function StrToBytes(const S: string): TBytes;
     procedure BuildMuteByte;
     function LinearAddrToBytes(Addr: NativeUInt): TSysExAddr;
 
+    procedure LoadTimbreNames(BankCombo: TComboBox; TimbreCombo: TComboBox);
     procedure ResolvePartialStructure;
     function IsPartialPCM(const StructValue: Byte; const PairIndex: Integer): Boolean;
     function BuildMT32StructValue(
@@ -1255,8 +1263,8 @@ begin
 end;
 
 procedure TEditorForm.FormShow(Sender: TObject);
-var
-  i: Integer;
+{var
+  i: Integer; }
 begin
   UpdatingControls := True;
   CurPt := Byte(CurPart.ItemIndex);
@@ -1266,11 +1274,11 @@ begin
   SelPartial1Button.Down := True;
 
   // Initialize GroupMem with blank 64 10-character names
-  for i:= 0 to 63 do
+  {for i := 0 to 63 do
   begin
     Synth[0].GroupMem[i] := StringOfChar(' ', 10);
     Synth[1].GroupMem[i] := StringOfChar(' ', 10);
-  end;
+  end;}
 
   {ComboBox2.Items.Clear;
   for i := Low(GroupA_Names) to High(GroupA_Names) do
@@ -1359,7 +1367,7 @@ function TEditorForm.MuntReady: Boolean;
 begin
   Result := (PHandlerInterface_v1 <> nil) and (MuntVSTiInstance <> nil);
 end;
-
+{
 function TEditorForm.GetByte(Addr: Cardinal): Byte;
 begin
   Result := 0;
@@ -1373,7 +1381,7 @@ begin
     @Result
   );
 end;
-
+}
 function TEditorForm.GetByte(Addr: Cardinal; Synth: Integer): Byte;
 begin
   Result := 0;
@@ -1400,7 +1408,7 @@ begin
     Synth+1
   );
 end;
-
+{
 procedure TEditorForm.GetData(Addr: Cardinal; Size: Cardinal; Data: Pointer);
 begin
   if not MuntReady then Exit;
@@ -1411,7 +1419,7 @@ begin
     Data
   );
 end;
-
+}
 
 function TEditorForm.BytesToStr(const Buf: array of Byte; Offset, Count: Integer): string;
 var
@@ -1600,6 +1608,46 @@ begin
 
   else
     Result := 0;
+  end;
+end;
+
+procedure TEditorForm.LoadTimbreNames(BankCombo: TComboBox; TimbreCombo: TComboBox);
+var
+  I, OldIndex: Integer;
+  WasUpdatingControls: Boolean;
+begin
+  OldIndex := TimbreCombo.ItemIndex;
+
+  TimbreCombo.Items.BeginUpdate;
+  try
+    TimbreCombo.Items.Clear;
+    case BankCombo.ItemIndex of
+      0:
+        for I := 0 to 63 do
+          TimbreCombo.Items.Add(GroupA_Names[I]);
+      1:
+        for I := 0 to 63 do
+          TimbreCombo.Items.Add(GroupB_Names[I]);
+      2:
+        for I := 0 to 63 do
+          TimbreCombo.Items.Add(Synth[CurSyn].GroupMem[I]);
+      3:
+        for I := 0 to 63 do
+          TimbreCombo.Items.Add(GroupRhy_Names[I]);
+    end;
+
+    WasUpdatingControls := UpdatingControls;
+    UpdatingControls := True;
+    try
+      if OldIndex in [0..TimbreCombo.Items.Count - 1] then
+        TimbreCombo.ItemIndex := OldIndex
+      else
+        TimbreCombo.ItemIndex := 0;
+    finally
+      UpdatingControls := WasUpdatingControls;
+    end;
+  finally
+    TimbreCombo.Items.EndUpdate;
   end;
 end;
 
@@ -2069,16 +2117,16 @@ begin
   PEnvTime3_value.Text := IntToStr(PEnvTime3.Value);
   PEnvTime4.Value := Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Time4;
   PEnvTime4_value.Text := IntToStr(PEnvTime4.Value);
-  PEnvLevel0.Position := -Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level0;
-  PEnvLevel0_value.Text := IntToStr(-PEnvLevel0.Position);
-  PEnvLevel1.Position := -Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level1;
-  PEnvLevel1_value.Text := IntToStr(-PEnvLevel1.Position);
-  PEnvLevel2.Position := -Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level2;
-  PEnvLevel2_value.Text := IntToStr(-PEnvLevel2.Position);
-  PEnvSustain.Position := -Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Sustain;
-  PEnvSustain_value.Text := IntToStr(-PEnvSustain.Position);
-  PEnvEnd.Position := -Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.EndLevel;
-  PEnvEnd_value.Text := IntToStr(-PEnvEnd.Position);
+  PEnvLevel0.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level0;
+  PEnvLevel0_value.Text := IntToStr(PEnvLevel0.Position);
+  PEnvLevel1.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level1;
+  PEnvLevel1_value.Text := IntToStr(PEnvLevel1.Position);
+  PEnvLevel2.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level2;
+  PEnvLevel2_value.Text := IntToStr(PEnvLevel2.Position);
+  PEnvSustain.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Sustain;
+  PEnvSustain_value.Text := IntToStr(PEnvSustain.Position);
+  PEnvEnd.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.EndLevel;
+  PEnvEnd_value.Text := IntToStr(PEnvEnd.Position);
   PEnvLFORate.Value := Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.LFORate;
   PEnvLFORate_value.Text := IntToStr(PEnvLFORate.Value);
   PEnvLFODepth.Value := Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.LFODepth;
@@ -2086,12 +2134,12 @@ begin
   PEnvLFOModSens.Value := Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.LFOModSens;
   PEnvLFOModSens_value.Text := IntToStr(PEnvLFOModSens.Value);
   { Refresh TVF (Time Variant Filter) Controls }
-  TVFCutoff.Position := 100 - Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Cutoff;
-  TVFCutoff_value.Text := IntToStr(100 - TVFCutoff.Position);
-  TVFResonance.Position := 30 - Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Resonance;
-  TVFResonance_value.Text := IntToStr(30 - TVFResonance.Position);
-  TVFKeyFollow.Position := 17 - Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.KeyFollow;
-  TVFKeyFollow_value.Text := IntToStr(17 - TVFKeyFollow.Position);
+  TVFCutoff.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Cutoff;
+  TVFCutoff_value.Text := IntToStr(TVFCutoff.Position);
+  TVFResonance.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Resonance;
+  TVFResonance_value.Text := IntToStr(TVFResonance.Position);
+  TVFKeyFollow.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.KeyFollow;
+  TVFKeyFollow_value.Text := IntToStr(TVFKeyFollow.Position);
   TVFBiasPoint.ItemIndex := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.BiasPoint;
   TVFBiasLevel.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.BiasLevel;
   TVFBiasLevel_value.Text := IntToStr(TVFBiasLevel.Position);
@@ -2113,17 +2161,17 @@ begin
   TVFTime4_value.Text := IntToStr(TVFTime4.Value);
   TVFTime5.Value := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Time5;
   TVFTime5_value.Text := IntToStr(TVFTime5.Value);
-  TVFLevel1.Position := 100 - Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Level1;
-  TVFLevel1_value.Text := IntToStr(100 - TVFLevel1.Position);
-  TVFLevel2.Position := 100 - Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Level2;
-  TVFLevel2_value.Text := IntToStr(100 - TVFLevel2.Position);
-  TVFLevel3.Position := 100 - Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Level3;
-  TVFLevel3_value.Text := IntToStr(100 - TVFLevel3.Position);
-  TVFSustain.Position := 100 - Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Sustain;
-  TVFSustain_value.Text := IntToStr(100 - TVFSustain.Position);
+  TVFLevel1.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Level1;
+  TVFLevel1_value.Text := IntToStr(TVFLevel1.Position);
+  TVFLevel2.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Level2;
+  TVFLevel2_value.Text := IntToStr(TVFLevel2.Position);
+  TVFLevel3.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Level3;
+  TVFLevel3_value.Text := IntToStr(TVFLevel3.Position);
+  TVFSustain.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Sustain;
+  TVFSustain_value.Text := IntToStr(TVFSustain.Position);
   { Refresh TVA (Time Variant Amplifier) Controls }
-  TVAAmplifier.Position := 100 - Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Amplifier;
-  TVAAmplifier_value.Text := IntToStr(100 - TVAAmplifier.Position);
+  TVAAmplifier.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Amplifier;
+  TVAAmplifier_value.Text := IntToStr(TVAAmplifier.Position);
   TVAVelSens.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.VelSens;
   TVAVelSens_value.Text := IntToStr(TVAVelSens.Position);
   TVABiasPoint1.ItemIndex := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.BiasPoint1;
@@ -2146,14 +2194,14 @@ begin
   TVATime4_value.Text := IntToStr(TVATime4.Value);
   TVATime5.Value := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Time5;
   TVATime5_value.Text := IntToStr(TVATime5.Value);
-  TVALevel1.Position := 100 - Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Level1;
-  TVALevel1_value.Text := IntToStr(100 - TVALevel1.Position);
-  TVALevel2.Position := 100 - Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Level2;
-  TVALevel2_value.Text := IntToStr(100 - TVALevel2.Position);
-  TVALevel3.Position := 100 - Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Level3;
-  TVALevel3_value.Text := IntToStr(100 - TVALevel3.Position);
-  TVASustain.Position := 100 - Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Sustain;
-  TVASustain_value.Text := IntToStr(100 - TVASustain.Position);
+  TVALevel1.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Level1;
+  TVALevel1_value.Text := IntToStr(TVALevel1.Position);
+  TVALevel2.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Level2;
+  TVALevel2_value.Text := IntToStr(TVALevel2.Position);
+  TVALevel3.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Level3;
+  TVALevel3_value.Text := IntToStr(TVALevel3.Position);
+  TVASustain.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Sustain;
+  TVASustain_value.Text := IntToStr(TVASustain.Position);
 
   RefreshStructs;
   RefreshEnvelopePlots;
@@ -2183,6 +2231,7 @@ end;
 
 procedure TEditorForm.RefreshPatchControls;
 begin
+  RefreshAllGroupMemCombos;
   Pt1Enable.Down := Synth[CurSyn].System.MidiChannel[0] <> 16;
   Pt1Reverb.Down := Synth[CurSyn].Patch[0].Reverb;
   if Synth[CurSyn].System.MidiChannel[0] < 16 then
@@ -2386,6 +2435,18 @@ begin
   PtROutput_value.Value := PtROutput.Position;
 end;
 
+procedure TEditorForm.RefreshAllGroupMemCombos;
+begin
+  LoadTimbreNames(Pt1Bank, Pt1Timbre);
+  LoadTimbreNames(Pt2Bank, Pt2Timbre);
+  LoadTimbreNames(Pt3Bank, Pt3Timbre);
+  LoadTimbreNames(Pt4Bank, Pt4Timbre);
+  LoadTimbreNames(Pt5Bank, Pt5Timbre);
+  LoadTimbreNames(Pt6Bank, Pt6Timbre);
+  LoadTimbreNames(Pt7Bank, Pt7Timbre);
+  LoadTimbreNames(Pt8Bank, Pt8Timbre);
+end;
+
 procedure TEditorForm.SetSynthColors;
 begin
   case CurSyn of
@@ -2422,19 +2483,19 @@ begin
     WGCoarse.ThumbColor := clSliderThumb;
     WGFine.FillColor := clSliderFill;
     WGFine.ThumbColor := clSliderThumb;
-    //WGKeyFollow.FillColor := clSliderFill;
-    //WGKeyFollow.ThumbColor := clSliderThumb;
+    WGKeyFollow.FillColor := clSliderFill;
+    WGKeyFollow.ThumbColor := clSliderThumb;
     PitchEnvGroup.Font.Color :=clSynthText;
-    //PEnvLevel0.FillColor := clSliderFill;
-    //PEnvLevel0.ThumbColor := clSliderThumb;
-    //PEnvLevel1.FillColor := clSliderFill;
-    //PEnvLevel1.Thumbcolor := clSliderThumb;
-    //PEnvLevel2.FillColor := clSliderFill;
-    //PEnvLevel2.Thumbcolor := clSliderThumb;
-    //PEnvSustain.FillColor := clSliderFill;
-    //PEnvSustain.Thumbcolor := clSliderThumb;
-    //PEnvEnd.FillColor := clSliderFill;
-    //PEnvEnd.Thumbcolor := clSliderThumb;
+    PEnvLevel0.FillColor := clSliderFill;
+    PEnvLevel0.ThumbColor := clSliderThumb;
+    PEnvLevel1.FillColor := clSliderFill;
+    PEnvLevel1.Thumbcolor := clSliderThumb;
+    PEnvLevel2.FillColor := clSliderFill;
+    PEnvLevel2.Thumbcolor := clSliderThumb;
+    PEnvSustain.FillColor := clSliderFill;
+    PEnvSustain.Thumbcolor := clSliderThumb;
+    PEnvEnd.FillColor := clSliderFill;
+    PEnvEnd.Thumbcolor := clSliderThumb;
     PEnvLFORate.IndColor := clSliderThumb;
     PEnvLFODepth.IndColor := clSliderThumb;
     PEnvLFOModSens.IndColor := clSliderThumb;
@@ -2442,69 +2503,69 @@ begin
     PEnvTime2.IndColor := clSliderThumb;
     PEnvTime3.IndColor := clSliderThumb;
     PEnvTime4.IndColor := clSliderThumb;
-    //PEnvDepth.FillColor := clSliderFill;
-    //PEnvDepth.ThumbColor := clSliderThumb;
-    //PEnvTimeKeyFollow.FillColor := clSliderFill;
-    //PEnvTimeKeyFollow.ThumbColor := clSliderThumb;
-    //PEnvVelSens.FillColor := clSliderFill;
-    //PEnvVelSens.ThumbColor := clSliderThumb;
+    PEnvDepth.FillColor := clSliderFill;
+    PEnvDepth.ThumbColor := clSliderThumb;
+    PEnvTimeKeyFollow.FillColor := clSliderFill;
+    PEnvTimeKeyFollow.ThumbColor := clSliderThumb;
+    PEnvVelSens.FillColor := clSliderFill;
+    PEnvVelSens.ThumbColor := clSliderThumb;
     PEnvLFOGroup.Font.Color := clSynthText;
     TVFGroup.Font.Color := clSynthText;
-    //TVFLevel1.FillColor := clSliderFill;
-    //TVFLevel1.ThumbColor := clSliderThumb;
-    //TVFLevel2.FillColor := clSliderFill;
-    //TVFLevel2.ThumbColor := clSliderThumb;
-    //TVFLevel3.FillColor := clSliderFill;
-    //TVFLevel3.ThumbColor := clSliderThumb;
-    //TVFSustain.FillColor := clSliderFill;
-    //TVFSustain.ThumbColor := clSliderThumb;
-    //TVFKeyFollow.FillColor := clSliderFill;
-    //TVFKeyFollow.ThumbColor := clSliderThumb;
-    //TVFCutoff.FillColor := clSliderFill;
-    //TVFCutoff.ThumbColor := clSliderThumb;
-    //TVFResonance.FillColor := clSliderFill;
-    //TVFResonance.ThumbColor := clSliderThumb;
+    TVFLevel1.FillColor := clSliderFill;
+    TVFLevel1.ThumbColor := clSliderThumb;
+    TVFLevel2.FillColor := clSliderFill;
+    TVFLevel2.ThumbColor := clSliderThumb;
+    TVFLevel3.FillColor := clSliderFill;
+    TVFLevel3.ThumbColor := clSliderThumb;
+    TVFSustain.FillColor := clSliderFill;
+    TVFSustain.ThumbColor := clSliderThumb;
+    TVFKeyFollow.FillColor := clSliderFill;
+    TVFKeyFollow.ThumbColor := clSliderThumb;
+    TVFCutoff.FillColor := clSliderFill;
+    TVFCutoff.ThumbColor := clSliderThumb;
+    TVFResonance.FillColor := clSliderFill;
+    TVFResonance.ThumbColor := clSliderThumb;
     TVFTime1.IndColor := clSliderThumb;
     TVFTime2.IndColor := clSliderThumb;
     TVFTime3.IndColor := clSliderThumb;
     TVFTime4.IndColor := clSliderThumb;
     TVFTime5.IndColor := clSliderThumb;
-    //TVFDepth.FillColor := clSliderFill;
-    //TVFDepth.ThumbColor := clSliderThumb;
-    //TVFDepthKeyFollow.FillColor := clSliderFill;
-    //TVFDepthKeyFollow.Thumbcolor := clSliderThumb;
-    //TVFVelSens.FillColor := clSliderFill;
-    //TVFVelSens.ThumBColor := clSliderThumb;
-    //TVFTimeKeyFollow.FillColor := clSliderFill;
-    //TVFTimeKeyFollow.ThumbColor := clSliderThumb;
-    //TVFBiasLevel.FillColor := clSliderFill;
-    //TVFBiasLevel.ThumbColor := clSliderThumb;
+    TVFDepth.FillColor := clSliderFill;
+    TVFDepth.ThumbColor := clSliderThumb;
+    TVFDepthKeyFollow.FillColor := clSliderFill;
+    TVFDepthKeyFollow.Thumbcolor := clSliderThumb;
+    TVFVelSens.FillColor := clSliderFill;
+    TVFVelSens.ThumBColor := clSliderThumb;
+    TVFTimeKeyFollow.FillColor := clSliderFill;
+    TVFTimeKeyFollow.ThumbColor := clSliderThumb;
+    TVFBiasLevel.FillColor := clSliderFill;
+    TVFBiasLevel.ThumbColor := clSliderThumb;
     TVAGroup.Font.Color := clSynthText;
-    //TVALevel1.FillColor := clSliderFill;
-    //TVALevel1.ThumbColor := clSliderThumb;
-    //TVALevel2.FillColor := clSliderFill;
-    //TVALevel2.ThumbColor := clSliderThumb;
-    //TVALevel3.FillColor := clSliderFill;
-    //TVALevel3.ThumbColor := clSliderThumb;
-    //TVASustain.FillColor := clSliderFill;
-    //TVASustain.ThumbColor := clSliderThumb;
-    //TVAAmplifier.FillColor := clSliderFill;
-    //TVAAmplifier.ThumbColor := clSliderThumb;
+    TVALevel1.FillColor := clSliderFill;
+    TVALevel1.ThumbColor := clSliderThumb;
+    TVALevel2.FillColor := clSliderFill;
+    TVALevel2.ThumbColor := clSliderThumb;
+    TVALevel3.FillColor := clSliderFill;
+    TVALevel3.ThumbColor := clSliderThumb;
+    TVASustain.FillColor := clSliderFill;
+    TVASustain.ThumbColor := clSliderThumb;
+    TVAAmplifier.FillColor := clSliderFill;
+    TVAAmplifier.ThumbColor := clSliderThumb;
     TVATime1.IndColor := clSliderThumb;
     TVATime2.IndColor := clSliderThumb;
     TVATime3.IndColor := clSliderThumb;
     TVATime4.IndColor := clSliderThumb;
     TVATime5.IndColor := clSliderThumb;
-    //TVAVelSens.FillColor := clSliderFill;
-    //TVAVelSens.ThumbColor := clSliderThumb;
-    //TVATimeKeyFollow.FillColor := clSliderFill;
-    //TVATimeKeyFollow.ThumbColor := clSliderThumb;
-    //TVAVelKeyFollow.FillColor := clSliderFill;
-    //TVAVelKeyFollow.ThumbColor := clSliderThumb;
-    //TVABiasLevel1.FillColor := clSliderFill;
-    //TVABiasLevel1.ThumbColor := clSliderThumb;
-    //TVABiasLevel2.FillColor := clSliderFill;
-    //TVABiasLevel2.ThumbColor := clSliderThumb;
+    TVAVelSens.FillColor := clSliderFill;
+    TVAVelSens.ThumbColor := clSliderThumb;
+    TVATimeKeyFollow.FillColor := clSliderFill;
+    TVATimeKeyFollow.ThumbColor := clSliderThumb;
+    TVAVelKeyFollow.FillColor := clSliderFill;
+    TVAVelKeyFollow.ThumbColor := clSliderThumb;
+    TVABiasLevel1.FillColor := clSliderFill;
+    TVABiasLevel1.ThumbColor := clSliderThumb;
+    TVABiasLevel2.FillColor := clSliderFill;
+    TVABiasLevel2.ThumbColor := clSliderThumb;
     Pt1MixPanel.Font.Color := clSynthText;
     Pt1Key.IndColor := clSliderThumb;
     Pt1Fine.IndColor := clSliderThumb;
@@ -2517,56 +2578,56 @@ begin
     Pt2Fine.IndColor := clSliderThumb;
     Pt2Bend.IndColor := clSliderThumb;
     Pt2Pan.IndColor := clSliderThumb;
-    //Pt2Output.FillColor := clSliderFill;
-    //Pt2Output.ThumbColor := clSliderThumb;
+    Pt2Output.FillColor := clSliderFill;
+    Pt2Output.ThumbColor := clSliderThumb;
     Pt3MixPanel.Font.Color := clSynthText;
     Pt3Key.IndColor := clSliderThumb;
     Pt3Fine.IndColor := clSliderThumb;
     Pt3Bend.IndColor := clSliderThumb;
     Pt3Pan.IndColor := clSliderThumb;
-    //Pt3Output.FillColor := clSliderFill;
-    //Pt3Output.ThumbColor := clSliderThumb;
+    Pt3Output.FillColor := clSliderFill;
+    Pt3Output.ThumbColor := clSliderThumb;
     Pt4MixPanel.Font.Color := clSynthText;
     Pt4Key.IndColor := clSliderThumb;
     Pt4Fine.IndColor := clSliderThumb;
     Pt4Bend.IndColor := clSliderThumb;
     Pt4Pan.IndColor := clSliderThumb;
-    //Pt4Output.FillColor := clSliderFill;
-    //Pt4Output.ThumbColor := clSliderThumb;
+    Pt4Output.FillColor := clSliderFill;
+    Pt4Output.ThumbColor := clSliderThumb;
     Pt5MixPanel.Font.Color := clSynthText;
     Pt5Key.IndColor := clSliderThumb;
     Pt5Fine.IndColor := clSliderThumb;
     Pt5Bend.IndColor := clSliderThumb;
     Pt5Pan.IndColor := clSliderThumb;
-    //Pt5Output.FillColor := clSliderFill;
-    //Pt5Output.ThumbColor := clSliderThumb;
+    Pt5Output.FillColor := clSliderFill;
+    Pt5Output.ThumbColor := clSliderThumb;
     Pt6MixPanel.Font.Color := clSynthText;
     Pt6Key.IndColor := clSliderThumb;
     Pt6Fine.IndColor := clSliderThumb;
     Pt6Bend.IndColor := clSliderThumb;
     Pt6Pan.IndColor := clSliderThumb;
-    //Pt6Output.FillColor := clSliderFill;
-    //Pt6Output.ThumbColor := clSliderThumb;
+    Pt6Output.FillColor := clSliderFill;
+    Pt6Output.ThumbColor := clSliderThumb;
     Pt7MixPanel.Font.Color := clSynthText;
     Pt7Key.IndColor := clSliderThumb;
     Pt7Fine.IndColor := clSliderThumb;
     Pt7Bend.IndColor := clSliderThumb;
     Pt7Pan.IndColor := clSliderThumb;
-    //Pt7Output.FillColor := clSliderFill;
-    //Pt7Output.ThumbColor := clSliderThumb;
+    Pt7Output.FillColor := clSliderFill;
+    Pt7Output.ThumbColor := clSliderThumb;
     Pt8MixPanel.Font.Color := clSynthText;
     Pt8Key.IndColor := clSliderThumb;
     Pt8Fine.IndColor := clSliderThumb;
     Pt8Bend.IndColor := clSliderThumb;
     Pt8Pan.IndColor := clSliderThumb;
-    //Pt8Output.FillColor := clSliderFill;
-    //Pt8Output.ThumbColor := clSliderThumb;
+    Pt8Output.FillColor := clSliderFill;
+    Pt8Output.ThumbColor := clSliderThumb;
     PtRMixPanel.Font.Color := clSynthText;
     PtRKey.IndColor := clSliderThumb;
     PtRFine.IndColor := clSliderThumb;
     PtRBend.IndColor := clSliderThumb;
-    //PtROutput.FillColor := clSliderFill;
-    //PtROutput.ThumbColor := clSliderThumb;
+    PtROutput.FillColor := clSliderFill;
+    PtROutput.ThumbColor := clSliderThumb;
 end;
 
 procedure TEditorForm.BuildMuteByte;
@@ -2593,6 +2654,8 @@ end;
 
 procedure TEditorForm.Pt1BankChange(Sender: TObject);
 begin
+  LoadTimbreNames(Pt1Bank, Pt1Timbre);
+
   if UpdatingControls then Exit;
 
   Synth[CurSyn].Patch[0].TmbGroup := Pt1Bank.ItemIndex;
@@ -2946,6 +3009,8 @@ end;
 
 procedure TEditorForm.Pt2BankChange(Sender: TObject);
 begin
+  LoadTimbreNames(Pt2Bank, Pt2Timbre);
+
   if UpdatingControls then Exit;
 
   Synth[CurSyn].Patch[1].TmbGroup := Pt2Bank.ItemIndex;
@@ -3137,7 +3202,7 @@ procedure TEditorForm.Pt2OutputChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[1].Output := 100 - Pt2Output.Position;
+  Synth[CurSyn].Patch[1].Output := Pt2Output.Position;
   UpdatingControls := True;
   Pt2Output_value.Value := Synth[CurSyn].Patch[1].Output;
   UpdatingControls := False;
@@ -3158,7 +3223,7 @@ begin
 
   Synth[CurSyn].Patch[1].Output := Pt2Output_value.Value;
   UpdatingControls := True;
-  Pt2Output.Position := 100 - Synth[CurSyn].Patch[1].Output;
+  Pt2Output.Position := Synth[CurSyn].Patch[1].Output;
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -3300,6 +3365,8 @@ end;
 
 procedure TEditorForm.Pt3BankChange(Sender: TObject);
 begin
+  LoadTimbreNames(Pt3Bank, Pt3Timbre);
+
   if UpdatingControls then Exit;
 
   Synth[CurSyn].Patch[2].TmbGroup := Pt3Bank.ItemIndex;
@@ -3491,7 +3558,7 @@ procedure TEditorForm.Pt3OutputChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[2].Output := 100 - Pt3Output.Position;
+  Synth[CurSyn].Patch[2].Output := Pt3Output.Position;
   UpdatingControls := True;
   Pt3Output_value.Value := Synth[CurSyn].Patch[2].Output;
   UpdatingControls := False;
@@ -3512,7 +3579,7 @@ begin
 
   Synth[CurSyn].Patch[2].Output := Pt3Output_value.Value;
   UpdatingControls := True;
-  Pt3Output.Position := 100 - Synth[CurSyn].Patch[2].Output;
+  Pt3Output.Position := Synth[CurSyn].Patch[2].Output;
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -3654,6 +3721,8 @@ end;
 
 procedure TEditorForm.Pt4BankChange(Sender: TObject);
 begin
+  LoadTimbreNames(Pt4Bank, Pt4Timbre);
+
   if UpdatingControls then Exit;
 
   Synth[CurSyn].Patch[3].TmbGroup := Pt4Bank.ItemIndex;
@@ -3845,7 +3914,7 @@ procedure TEditorForm.Pt4OutputChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[3].Output := 100 - Pt4Output.Position;
+  Synth[CurSyn].Patch[3].Output := Pt4Output.Position;
   UpdatingControls := True;
   Pt4Output_value.Value := Synth[CurSyn].Patch[3].Output;
   UpdatingControls := False;
@@ -3866,7 +3935,7 @@ begin
 
   Synth[CurSyn].Patch[3].Output := Pt4Output_value.Value;
   UpdatingControls := True;
-  Pt4Output.Position := 100 - Synth[CurSyn].Patch[3].Output;
+  Pt4Output.Position := Synth[CurSyn].Patch[3].Output;
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -4008,6 +4077,8 @@ end;
 
 procedure TEditorForm.Pt5BankChange(Sender: TObject);
 begin
+  LoadTimbreNames(Pt5Bank, Pt5Timbre);
+
   if UpdatingControls then Exit;
 
   Synth[CurSyn].Patch[4].TmbGroup := Pt5Bank.ItemIndex;
@@ -4199,7 +4270,7 @@ procedure TEditorForm.Pt5OutputChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[4].Output := 100 - Pt5Output.Position;
+  Synth[CurSyn].Patch[4].Output := Pt5Output.Position;
   UpdatingControls := True;
   Pt5Output_value.Value := Synth[CurSyn].Patch[4].Output;
   UpdatingControls := False;
@@ -4220,7 +4291,7 @@ begin
 
   Synth[CurSyn].Patch[4].Output := Pt5Output_value.Value;
   UpdatingControls := True;
-  Pt5Output.Position := 100 - Synth[CurSyn].Patch[4].Output;
+  Pt5Output.Position := Synth[CurSyn].Patch[4].Output;
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -4362,6 +4433,8 @@ end;
 
 procedure TEditorForm.Pt6BankChange(Sender: TObject);
 begin
+  LoadTimbreNames(Pt6Bank, Pt6Timbre);
+
   if UpdatingControls then Exit;
 
   Synth[CurSyn].Patch[5].TmbGroup := Pt6Bank.ItemIndex;
@@ -4553,7 +4626,7 @@ procedure TEditorForm.Pt6OutputChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[5].Output := 100 - Pt6Output.Position;
+  Synth[CurSyn].Patch[5].Output := Pt6Output.Position;
   UpdatingControls := True;
   Pt6Output_value.Value := Synth[CurSyn].Patch[5].Output;
   UpdatingControls := False;
@@ -4574,7 +4647,7 @@ begin
 
   Synth[CurSyn].Patch[5].Output := Pt6Output_value.Value;
   UpdatingControls := True;
-  Pt6Output.Position := 100 - Synth[CurSyn].Patch[5].Output;
+  Pt6Output.Position := Synth[CurSyn].Patch[5].Output;
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -4716,6 +4789,8 @@ end;
 
 procedure TEditorForm.Pt7BankChange(Sender: TObject);
 begin
+  LoadTimbreNames(Pt7Bank, Pt7Timbre);
+
   if UpdatingControls then Exit;
 
   Synth[CurSyn].Patch[6].TmbGroup := Pt7Bank.ItemIndex;
@@ -4907,7 +4982,7 @@ procedure TEditorForm.Pt7OutputChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[6].Output := 100 - Pt7Output.Position;
+  Synth[CurSyn].Patch[6].Output := Pt7Output.Position;
   UpdatingControls := True;
   Pt7Output_value.Value := Synth[CurSyn].Patch[6].Output;
   UpdatingControls := False;
@@ -4928,7 +5003,7 @@ begin
 
   Synth[CurSyn].Patch[6].Output := Pt7Output_value.Value;
   UpdatingControls := True;
-  Pt7Output.Position := 100 - Synth[CurSyn].Patch[6].Output;
+  Pt7Output.Position := Synth[CurSyn].Patch[6].Output;
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -5070,6 +5145,8 @@ end;
 
 procedure TEditorForm.Pt8BankChange(Sender: TObject);
 begin
+  LoadTimbreNames(Pt8Bank, Pt8Timbre);
+
   if UpdatingControls then Exit;
 
   Synth[CurSyn].Patch[7].TmbGroup := Pt8Bank.ItemIndex;
@@ -5261,7 +5338,7 @@ procedure TEditorForm.Pt8OutputChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[7].Output := 100 - Pt8Output.Position;
+  Synth[CurSyn].Patch[7].Output := Pt8Output.Position;
   UpdatingControls := True;
   Pt8Output_value.Value := Synth[CurSyn].Patch[7].Output;
   UpdatingControls := False;
@@ -5282,7 +5359,7 @@ begin
 
   Synth[CurSyn].Patch[7].Output := Pt8Output_value.Value;
   UpdatingControls := True;
-  Pt8Output.Position := 100 - Synth[CurSyn].Patch[7].Output;
+  Pt8Output.Position := Synth[CurSyn].Patch[7].Output;
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -5584,7 +5661,7 @@ procedure TEditorForm.PtROutputChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[8].Output := 100 - PtROutput.Position;
+  Synth[CurSyn].Patch[8].Output := PtROutput.Position;
   UpdatingControls := True;
   PtROutput_value.Value := Synth[CurSyn].Patch[8].Output;
   UpdatingControls := False;
@@ -5605,7 +5682,7 @@ begin
 
   Synth[CurSyn].Patch[8].Output := PtROutput_value.Value;
   UpdatingControls := True;
-  PtROutput.Position := 100 - Synth[CurSyn].Patch[8].Output;
+  PtROutput.Position := Synth[CurSyn].Patch[8].Output;
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -6314,23 +6391,6 @@ begin
   end
 end;
 
-procedure TEditorForm.WGSampleChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.PCMSample := WGSample.ItemIndex;
-
-  SysExAddress := LinearAddrToBytes(
-    AdTimbreTemp +
-    (CurPt * $F6) +
-    (CurPtl * $3A) + $0E +
-    $05
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.PCMSample;
-  SendCurrentSysEx;
-end;
-
 procedure TEditorForm.WGSampleClick(Sender: TObject);
 begin
   if UpdatingControls then Exit;
@@ -6560,37 +6620,18 @@ begin
 end;
 
 { Pitch Envelope Controls }
-procedure TEditorForm.PEnvLevel0Change(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level0 := -PEnvLevel0.Position;
-  PEnvLevel0_value.Text := IntToStr(Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level0);
-  PEnvPlot.Invalidate;
-
-  SysExAddress := LinearAddrToBytes(
-    AdTimbreTemp +
-    (CurPt * $F6) +
-    (CurPtl * $3A) + $0E +
-    $0F
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level0 + 50;
-  SendCurrentSysEx;
-end;
-
 procedure TEditorForm.PEnvLevel0_valueExit(Sender: TObject);
 begin
   if StrToInt(PEnvLevel0_value.Text) = Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level0 then Exit;
-  if -StrToInt(PEnvLevel0_value.Text) < PEnvLevel0.Min then
+  if StrToInt(PEnvLevel0_value.Text) < PEnvLevel0.Min then
     PEnvLevel0_value.Text := IntToStr(PEnvLevel0.Min);
-  if -StrToInt(PEnvLevel0_value.Text) > PEnvLevel0.Max then
+  if StrToInt(PEnvLevel0_value.Text) > PEnvLevel0.Max then
     PEnvLevel0_value.Text := IntToStr(PEnvLevel0.Max);
 
   Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level0 := StrToInt(PEnvLevel0_value.Text);
   PEnvPlot.Invalidate;
   UpdatingControls := True;
-  PEnvLevel0.Position := -StrToInt(PEnvLevel0_value.Text);
+  PEnvLevel0.Position := StrToInt(PEnvLevel0_value.Text);
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -6614,7 +6655,7 @@ procedure TEditorForm.PEnvLevel1Change(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level1 := -PEnvLevel1.Position;
+  Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level1 := PEnvLevel1.Position;
   PEnvLevel1_value.Text := IntToStr(Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level1);
   PEnvPlot.Invalidate;
 
@@ -6632,15 +6673,15 @@ end;
 procedure TEditorForm.PEnvLevel1_valueExit(Sender: TObject);
 begin
   if StrToInt(PEnvLevel1_value.Text) = Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level1 then Exit;
-  if -StrToInt(PEnvLevel1_value.Text) < PEnvLevel1.Min then
+  if StrToInt(PEnvLevel1_value.Text) < PEnvLevel1.Min then
     PEnvLevel1_value.Text := IntToStr(PEnvLevel1.Min);
-  if -StrToInt(PEnvLevel1_value.Text) > PEnvLevel1.Max then
+  if StrToInt(PEnvLevel1_value.Text) > PEnvLevel1.Max then
     PEnvLevel1_value.Text := IntToStr(PEnvLevel1.Max);
 
   Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level1 := StrToInt(PEnvLevel1_value.Text);
   PEnvPlot.Invalidate;
   UpdatingControls := True;
-  PEnvLevel1.Position := -StrToInt(PEnvLevel1_value.Text);
+  PEnvLevel1.Position := StrToInt(PEnvLevel1_value.Text);
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -6664,7 +6705,7 @@ procedure TEditorForm.PEnvLevel2Change(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level2 := -PEnvLevel2.Position;
+  Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level2 := PEnvLevel2.Position;
   PEnvLevel2_value.Text := IntToStr(Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level2);
   PEnvPlot.Invalidate;
 
@@ -6682,15 +6723,15 @@ end;
 procedure TEditorForm.PEnvLevel2_valueExit(Sender: TObject);
 begin
   if StrToInt(PEnvLevel2_value.Text) = Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level2 then Exit;
-  if -StrToInt(PEnvLevel2_value.Text) < PEnvLevel2.Min then
+  if StrToInt(PEnvLevel2_value.Text) < PEnvLevel2.Min then
     PEnvLevel2_value.Text := IntToStr(PEnvLevel2.Min);
-  if -StrToInt(PEnvLevel2_value.Text) > PEnvLevel2.Max then
+  if StrToInt(PEnvLevel2_value.Text) > PEnvLevel2.Max then
     PEnvLevel2_value.Text := IntToStr(PEnvLevel2.Max);
 
   Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level2 := StrToInt(PEnvLevel2_value.Text);
   PEnvPlot.Invalidate;
   UpdatingControls := True;
-  PEnvLevel2.Position := -StrToInt(PEnvLevel2_value.Text);
+  PEnvLevel2.Position := StrToInt(PEnvLevel2_value.Text);
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -6939,7 +6980,7 @@ procedure TEditorForm.PEnvSustainChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Sustain := -PEnvSustain.Position;
+  Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Sustain := PEnvSustain.Position;
   PEnvSustain_value.Text := IntToStr(Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Sustain);
   PEnvPlot.Invalidate;
 
@@ -6957,15 +6998,15 @@ end;
 procedure TEditorForm.PEnvSustain_valueExit(Sender: TObject);
 begin
   if StrToInt(PEnvSustain_value.Text) = Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Sustain then Exit;
-  if -StrToInt(PEnvSustain_value.Text) < PEnvSustain.Min then
+  if StrToInt(PEnvSustain_value.Text) < PEnvSustain.Min then
     PEnvSustain_value.Text := IntToStr(PEnvSustain.Min);
-  if -StrToInt(PEnvSustain_value.Text) > PEnvSustain.Max then
+  if StrToInt(PEnvSustain_value.Text) > PEnvSustain.Max then
     PEnvSustain_value.Text := IntToStr(PEnvSustain.Max);
 
   Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Sustain := StrToInt(PEnvSustain_value.Text);
   PEnvPlot.Invalidate;
   UpdatingControls := True;
-  PEnvSustain.Position := -StrToInt(PEnvSustain_value.Text);
+  PEnvSustain.Position := StrToInt(PEnvSustain_value.Text);
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -7328,7 +7369,7 @@ procedure TEditorForm.PEnvEndChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.EndLevel := -PEnvEnd.Position;
+  Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.EndLevel := PEnvEnd.Position;
   PEnvEnd_value.Text := IntToStr(Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.EndLevel);
   PEnvPlot.Invalidate;
 
@@ -7346,15 +7387,15 @@ end;
 procedure TEditorForm.PEnvEnd_valueExit(Sender: TObject);
 begin
   if StrToInt(PEnvEnd_value.Text) = Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.EndLevel then Exit;
-  if -StrToInt(PEnvEnd_value.Text) < PEnvEnd.Min then
+  if StrToInt(PEnvEnd_value.Text) < PEnvEnd.Min then
     PEnvEnd_value.Text := IntToStr(PEnvEnd.Min);
-  if -StrToInt(PEnvEnd_value.Text) > PEnvEnd.Max then
+  if StrToInt(PEnvEnd_value.Text) > PEnvEnd.Max then
     PEnvEnd_value.Text := IntToStr(PEnvEnd.Max);
 
   Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.EndLevel := StrToInt(PEnvEnd_value.Text);
   PEnvPlot.Invalidate;
   UpdatingControls := True;
-  PEnvEnd.Position := -StrToInt(PEnvEnd_value.Text);
+  PEnvEnd.Position := StrToInt(PEnvEnd_value.Text);
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -7445,7 +7486,7 @@ procedure TEditorForm.TVFCutoffChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Cutoff := 100 - TVFCutoff.Position;
+  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Cutoff := TVFCutoff.Position;
   TVFCutoff_value.Text := IntToStr(Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Cutoff);
   TVFFilterPlot.Invalidate;
 
@@ -7463,15 +7504,15 @@ end;
 procedure TEditorForm.TVFCutoff_valueExit(Sender: TObject);
 begin
   if StrToInt(TVFCutoff_value.Text) = Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Cutoff then Exit;
-  if StrToInt(TVFCutoff_value.Text) < 100 - TVFCutoff.Min then
+  if StrToInt(TVFCutoff_value.Text) < TVFCutoff.Min then
     TVFCutoff_value.Text := IntToStr(TVFCutoff.Min);
-  if StrToInt(TVFCutoff_value.Text) > 100 - TVFCutoff.Max then
+  if StrToInt(TVFCutoff_value.Text) > TVFCutoff.Max then
     TVFCutoff_value.Text := IntToStr(TVFCutoff.Max);
 
   Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Cutoff := StrToInt(TVFCutoff_value.Text);
   TVFFilterPlot.Invalidate;
   UpdatingControls := True;
-  TVFCutoff.Position := 100 - StrToInt(TVFCutoff_value.Text);
+  TVFCutoff.Position := StrToInt(TVFCutoff_value.Text);
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -7584,11 +7625,12 @@ procedure TEditorForm.TVFDepth_valueKeyPress(Sender: TObject; var Key: Char);
 begin
   PressedKey(Sender,Key);
 end;
+
 procedure TEditorForm.TVFKeyFollowChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.KeyFollow := 17 - TVFKeyFollow.Position;
+  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.KeyFollow := TVFKeyFollow.Position;
   TVFKeyFollow_value.Text := IntToStr(Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.KeyFollow);
 
   SysExAddress := LinearAddrToBytes(
@@ -7605,14 +7647,14 @@ end;
 procedure TEditorForm.TVFKeyFollow_valueExit(Sender: TObject);
 begin
   if StrToInt(TVFKeyFollow_value.Text) = Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.KeyFollow then Exit;
-  if StrToInt(TVFKeyFollow_value.Text) < 17 - TVFKeyFollow.Min then
+  if StrToInt(TVFKeyFollow_value.Text) < TVFKeyFollow.Min then
     TVFKeyFollow_value.Text := IntToStr(TVFKeyFollow.Min);
-  if StrToInt(TVFKeyFollow_value.Text) > 17 - TVFKeyFollow.Max then
+  if StrToInt(TVFKeyFollow_value.Text) > TVFKeyFollow.Max then
     TVFKeyFollow_value.Text := IntToStr(TVFKeyFollow.Max);
 
   Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.KeyFollow := StrToInt(TVFKeyFollow_value.Text);
   UpdatingControls := True;
-  TVFKeyFollow.Position := 17 - StrToInt(TVFKeyFollow_value.Text);
+  TVFKeyFollow.Position := StrToInt(TVFKeyFollow_value.Text);
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -7636,7 +7678,7 @@ procedure TEditorForm.TVFLevel1Change(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Level1 := 100 - TVFLevel1.Position;
+  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Level1 := TVFLevel1.Position;
   TVFLevel1_value.Text := IntToStr(Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Level1);
   TVFPlot.Invalidate;
 
@@ -7654,15 +7696,15 @@ end;
 procedure TEditorForm.TVFLevel1_valueExit(Sender: TObject);
 begin
   if StrToInt(TVFLevel1_value.Text) = Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Level1 then Exit;
-  if StrToInt(TVFLevel1_value.Text) < 100 - TVFLevel1.Min then
+  if StrToInt(TVFLevel1_value.Text) < TVFLevel1.Min then
     TVFLevel1_value.Text := IntToStr(TVFLevel1.Min);
-  if StrToInt(TVFLevel1_value.Text) > 100 - TVFLevel1.Max then
+  if StrToInt(TVFLevel1_value.Text) > TVFLevel1.Max then
     TVFLevel1_value.Text := IntToStr(TVFLevel1.Max);
 
   Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Level1 := StrToInt(TVFLevel1_value.Text);
   TVFPlot.Invalidate;
   UpdatingControls := True;
-  TVFLevel1.Position := 100 - StrToInt(TVFLevel1_value.Text);
+  TVFLevel1.Position := StrToInt(TVFLevel1_value.Text);
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -7685,7 +7727,7 @@ procedure TEditorForm.TVFLevel2Change(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Level2 := 100 - TVFLevel2.Position;
+  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Level2 := TVFLevel2.Position;
   TVFLevel2_value.Text := IntToStr(Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Level2);
   TVFPlot.Invalidate;
 
@@ -7703,15 +7745,15 @@ end;
 procedure TEditorForm.TVFLevel2_valueExit(Sender: TObject);
 begin
   if StrToInt(TVFLevel2_value.Text) = Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Level2 then Exit;
-  if StrToInt(TVFLevel2_value.Text) < 100 - TVFLevel2.Min then
+  if StrToInt(TVFLevel2_value.Text) < TVFLevel2.Min then
     TVFLevel2_value.Text := IntToStr(TVFLevel2.Min);
-  if StrToInt(TVFLevel2_value.Text) > 100 - TVFLevel2.Max then
+  if StrToInt(TVFLevel2_value.Text) > TVFLevel2.Max then
     TVFLevel2_value.Text := IntToStr(TVFLevel2.Max);
 
   Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Level2 := StrToInt(TVFLevel2_value.Text);
   TVFPlot.Invalidate;
   UpdatingControls := True;
-  TVFLevel2.Position := 100 - StrToInt(TVFLevel2_value.Text);
+  TVFLevel2.Position := StrToInt(TVFLevel2_value.Text);
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -7734,7 +7776,7 @@ procedure TEditorForm.TVFLevel3Change(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Level3 := 100 - TVFLevel3.Position;
+  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Level3 := TVFLevel3.Position;
   TVFLevel3_value.Text := IntToStr(Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Level3);
   TVFPlot.Invalidate;
 
@@ -7752,15 +7794,15 @@ end;
 procedure TEditorForm.TVFLevel3_valueExit(Sender: TObject);
 begin
   if StrToInt(TVFLevel3_value.Text) = Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Level3 then Exit;
-  if StrToInt(TVFLevel3_value.Text) < 100 - TVFLevel3.Min then
+  if StrToInt(TVFLevel3_value.Text) < TVFLevel3.Min then
     TVFLevel3_value.Text := IntToStr(TVFLevel3.Min);
-  if StrToInt(TVFLevel3_value.Text) > 100 - TVFLevel3.Max then
+  if StrToInt(TVFLevel3_value.Text) > TVFLevel3.Max then
     TVFLevel3_value.Text := IntToStr(TVFLevel3.Max);
 
   Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Level3 := StrToInt(TVFLevel3_value.Text);
   TVFPlot.Invalidate;
   UpdatingControls := True;
-  TVFLevel3.Position := 100 - StrToInt(TVFLevel3_value.Text);
+  TVFLevel3.Position := StrToInt(TVFLevel3_value.Text);
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -7947,12 +7989,11 @@ begin
   DrawTVFFilterGraph(TVFFilterPlot);
 end;
 
-
 procedure TEditorForm.TVFResonanceChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Resonance := 30 - TVFResonance.Position;
+  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Resonance := TVFResonance.Position;
   TVFResonance_value.Text := IntToStr(Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Resonance);
   TVFFilterPlot.Invalidate;
 
@@ -7970,15 +8011,15 @@ end;
 procedure TEditorForm.TVFResonance_valueExit(Sender: TObject);
 begin
   if StrToInt(TVFResonance_value.Text) = Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Resonance then Exit;
-  if StrToInt(TVFResonance_value.Text) < 30 - TVFResonance.Min then
+  if StrToInt(TVFResonance_value.Text) < TVFResonance.Min then
     TVFResonance_value.Text := IntToStr(TVFResonance.Min);
-  if StrToInt(TVFResonance_value.Text) > 30 - TVFResonance.Max then
+  if StrToInt(TVFResonance_value.Text) > TVFResonance.Max then
     TVFResonance_value.Text := IntToStr(TVFResonance.Max);
 
   Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Resonance := StrToInt(TVFResonance_value.Text);
   TVFPlot.Invalidate;
   UpdatingControls := True;
-  TVFResonance.Position := 30 - StrToInt(TVFResonance_value.Text);
+  TVFResonance.Position := StrToInt(TVFResonance_value.Text);
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -8002,7 +8043,7 @@ procedure TEditorForm.TVFSustainChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Sustain := 100 - TVFSustain.Position;
+  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Sustain := TVFSustain.Position;
   TVFSustain_value.Text := IntToStr(Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Sustain);
   TVFPlot.Invalidate;
 
@@ -8020,15 +8061,15 @@ end;
 procedure TEditorForm.TVFSustain_valueExit(Sender: TObject);
 begin
   if StrToInt(TVFSustain_value.Text) = Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Sustain then Exit;
-  if StrToInt(TVFSustain_value.Text) < 100 - TVFSustain.Min then
+  if StrToInt(TVFSustain_value.Text) < TVFSustain.Min then
     TVFSustain_value.Text := IntToStr(TVFSustain.Min);
-  if StrToInt(TVFSustain_value.Text) > 100 - TVFSustain.Max then
+  if StrToInt(TVFSustain_value.Text) > TVFSustain.Max then
     TVFSustain_value.Text := IntToStr(TVFSustain.Max);
 
   Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Sustain := StrToInt(TVFSustain_value.Text);
   TVFPlot.Invalidate;
   UpdatingControls := True;
-  TVFSustain.Position := 100 - StrToInt(TVFSustain_value.Text);
+  TVFSustain.Position := StrToInt(TVFSustain_value.Text);
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -8394,7 +8435,7 @@ procedure TEditorForm.TVAAmplifierChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Amplifier := 100 - TVAAmplifier.Position;
+  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Amplifier := TVAAmplifier.Position;
   TVAAmplifier_value.Text := IntToStr(Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Amplifier);
 
   SysExAddress := LinearAddrToBytes(
@@ -8411,14 +8452,14 @@ end;
 procedure TEditorForm.TVAAmplifier_valueExit(Sender: TObject);
 begin
   if StrToInt(TVAAmplifier_value.Text) = Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Amplifier then Exit;
-  if StrToInt(TVAAmplifier_value.Text) < 100 - TVAAmplifier.Min then
+  if StrToInt(TVAAmplifier_value.Text) < TVAAmplifier.Min then
     TVAAmplifier_value.Text := IntToStr(TVAAmplifier.Min);
-  if StrToInt(TVAAmplifier_value.Text) > 100 - TVAAmplifier.Max then
+  if StrToInt(TVAAmplifier_value.Text) > TVAAmplifier.Max then
     TVAAmplifier_value.Text := IntToStr(TVAAmplifier.Max);
 
   Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Amplifier := StrToInt(TVAAmplifier_value.Text);
   UpdatingControls := True;
-  TVAAmplifier.Position := 100 - StrToInt(TVAAmplifier_value.Text);
+  TVAAmplifier.Position := StrToInt(TVAAmplifier_value.Text);
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -8574,7 +8615,7 @@ procedure TEditorForm.TVALevel1Change(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Level1 := 100 - TVALevel1.Position;
+  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Level1 := TVALevel1.Position;
   TVALevel1_value.Text := IntToStr(Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Level1);
   TVAPlot.Invalidate;
 
@@ -8592,15 +8633,15 @@ end;
 procedure TEditorForm.TVALevel1_valueExit(Sender: TObject);
 begin
   if StrToInt(TVALevel1_value.Text) = Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Level1 then Exit;
-  if StrToInt(TVALevel1_value.Text) < 100 - TVALevel1.Min then
+  if StrToInt(TVALevel1_value.Text) < TVALevel1.Min then
     TVALevel1_value.Text := IntToStr(TVALevel1.Min);
-  if StrToInt(TVALevel1_value.Text) > 100 - TVALevel1.Max then
+  if StrToInt(TVALevel1_value.Text) > TVALevel1.Max then
     TVALevel1_value.Text := IntToStr(TVALevel1.Max);
 
   Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Level1 := StrToInt(TVALevel1_value.Text);
   TVAPlot.Invalidate;
   UpdatingControls := True;
-  TVALevel1.Position := 100 - StrToInt(TVALevel1_value.Text);
+  TVALevel1.Position := StrToInt(TVALevel1_value.Text);
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -8623,7 +8664,7 @@ procedure TEditorForm.TVALevel2Change(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Level2 := 100 - TVALevel2.Position;
+  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Level2 := TVALevel2.Position;
   TVALevel2_value.Text := IntToStr(Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Level2);
   TVAPlot.Invalidate;
 
@@ -8641,15 +8682,15 @@ end;
 procedure TEditorForm.TVALevel2_valueExit(Sender: TObject);
 begin
   if StrToInt(TVALevel2_value.Text) = Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Level2 then Exit;
-  if StrToInt(TVALevel2_value.Text) < 100 - TVALevel2.Min then
+  if StrToInt(TVALevel2_value.Text) < TVALevel2.Min then
     TVALevel2_value.Text := IntToStr(TVALevel2.Min);
-  if StrToInt(TVALevel2_value.Text) > 100 - TVALevel2.Max then
+  if StrToInt(TVALevel2_value.Text) > TVALevel2.Max then
     TVALevel2_value.Text := IntToStr(TVALevel2.Max);
 
   Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Level2 := StrToInt(TVALevel2_value.Text);
   TVAPlot.Invalidate;
   UpdatingControls := True;
-  TVALevel2.Position := 100 - StrToInt(TVALevel2_value.Text);
+  TVALevel2.Position := StrToInt(TVALevel2_value.Text);
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -8672,7 +8713,7 @@ procedure TEditorForm.TVALevel3Change(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Level3 := 100 - TVALevel3.Position;
+  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Level3 := TVALevel3.Position;
   TVALevel3_value.Text := IntToStr(Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Level3);
   TVAPlot.Invalidate;
 
@@ -8690,15 +8731,15 @@ end;
 procedure TEditorForm.TVALevel3_valueExit(Sender: TObject);
 begin
   if StrToInt(TVALevel3_value.Text) = Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Level3 then Exit;
-  if StrToInt(TVALevel3_value.Text) < 100 - TVALevel3.Min then
+  if StrToInt(TVALevel3_value.Text) < TVALevel3.Min then
     TVALevel3_value.Text := IntToStr(TVALevel3.Min);
-  if StrToInt(TVALevel3_value.Text) > 100 - TVALevel3.Max then
+  if StrToInt(TVALevel3_value.Text) > TVALevel3.Max then
     TVALevel3_value.Text := IntToStr(TVALevel3.Max);
 
   Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Level3 := StrToInt(TVALevel3_value.Text);
   TVAPlot.Invalidate;
   UpdatingControls := True;
-  TVALevel3.Position := 100 - StrToInt(TVALevel3_value.Text);
+  TVALevel3.Position := StrToInt(TVALevel3_value.Text);
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -8796,7 +8837,7 @@ procedure TEditorForm.TVASustainChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Sustain := 100 - TVASustain.Position;
+  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Sustain := TVASustain.Position;
   TVASustain_value.Text := IntToStr(Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Sustain);
   TVAPlot.Invalidate;
 
@@ -8814,15 +8855,15 @@ end;
 procedure TEditorForm.TVASustain_valueExit(Sender: TObject);
 begin
   if StrToInt(TVASustain_value.Text) = Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Sustain then Exit;
-  if StrToInt(TVASustain_value.Text) < 100 - TVASustain.Min then
+  if StrToInt(TVASustain_value.Text) < TVASustain.Min then
     TVASustain_value.Text := IntToStr(TVASustain.Min);
-  if StrToInt(TVASustain_value.Text) > 100 - TVASustain.Max then
+  if StrToInt(TVASustain_value.Text) > TVASustain.Max then
     TVASustain_value.Text := IntToStr(TVASustain.Max);
 
   Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVA.Sustain := StrToInt(TVASustain_value.Text);
   TVAPlot.Invalidate;
   UpdatingControls := True;
-  TVASustain.Position := 100 - StrToInt(TVASustain_value.Text);
+  TVASustain.Position := StrToInt(TVASustain_value.Text);
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
