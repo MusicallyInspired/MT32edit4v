@@ -9300,9 +9300,9 @@ begin
   if MasterVolume_value.Value > MasterVolume.Max then
     MasterVolume_value.Value := MasterVolume.Max;
 
-  Synth[CurSyn].System.MasterVolume := StrToInt(MasterVolume_value.Text);
+  Synth[CurSyn].System.MasterVolume := MasterVolume_value.Value;
   UpdatingControls := True;
-  MasterVolume.Position := StrToInt(MasterVolume_value.Text);
+  MasterVolume.Position := MasterVolume_value.Value;
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
