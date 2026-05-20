@@ -70,7 +70,7 @@ object EditorForm: TEditorForm
     Top = 3
     Width = 756
     Height = 619
-    ActivePage = TimbreTempArea
+    ActivePage = PatchTempArea
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -81,7 +81,7 @@ object EditorForm: TEditorForm
     TabOrder = 0
     TabWidth = 100
     object TimbreTempArea: TTabSheet
-      Caption = 'Patch'
+      Caption = 'Timbre'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -1078,7 +1078,7 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object TVFKeyFollow_label: TLabel
-          Left = 138
+          Left = 140
           Top = 17
           Width = 12
           Height = 13
@@ -3098,9 +3098,9 @@ object EditorForm: TEditorForm
         end
         object TVATimeKeyFollow: TSynthSlider
           Left = 1
-          Top = 315
+          Top = 318
           Width = 89
-          Height = 23
+          Height = 20
           Max = 4
           Orientation = stoHorizontal
           TrackColor = 14737632
@@ -3116,9 +3116,9 @@ object EditorForm: TEditorForm
         end
         object TVAVelKeyFollow: TSynthSlider
           Left = 118
-          Top = 315
+          Top = 318
           Width = 89
-          Height = 23
+          Height = 20
           Max = 4
           Orientation = stoHorizontal
           TrackColor = 14737632
@@ -4056,7 +4056,7 @@ object EditorForm: TEditorForm
       end
     end
     object PatchTempArea: TTabSheet
-      Caption = 'Mixer'
+      Caption = 'Part Mixer'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clGreen
       Font.Height = -11
@@ -9089,22 +9089,6 @@ object EditorForm: TEditorForm
     object RhythmSetup: TTabSheet
       Caption = 'Rhythm Setup'
       ImageIndex = 3
-      TabVisible = False
-      object Label5: TLabel
-        Left = 0
-        Top = 247
-        Width = 741
-        Height = 13
-        Alignment = taCenter
-        AutoSize = False
-        Caption = 'Not yet implemented'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
     end
     object SystemArea: TTabSheet
       Caption = 'System'

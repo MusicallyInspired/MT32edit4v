@@ -438,7 +438,6 @@ type
     SyncAllButton: TBitBtn;
     RhythmSetup: TTabSheet;
     SystemArea: TTabSheet;
-    Label5: TLabel;
     Label6: TLabel;
     WaveGenGroup: TGroupBox;
     WGPulseWidth_label: TLabel;
@@ -2008,6 +2007,7 @@ begin
     RefreshPartControls;
     RefreshPartialControls;
     RefreshPatchControls;
+    RefreshAllGroupMemCombos;
     //RefreshSystemControls;
     MasterVolume.Position := Synth[CurSyn].System.MasterVolume;
     MasterVolume_value.Value := Synth[CurSyn].System.MasterVolume;
@@ -2231,7 +2231,6 @@ end;
 
 procedure TEditorForm.RefreshPatchControls;
 begin
-  RefreshAllGroupMemCombos;
   Pt1Enable.Down := Synth[CurSyn].System.MidiChannel[0] <> 16;
   Pt1Reverb.Down := Synth[CurSyn].Patch[0].Reverb;
   if Synth[CurSyn].System.MidiChannel[0] < 16 then
@@ -9301,31 +9300,9 @@ begin
   if MasterVolume_value.Value > MasterVolume.Max then
     MasterVolume_value.Value := MasterVolume.Max;
 
-  Synth[CurSyn].System.MasterVolume := MasterVolume_value.Value;
-  UpdatingControls := True;
-  MasterVolume.Position := MasterVolume_value.Value;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdSystem +
-    $16
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].System.MasterVolume;
-  SendCurrentSysEx;
-end;
-{
-procedure TEditorForm.OLDMasterVolume_valueExit(Sender: TObject);
-begin
-  if StrToInt(MasterVolume_value.Text) = Synth[CurSyn].System.MasterVolume then Exit;
-  if StrToInt(MasterVolume_value.Text) < MasterVolume.Min then
-    MasterVolume_value.Text := IntToStr(MasterVolume.Min);
-  if StrToInt(MasterVolume_value.Text) > MasterVolume.Max then
-    MasterVolume_value.Text := IntToStr(MasterVolume.Max);
-
   Synth[CurSyn].System.MasterVolume := StrToInt(MasterVolume_value.Text);
   UpdatingControls := True;
-  MasterVolume.Position := 100 - StrToInt(MasterVolume_value.Text);
+  MasterVolume.Position := StrToInt(MasterVolume_value.Text);
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
@@ -9337,12 +9314,6 @@ begin
   SendCurrentSysEx;
 end;
 
-procedure TEditorForm.OLDMasterVolume_valueKeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  PressedKey(Sender,Key);
-end;
-}
 procedure TEditorForm.MixAdvanceToggleClick(Sender: TObject);
 begin
   if not MuntReady then Exit;
