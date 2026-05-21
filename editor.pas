@@ -275,12 +275,6 @@ type
   TSysExAddr = array[0..2] of Byte;
   TPartialKind = (pkSynth, pkPCM);
 
-  TFixedTrackBar = class(TTrackBar)
-  public
-    procedure KeyDown(var Key: Word; Shift: TShiftState); override;
-    procedure MouseWheelHandler(var Message: TMessagE); override;
-  end;
-
   { TEditorForm }
 
   TEditorForm = class(TForm)
@@ -995,162 +989,23 @@ type
 
     procedure MixAdvanceToggleClick(Sender: TObject);
 
-    procedure Pt1ReverbClick(Sender: TObject);
-    procedure Pt1EnableClick(Sender: TObject);
-    procedure Pt1ChanChange(Sender: TObject);
-    procedure Pt1PolyChange(Sender: TObject);
-    procedure Pt1PtlReserveChange(Sender: TObject);
-    procedure Pt1BankChange(Sender: TObject);
-    procedure Pt1TimbreChange(Sender: TObject);
-    procedure Pt1KeyChange(Sender: TObject);
-    procedure Pt1Key_valueChange(Sender: TObject);
-    procedure Pt1FineChange(Sender: TObject);
-    procedure Pt1Fine_valueChange(Sender: TObject);
-    procedure Pt1BendChange(Sender: TObject);
-    procedure Pt1Bend_valueChange(Sender: TObject);
-    procedure Pt1PanChange(Sender: TObject);
-    procedure Pt1Pan_valueChange(Sender: TObject);
-    procedure Pt1OutputChange(Sender: TObject);
-    procedure Pt1Output_valueChange(Sender: TObject);
-
-    procedure Pt2EnableClick(Sender: TObject);
-    procedure Pt2ReverbClick(Sender: TObject);
-    procedure Pt2ChanChange(Sender: TObject);
-    procedure Pt2PolyChange(Sender: TObject);
-    procedure Pt2PtlReserveChange(Sender: TObject);
-    procedure Pt2BankChange(Sender: TObject);
-    procedure Pt2TimbreChange(Sender: TObject);
-    procedure Pt2KeyChange(Sender: TObject);
-    procedure Pt2FineChange(Sender: TObject);
-    procedure Pt2Key_valueChange(Sender: TObject);
-    procedure Pt2Fine_valueChange(Sender: TObject);
-    procedure Pt2BendChange(Sender: TObject);
-    procedure Pt2Bend_valueChange(Sender: TObject);
-    procedure Pt2PanChange(Sender: TObject);
-    procedure Pt2Pan_valueChange(Sender: TObject);
-    procedure Pt2OutputChange(Sender: TObject);
-    procedure Pt2Output_valueChange(Sender: TObject);
-
-    procedure Pt3EnableClick(Sender: TObject);
-    procedure Pt3ReverbClick(Sender: TObject);
-    procedure Pt3ChanChange(Sender: TObject);
-    procedure Pt3PolyChange(Sender: TObject);
-    procedure Pt3PtlReserveChange(Sender: TObject);
-    procedure Pt3BankChange(Sender: TObject);
-    procedure Pt3TimbreChange(Sender: TObject);
-    procedure Pt3KeyChange(Sender: TObject);
-    procedure Pt3FineChange(Sender: TObject);
-    procedure Pt3Key_valueChange(Sender: TObject);
-    procedure Pt3Fine_valueChange(Sender: TObject);
-    procedure Pt3BendChange(Sender: TObject);
-    procedure Pt3Bend_valueChange(Sender: TObject);
-    procedure Pt3PanChange(Sender: TObject);
-    procedure Pt3Pan_valueChange(Sender: TObject);
-    procedure Pt3OutputChange(Sender: TObject);
-    procedure Pt3Output_valueChange(Sender: TObject);
-
-    procedure Pt4ReverbClick(Sender: TObject);
-    procedure Pt4EnableClick(Sender: TObject);
-    procedure Pt4ChanChange(Sender: TObject);
-    procedure Pt4PolyChange(Sender: TObject);
-    procedure Pt4PtlReserveChange(Sender: TObject);
-    procedure Pt4BankChange(Sender: TObject);
-    procedure Pt4TimbreChange(Sender: TObject);
-    procedure Pt4KeyChange(Sender: TObject);
-    procedure Pt4Key_valueChange(Sender: TObject);
-    procedure Pt4FineChange(Sender: TObject);
-    procedure Pt4Fine_valueChange(Sender: TObject);
-    procedure Pt4BendChange(Sender: TObject);
-    procedure Pt4Bend_valueChange(Sender: TObject);
-    procedure Pt4PanChange(Sender: TObject);
-    procedure Pt4Pan_valueChange(Sender: TObject);
-    procedure Pt4OutputChange(Sender: TObject);
-    procedure Pt4Output_valueChange(Sender: TObject);
-
-    procedure Pt5EnableClick(Sender: TObject);
-    procedure Pt5ReverbClick(Sender: TObject);
-    procedure Pt5ChanChange(Sender: TObject);
-    procedure Pt5PolyChange(Sender: TObject);
-    procedure Pt5PtlReserveChange(Sender: TObject);
-    procedure Pt5BankChange(Sender: TObject);
-    procedure Pt5TimbreChange(Sender: TObject);
-    procedure Pt5KeyChange(Sender: TObject);
-    procedure Pt5FineChange(Sender: TObject);
-    procedure Pt5Key_valueChange(Sender: TObject);
-    procedure Pt5Fine_valueChange(Sender: TObject);
-    procedure Pt5BendChange(Sender: TObject);
-    procedure Pt5Bend_valueChange(Sender: TObject);
-    procedure Pt5PanChange(Sender: TObject);
-    procedure Pt5Pan_valueChange(Sender: TObject);
-    procedure Pt5OutputChange(Sender: TObject);
-    procedure Pt5Output_valueChange(Sender: TObject);
-
-    procedure Pt6EnableClick(Sender: TObject);
-    procedure Pt6ReverbClick(Sender: TObject);
-    procedure Pt6ChanChange(Sender: TObject);
-    procedure Pt6PolyChange(Sender: TObject);
-    procedure Pt6PtlReserveChange(Sender: TObject);
-    procedure Pt6BankChange(Sender: TObject);
-    procedure Pt6TimbreChange(Sender: TObject);
-    procedure Pt6KeyChange(Sender: TObject);
-    procedure Pt6FineChange(Sender: TObject);
-    procedure Pt6Key_valueChange(Sender: TObject);
-    procedure Pt6Fine_valueChange(Sender: TObject);
-    procedure Pt6BendChange(Sender: TObject);
-    procedure Pt6Bend_valueChange(Sender: TObject);
-    procedure Pt6PanChange(Sender: TObject);
-    procedure Pt6Pan_valueChange(Sender: TObject);
-    procedure Pt6OutputChange(Sender: TObject);
-    procedure Pt6Output_valueChange(Sender: TObject);
-
-    procedure Pt7EnableClick(Sender: TObject);
-    procedure Pt7ReverbClick(Sender: TObject);
-    procedure Pt7ChanChange(Sender: TObject);
-    procedure Pt7PolyChange(Sender: TObject);
-    procedure Pt7PtlReserveChange(Sender: TObject);
-    procedure Pt7BankChange(Sender: TObject);
-    procedure Pt7TimbreChange(Sender: TObject);
-    procedure Pt7KeyChange(Sender: TObject);
-    procedure Pt7FineChange(Sender: TObject);
-    procedure Pt7Key_valueChange(Sender: TObject);
-    procedure Pt7Fine_valueChange(Sender: TObject);
-    procedure Pt7BendChange(Sender: TObject);
-    procedure Pt7Bend_valueChange(Sender: TObject);
-    procedure Pt7PanChange(Sender: TObject);
-    procedure Pt7Pan_valueChange(Sender: TObject);
-    procedure Pt7OutputChange(Sender: TObject);
-    procedure Pt7Output_valueChange(Sender: TObject);
-
-    procedure Pt8EnableClick(Sender: TObject);
-    procedure Pt8ReverbClick(Sender: TObject);
-    procedure Pt8ChanChange(Sender: TObject);
-    procedure Pt8PolyChange(Sender: TObject);
-    procedure Pt8PtlReserveChange(Sender: TObject);
-    procedure Pt8BankChange(Sender: TObject);
-    procedure Pt8TimbreChange(Sender: TObject);
-    procedure Pt8KeyChange(Sender: TObject);
-    procedure Pt8FineChange(Sender: TObject);
-    procedure Pt8Key_valueChange(Sender: TObject);
-    procedure Pt8Fine_valueChange(Sender: TObject);
-    procedure Pt8BendChange(Sender: TObject);
-    procedure Pt8Bend_valueChange(Sender: TObject);
-    procedure Pt8PanChange(Sender: TObject);
-    procedure Pt8Pan_valueChange(Sender: TObject);
-    procedure Pt8OutputChange(Sender: TObject);
-    procedure Pt8Output_valueChange(Sender: TObject);
-
-    procedure PtREnableClick(Sender: TObject);
-    procedure PtRChanChange(Sender: TObject);
-    procedure PtRPolyChange(Sender: TObject);
-    procedure PtRPtlReserveChange(Sender: TObject);
-    procedure PtRKeyChange(Sender: TObject);
-    procedure PtRFineChange(Sender: TObject);
-    procedure PtRKey_valueChange(Sender: TObject);
-    procedure PtRFine_valueChange(Sender: TObject);
-    procedure PtRBendChange(Sender: TObject);
-    procedure PtRBend_valueChange(Sender: TObject);
-    procedure PtROutputChange(Sender: TObject);
-    procedure PtROutput_valueChange(Sender: TObject);
+    procedure PtReverbClick(Sender: TObject);
+    procedure PtEnableClick(Sender: TObject);
+    procedure PtChanChange(Sender: TObject);
+    procedure PtPolyChange(Sender: TObject);
+    procedure PtPtlReserveChange(Sender: TObject);
+    procedure PtBankChange(Sender: TObject);
+    procedure PtTimbreChange(Sender: TObject);
+    procedure PtKeyChange(Sender: TObject);
+    procedure PtKey_valueChange(Sender: TObject);
+    procedure PtFineChange(Sender: TObject);
+    procedure PtFine_valueChange(Sender: TObject);
+    procedure PtPanChange(Sender: TObject);
+    procedure PtPan_valueChange(Sender: TObject);
+    procedure PtBend_valueChange(Sender: TObject);
+    procedure PtBendChange(Sender: TObject);
+    procedure PtOutputChange(Sender: TObject);
+    procedure PtOutput_valueChange(Sender: TObject);
 
     procedure SyncAllButtonClick(Sender: TObject);
     procedure Synth1ToggleClick(Sender: TObject);
@@ -1211,39 +1066,6 @@ var
 implementation
 
 {$R *.DFM}
-
-procedure TFixedTrackBar.KeyDown(var Key: Word; Shift: TShiftState);
-begin
-  case Key of
-    VK_LEFT, VK_DOWN:
-      begin
-        Position := Position - LineSize;
-        Key := 0;
-      end;
-
-    VK_RIGHT, VK_UP:
-      begin
-        Position := Position + LineSize;
-        Key := 0;
-      end;
-  else
-    inherited;
-  end;
-end;
-
-procedure TFixedTrackBar.MouseWheelHandler(var Message: TMessage);
-var
-  Delta: SmallInt;
-begin
-  Delta := SmallInt(HiWord(Message.WParam));
-
-  if Delta > 0 then
-    Position := Position + LineSize
-  else
-    Position := Position - LineSize;
-
-  Message.Result := 1;
-end;
 
 procedure TEditorForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
@@ -2651,289 +2473,453 @@ begin
   SendCurrentSysEx;
 end;
 
-procedure TEditorForm.Pt1BankChange(Sender: TObject);
+procedure TEditorForm.PtBankChange(Sender: TObject);
 begin
-  LoadTimbreNames(Pt1Bank, Pt1Timbre);
+  case TComboBox(Sender).Tag of
+    0: LoadTimbreNames(Pt1Bank, Pt1Timbre);
+    1: LoadTimbreNames(Pt2Bank, Pt2Timbre);
+    2: LoadTimbreNames(Pt3Bank, Pt3Timbre);
+    3: LoadTimbreNames(Pt4Bank, Pt4Timbre);
+    4: LoadTimbreNames(Pt5Bank, Pt5Timbre);
+    5: LoadTimbreNames(Pt6Bank, Pt6Timbre);
+    6: LoadTimbreNames(Pt7Bank, Pt7Timbre);
+    7: LoadTimbreNames(Pt8Bank, Pt8Timbre);
+  end;
 
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[0].TmbGroup := Pt1Bank.ItemIndex;
+  Synth[CurSyn].Patch[TComboBox(Sender).Tag].TmbGroup := TComboBox(Sender).ItemIndex;
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
-    (0 * $10) +
+    (NativeUInt(TComboBox(Sender).Tag) * $10) +
     $00
   );
   SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[0].TmbGroup;
+  SysExData[0] := Synth[CurSyn].Patch[TComboBox(Sender).Tag].TmbGroup;
   SendCurrentSysEx;
 end;
 
-procedure TEditorForm.Pt1BendChange(Sender: TObject);
+procedure TEditorForm.PtBendChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[0].BendRange := Pt1Bend.Value;
+  Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange := TKnobControl(Sender).Value;
   UpdatingControls := True;
-  Pt1Bend_value.Value := Synth[CurSyn].Patch[0].BendRange;
-  if CurPt = 0 then
-    PtBendRange.Value := Synth[CurSyn].Patch[0].BendRange;
+  case TKnobControl(Sender).Tag of
+    0: Pt1Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
+    1: Pt2Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
+    2: Pt3Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
+    3: Pt4Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
+    4: Pt5Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
+    5: Pt6Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
+    6: Pt7Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
+    7: Pt8Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
+    8: PtRBend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
+  end;
+  if CurPt = TKnobControl(Sender).Tag then
+    PtBendRange.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
-    (0 * $10) +
+    (NativeUInt(TKnobControl(Sender).Tag) * $10) +
     $04
   );
   SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[0].BendRange;
+  SysExData[0] := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
   SendCurrentSysEx;
 end;
 
-procedure TEditorForm.Pt1Bend_valueChange(Sender: TObject);
+procedure TEditorForm.PtBend_valueChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[0].BendRange := Pt1Bend_value.Value;
+  Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange := TSpinEdit(Sender).Value;
   UpdatingControls := True;
-  Pt1Bend.Value := Synth[CurSyn].Patch[0].BendRange;
-  if CurPt = 0 then
-    PtBendRange.Value := Synth[CurSyn].Patch[0].BendRange;
+  case TSpinEdit(Sender).Tag of
+    0: Pt1Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
+    1: Pt2Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
+    2: Pt3Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
+    3: Pt4Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
+    4: Pt5Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
+    5: Pt6Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
+    6: Pt7Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
+    7: Pt8Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
+    8: PtRBend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
+  end;
+  if CurPt = TSpinEdit(Sender).Tag then
+    PtBendRange.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
-    (0 * $10) +
+    (NativeUInt(TSpinEdit(Sender).Tag) * $10) +
     $04
   );
   SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[0].BendRange;
+  SysExData[0] := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
   SendCurrentSysEx;
 end;
 
-procedure TEditorForm.Pt1ChanChange(Sender: TObject);
+procedure TEditorForm.PtChanChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].System.MidiChannel[0] := Pt1Chan.Value - 1;
+  Synth[CurSyn].System.MidiChannel[TSpinEdit(Sender).Tag] := TSpinEdit(Sender).Value - 1;
   UpdatingControls := True;
-  PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[0];
+  if CurPt = TSpinEdit(Sender).Tag then
+    PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[TSpinEdit(Sender).Tag];
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
     AdSystem +
-    $00 +
+    NativeUInt(TSpinEdit(Sender).Tag) +
     $0D
   );
   SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].System.MidiChannel[0];
+  SysExData[0] := Synth[CurSyn].System.MidiChannel[TSpinEdit(Sender).Tag];
   SendCurrentSysEx;
 end;
 
-procedure TEditorForm.Pt1EnableClick(Sender: TObject);
+procedure TEditorForm.PtEnableClick(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  if Pt1Enable.Down then
+  if TSpeedButton(Sender).Down then
   begin
-    Synth[CurSyn].System.MidiChannel[0] := Pt1Chan.Value - 1;
-    Pt1Chan.Enabled := True;
-    if CurPt = 0 then
+    case TSpeedButton(Sender).Tag of
+      0:
+      begin
+        Synth[CurSyn].System.MidiChannel[TSpeedButton(Sender).Tag] := Pt1Chan.Value - 1;
+        Pt1Chan.Enabled := True;
+      end;
+      1:
+      begin
+        Synth[CurSyn].System.MidiChannel[TSpeedButton(Sender).Tag] := Pt2Chan.Value - 1;
+        Pt2Chan.Enabled := True;
+      end;
+      2:
+      begin
+        Synth[CurSyn].System.MidiChannel[TSpeedButton(Sender).Tag] := Pt3Chan.Value - 1;
+        Pt3Chan.Enabled := True;
+      end;
+      3:
+      begin
+        Synth[CurSyn].System.MidiChannel[TSpeedButton(Sender).Tag] := Pt4Chan.Value - 1;
+        Pt4Chan.Enabled := True;
+      end;
+      4:
+      begin
+        Synth[CurSyn].System.MidiChannel[TSpeedButton(Sender).Tag] := Pt5Chan.Value - 1;
+        Pt5Chan.Enabled := True;
+      end;
+      5:
+      begin
+        Synth[CurSyn].System.MidiChannel[TSpeedButton(Sender).Tag] := Pt6Chan.Value - 1;
+        Pt6Chan.Enabled := True;
+      end;
+      6:
+      begin
+        Synth[CurSyn].System.MidiChannel[TSpeedButton(Sender).Tag] := Pt7Chan.Value - 1;
+        Pt7Chan.Enabled := True;
+      end;
+      7:
+      begin
+        Synth[CurSyn].System.MidiChannel[TSpeedButton(Sender).Tag] := Pt8Chan.Value - 1;
+        Pt8Chan.Enabled := True;
+      end;
+      8:
+      begin
+        Synth[CurSyn].System.MidiChannel[TSpeedButton(Sender).Tag] := PtRChan.Value - 1;
+        PtRChan.Enabled := True;
+      end;
+    end;
+
+    if CurPt = TSpeedButton(Sender).Tag then
     begin
       UpdatingControls := True;
-      PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[0];
+      PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[TSpeedButton(Sender).Tag];
       UpdatingControls := False;
     end;
   end
   else
   begin
-    Synth[CurSyn].System.MidiChannel[0] := 16;
-    Pt1Chan.Enabled := False;
-    if CurPt = 0 then
+    Synth[CurSyn].System.MidiChannel[TSpeedButton(Sender).Tag] := 16;
+    case TSpeedButton(Sender).Tag of
+      0: Pt1Chan.Enabled := False;
+      1: Pt2Chan.Enabled := False;
+      2: Pt3Chan.Enabled := False;
+      3: Pt4Chan.Enabled := False;
+      4: Pt5Chan.Enabled := False;
+      5: Pt6Chan.Enabled := False;
+      6: Pt7Chan.Enabled := False;
+      7: Pt8Chan.Enabled := False;
+      8: PtRChan.Enabled := False;
+    end;
+    if CurPt = TSpeedButton(Sender).Tag then
     begin
       UpdatingControls := True;
-      PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[0];
+      PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[TSpeedButton(Sender).Tag];
       UpdatingControls := False;
     end;
   end;
 
   SysExAddress := LinearAddrToBytes(
     AdSystem +
-    $00 +
+    NativeUInt(TSpeedButton(Sender).Tag) +
     $0D
   );
   SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].System.MidiChannel[0];
+  SysExData[0] := Synth[CurSyn].System.MidiChannel[TSpeedButton(Sender).Tag];
   SendCurrentSysEx;
 end;
 
-procedure TEditorForm.Pt1FineChange(Sender: TObject);
+procedure TEditorForm.PtFineChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[0].FineTune := Pt1Fine.Value;
+  Synth[CurSyn].Patch[TKnobControl(Sender).Tag].FineTune := TKnobControl(Sender).Value;
   UpdatingControls := True;
-  Pt1Fine_value.Value := Synth[CurSyn].Patch[0].FineTune;
+  case TSpinEdit(Sender).Tag of
+    0: Pt1Fine_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].FineTune;
+    1: Pt2Fine_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].FineTune;
+    2: Pt3Fine_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].FineTune;
+    3: Pt4Fine_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].FineTune;
+    4: Pt5Fine_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].FineTune;
+    5: Pt6Fine_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].FineTune;
+    6: Pt7Fine_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].FineTune;
+    7: Pt8Fine_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].FineTune;
+    8: PtRFine_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].FineTune;
+  end;
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
-    (0 * $10) +
+    (NativeUInt(TKnobControl(Sender).Tag) * $10) +
     $03
   );
   SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[0].FineTune + 50;
+  SysExData[0] := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].FineTune + 50;
   SendCurrentSysEx;
 end;
 
-procedure TEditorForm.Pt1Fine_valueChange(Sender: TObject);
+procedure TEditorForm.PtFine_valueChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[0].FineTune := Pt1Fine_value.Value;
+  Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].FineTune := TSpinEdit(Sender).Value;
   UpdatingControls := True;
-  Pt1Key.Value := Synth[CurSyn].Patch[0].FineTune;
+  case TSpinEdit(Sender).Tag of
+    0: Pt1Fine.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].FineTune;
+    1: Pt2Fine.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].FineTune;
+    2: Pt3Fine.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].FineTune;
+    3: Pt4Fine.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].FineTune;
+    4: Pt5Fine.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].FineTune;
+    5: Pt6Fine.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].FineTune;
+    6: Pt7Fine.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].FineTune;
+    7: Pt8Fine.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].FineTune;
+    8: PtRFine.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].FineTune;
+  end;
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
-    (0 * $10) +
+    (NativeUInt(TSpinEdit(Sender).Tag) * $10) +
     $03
   );
   SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[0].FineTune + 50;
+  SysExData[0] := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].FineTune + 50;
   SendCurrentSysEx;
 end;
 
-procedure TEditorForm.Pt1KeyChange(Sender: TObject);
+procedure TEditorForm.PtKeyChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[0].KeyShift := Pt1Key.Value;
+  Synth[CurSyn].Patch[TKnobControl(Sender).Tag].KeyShift := TKnobControl(Sender).Value;
   UpdatingControls := True;
-  Pt1Key_value.Value := Synth[CurSyn].Patch[0].KeyShift;
+  case TKnobControl(Sender).Tag of
+    0: Pt1Key_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].KeyShift;
+    1: Pt2Key_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].KeyShift;
+    2: Pt3Key_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].KeyShift;
+    3: Pt4Key_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].KeyShift;
+    4: Pt5Key_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].KeyShift;
+    5: Pt6Key_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].KeyShift;
+    6: Pt7Key_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].KeyShift;
+    7: Pt8Key_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].KeyShift;
+    8: PtRKey_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].KeyShift;
+  end;
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
-    (0 * $10) +
+    (NativeUInt(TKnobControl(Sender).Tag) * $10) +
     $02
   );
   SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[0].KeyShift + 24;
+  SysExData[0] := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].KeyShift + 24;
   SendCurrentSysEx;
 end;
 
-procedure TEditorForm.Pt1Key_valueChange(Sender: TObject);
+procedure TEditorForm.PtKey_valueChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[0].KeyShift := Pt1Key_value.Value;
+  Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].KeyShift := TSpinEdit(Sender).Value;
   UpdatingControls := True;
-  Pt1Key.Value := Synth[CurSyn].Patch[0].KeyShift;
+  case TSpinEdit(Sender).Tag of
+    0: Pt1Key.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].KeyShift;
+    1: Pt2Key.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].KeyShift;
+    2: Pt3Key.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].KeyShift;
+    3: Pt4Key.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].KeyShift;
+    4: Pt5Key.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].KeyShift;
+    5: Pt6Key.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].KeyShift;
+    6: Pt7Key.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].KeyShift;
+    7: Pt8Key.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].KeyShift;
+    8: PtRKey.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].KeyShift;
+  end;
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
-    (0 * $10) +
+    (NativeUInt(TSpinEdit(Sender).Tag) * $10) +
     $02
   );
   SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[0].KeyShift + 24;
+  SysExData[0] := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].KeyShift + 24;
   SendCurrentSysEx;
 end;
 
-procedure TEditorForm.Pt1OutputChange(Sender: TObject);
+procedure TEditorForm.PtOutputChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[0].Output := Pt1Output.Position;
+  Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output := TSynthSlider(Sender).Position;
   UpdatingControls := True;
-  Pt1Output_value.Value := Synth[CurSyn].Patch[0].Output;
+  case TSynthSlider(Sender).Tag of
+    0: Pt1Output_value.Value := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+    1: Pt2Output_value.Value := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+    2: Pt3Output_value.Value := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+    3: Pt4Output_value.Value := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+    4: Pt5Output_value.Value := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+    5: Pt6Output_value.Value := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+    6: Pt7Output_value.Value := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+    7: Pt8Output_value.Value := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+    8: PtROutput_value.Value := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+  end;
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
-    (0 * $10) +
+    (NativeUInt(TSynthSlider(Sender).Tag) * $10) +
     $08
   );
   SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[0].Output;
+  SysExData[0] := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
   SendCurrentSysEx;
 end;
 
-procedure TEditorForm.Pt1Output_valueChange(Sender: TObject);
+procedure TEditorForm.PtOutput_valueChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[0].Output := Pt1Output_value.Value;
+  Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output := TSpinEdit(Sender).Value;
   UpdatingControls := True;
-  Pt1Output.Position := Synth[CurSyn].Patch[0].Output;
+  case TSynthSlider(Sender).Tag of
+    0: Pt1Output.Position := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+    1: Pt2Output.Position := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+    2: Pt3Output.Position := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+    3: Pt4Output.Position := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+    4: Pt5Output.Position := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+    5: Pt6Output.Position := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+    6: Pt7Output.Position := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+    7: Pt8Output.Position := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+    8: PtROutput.Position := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+  end;
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
-    (0 * $10) +
+    (NativeUInt(TSynthSlider(Sender).Tag) * $10) +
     $08
   );
   SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[0].Output;
+  SysExData[0] := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
   SendCurrentSysEx;
 end;
 
-procedure TEditorForm.Pt1PanChange(Sender: TObject);
+procedure TEditorForm.PtPanChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[0].Pan := Pt1Pan.Value;
+  Synth[CurSyn].Patch[TKnobControl(Sender).Tag].Pan := TKnobControl(Sender).Value;
   UpdatingControls := True;
-  Pt1Pan_value.Value := Synth[CurSyn].Patch[0].Pan;
+  case TKnobControl(Sender).Tag of
+    0: Pt1Pan_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].Pan;
+    1: Pt2Pan_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].Pan;
+    2: Pt3Pan_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].Pan;
+    3: Pt4Pan_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].Pan;
+    4: Pt5Pan_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].Pan;
+    5: Pt6Pan_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].Pan;
+    6: Pt7Pan_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].Pan;
+    7: Pt8Pan_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].Pan;
+  end;
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
-    (0 * $10) +
+    (NativeUInt(TKnobControl(Sender).Tag) * $10) +
     $09
   );
   SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[0].Pan + 7;
+  SysExData[0] := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].Pan + 7;
   SendCurrentSysEx;
 end;
 
-procedure TEditorForm.Pt1Pan_valueChange(Sender: TObject);
+procedure TEditorForm.PtPan_valueChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[0].Pan := Pt1Pan_value.Value;
+  Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].Pan := TSpinEdit(Sender).Value;
   UpdatingControls := True;
-  Pt1Pan.Value := Synth[CurSyn].Patch[0].Pan;
+  case TSpinEdit(Sender).Tag of
+    0: Pt1Pan.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].Pan;
+    1: Pt2Pan.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].Pan;
+    2: Pt3Pan.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].Pan;
+    3: Pt4Pan.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].Pan;
+    4: Pt5Pan.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].Pan;
+    5: Pt6Pan.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].Pan;
+    6: Pt7Pan.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].Pan;
+    7: Pt8Pan.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].Pan;
+  end;
   UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
-    (0 * $10) +
+    (NativeUInt(TSpinEdit(Sender).Tag) * $10) +
     $09
   );
   SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[0].Pan + 7;
+  SysExData[0] := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].Pan + 7;
   SendCurrentSysEx;
 end;
 
-procedure TEditorForm.Pt1PolyChange(Sender: TObject);
+procedure TEditorForm.PtPolyChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[0].PolyMode := Pt1Poly.ItemIndex;
+  Synth[CurSyn].Patch[TComboBox(Sender).Tag].PolyMode := TComboBox(Sender).ItemIndex;
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
-    (0 * $10) +
+    (NativeUInt(TComboBox(Sender).Tag) * $10) +
     $05
   );
   SetLength(SysExData,1);
-  SysExData[0] := Pt1Poly.ItemIndex;
+  SysExData[0] := Synth[CurSyn].Patch[TComboBox(Sender).Tag].PolyMode;
   SendCurrentSysEx;
 end;
 
-procedure TEditorForm.Pt1PtlReserveChange(Sender: TObject);
+procedure TEditorForm.PtPtlReserveChange(Sender: TObject);
 var
   NewSum: Integer;
 begin
@@ -2953,2796 +2939,57 @@ begin
     MessageBeep(MB_ICONERROR);
     ShowMessage('Sum of all Parts'' partial reserves must not exdeed 32');
     UpdatingControls := True;
-    Pt1PtlReserve.Value := Pt1PtlReserve.Value - (NewSum - 32);
+    TSpinEdit(Sender).Value := TSpinEdit(Sender).Value - (NewSum - 32);
     UpdatingControls := False;
   end;
-  if Synth[CurSyn].System.PtlReserve[0] <> Pt1PtlReserve.Value then
+  if Synth[CurSyn].System.PtlReserve[TSpinEdit(Sender).Tag] <> TSpinEdit(Sender).Value then
   begin
-    Synth[CurSyn].System.PtlReserve[0] := Pt1PtlReserve.Value;
+    Synth[CurSyn].System.PtlReserve[TSpinEdit(Sender).Tag] := TSpinEdit(Sender).Value;
     SysExAddress := LinearAddrToBytes(
       AdSystem +
-      $00 +
+      NativeUInt(TSpinEdit(Sender).Tag) +
       $04
     );
     SetLength(SysExData,1);
-    SysExData[0] := Synth[CurSyn].System.PtlReserve[0];
+    SysExData[0] := Synth[CurSyn].System.PtlReserve[TSpinEdit(Sender).Tag];
   end;
 end;
 
-procedure TEditorForm.Pt1ReverbClick(Sender: TObject);
+procedure TEditorForm.PtReverbClick(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[0].Reverb := Pt1Reverb.Down;
-  if CurPt = 0 then
+  Synth[CurSyn].Patch[TSpeedButton(Sender).Tag].Reverb := TSpeedButton(Sender).Down;
+  if CurPt = TSpeedButton(Sender).Tag then
   begin
     UpdatingControls := True;
-    PtRevButton.Down := Synth[CurSyn].Patch[0].Reverb;
+    PtRevButton.Down := Synth[CurSyn].Patch[TSpeedButton(Sender).Tag].Reverb;
     UpdatingControls := False;
   end;
 
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
-    (0 * $10) +
+    (NativeUInt(TSpeedButton(Sender).Tag) * $10) +
     $06
   );
   SetLength(SysExData,1);
-  SysExData[0] := Byte(Synth[CurSyn].Patch[0].Reverb);
+  SysExData[0] := Byte(Synth[CurSyn].Patch[TSpeedButton(Sender).Tag].Reverb);
   SendCurrentSysEx;
 end;
 
-procedure TEditorForm.Pt1TimbreChange(Sender: TObject);
+procedure TEditorForm.PtTimbreChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[0].TmbNumber := Pt1Timbre.ItemIndex;
+  Synth[CurSyn].Patch[TComboBox(Sender).Tag].TmbNumber := TComboBox(Sender).ItemIndex;
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
-    (0 * $10) +
+    (NativeUInt(TComboBox(Sender).Tag) * $10) +
     $01
   );
   SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[0].TmbNumber;
+  SysExData[0] := Synth[CurSyn].Patch[TComboBox(Sender).Tag].TmbNumber;
   SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt2BankChange(Sender: TObject);
-begin
-  LoadTimbreNames(Pt2Bank, Pt2Timbre);
-
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[1].TmbGroup := Pt2Bank.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (1 * $10) +
-    $00
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[1].TmbGroup;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt2BendChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[1].BendRange := Pt2Bend.Value;
-  UpdatingControls := True;
-  Pt2Bend_value.Value := Synth[CurSyn].Patch[1].BendRange;
-  if CurPt = 1 then
-    PtBendRange.Value := Synth[CurSyn].Patch[1].BendRange;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (1 * $10) +
-    $04
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[1].BendRange;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt2Bend_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[1].BendRange := Pt2Bend_value.Value;
-  UpdatingControls := True;
-  Pt2Bend.Value := Synth[CurSyn].Patch[1].BendRange;
-  if CurPt = 1 then
-    PtBendRange.Value := Synth[CurSyn].Patch[1].BendRange;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (1 * $10) +
-    $04
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[1].BendRange;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt2ChanChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].System.MidiChannel[1] := Pt2Chan.Value - 1;
-  UpdatingControls := True;
-  PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[1];
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdSystem +
-    $01 +
-    $0D
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].System.MidiChannel[1];
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt2EnableClick(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  if Pt2Enable.Down then
-  begin
-    Synth[CurSyn].System.MidiChannel[1] := Pt2Chan.Value - 1;
-    Pt2Chan.Enabled := True;
-    if CurPt = 1 then
-    begin
-      UpdatingControls := True;
-      PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[1];
-      UpdatingControls := False;
-    end;
-  end
-  else
-  begin
-    Synth[CurSyn].System.MidiChannel[1] := 16;
-    Pt2Chan.Enabled := False;
-    if CurPt = 1 then
-    begin
-      UpdatingControls := True;
-      PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[1];
-      UpdatingControls := False;
-    end;
-  end;
-
-  SysExAddress := LinearAddrToBytes(
-    AdSystem +
-    $01 +
-    $0D
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].System.MidiChannel[1];
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt2FineChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[1].FineTune := Pt2Fine.Value;
-  UpdatingControls := True;
-  Pt2Fine_value.Value := Synth[CurSyn].Patch[1].FineTune;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (1 * $10) +
-    $03
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[1].FineTune + 50;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt2Fine_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[1].FineTune := Pt2Fine_value.Value;
-  UpdatingControls := True;
-  Pt2Key.Value := Synth[CurSyn].Patch[1].FineTune;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (1 * $10) +
-    $03
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[1].FineTune + 50;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt2KeyChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[1].KeyShift := Pt2Key.Value;
-  UpdatingControls := True;
-  Pt2Key_value.Value := Synth[CurSyn].Patch[1].KeyShift;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (1 * $10) +
-    $02
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[1].KeyShift + 24;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt2Key_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[1].KeyShift := Pt2Key_value.Value;
-  UpdatingControls := True;
-  Pt2Key.Value := Synth[CurSyn].Patch[1].KeyShift;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (1 * $10) +
-    $02
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[1].KeyShift + 24;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt2OutputChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[1].Output := Pt2Output.Position;
-  UpdatingControls := True;
-  Pt2Output_value.Value := Synth[CurSyn].Patch[1].Output;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (1 * $10) +
-    $08
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[1].Output;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt2Output_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[1].Output := Pt2Output_value.Value;
-  UpdatingControls := True;
-  Pt2Output.Position := Synth[CurSyn].Patch[1].Output;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (1 * $10) +
-    $08
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[1].Output;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt2PanChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[1].Pan := Pt2Pan.Value;
-  UpdatingControls := True;
-  Pt2Pan_value.Value := Synth[CurSyn].Patch[1].Pan;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (1 * $10) +
-    $09
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[1].Pan + 7;
-  SendCurrentSysEx;
-end;
-
-
-procedure TEditorForm.Pt2Pan_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[1].Pan := Pt2Pan_value.Value;
-  UpdatingControls := True;
-  Pt2Pan.Value := Synth[CurSyn].Patch[1].Pan;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (1 * $10) +
-    $09
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[1].Pan + 7;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt2PolyChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[1].PolyMode := Pt2Poly.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (1 * $10) +
-    $05
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Pt2Poly.ItemIndex;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt2PtlReserveChange(Sender: TObject);
-var
-  NewSum: Integer;
-begin
-  if UpdatingControls then Exit;
-
-  NewSum := Pt1PtlReserve.Value +
-            Pt2PtlReserve.Value +
-            Pt3PtlReserve.Value +
-            Pt4PtlReserve.Value +
-            Pt5PtlReserve.Value +
-            Pt6PtlReserve.Value +
-            Pt7PtlReserve.Value +
-            Pt8PtlReserve.Value +
-            PtRPtlReserve.Value;
-  if NewSum > 32 then
-  begin
-    MessageBeep(MB_ICONERROR);
-    ShowMessage('Sum of all Parts'' partial reserves must not exdeed 32');
-    UpdatingControls := True;
-    Pt2PtlReserve.Value := Pt2PtlReserve.Value - (NewSum - 32);
-    UpdatingControls := False;
-  end;
-  if Synth[CurSyn].System.PtlReserve[0] <> Pt2PtlReserve.Value then
-  begin
-    Synth[CurSyn].System.PtlReserve[0] := Pt2PtlReserve.Value;
-    SysExAddress := LinearAddrToBytes(
-      AdSystem +
-      $01 +
-      $04
-    );
-    SetLength(SysExData,1);
-    SysExData[0] := Synth[CurSyn].System.PtlReserve[0];
-  end;
-end;
-
-procedure TEditorForm.Pt2ReverbClick(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[1].Reverb := Pt2Reverb.Down;
-  if CurPt = 1 then
-  begin
-    UpdatingControls := True;
-    PtRevButton.Down := Synth[CurSyn].Patch[1].Reverb;
-    UpdatingControls := False;
-  end;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (1 * $10) +
-    $06
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Byte(Synth[CurSyn].Patch[1].Reverb);
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt2TimbreChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[1].TmbNumber := Pt2Timbre.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (1 * $10) +
-    $01
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[1].TmbNumber;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt3BankChange(Sender: TObject);
-begin
-  LoadTimbreNames(Pt3Bank, Pt3Timbre);
-
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[2].TmbGroup := Pt3Bank.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (2 * $10) +
-    $00
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[2].TmbGroup;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt3BendChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[2].BendRange := Pt3Bend.Value;
-  UpdatingControls := True;
-  Pt3Bend_value.Value := Synth[CurSyn].Patch[2].BendRange;
-  if CurPt = 2 then
-    PtBendRange.Value := Synth[CurSyn].Patch[2].BendRange;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (2 * $10) +
-    $04
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[2].BendRange;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt3Bend_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[2].BendRange := Pt3Bend_value.Value;
-  UpdatingControls := True;
-  Pt3Bend.Value := Synth[CurSyn].Patch[2].BendRange;
-  if CurPt = 2 then
-    PtBendRange.Value := Synth[CurSyn].Patch[2].BendRange;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (2 * $10) +
-    $04
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[2].BendRange;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt3ChanChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].System.MidiChannel[2] := Pt3Chan.Value - 1;
-  UpdatingControls := True;
-  PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[2];
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdSystem +
-    $02 +
-    $0D
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].System.MidiChannel[2];
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt3EnableClick(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  if Pt3Enable.Down then
-  begin
-    Synth[CurSyn].System.MidiChannel[2] := Pt3Chan.Value - 1;
-    Pt3Chan.Enabled := True;
-    if CurPt = 2 then
-    begin
-      UpdatingControls := True;
-      PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[2];
-      UpdatingControls := False;
-    end;
-  end
-  else
-  begin
-    Synth[CurSyn].System.MidiChannel[2] := 16;
-    Pt3Chan.Enabled := False;
-    if CurPt = 2 then
-    begin
-      UpdatingControls := True;
-      PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[2];
-      UpdatingControls := False;
-    end;
-  end;
-
-  SysExAddress := LinearAddrToBytes(
-    AdSystem +
-    $02 +
-    $0D
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].System.MidiChannel[2];
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt3FineChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[2].FineTune := Pt3Fine.Value;
-  UpdatingControls := True;
-  Pt3Fine_value.Value := Synth[CurSyn].Patch[2].FineTune;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (2 * $10) +
-    $03
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[2].FineTune + 50;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt3Fine_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[2].FineTune := Pt3Fine_value.Value;
-  UpdatingControls := True;
-  Pt3Key.Value := Synth[CurSyn].Patch[2].FineTune;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (2 * $10) +
-    $03
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[2].FineTune + 50;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt3KeyChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[2].KeyShift := Pt3Key.Value;
-  UpdatingControls := True;
-  Pt3Key_value.Value := Synth[CurSyn].Patch[2].KeyShift;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (2 * $10) +
-    $02
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[2].KeyShift + 24;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt3Key_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[2].KeyShift := Pt3Key_value.Value;
-  UpdatingControls := True;
-  Pt3Key.Value := Synth[CurSyn].Patch[2].KeyShift;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (2 * $10) +
-    $02
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[2].KeyShift + 24;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt3OutputChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[2].Output := Pt3Output.Position;
-  UpdatingControls := True;
-  Pt3Output_value.Value := Synth[CurSyn].Patch[2].Output;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (2 * $10) +
-    $08
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[2].Output;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt3Output_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[2].Output := Pt3Output_value.Value;
-  UpdatingControls := True;
-  Pt3Output.Position := Synth[CurSyn].Patch[2].Output;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (2 * $10) +
-    $08
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[2].Output;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt3PanChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[2].Pan := Pt3Pan.Value;
-  UpdatingControls := True;
-  Pt3Pan_value.Value := Synth[CurSyn].Patch[2].Pan;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (2 * $10) +
-    $09
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[2].Pan + 7;
-  SendCurrentSysEx;
-end;
-
-
-procedure TEditorForm.Pt3Pan_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[2].Pan := Pt3Pan_value.Value;
-  UpdatingControls := True;
-  Pt3Pan.Value := Synth[CurSyn].Patch[2].Pan;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (2 * $10) +
-    $09
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[2].Pan + 7;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt3PolyChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[2].PolyMode := Pt3Poly.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (2 * $10) +
-    $05
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Pt3Poly.ItemIndex;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt3PtlReserveChange(Sender: TObject);
-var
-  NewSum: Integer;
-begin
-  if UpdatingControls then Exit;
-
-  NewSum := Pt1PtlReserve.Value +
-            Pt2PtlReserve.Value +
-            Pt3PtlReserve.Value +
-            Pt4PtlReserve.Value +
-            Pt5PtlReserve.Value +
-            Pt6PtlReserve.Value +
-            Pt7PtlReserve.Value +
-            Pt8PtlReserve.Value +
-            PtRPtlReserve.Value;
-  if NewSum > 32 then
-  begin
-    MessageBeep(MB_ICONERROR);
-    ShowMessage('Sum of all Parts'' partial reserves must not exdeed 32');
-    UpdatingControls := True;
-    Pt3PtlReserve.Value := Pt3PtlReserve.Value - (NewSum - 32);
-    UpdatingControls := False;
-  end;
-  if Synth[CurSyn].System.PtlReserve[0] <> Pt3PtlReserve.Value then
-  begin
-    Synth[CurSyn].System.PtlReserve[0] := Pt3PtlReserve.Value;
-    SysExAddress := LinearAddrToBytes(
-      AdSystem +
-      $02 +
-      $04
-    );
-    SetLength(SysExData,1);
-    SysExData[0] := Synth[CurSyn].System.PtlReserve[0];
-  end;
-end;
-
-procedure TEditorForm.Pt3ReverbClick(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[2].Reverb := Pt3Reverb.Down;
-  if CurPt = 2 then
-  begin
-    UpdatingControls := True;
-    PtRevButton.Down := Synth[CurSyn].Patch[2].Reverb;
-    UpdatingControls := False;
-  end;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (2 * $10) +
-    $06
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Byte(Synth[CurSyn].Patch[2].Reverb);
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt3TimbreChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[2].TmbNumber := Pt3Timbre.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (2 * $10) +
-    $01
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[2].TmbNumber;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt4BankChange(Sender: TObject);
-begin
-  LoadTimbreNames(Pt4Bank, Pt4Timbre);
-
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[3].TmbGroup := Pt4Bank.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (3 * $10) +
-    $00
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[3].TmbGroup;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt4BendChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[3].BendRange := Pt4Bend.Value;
-  UpdatingControls := True;
-  Pt4Bend_value.Value := Synth[CurSyn].Patch[3].BendRange;
-  if CurPt = 3 then
-    PtBendRange.Value := Synth[CurSyn].Patch[3].BendRange;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (3 * $10) +
-    $04
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[3].BendRange;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt4Bend_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[3].BendRange := Pt4Bend_value.Value;
-  UpdatingControls := True;
-  Pt4Bend.Value := Synth[CurSyn].Patch[3].BendRange;
-  if CurPt = 3 then
-    PtBendRange.Value := Synth[CurSyn].Patch[3].BendRange;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (3 * $10) +
-    $04
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[3].BendRange;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt4ChanChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].System.MidiChannel[3] := Pt4Chan.Value - 1;
-  UpdatingControls := True;
-  PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[3];
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdSystem +
-    $03 +
-    $0D
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].System.MidiChannel[3];
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt4EnableClick(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  if Pt4Enable.Down then
-  begin
-    Synth[CurSyn].System.MidiChannel[3] := Pt4Chan.Value - 1;
-    Pt4Chan.Enabled := True;
-    if CurPt = 3 then
-    begin
-      UpdatingControls := True;
-      PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[3];
-      UpdatingControls := False;
-    end;
-  end
-  else
-  begin
-    Synth[CurSyn].System.MidiChannel[3] := 16;
-    Pt4Chan.Enabled := False;
-    if CurPt = 3 then
-    begin
-      UpdatingControls := True;
-      PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[3];
-      UpdatingControls := False;
-    end;
-  end;
-
-  SysExAddress := LinearAddrToBytes(
-    AdSystem +
-    $03 +
-    $0D
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].System.MidiChannel[3];
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt4FineChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[3].FineTune := Pt4Fine.Value;
-  UpdatingControls := True;
-  Pt4Fine_value.Value := Synth[CurSyn].Patch[3].FineTune;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (3 * $10) +
-    $03
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[3].FineTune + 50;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt4Fine_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[3].FineTune := Pt4Fine_value.Value;
-  UpdatingControls := True;
-  Pt4Key.Value := Synth[CurSyn].Patch[3].FineTune;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (3 * $10) +
-    $03
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[3].FineTune + 50;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt4KeyChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[3].KeyShift := Pt4Key.Value;
-  UpdatingControls := True;
-  Pt4Key_value.Value := Synth[CurSyn].Patch[3].KeyShift;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (3 * $10) +
-    $02
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[3].KeyShift + 24;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt4Key_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[3].KeyShift := Pt4Key_value.Value;
-  UpdatingControls := True;
-  Pt4Key.Value := Synth[CurSyn].Patch[3].KeyShift;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (3 * $10) +
-    $02
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[3].KeyShift + 24;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt4OutputChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[3].Output := Pt4Output.Position;
-  UpdatingControls := True;
-  Pt4Output_value.Value := Synth[CurSyn].Patch[3].Output;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (3 * $10) +
-    $08
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[3].Output;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt4Output_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[3].Output := Pt4Output_value.Value;
-  UpdatingControls := True;
-  Pt4Output.Position := Synth[CurSyn].Patch[3].Output;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (3 * $10) +
-    $08
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[3].Output;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt4PanChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[3].Pan := Pt4Pan.Value;
-  UpdatingControls := True;
-  Pt4Pan_value.Value := Synth[CurSyn].Patch[3].Pan;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (3 * $10) +
-    $09
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[3].Pan + 7;
-  SendCurrentSysEx;
-end;
-
-
-procedure TEditorForm.Pt4Pan_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[3].Pan := Pt4Pan_value.Value;
-  UpdatingControls := True;
-  Pt4Pan.Value := Synth[CurSyn].Patch[3].Pan;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (3 * $10) +
-    $09
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[3].Pan + 7;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt4PolyChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[3].PolyMode := Pt4Poly.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (3 * $10) +
-    $05
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Pt4Poly.ItemIndex;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt4PtlReserveChange(Sender: TObject);
-var
-  NewSum: Integer;
-begin
-  if UpdatingControls then Exit;
-
-  NewSum := Pt1PtlReserve.Value +
-            Pt2PtlReserve.Value +
-            Pt3PtlReserve.Value +
-            Pt4PtlReserve.Value +
-            Pt5PtlReserve.Value +
-            Pt6PtlReserve.Value +
-            Pt7PtlReserve.Value +
-            Pt8PtlReserve.Value +
-            PtRPtlReserve.Value;
-  if NewSum > 32 then
-  begin
-    MessageBeep(MB_ICONERROR);
-    ShowMessage('Sum of all Parts'' partial reserves must not exdeed 32');
-    UpdatingControls := True;
-    Pt4PtlReserve.Value := Pt4PtlReserve.Value - (NewSum - 32);
-    UpdatingControls := False;
-  end;
-  if Synth[CurSyn].System.PtlReserve[0] <> Pt4PtlReserve.Value then
-  begin
-    Synth[CurSyn].System.PtlReserve[0] := Pt4PtlReserve.Value;
-    SysExAddress := LinearAddrToBytes(
-      AdSystem +
-      $03 +
-      $04
-    );
-    SetLength(SysExData,1);
-    SysExData[0] := Synth[CurSyn].System.PtlReserve[0];
-  end;
-end;
-
-procedure TEditorForm.Pt4ReverbClick(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[3].Reverb := Pt4Reverb.Down;
-  if CurPt = 3 then
-  begin
-    UpdatingControls := True;
-    PtRevButton.Down := Synth[CurSyn].Patch[3].Reverb;
-    UpdatingControls := False;
-  end;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (3 * $10) +
-    $06
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Byte(Synth[CurSyn].Patch[3].Reverb);
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt4TimbreChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[3].TmbNumber := Pt4Timbre.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (3 * $10) +
-    $01
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[3].TmbNumber;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt5BankChange(Sender: TObject);
-begin
-  LoadTimbreNames(Pt5Bank, Pt5Timbre);
-
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[4].TmbGroup := Pt5Bank.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (4 * $10) +
-    $00
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[4].TmbGroup;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt5BendChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[4].BendRange := Pt5Bend.Value;
-  UpdatingControls := True;
-  Pt5Bend_value.Value := Synth[CurSyn].Patch[4].BendRange;
-  if CurPt = 4 then
-    PtBendRange.Value := Synth[CurSyn].Patch[4].BendRange;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (4 * $10) +
-    $04
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[4].BendRange;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt5Bend_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[4].BendRange := Pt5Bend_value.Value;
-  UpdatingControls := True;
-  Pt5Bend.Value := Synth[CurSyn].Patch[4].BendRange;
-  if CurPt = 4 then
-    PtBendRange.Value := Synth[CurSyn].Patch[4].BendRange;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (4 * $10) +
-    $04
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[4].BendRange;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt5ChanChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].System.MidiChannel[4] := Pt5Chan.Value - 1;
-  UpdatingControls := True;
-  PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[4];
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdSystem +
-    $04 +
-    $0D
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].System.MidiChannel[4];
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt5EnableClick(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  if Pt5Enable.Down then
-  begin
-    Synth[CurSyn].System.MidiChannel[4] := Pt5Chan.Value - 1;
-    Pt5Chan.Enabled := True;
-    if CurPt = 4 then
-    begin
-      UpdatingControls := True;
-      PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[4];
-      UpdatingControls := False;
-    end;
-  end
-  else
-  begin
-    Synth[CurSyn].System.MidiChannel[4] := 16;
-    Pt5Chan.Enabled := False;
-    if CurPt = 4 then
-    begin
-      UpdatingControls := True;
-      PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[4];
-      UpdatingControls := False;
-    end;
-  end;
-
-  SysExAddress := LinearAddrToBytes(
-    AdSystem +
-    $04 +
-    $0D
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].System.MidiChannel[4];
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt5FineChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[4].FineTune := Pt5Fine.Value;
-  UpdatingControls := True;
-  Pt5Fine_value.Value := Synth[CurSyn].Patch[4].FineTune;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (4 * $10) +
-    $03
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[4].FineTune + 50;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt5Fine_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[4].FineTune := Pt5Fine_value.Value;
-  UpdatingControls := True;
-  Pt5Key.Value := Synth[CurSyn].Patch[4].FineTune;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (4 * $10) +
-    $03
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[4].FineTune + 50;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt5KeyChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[4].KeyShift := Pt5Key.Value;
-  UpdatingControls := True;
-  Pt5Key_value.Value := Synth[CurSyn].Patch[4].KeyShift;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (4 * $10) +
-    $02
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[4].KeyShift + 24;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt5Key_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[4].KeyShift := Pt5Key_value.Value;
-  UpdatingControls := True;
-  Pt5Key.Value := Synth[CurSyn].Patch[4].KeyShift;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (4 * $10) +
-    $02
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[4].KeyShift + 24;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt5OutputChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[4].Output := Pt5Output.Position;
-  UpdatingControls := True;
-  Pt5Output_value.Value := Synth[CurSyn].Patch[4].Output;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (4 * $10) +
-    $08
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[4].Output;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt5Output_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[4].Output := Pt5Output_value.Value;
-  UpdatingControls := True;
-  Pt5Output.Position := Synth[CurSyn].Patch[4].Output;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (4 * $10) +
-    $08
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[4].Output;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt5PanChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[4].Pan := Pt5Pan.Value;
-  UpdatingControls := True;
-  Pt5Pan_value.Value := Synth[CurSyn].Patch[4].Pan;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (4 * $10) +
-    $09
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[4].Pan + 7;
-  SendCurrentSysEx;
-end;
-
-
-procedure TEditorForm.Pt5Pan_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[4].Pan := Pt5Pan_value.Value;
-  UpdatingControls := True;
-  Pt5Pan.Value := Synth[CurSyn].Patch[4].Pan;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (4 * $10) +
-    $09
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[4].Pan + 7;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt5PolyChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[4].PolyMode := Pt5Poly.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (4 * $10) +
-    $05
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Pt5Poly.ItemIndex;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt5PtlReserveChange(Sender: TObject);
-var
-  NewSum: Integer;
-begin
-  if UpdatingControls then Exit;
-
-  NewSum := Pt1PtlReserve.Value +
-            Pt2PtlReserve.Value +
-            Pt3PtlReserve.Value +
-            Pt4PtlReserve.Value +
-            Pt5PtlReserve.Value +
-            Pt6PtlReserve.Value +
-            Pt7PtlReserve.Value +
-            Pt8PtlReserve.Value +
-            PtRPtlReserve.Value;
-  if NewSum > 32 then
-  begin
-    MessageBeep(MB_ICONERROR);
-    ShowMessage('Sum of all Parts'' partial reserves must not exdeed 32');
-    UpdatingControls := True;
-    Pt5PtlReserve.Value := Pt5PtlReserve.Value - (NewSum - 32);
-    UpdatingControls := False;
-  end;
-  if Synth[CurSyn].System.PtlReserve[0] <> Pt5PtlReserve.Value then
-  begin
-    Synth[CurSyn].System.PtlReserve[0] := Pt5PtlReserve.Value;
-    SysExAddress := LinearAddrToBytes(
-      AdSystem +
-      $04 +
-      $04
-    );
-    SetLength(SysExData,1);
-    SysExData[0] := Synth[CurSyn].System.PtlReserve[0];
-  end;
-end;
-
-procedure TEditorForm.Pt5ReverbClick(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[4].Reverb := Pt5Reverb.Down;
-  if CurPt = 4 then
-  begin
-    UpdatingControls := True;
-    PtRevButton.Down := Synth[CurSyn].Patch[4].Reverb;
-    UpdatingControls := False;
-  end;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (4 * $10) +
-    $06
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Byte(Synth[CurSyn].Patch[4].Reverb);
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt5TimbreChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[4].TmbNumber := Pt5Timbre.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (4 * $10) +
-    $01
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[4].TmbNumber;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt6BankChange(Sender: TObject);
-begin
-  LoadTimbreNames(Pt6Bank, Pt6Timbre);
-
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[5].TmbGroup := Pt6Bank.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (5 * $10) +
-    $00
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[5].TmbGroup;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt6BendChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[5].BendRange := Pt6Bend.Value;
-  UpdatingControls := True;
-  Pt6Bend_value.Value := Synth[CurSyn].Patch[5].BendRange;
-  if CurPt = 5 then
-    PtBendRange.Value := Synth[CurSyn].Patch[5].BendRange;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (5 * $10) +
-    $04
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[5].BendRange;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt6Bend_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[5].BendRange := Pt6Bend_value.Value;
-  UpdatingControls := True;
-  Pt6Bend.Value := Synth[CurSyn].Patch[5].BendRange;
-  if CurPt = 5 then
-    PtBendRange.Value := Synth[CurSyn].Patch[5].BendRange;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (5 * $10) +
-    $04
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[5].BendRange;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt6ChanChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].System.MidiChannel[5] := Pt6Chan.Value - 1;
-  UpdatingControls := True;
-  PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[5];
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdSystem +
-    $05 +
-    $0D
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].System.MidiChannel[5];
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt6EnableClick(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  if Pt6Enable.Down then
-  begin
-    Synth[CurSyn].System.MidiChannel[5] := Pt6Chan.Value - 1;
-    Pt6Chan.Enabled := True;
-    if CurPt = 5 then
-    begin
-      UpdatingControls := True;
-      PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[5];
-      UpdatingControls := False;
-    end;
-  end
-  else
-  begin
-    Synth[CurSyn].System.MidiChannel[5] := 16;
-    Pt6Chan.Enabled := False;
-    if CurPt = 5 then
-    begin
-      UpdatingControls := True;
-      PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[5];
-      UpdatingControls := False;
-    end;
-  end;
-
-  SysExAddress := LinearAddrToBytes(
-    AdSystem +
-    $05 +
-    $0D
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].System.MidiChannel[5];
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt6FineChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[5].FineTune := Pt6Fine.Value;
-  UpdatingControls := True;
-  Pt6Fine_value.Value := Synth[CurSyn].Patch[5].FineTune;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (5 * $10) +
-    $03
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[5].FineTune + 50;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt6Fine_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[5].FineTune := Pt6Fine_value.Value;
-  UpdatingControls := True;
-  Pt6Key.Value := Synth[CurSyn].Patch[5].FineTune;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (5 * $10) +
-    $03
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[5].FineTune + 50;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt6KeyChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[5].KeyShift := Pt6Key.Value;
-  UpdatingControls := True;
-  Pt6Key_value.Value := Synth[CurSyn].Patch[5].KeyShift;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (5 * $10) +
-    $02
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[5].KeyShift + 24;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt6Key_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[5].KeyShift := Pt6Key_value.Value;
-  UpdatingControls := True;
-  Pt6Key.Value := Synth[CurSyn].Patch[5].KeyShift;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (5 * $10) +
-    $02
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[5].KeyShift + 24;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt6OutputChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[5].Output := Pt6Output.Position;
-  UpdatingControls := True;
-  Pt6Output_value.Value := Synth[CurSyn].Patch[5].Output;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (5 * $10) +
-    $08
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[5].Output;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt6Output_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[5].Output := Pt6Output_value.Value;
-  UpdatingControls := True;
-  Pt6Output.Position := Synth[CurSyn].Patch[5].Output;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (5 * $10) +
-    $08
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[5].Output;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt6PanChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[5].Pan := Pt6Pan.Value;
-  UpdatingControls := True;
-  Pt6Pan_value.Value := Synth[CurSyn].Patch[5].Pan;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (5 * $10) +
-    $09
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[5].Pan + 7;
-  SendCurrentSysEx;
-end;
-
-
-procedure TEditorForm.Pt6Pan_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[5].Pan := Pt6Pan_value.Value;
-  UpdatingControls := True;
-  Pt6Pan.Value := Synth[CurSyn].Patch[5].Pan;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (5 * $10) +
-    $09
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[5].Pan + 7;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt6PolyChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[5].PolyMode := Pt6Poly.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (5 * $10) +
-    $05
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Pt6Poly.ItemIndex;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt6PtlReserveChange(Sender: TObject);
-var
-  NewSum: Integer;
-begin
-  if UpdatingControls then Exit;
-
-  NewSum := Pt1PtlReserve.Value +
-            Pt2PtlReserve.Value +
-            Pt3PtlReserve.Value +
-            Pt4PtlReserve.Value +
-            Pt5PtlReserve.Value +
-            Pt6PtlReserve.Value +
-            Pt7PtlReserve.Value +
-            Pt8PtlReserve.Value +
-            PtRPtlReserve.Value;
-  if NewSum > 32 then
-  begin
-    MessageBeep(MB_ICONERROR);
-    ShowMessage('Sum of all Parts'' partial reserves must not exdeed 32');
-    UpdatingControls := True;
-    Pt6PtlReserve.Value := Pt6PtlReserve.Value - (NewSum - 32);
-    UpdatingControls := False;
-  end;
-  if Synth[CurSyn].System.PtlReserve[0] <> Pt6PtlReserve.Value then
-  begin
-    Synth[CurSyn].System.PtlReserve[0] := Pt6PtlReserve.Value;
-    SysExAddress := LinearAddrToBytes(
-      AdSystem +
-      $05 +
-      $04
-    );
-    SetLength(SysExData,1);
-    SysExData[0] := Synth[CurSyn].System.PtlReserve[0];
-  end;
-end;
-
-procedure TEditorForm.Pt6ReverbClick(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[5].Reverb := Pt6Reverb.Down;
-  if CurPt = 5 then
-  begin
-    UpdatingControls := True;
-    PtRevButton.Down := Synth[CurSyn].Patch[5].Reverb;
-    UpdatingControls := False;
-  end;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (5 * $10) +
-    $06
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Byte(Synth[CurSyn].Patch[5].Reverb);
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt6TimbreChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[5].TmbNumber := Pt6Timbre.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (5 * $10) +
-    $01
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[5].TmbNumber;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt7BankChange(Sender: TObject);
-begin
-  LoadTimbreNames(Pt7Bank, Pt7Timbre);
-
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[6].TmbGroup := Pt7Bank.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (6 * $10) +
-    $00
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[6].TmbGroup;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt7BendChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[6].BendRange := Pt7Bend.Value;
-  UpdatingControls := True;
-  Pt7Bend_value.Value := Synth[CurSyn].Patch[6].BendRange;
-  if CurPt = 6 then
-    PtBendRange.Value := Synth[CurSyn].Patch[6].BendRange;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (6 * $10) +
-    $04
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[6].BendRange;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt7Bend_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[6].BendRange := Pt7Bend_value.Value;
-  UpdatingControls := True;
-  Pt7Bend.Value := Synth[CurSyn].Patch[6].BendRange;
-  if CurPt = 6 then
-    PtBendRange.Value := Synth[CurSyn].Patch[6].BendRange;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (6 * $10) +
-    $04
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[6].BendRange;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt7ChanChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].System.MidiChannel[6] := Pt7Chan.Value - 1;
-  UpdatingControls := True;
-  PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[6];
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdSystem +
-    $06 +
-    $0D
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].System.MidiChannel[6];
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt7EnableClick(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  if Pt7Enable.Down then
-  begin
-    Synth[CurSyn].System.MidiChannel[6] := Pt7Chan.Value - 1;
-    Pt7Chan.Enabled := True;
-    if CurPt = 6 then
-    begin
-      UpdatingControls := True;
-      PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[6];
-      UpdatingControls := False;
-    end;
-  end
-  else
-  begin
-    Synth[CurSyn].System.MidiChannel[6] := 16;
-    Pt7Chan.Enabled := False;
-    if CurPt = 6 then
-    begin
-      UpdatingControls := True;
-      PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[6];
-      UpdatingControls := False;
-    end;
-  end;
-
-  SysExAddress := LinearAddrToBytes(
-    AdSystem +
-    $06 +
-    $0D
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].System.MidiChannel[6];
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt7FineChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[6].FineTune := Pt7Fine.Value;
-  UpdatingControls := True;
-  Pt7Fine_value.Value := Synth[CurSyn].Patch[6].FineTune;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (6 * $10) +
-    $03
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[6].FineTune + 50;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt7Fine_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[6].FineTune := Pt7Fine_value.Value;
-  UpdatingControls := True;
-  Pt7Key.Value := Synth[CurSyn].Patch[6].FineTune;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (6 * $10) +
-    $03
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[6].FineTune + 50;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt7KeyChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[6].KeyShift := Pt7Key.Value;
-  UpdatingControls := True;
-  Pt7Key_value.Value := Synth[CurSyn].Patch[6].KeyShift;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (6 * $10) +
-    $02
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[6].KeyShift + 24;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt7Key_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[6].KeyShift := Pt7Key_value.Value;
-  UpdatingControls := True;
-  Pt7Key.Value := Synth[CurSyn].Patch[6].KeyShift;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (6 * $10) +
-    $02
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[6].KeyShift + 24;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt7OutputChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[6].Output := Pt7Output.Position;
-  UpdatingControls := True;
-  Pt7Output_value.Value := Synth[CurSyn].Patch[6].Output;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (6 * $10) +
-    $08
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[6].Output;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt7Output_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[6].Output := Pt7Output_value.Value;
-  UpdatingControls := True;
-  Pt7Output.Position := Synth[CurSyn].Patch[6].Output;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (6 * $10) +
-    $08
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[6].Output;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt7PanChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[6].Pan := Pt7Pan.Value;
-  UpdatingControls := True;
-  Pt7Pan_value.Value := Synth[CurSyn].Patch[6].Pan;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (6 * $10) +
-    $09
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[6].Pan + 7;
-  SendCurrentSysEx;
-end;
-
-
-procedure TEditorForm.Pt7Pan_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[6].Pan := Pt7Pan_value.Value;
-  UpdatingControls := True;
-  Pt7Pan.Value := Synth[CurSyn].Patch[6].Pan;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (6 * $10) +
-    $09
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[6].Pan + 7;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt7PolyChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[6].PolyMode := Pt7Poly.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (6 * $10) +
-    $05
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Pt7Poly.ItemIndex;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt7PtlReserveChange(Sender: TObject);
-var
-  NewSum: Integer;
-begin
-  if UpdatingControls then Exit;
-
-  NewSum := Pt1PtlReserve.Value +
-            Pt2PtlReserve.Value +
-            Pt3PtlReserve.Value +
-            Pt4PtlReserve.Value +
-            Pt5PtlReserve.Value +
-            Pt6PtlReserve.Value +
-            Pt7PtlReserve.Value +
-            Pt8PtlReserve.Value +
-            PtRPtlReserve.Value;
-  if NewSum > 32 then
-  begin
-    MessageBeep(MB_ICONERROR);
-    ShowMessage('Sum of all Parts'' partial reserves must not exdeed 32');
-    UpdatingControls := True;
-    Pt7PtlReserve.Value := Pt7PtlReserve.Value - (NewSum - 32);
-    UpdatingControls := False;
-  end;
-  if Synth[CurSyn].System.PtlReserve[0] <> Pt7PtlReserve.Value then
-  begin
-    Synth[CurSyn].System.PtlReserve[0] := Pt7PtlReserve.Value;
-    SysExAddress := LinearAddrToBytes(
-      AdSystem +
-      $06 +
-      $04
-    );
-    SetLength(SysExData,1);
-    SysExData[0] := Synth[CurSyn].System.PtlReserve[0];
-  end;
-end;
-
-procedure TEditorForm.Pt7ReverbClick(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[6].Reverb := Pt7Reverb.Down;
-  if CurPt = 6 then
-  begin
-    UpdatingControls := True;
-    PtRevButton.Down := Synth[CurSyn].Patch[6].Reverb;
-    UpdatingControls := False;
-  end;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (6 * $10) +
-    $06
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Byte(Synth[CurSyn].Patch[6].Reverb);
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt7TimbreChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[6].TmbNumber := Pt7Timbre.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (6 * $10) +
-    $01
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[6].TmbNumber;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt8BankChange(Sender: TObject);
-begin
-  LoadTimbreNames(Pt8Bank, Pt8Timbre);
-
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[7].TmbGroup := Pt8Bank.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (7 * $10) +
-    $00
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[7].TmbGroup;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt8BendChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[7].BendRange := Pt8Bend.Value;
-  UpdatingControls := True;
-  Pt8Bend_value.Value := Synth[CurSyn].Patch[7].BendRange;
-  if CurPt = 7 then
-    PtBendRange.Value := Synth[CurSyn].Patch[7].BendRange;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (7 * $10) +
-    $04
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[7].BendRange;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt8Bend_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[7].BendRange := Pt8Bend_value.Value;
-  UpdatingControls := True;
-  Pt8Bend.Value := Synth[CurSyn].Patch[7].BendRange;
-  if CurPt = 7 then
-    PtBendRange.Value := Synth[CurSyn].Patch[7].BendRange;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (7 * $10) +
-    $04
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[7].BendRange;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt8ChanChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].System.MidiChannel[7] := Pt8Chan.Value - 1;
-  UpdatingControls := True;
-  PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[7];
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdSystem +
-    $07 +
-    $0D
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].System.MidiChannel[7];
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt8EnableClick(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  if Pt8Enable.Down then
-  begin
-    Synth[CurSyn].System.MidiChannel[7] := Pt8Chan.Value - 1;
-    Pt8Chan.Enabled := True;
-    if CurPt = 7 then
-    begin
-      UpdatingControls := True;
-      PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[7];
-      UpdatingControls := False;
-    end;
-  end
-  else
-  begin
-    Synth[CurSyn].System.MidiChannel[7] := 16;
-    Pt8Chan.Enabled := False;
-    if CurPt = 7 then
-    begin
-      UpdatingControls := True;
-      PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[7];
-      UpdatingControls := False;
-    end;
-  end;
-
-  SysExAddress := LinearAddrToBytes(
-    AdSystem +
-    $07 +
-    $0D
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].System.MidiChannel[7];
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt8FineChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[7].FineTune := Pt8Fine.Value;
-  UpdatingControls := True;
-  Pt8Fine_value.Value := Synth[CurSyn].Patch[7].FineTune;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (7 * $10) +
-    $03
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[7].FineTune + 50;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt8Fine_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[7].FineTune := Pt8Fine_value.Value;
-  UpdatingControls := True;
-  Pt8Key.Value := Synth[CurSyn].Patch[7].FineTune;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (7 * $10) +
-    $03
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[7].FineTune + 50;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt8KeyChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[7].KeyShift := Pt8Key.Value;
-  UpdatingControls := True;
-  Pt8Key_value.Value := Synth[CurSyn].Patch[7].KeyShift;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (7 * $10) +
-    $02
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[7].KeyShift + 24;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt8Key_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[7].KeyShift := Pt8Key_value.Value;
-  UpdatingControls := True;
-  Pt8Key.Value := Synth[CurSyn].Patch[7].KeyShift;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (7 * $10) +
-    $02
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[7].KeyShift + 24;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt8OutputChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[7].Output := Pt8Output.Position;
-  UpdatingControls := True;
-  Pt8Output_value.Value := Synth[CurSyn].Patch[7].Output;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (7 * $10) +
-    $08
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[7].Output;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt8Output_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[7].Output := Pt8Output_value.Value;
-  UpdatingControls := True;
-  Pt8Output.Position := Synth[CurSyn].Patch[7].Output;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (7 * $10) +
-    $08
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[7].Output;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt8PanChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[7].Pan := Pt8Pan.Value;
-  UpdatingControls := True;
-  Pt8Pan_value.Value := Synth[CurSyn].Patch[7].Pan;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (7 * $10) +
-    $09
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[7].Pan + 7;
-  SendCurrentSysEx;
-end;
-
-
-procedure TEditorForm.Pt8Pan_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[7].Pan := Pt8Pan_value.Value;
-  UpdatingControls := True;
-  Pt8Pan.Value := Synth[CurSyn].Patch[7].Pan;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (7 * $10) +
-    $09
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[7].Pan + 7;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt8PolyChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[7].PolyMode := Pt8Poly.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (7 * $10) +
-    $05
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Pt8Poly.ItemIndex;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt8PtlReserveChange(Sender: TObject);
-var
-  NewSum: Integer;
-begin
-  if UpdatingControls then Exit;
-
-  NewSum := Pt1PtlReserve.Value +
-            Pt2PtlReserve.Value +
-            Pt3PtlReserve.Value +
-            Pt4PtlReserve.Value +
-            Pt5PtlReserve.Value +
-            Pt6PtlReserve.Value +
-            Pt7PtlReserve.Value +
-            Pt8PtlReserve.Value +
-            PtRPtlReserve.Value;
-  if NewSum > 32 then
-  begin
-    MessageBeep(MB_ICONERROR);
-    ShowMessage('Sum of all Parts'' partial reserves must not exdeed 32');
-    UpdatingControls := True;
-    Pt8PtlReserve.Value := Pt8PtlReserve.Value - (NewSum - 32);
-    UpdatingControls := False;
-  end;
-  if Synth[CurSyn].System.PtlReserve[0] <> Pt8PtlReserve.Value then
-  begin
-    Synth[CurSyn].System.PtlReserve[0] := Pt8PtlReserve.Value;
-    SysExAddress := LinearAddrToBytes(
-      AdSystem +
-      $07 +
-      $04
-    );
-    SetLength(SysExData,1);
-    SysExData[0] := Synth[CurSyn].System.PtlReserve[0];
-  end;
-end;
-
-procedure TEditorForm.Pt8ReverbClick(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[7].Reverb := Pt8Reverb.Down;
-  if CurPt = 7 then
-  begin
-    UpdatingControls := True;
-    PtRevButton.Down := Synth[CurSyn].Patch[7].Reverb;
-    UpdatingControls := False;
-  end;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (7 * $10) +
-    $06
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Byte(Synth[CurSyn].Patch[7].Reverb);
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.Pt8TimbreChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[7].TmbNumber := Pt8Timbre.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (7 * $10) +
-    $01
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[7].TmbNumber;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.PtRBendChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[8].BendRange := PtRBend.Value;
-  UpdatingControls := True;
-  PtRBend_value.Value := Synth[CurSyn].Patch[8].BendRange;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (8 * $10) +
-    $04
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[8].BendRange;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.PtRBend_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[8].BendRange := PtRBend_value.Value;
-  UpdatingControls := True;
-  PtRBend.Value := Synth[CurSyn].Patch[8].BendRange;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (8 * $10) +
-    $04
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[8].BendRange;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.PtRChanChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].System.MidiChannel[8] := PtRChan.Value - 1;
-  UpdatingControls := True;
-  PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[8];
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdSystem +
-    $08 +
-    $0D
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].System.MidiChannel[8];
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.PtREnableClick(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  if PtREnable.Down then
-  begin
-    Synth[CurSyn].System.MidiChannel[8] := PtRChan.Value - 1;
-    PtRChan.Enabled := True;
-  end
-  else
-  begin
-    Synth[CurSyn].System.MidiChannel[8] := 16;
-    PtRChan.Enabled := False;
-  end;
-
-  SysExAddress := LinearAddrToBytes(
-    AdSystem +
-    $08 +
-    $0D
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].System.MidiChannel[8];
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.PtRFineChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[8].FineTune := PtRFine.Value;
-  UpdatingControls := True;
-  PtRFine_value.Value := Synth[CurSyn].Patch[8].FineTune;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (8 * $10) +
-    $03
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[8].FineTune + 50;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.PtRFine_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[8].FineTune := PtRFine_value.Value;
-  UpdatingControls := True;
-  PtRKey.Value := Synth[CurSyn].Patch[8].FineTune;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (8 * $10) +
-    $03
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[8].FineTune + 50;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.PtRKeyChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[8].KeyShift := PtRKey.Value;
-  UpdatingControls := True;
-  PtRKey_value.Value := Synth[CurSyn].Patch[8].KeyShift;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (8 * $10) +
-    $02
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[8].KeyShift + 24;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.PtRKey_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[8].KeyShift := PtRKey_value.Value;
-  UpdatingControls := True;
-  PtRKey.Value := Synth[CurSyn].Patch[8].KeyShift;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (8 * $10) +
-    $02
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[8].KeyShift + 24;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.PtROutputChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[8].Output := PtROutput.Position;
-  UpdatingControls := True;
-  PtROutput_value.Value := Synth[CurSyn].Patch[8].Output;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (8 * $10) +
-    $08
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[8].Output;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.PtROutput_valueChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[8].Output := PtROutput_value.Value;
-  UpdatingControls := True;
-  PtROutput.Position := Synth[CurSyn].Patch[8].Output;
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (8 * $10) +
-    $08
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[8].Output;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.PtRPolyChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[8].PolyMode := PtRPoly.ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (8 * $10) +
-    $05
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := PtRPoly.ItemIndex;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.PtRPtlReserveChange(Sender: TObject);
-var
-  NewSum: Integer;
-begin
-  if UpdatingControls then Exit;
-
-  NewSum := Pt1PtlReserve.Value +
-            Pt2PtlReserve.Value +
-            Pt3PtlReserve.Value +
-            Pt4PtlReserve.Value +
-            Pt5PtlReserve.Value +
-            Pt6PtlReserve.Value +
-            Pt7PtlReserve.Value +
-            Pt8PtlReserve.Value +
-            PtRPtlReserve.Value;
-  if NewSum > 32 then
-  begin
-    MessageBeep(MB_ICONERROR);
-    ShowMessage('Sum of all Parts'' partial reserves must not exdeed 32');
-    UpdatingControls := True;
-    PtRPtlReserve.Value := PtRPtlReserve.Value - (NewSum - 32);
-    UpdatingControls := False;
-  end;
-  if Synth[CurSyn].System.PtlReserve[0] <> PtRPtlReserve.Value then
-  begin
-    Synth[CurSyn].System.PtlReserve[0] := PtRPtlReserve.Value;
-    SysExAddress := LinearAddrToBytes(
-      AdSystem +
-      $08 +
-      $04
-    );
-    SetLength(SysExData,1);
-    SysExData[0] := Synth[CurSyn].System.PtlReserve[0];
-  end;
 end;
 
 procedure TEditorForm.PtBendRangeChange(Sender: TObject);
