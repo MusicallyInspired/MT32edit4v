@@ -3,9 +3,10 @@ MT-32 sysex editor/programmer companion DLL for MuntVSTi by Falcosoft. You can d
 
 https://falcosoft.hu/softwares.html#munt_vsti
 
-<img width="813" height="645" alt="MT32edit4v_timbre" src="https://github.com/user-attachments/assets/b595caaf-dfb5-44dc-b2fb-ab4f884303ee" />
-<img width="813" height="645" alt="MT32edit4v_mixerbasic" src="https://github.com/user-attachments/assets/0c5e9c22-b37b-4d4b-ba23-f12fb62c9ae9" />
-<img width="813" height="645" alt="MT32edit4v_mixeradv" src="https://github.com/user-attachments/assets/8e32f2b9-d8db-4ecb-9fc3-cac4d107f3cd" />
+<img width="811" height="643" alt="Timbre Editor" src="https://github.com/user-attachments/assets/1d8981d1-dafd-4c40-a6a6-0bafda5d6fd4" />
+<img width="811" height="643" alt="Timbre Editor (Synth 2)" src="https://github.com/user-attachments/assets/4b65c23e-02fc-4561-9662-7fe30a4cc74e" />
+<img width="811" height="643" alt="Part Mixer" src="https://github.com/user-attachments/assets/f53ec2f8-54ac-4b58-85c4-6ca2e7f708ed" />
+<img width="811" height="643" alt="Part Mixer (Advanced Controls, Synth 2)" src="https://github.com/user-attachments/assets/1d3ac383-0cc9-4c87-8bcb-634f4794ceea" />
 
 MT32edit4v functions as a companion DLL for MuntVSTi by Falcosoft, which is a VSTi virtual synth instrument that includes the MUNT core for MT-32 emulation with several options. However, sorely missing is an actual sound editor/programmer for musicians and producers. There does exist wonderful timbre editors and MT-32 system programmers that are perfectly usable, even supporting modern Windows (namely, the incredible [MT-32 Editor by sfryers](https://www.vogons.org/viewtopic.php?t=93609) written in .NET), but it's high time that we had a fully virtual tool for DAWs with the sensibilities and intuitive apporach of modern virtual instruments. Also, there are very few DAWs that even allow sysex messages to be sent to VST plugins (only Reaper and Cubase are known to work) which makes directly programming MuntVSTi inside a DAW environment very hard. If MuntVSTi detects the MT32edit4v DLL in its directory, it will expose a button to activate the editor automatically:
 
@@ -29,7 +30,7 @@ Currently, as you can see, MT32edit4v utilizes the standard Windows GUI control 
 
 # Wishlist
 - Implement a way to change each synth's Unit ID # (not possible via SysEx). This is not a high priority as it is only pertinent to replicating EVERY feature of the MT-32 so that it can function as a real one would in certain hardware synth setups. SysEx messages can target individual MT-32's via a unique unit ID # that is only possible to set via the front panel controls. MUNT currently offers no way to do this. This is admittedly a very niche use case and there's no reason to do this in modern setups, and certainly not for gaming.
-- Implement a way to replicate the MT-32's partial overflow mode. Another function only accessible via the front panel controls. This isn't necessary at all as MuntVSTi not only comes with 2 synths accessible out of the box (doubling the available polyphony of a hardware MT-32), but also custom controls to increase the MT-32's partial polyphony above the "hardwired" 32 limit for *both* emulated synths. So you can very well have the equivalent of an MT-128 without even needing this feature.
+- Implement a way to replicate the MT-32's partial overflow mode. Another function only accessible via the front panel controls. This isn't necessary at all as MuntVSTi not only comes with 2 synths accessible out of the box (doubling the available polyphony of a hardware MT-32), but also custom controls to increase the MT-32's partial polyphony above the "hardwired" 32 limit for *both* emulated synths. So you can very well have the equivalent of an "MT-128" without even needing this feature.
 
 # Building
 You need Delphi XE+ to build the project (Delphi XE8 and the newest Community edition were tested). The free community edition of Delphi can be downloaded from here:
