@@ -123,6 +123,9 @@ constructor TSynthSlider.Create(AOwner: TComponent);
 begin
   inherited;
 
+  Controlstyle := Controlstyle + [csopaque];
+  DoubleBuffered := true;
+
   Width := 23;
   Height := 105;
 
