@@ -70,7 +70,7 @@ object EditorForm: TEditorForm
     Top = 3
     Width = 756
     Height = 619
-    ActivePage = PatchTempArea
+    ActivePage = TimbreTempArea
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -4121,7 +4121,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          OnClick = Pt1ReverbClick
+          OnClick = PtReverbClick
         end
         object Pt1Output_label: TLabel
           Left = 7
@@ -4185,7 +4185,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          OnClick = Pt1EnableClick
+          OnClick = PtEnableClick
         end
         object Pt1Bend_label: TLabel
           Left = 7
@@ -4210,7 +4210,7 @@ object EditorForm: TEditorForm
           Hint = 'Panning'
           Min = -7
           Max = 7
-          OnChange = Pt1PanChange
+          OnChange = PtPanChange
           StartAngle = 135
           EndAngle = 405
         end
@@ -4234,7 +4234,7 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 1
           Value = 0
-          OnChange = Pt1Pan_valueChange
+          OnChange = PtPan_valueChange
         end
         object Pt1Chan: TSpinEdit
           Left = 39
@@ -4255,7 +4255,7 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 2
           Value = 1
-          OnChange = Pt1ChanChange
+          OnChange = PtChanChange
         end
         object Pt1Output_value: TSpinEdit
           Left = 18
@@ -4276,7 +4276,7 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 3
           Value = 0
-          OnChange = Pt1Output_valueChange
+          OnChange = PtOutput_valueChange
         end
         object Pt1Bend_value: TSpinEdit
           Left = 43
@@ -4297,7 +4297,7 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 4
           Value = 0
-          OnChange = Pt1Bend_valueChange
+          OnChange = PtBend_valueChange
         end
         object Pt1Bend: TKnobControl
           Left = 7
@@ -4306,7 +4306,7 @@ object EditorForm: TEditorForm
           Height = 30
           Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
           Max = 24
-          OnChange = Pt1BendChange
+          OnChange = PtBendChange
           StartAngle = 135
           EndAngle = 405
         end
@@ -4412,6 +4412,7 @@ object EditorForm: TEditorForm
               'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
               'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
               ' 33 unique sound effects'#13#10'                '
+            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 4
             Font.Charset = DEFAULT_CHARSET
@@ -4425,7 +4426,7 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 0
             Text = 'Preset A'
-            OnChange = Pt1BankChange
+            OnChange = PtBankChange
             Items.Strings = (
               'Preset A'
               'Preset B'
@@ -4440,7 +4441,7 @@ object EditorForm: TEditorForm
             Hint = 'Pitch Fine Tune'
             Min = -50
             Max = 50
-            OnChange = Pt1FineChange
+            OnChange = PtFineChange
             StartAngle = 135
             EndAngle = 405
           end
@@ -4464,7 +4465,7 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 2
             Value = 0
-            OnChange = Pt1Fine_valueChange
+            OnChange = PtFine_valueChange
           end
           object Pt1Key: TKnobControl
             Left = 8
@@ -4476,7 +4477,7 @@ object EditorForm: TEditorForm
               'er'
             Min = -24
             Max = 24
-            OnChange = Pt1KeyChange
+            OnChange = PtKeyChange
             StartAngle = 135
             EndAngle = 405
           end
@@ -4500,7 +4501,7 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 4
             Value = 0
-            OnChange = Pt1Key_valueChange
+            OnChange = PtKey_valueChange
           end
           object Pt1Timbre: TComboBox
             Left = 1
@@ -4510,6 +4511,7 @@ object EditorForm: TEditorForm
             Hint = 
               'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
               ' the'#13#10'four Banks are selected'
+            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 16
             DropDownWidth = 78
@@ -4522,7 +4524,7 @@ object EditorForm: TEditorForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 5
-            OnChange = Pt1TimbreChange
+            OnChange = PtTimbreChange
             Items.Strings = (
               '          '
               '          '
@@ -4613,7 +4615,7 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 6
             Text = '(S)  FIFO'
-            OnChange = Pt1PolyChange
+            OnChange = PtPolyChange
             Items.Strings = (
               '(S)  FIFO'
               '(S)  FILO'
@@ -4641,7 +4643,7 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 7
             Value = 0
-            OnChange = Pt1PtlReserveChange
+            OnChange = PtPtlReserveChange
           end
         end
         object Pt1Output: TSynthSlider
@@ -4660,7 +4662,7 @@ object EditorForm: TEditorForm
           ParentColor = False
           TabOrder = 7
           TabStop = True
-          OnChange = Pt1OutputChange
+          OnChange = PtOutputChange
         end
       end
       object Pt2MixPanel: TPanel
@@ -4683,6 +4685,7 @@ object EditorForm: TEditorForm
         TabOrder = 1
         VerticalAlignment = taAlignTop
         object Pt2Reverb: TSpeedButton
+          Tag = 1
           Left = 45
           Top = 23
           Width = 34
@@ -4700,7 +4703,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          OnClick = Pt2ReverbClick
+          OnClick = PtReverbClick
         end
         object Pt2Output_label: TLabel
           Left = 7
@@ -4747,6 +4750,7 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object Pt2Enable: TSpeedButton
+          Tag = 1
           Left = 6
           Top = 23
           Width = 34
@@ -4764,7 +4768,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          OnClick = Pt2EnableClick
+          OnClick = PtEnableClick
         end
         object Pt2Bend_label: TLabel
           Left = 7
@@ -4782,6 +4786,7 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object Pt2Pan: TKnobControl
+          Tag = 1
           Left = 7
           Top = 152
           Width = 30
@@ -4789,11 +4794,12 @@ object EditorForm: TEditorForm
           Hint = 'Panning'
           Min = -7
           Max = 7
-          OnChange = Pt2PanChange
+          OnChange = PtPanChange
           StartAngle = 135
           EndAngle = 405
         end
         object Pt2Pan_value: TSpinEdit
+          Tag = 1
           Left = 43
           Top = 160
           Width = 35
@@ -4813,9 +4819,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 1
           Value = 0
-          OnChange = Pt2Pan_valueChange
+          OnChange = PtPan_valueChange
         end
         object Pt2Chan: TSpinEdit
+          Tag = 1
           Left = 39
           Top = 51
           Width = 42
@@ -4834,9 +4841,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 2
           Value = 1
-          OnChange = Pt2ChanChange
+          OnChange = PtChanChange
         end
         object Pt2Output_value: TSpinEdit
+          Tag = 1
           Left = 18
           Top = 537
           Width = 48
@@ -4855,9 +4863,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 3
           Value = 0
-          OnChange = Pt2Output_valueChange
+          OnChange = PtOutput_valueChange
         end
         object Pt2Bend_value: TSpinEdit
+          Tag = 1
           Left = 43
           Top = 111
           Width = 35
@@ -4876,16 +4885,17 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 4
           Value = 0
-          OnChange = Pt2Bend_valueChange
+          OnChange = PtBend_valueChange
         end
         object Pt2Bend: TKnobControl
+          Tag = 1
           Left = 7
           Top = 103
           Width = 30
           Height = 30
           Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
           Max = 24
-          OnChange = Pt2BendChange
+          OnChange = PtBendChange
           StartAngle = 135
           EndAngle = 405
         end
@@ -4981,6 +4991,7 @@ object EditorForm: TEditorForm
             ParentFont = False
           end
           object Pt2Bank: TComboBox
+            Tag = 1
             Left = 1
             Top = 112
             Width = 79
@@ -4991,6 +5002,7 @@ object EditorForm: TEditorForm
               'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
               'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
               ' 33 unique sound effects'#13#10'                '
+            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 4
             Font.Charset = DEFAULT_CHARSET
@@ -5004,7 +5016,7 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 0
             Text = 'Preset A'
-            OnChange = Pt2BankChange
+            OnChange = PtBankChange
             Items.Strings = (
               'Preset A'
               'Preset B'
@@ -5012,6 +5024,7 @@ object EditorForm: TEditorForm
               'Rhythm')
           end
           object Pt2Fine: TKnobControl
+            Tag = 1
             Left = 44
             Top = 176
             Width = 30
@@ -5019,11 +5032,12 @@ object EditorForm: TEditorForm
             Hint = 'Pitch Fine Tune'
             Min = -50
             Max = 50
-            OnChange = Pt2FineChange
+            OnChange = PtFineChange
             StartAngle = 135
             EndAngle = 405
           end
           object Pt2Fine_value: TSpinEdit
+            Tag = 1
             Left = 42
             Top = 212
             Width = 38
@@ -5043,9 +5057,10 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 2
             Value = 0
-            OnChange = Pt2Fine_valueChange
+            OnChange = PtFine_valueChange
           end
           object Pt2Key: TKnobControl
+            Tag = 1
             Left = 8
             Top = 176
             Width = 30
@@ -5055,11 +5070,12 @@ object EditorForm: TEditorForm
               'er'
             Min = -24
             Max = 24
-            OnChange = Pt2KeyChange
+            OnChange = PtKeyChange
             StartAngle = 135
             EndAngle = 405
           end
           object Pt2Key_value: TSpinEdit
+            Tag = 1
             Left = 3
             Top = 212
             Width = 38
@@ -5079,9 +5095,10 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 4
             Value = 0
-            OnChange = Pt2Key_valueChange
+            OnChange = PtKey_valueChange
           end
           object Pt2Timbre: TComboBox
+            Tag = 1
             Left = 1
             Top = 134
             Width = 79
@@ -5089,6 +5106,7 @@ object EditorForm: TEditorForm
             Hint = 
               'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
               ' the'#13#10'four Banks are selected'
+            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 16
             DropDownWidth = 78
@@ -5101,7 +5119,7 @@ object EditorForm: TEditorForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 5
-            OnChange = Pt2TimbreChange
+            OnChange = PtTimbreChange
             Items.Strings = (
               '          '
               '          '
@@ -5169,6 +5187,7 @@ object EditorForm: TEditorForm
               '          ')
           end
           object Pt2Poly: TComboBox
+            Tag = 1
             Left = 1
             Top = 21
             Width = 79
@@ -5192,7 +5211,7 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 6
             Text = '(S)  FIFO'
-            OnChange = Pt2PolyChange
+            OnChange = PtPolyChange
             Items.Strings = (
               '(S)  FIFO'
               '(S)  FILO'
@@ -5200,6 +5219,7 @@ object EditorForm: TEditorForm
               '(M)  FILO')
           end
           object Pt2PtlReserve: TSpinEdit
+            Tag = 1
             Left = 18
             Top = 64
             Width = 48
@@ -5220,10 +5240,11 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 7
             Value = 0
-            OnChange = Pt2PtlReserveChange
+            OnChange = PtPtlReserveChange
           end
         end
         object Pt2Output: TSynthSlider
+          Tag = 1
           Left = 18
           Top = 202
           Width = 48
@@ -5238,7 +5259,7 @@ object EditorForm: TEditorForm
           ParentColor = False
           TabOrder = 7
           TabStop = True
-          OnChange = Pt2OutputChange
+          OnChange = PtOutputChange
         end
       end
       object Pt3MixPanel: TPanel
@@ -5261,6 +5282,7 @@ object EditorForm: TEditorForm
         TabOrder = 2
         VerticalAlignment = taAlignTop
         object Pt3Reverb: TSpeedButton
+          Tag = 2
           Left = 45
           Top = 23
           Width = 34
@@ -5278,7 +5300,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          OnClick = Pt3ReverbClick
+          OnClick = PtReverbClick
         end
         object Pt3Output_label: TLabel
           Left = 7
@@ -5325,6 +5347,7 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object Pt3Enable: TSpeedButton
+          Tag = 2
           Left = 6
           Top = 23
           Width = 34
@@ -5342,7 +5365,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          OnClick = Pt3EnableClick
+          OnClick = PtEnableClick
         end
         object Pt3Bend_label: TLabel
           Left = 7
@@ -5360,6 +5383,7 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object Pt3Pan: TKnobControl
+          Tag = 2
           Left = 7
           Top = 152
           Width = 30
@@ -5367,11 +5391,12 @@ object EditorForm: TEditorForm
           Hint = 'Panning'
           Min = -7
           Max = 7
-          OnChange = Pt3PanChange
+          OnChange = PtPanChange
           StartAngle = 135
           EndAngle = 405
         end
         object Pt3Pan_value: TSpinEdit
+          Tag = 2
           Left = 43
           Top = 160
           Width = 35
@@ -5391,9 +5416,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 1
           Value = 0
-          OnChange = Pt3Pan_valueChange
+          OnChange = PtPan_valueChange
         end
         object Pt3Chan: TSpinEdit
+          Tag = 2
           Left = 39
           Top = 51
           Width = 42
@@ -5412,9 +5438,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 2
           Value = 1
-          OnChange = Pt3ChanChange
+          OnChange = PtChanChange
         end
         object Pt3Output_value: TSpinEdit
+          Tag = 2
           Left = 18
           Top = 537
           Width = 48
@@ -5433,9 +5460,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 3
           Value = 0
-          OnChange = Pt3Output_valueChange
+          OnChange = PtOutput_valueChange
         end
         object Pt3Bend_value: TSpinEdit
+          Tag = 2
           Left = 43
           Top = 111
           Width = 35
@@ -5454,16 +5482,17 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 4
           Value = 0
-          OnChange = Pt3Bend_valueChange
+          OnChange = PtBend_valueChange
         end
         object Pt3Bend: TKnobControl
+          Tag = 2
           Left = 7
           Top = 103
           Width = 30
           Height = 30
           Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
           Max = 24
-          OnChange = Pt3BendChange
+          OnChange = PtBendChange
           StartAngle = 135
           EndAngle = 405
         end
@@ -5559,6 +5588,7 @@ object EditorForm: TEditorForm
             ParentFont = False
           end
           object Pt3Bank: TComboBox
+            Tag = 2
             Left = 1
             Top = 112
             Width = 79
@@ -5569,6 +5599,7 @@ object EditorForm: TEditorForm
               'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
               'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
               ' 33 unique sound effects'#13#10'                '
+            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 4
             Font.Charset = DEFAULT_CHARSET
@@ -5582,7 +5613,7 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 0
             Text = 'Preset A'
-            OnChange = Pt3BankChange
+            OnChange = PtBankChange
             Items.Strings = (
               'Preset A'
               'Preset B'
@@ -5590,6 +5621,7 @@ object EditorForm: TEditorForm
               'Rhythm')
           end
           object Pt3Fine: TKnobControl
+            Tag = 2
             Left = 44
             Top = 176
             Width = 30
@@ -5597,11 +5629,12 @@ object EditorForm: TEditorForm
             Hint = 'Pitch Fine Tune'
             Min = -50
             Max = 50
-            OnChange = Pt3FineChange
+            OnChange = PtFineChange
             StartAngle = 135
             EndAngle = 405
           end
           object Pt3Fine_value: TSpinEdit
+            Tag = 2
             Left = 42
             Top = 212
             Width = 38
@@ -5621,9 +5654,10 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 2
             Value = 0
-            OnChange = Pt3Fine_valueChange
+            OnChange = PtFine_valueChange
           end
           object Pt3Key: TKnobControl
+            Tag = 2
             Left = 8
             Top = 176
             Width = 30
@@ -5633,11 +5667,12 @@ object EditorForm: TEditorForm
               'er'
             Min = -24
             Max = 24
-            OnChange = Pt3KeyChange
+            OnChange = PtKeyChange
             StartAngle = 135
             EndAngle = 405
           end
           object Pt3Key_value: TSpinEdit
+            Tag = 2
             Left = 3
             Top = 212
             Width = 38
@@ -5657,9 +5692,10 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 4
             Value = 0
-            OnChange = Pt3Key_valueChange
+            OnChange = PtKey_valueChange
           end
           object Pt3Timbre: TComboBox
+            Tag = 2
             Left = 1
             Top = 134
             Width = 79
@@ -5667,6 +5703,7 @@ object EditorForm: TEditorForm
             Hint = 
               'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
               ' the'#13#10'four Banks are selected'
+            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 16
             DropDownWidth = 78
@@ -5679,7 +5716,7 @@ object EditorForm: TEditorForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 5
-            OnChange = Pt3TimbreChange
+            OnChange = PtTimbreChange
             Items.Strings = (
               '          '
               '          '
@@ -5747,6 +5784,7 @@ object EditorForm: TEditorForm
               '          ')
           end
           object Pt3Poly: TComboBox
+            Tag = 2
             Left = 1
             Top = 21
             Width = 79
@@ -5770,7 +5808,7 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 6
             Text = '(S)  FIFO'
-            OnChange = Pt3PolyChange
+            OnChange = PtPolyChange
             Items.Strings = (
               '(S)  FIFO'
               '(S)  FILO'
@@ -5778,6 +5816,7 @@ object EditorForm: TEditorForm
               '(M)  FILO')
           end
           object Pt3PtlReserve: TSpinEdit
+            Tag = 2
             Left = 18
             Top = 64
             Width = 48
@@ -5798,10 +5837,11 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 7
             Value = 0
-            OnChange = Pt3PtlReserveChange
+            OnChange = PtPtlReserveChange
           end
         end
         object Pt3Output: TSynthSlider
+          Tag = 2
           Left = 18
           Top = 202
           Width = 48
@@ -5816,7 +5856,7 @@ object EditorForm: TEditorForm
           ParentColor = False
           TabOrder = 7
           TabStop = True
-          OnChange = Pt3OutputChange
+          OnChange = PtOutputChange
         end
       end
       object Pt4MixPanel: TPanel
@@ -5839,6 +5879,7 @@ object EditorForm: TEditorForm
         TabOrder = 3
         VerticalAlignment = taAlignTop
         object Pt4Reverb: TSpeedButton
+          Tag = 3
           Left = 45
           Top = 23
           Width = 34
@@ -5856,7 +5897,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          OnClick = Pt4ReverbClick
+          OnClick = PtReverbClick
         end
         object Pt4Output_label: TLabel
           Left = 7
@@ -5903,6 +5944,7 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object Pt4Enable: TSpeedButton
+          Tag = 3
           Left = 6
           Top = 23
           Width = 34
@@ -5920,7 +5962,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          OnClick = Pt4EnableClick
+          OnClick = PtEnableClick
         end
         object Pt4Bend_label: TLabel
           Left = 7
@@ -5938,6 +5980,7 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object Pt4Pan: TKnobControl
+          Tag = 3
           Left = 7
           Top = 152
           Width = 30
@@ -5945,11 +5988,12 @@ object EditorForm: TEditorForm
           Hint = 'Panning'
           Min = -7
           Max = 7
-          OnChange = Pt4PanChange
+          OnChange = PtPanChange
           StartAngle = 135
           EndAngle = 405
         end
         object Pt4Pan_value: TSpinEdit
+          Tag = 3
           Left = 43
           Top = 160
           Width = 35
@@ -5969,9 +6013,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 1
           Value = 0
-          OnChange = Pt4Pan_valueChange
+          OnChange = PtPan_valueChange
         end
         object Pt4Chan: TSpinEdit
+          Tag = 3
           Left = 39
           Top = 51
           Width = 42
@@ -5990,9 +6035,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 2
           Value = 1
-          OnChange = Pt4ChanChange
+          OnChange = PtChanChange
         end
         object Pt4Output_value: TSpinEdit
+          Tag = 3
           Left = 18
           Top = 537
           Width = 48
@@ -6011,9 +6057,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 3
           Value = 0
-          OnChange = Pt4Output_valueChange
+          OnChange = PtOutput_valueChange
         end
         object Pt4Bend_value: TSpinEdit
+          Tag = 3
           Left = 43
           Top = 111
           Width = 35
@@ -6032,16 +6079,17 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 4
           Value = 0
-          OnChange = Pt4Bend_valueChange
+          OnChange = PtBend_valueChange
         end
         object Pt4Bend: TKnobControl
+          Tag = 3
           Left = 7
           Top = 103
           Width = 30
           Height = 30
           Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
           Max = 24
-          OnChange = Pt4BendChange
+          OnChange = PtBendChange
           StartAngle = 135
           EndAngle = 405
         end
@@ -6137,6 +6185,7 @@ object EditorForm: TEditorForm
             ParentFont = False
           end
           object Pt4Bank: TComboBox
+            Tag = 3
             Left = 1
             Top = 112
             Width = 79
@@ -6147,6 +6196,7 @@ object EditorForm: TEditorForm
               'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
               'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
               ' 33 unique sound effects'#13#10'                '
+            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 4
             Font.Charset = DEFAULT_CHARSET
@@ -6160,7 +6210,7 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 0
             Text = 'Preset A'
-            OnChange = Pt4BankChange
+            OnChange = PtBankChange
             Items.Strings = (
               'Preset A'
               'Preset B'
@@ -6168,6 +6218,7 @@ object EditorForm: TEditorForm
               'Rhythm')
           end
           object Pt4Fine: TKnobControl
+            Tag = 3
             Left = 44
             Top = 176
             Width = 30
@@ -6175,11 +6226,12 @@ object EditorForm: TEditorForm
             Hint = 'Pitch Fine Tune'
             Min = -50
             Max = 50
-            OnChange = Pt4FineChange
+            OnChange = PtFineChange
             StartAngle = 135
             EndAngle = 405
           end
           object Pt4Fine_value: TSpinEdit
+            Tag = 3
             Left = 42
             Top = 212
             Width = 38
@@ -6199,9 +6251,10 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 2
             Value = 0
-            OnChange = Pt4Fine_valueChange
+            OnChange = PtFine_valueChange
           end
           object Pt4Key: TKnobControl
+            Tag = 3
             Left = 8
             Top = 176
             Width = 30
@@ -6211,11 +6264,12 @@ object EditorForm: TEditorForm
               'er'
             Min = -24
             Max = 24
-            OnChange = Pt4KeyChange
+            OnChange = PtKeyChange
             StartAngle = 135
             EndAngle = 405
           end
           object Pt4Key_value: TSpinEdit
+            Tag = 3
             Left = 3
             Top = 212
             Width = 38
@@ -6235,9 +6289,10 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 4
             Value = 0
-            OnChange = Pt4Key_valueChange
+            OnChange = PtKey_valueChange
           end
           object Pt4Timbre: TComboBox
+            Tag = 3
             Left = 1
             Top = 134
             Width = 79
@@ -6245,6 +6300,7 @@ object EditorForm: TEditorForm
             Hint = 
               'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
               ' the'#13#10'four Banks are selected'
+            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 16
             DropDownWidth = 78
@@ -6257,7 +6313,7 @@ object EditorForm: TEditorForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 5
-            OnChange = Pt4TimbreChange
+            OnChange = PtTimbreChange
             Items.Strings = (
               '          '
               '          '
@@ -6325,6 +6381,7 @@ object EditorForm: TEditorForm
               '          ')
           end
           object Pt4Poly: TComboBox
+            Tag = 3
             Left = 1
             Top = 21
             Width = 79
@@ -6348,7 +6405,7 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 6
             Text = '(S)  FIFO'
-            OnChange = Pt4PolyChange
+            OnChange = PtPolyChange
             Items.Strings = (
               '(S)  FIFO'
               '(S)  FILO'
@@ -6356,6 +6413,7 @@ object EditorForm: TEditorForm
               '(M)  FILO')
           end
           object Pt4PtlReserve: TSpinEdit
+            Tag = 3
             Left = 18
             Top = 64
             Width = 48
@@ -6376,10 +6434,11 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 7
             Value = 0
-            OnChange = Pt4PtlReserveChange
+            OnChange = PtPtlReserveChange
           end
         end
         object Pt4Output: TSynthSlider
+          Tag = 3
           Left = 18
           Top = 202
           Width = 48
@@ -6394,7 +6453,7 @@ object EditorForm: TEditorForm
           ParentColor = False
           TabOrder = 7
           TabStop = True
-          OnChange = Pt4OutputChange
+          OnChange = PtOutputChange
         end
       end
       object Pt5MixPanel: TPanel
@@ -6417,6 +6476,7 @@ object EditorForm: TEditorForm
         TabOrder = 4
         VerticalAlignment = taAlignTop
         object Pt5Reverb: TSpeedButton
+          Tag = 4
           Left = 45
           Top = 23
           Width = 34
@@ -6434,7 +6494,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          OnClick = Pt5ReverbClick
+          OnClick = PtReverbClick
         end
         object Pt5Output_label: TLabel
           Left = 7
@@ -6481,6 +6541,7 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object Pt5Enable: TSpeedButton
+          Tag = 4
           Left = 6
           Top = 23
           Width = 34
@@ -6498,7 +6559,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          OnClick = Pt5EnableClick
+          OnClick = PtEnableClick
         end
         object Pt5Bend_label: TLabel
           Left = 7
@@ -6516,6 +6577,7 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object Pt5Pan: TKnobControl
+          Tag = 4
           Left = 7
           Top = 152
           Width = 30
@@ -6523,11 +6585,12 @@ object EditorForm: TEditorForm
           Hint = 'Panning'
           Min = -7
           Max = 7
-          OnChange = Pt5PanChange
+          OnChange = PtPanChange
           StartAngle = 135
           EndAngle = 405
         end
         object Pt5Pan_value: TSpinEdit
+          Tag = 4
           Left = 43
           Top = 160
           Width = 35
@@ -6547,9 +6610,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 1
           Value = 0
-          OnChange = Pt5Pan_valueChange
+          OnChange = PtPan_valueChange
         end
         object Pt5Chan: TSpinEdit
+          Tag = 4
           Left = 39
           Top = 51
           Width = 42
@@ -6568,9 +6632,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 2
           Value = 1
-          OnChange = Pt5ChanChange
+          OnChange = PtChanChange
         end
         object Pt5Output_value: TSpinEdit
+          Tag = 4
           Left = 18
           Top = 537
           Width = 48
@@ -6589,9 +6654,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 3
           Value = 0
-          OnChange = Pt5Output_valueChange
+          OnChange = PtOutput_valueChange
         end
         object Pt5Bend_value: TSpinEdit
+          Tag = 4
           Left = 43
           Top = 111
           Width = 35
@@ -6610,16 +6676,17 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 4
           Value = 0
-          OnChange = Pt5Bend_valueChange
+          OnChange = PtBend_valueChange
         end
         object Pt5Bend: TKnobControl
+          Tag = 4
           Left = 7
           Top = 103
           Width = 30
           Height = 30
           Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
           Max = 24
-          OnChange = Pt5BendChange
+          OnChange = PtBendChange
           StartAngle = 135
           EndAngle = 405
         end
@@ -6715,6 +6782,7 @@ object EditorForm: TEditorForm
             ParentFont = False
           end
           object Pt5Bank: TComboBox
+            Tag = 4
             Left = 1
             Top = 112
             Width = 79
@@ -6725,6 +6793,7 @@ object EditorForm: TEditorForm
               'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
               'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
               ' 33 unique sound effects'#13#10'                '
+            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 4
             Font.Charset = DEFAULT_CHARSET
@@ -6738,7 +6807,7 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 0
             Text = 'Preset A'
-            OnChange = Pt5BankChange
+            OnChange = PtBankChange
             Items.Strings = (
               'Preset A'
               'Preset B'
@@ -6746,6 +6815,7 @@ object EditorForm: TEditorForm
               'Rhythm')
           end
           object Pt5Fine: TKnobControl
+            Tag = 4
             Left = 44
             Top = 176
             Width = 30
@@ -6753,11 +6823,12 @@ object EditorForm: TEditorForm
             Hint = 'Pitch Fine Tune'
             Min = -50
             Max = 50
-            OnChange = Pt5FineChange
+            OnChange = PtFineChange
             StartAngle = 135
             EndAngle = 405
           end
           object Pt5Fine_value: TSpinEdit
+            Tag = 4
             Left = 42
             Top = 212
             Width = 38
@@ -6777,9 +6848,10 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 2
             Value = 0
-            OnChange = Pt5Fine_valueChange
+            OnChange = PtFine_valueChange
           end
           object Pt5Key: TKnobControl
+            Tag = 4
             Left = 8
             Top = 176
             Width = 30
@@ -6789,11 +6861,12 @@ object EditorForm: TEditorForm
               'er'
             Min = -24
             Max = 24
-            OnChange = Pt5KeyChange
+            OnChange = PtKeyChange
             StartAngle = 135
             EndAngle = 405
           end
           object Pt5Key_value: TSpinEdit
+            Tag = 4
             Left = 3
             Top = 212
             Width = 38
@@ -6813,9 +6886,10 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 4
             Value = 0
-            OnChange = Pt5Key_valueChange
+            OnChange = PtKey_valueChange
           end
           object Pt5Timbre: TComboBox
+            Tag = 4
             Left = 1
             Top = 134
             Width = 79
@@ -6823,6 +6897,7 @@ object EditorForm: TEditorForm
             Hint = 
               'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
               ' the'#13#10'four Banks are selected'
+            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 16
             DropDownWidth = 78
@@ -6835,7 +6910,7 @@ object EditorForm: TEditorForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 5
-            OnChange = Pt5TimbreChange
+            OnChange = PtTimbreChange
             Items.Strings = (
               '          '
               '          '
@@ -6903,6 +6978,7 @@ object EditorForm: TEditorForm
               '          ')
           end
           object Pt5Poly: TComboBox
+            Tag = 4
             Left = 1
             Top = 21
             Width = 79
@@ -6926,7 +7002,7 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 6
             Text = '(S)  FIFO'
-            OnChange = Pt5PolyChange
+            OnChange = PtPolyChange
             Items.Strings = (
               '(S)  FIFO'
               '(S)  FILO'
@@ -6934,6 +7010,7 @@ object EditorForm: TEditorForm
               '(M)  FILO')
           end
           object Pt5PtlReserve: TSpinEdit
+            Tag = 4
             Left = 18
             Top = 64
             Width = 48
@@ -6954,10 +7031,11 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 7
             Value = 0
-            OnChange = Pt5PtlReserveChange
+            OnChange = PtPtlReserveChange
           end
         end
         object Pt5Output: TSynthSlider
+          Tag = 4
           Left = 18
           Top = 202
           Width = 48
@@ -6972,7 +7050,7 @@ object EditorForm: TEditorForm
           ParentColor = False
           TabOrder = 7
           TabStop = True
-          OnChange = Pt5OutputChange
+          OnChange = PtOutputChange
         end
       end
       object Pt6MixPanel: TPanel
@@ -6995,6 +7073,7 @@ object EditorForm: TEditorForm
         TabOrder = 5
         VerticalAlignment = taAlignTop
         object Pt6Reverb: TSpeedButton
+          Tag = 5
           Left = 45
           Top = 23
           Width = 34
@@ -7012,7 +7091,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          OnClick = Pt6ReverbClick
+          OnClick = PtReverbClick
         end
         object Pt6Output_label: TLabel
           Left = 7
@@ -7059,6 +7138,7 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object Pt6Enable: TSpeedButton
+          Tag = 5
           Left = 6
           Top = 23
           Width = 34
@@ -7076,7 +7156,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          OnClick = Pt6EnableClick
+          OnClick = PtEnableClick
         end
         object Pt6Bend_label: TLabel
           Left = 7
@@ -7094,6 +7174,7 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object Pt6Pan: TKnobControl
+          Tag = 5
           Left = 7
           Top = 152
           Width = 30
@@ -7101,11 +7182,12 @@ object EditorForm: TEditorForm
           Hint = 'Panning'
           Min = -7
           Max = 7
-          OnChange = Pt6PanChange
+          OnChange = PtPanChange
           StartAngle = 135
           EndAngle = 405
         end
         object Pt6Pan_value: TSpinEdit
+          Tag = 5
           Left = 43
           Top = 160
           Width = 35
@@ -7125,9 +7207,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 1
           Value = 0
-          OnChange = Pt6Pan_valueChange
+          OnChange = PtPan_valueChange
         end
         object Pt6Chan: TSpinEdit
+          Tag = 5
           Left = 39
           Top = 51
           Width = 42
@@ -7146,9 +7229,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 2
           Value = 1
-          OnChange = Pt6ChanChange
+          OnChange = PtChanChange
         end
         object Pt6Output_value: TSpinEdit
+          Tag = 5
           Left = 18
           Top = 537
           Width = 48
@@ -7167,9 +7251,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 3
           Value = 0
-          OnChange = Pt6Output_valueChange
+          OnChange = PtOutput_valueChange
         end
         object Pt6Bend_value: TSpinEdit
+          Tag = 5
           Left = 43
           Top = 111
           Width = 35
@@ -7188,16 +7273,17 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 4
           Value = 0
-          OnChange = Pt6Bend_valueChange
+          OnChange = PtBend_valueChange
         end
         object Pt6Bend: TKnobControl
+          Tag = 5
           Left = 7
           Top = 103
           Width = 30
           Height = 30
           Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
           Max = 24
-          OnChange = Pt6BendChange
+          OnChange = PtBendChange
           StartAngle = 135
           EndAngle = 405
         end
@@ -7293,6 +7379,7 @@ object EditorForm: TEditorForm
             ParentFont = False
           end
           object Pt6Bank: TComboBox
+            Tag = 5
             Left = 1
             Top = 112
             Width = 79
@@ -7303,6 +7390,7 @@ object EditorForm: TEditorForm
               'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
               'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
               ' 33 unique sound effects'#13#10'                '
+            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 4
             Font.Charset = DEFAULT_CHARSET
@@ -7316,7 +7404,7 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 0
             Text = 'Preset A'
-            OnChange = Pt6BankChange
+            OnChange = PtBankChange
             Items.Strings = (
               'Preset A'
               'Preset B'
@@ -7324,6 +7412,7 @@ object EditorForm: TEditorForm
               'Rhythm')
           end
           object Pt6Fine: TKnobControl
+            Tag = 5
             Left = 44
             Top = 176
             Width = 30
@@ -7331,11 +7420,12 @@ object EditorForm: TEditorForm
             Hint = 'Pitch Fine Tune'
             Min = -50
             Max = 50
-            OnChange = Pt6FineChange
+            OnChange = PtFineChange
             StartAngle = 135
             EndAngle = 405
           end
           object Pt6Fine_value: TSpinEdit
+            Tag = 5
             Left = 42
             Top = 212
             Width = 38
@@ -7355,9 +7445,10 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 2
             Value = 0
-            OnChange = Pt6Fine_valueChange
+            OnChange = PtFine_valueChange
           end
           object Pt6Key: TKnobControl
+            Tag = 5
             Left = 8
             Top = 176
             Width = 30
@@ -7367,11 +7458,12 @@ object EditorForm: TEditorForm
               'er'
             Min = -24
             Max = 24
-            OnChange = Pt6KeyChange
+            OnChange = PtKeyChange
             StartAngle = 135
             EndAngle = 405
           end
           object Pt6Key_value: TSpinEdit
+            Tag = 5
             Left = 3
             Top = 212
             Width = 38
@@ -7391,9 +7483,10 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 4
             Value = 0
-            OnChange = Pt6Key_valueChange
+            OnChange = PtKey_valueChange
           end
           object Pt6Timbre: TComboBox
+            Tag = 5
             Left = 1
             Top = 134
             Width = 79
@@ -7401,6 +7494,7 @@ object EditorForm: TEditorForm
             Hint = 
               'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
               ' the'#13#10'four Banks are selected'
+            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 16
             DropDownWidth = 78
@@ -7413,7 +7507,7 @@ object EditorForm: TEditorForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 5
-            OnChange = Pt6TimbreChange
+            OnChange = PtTimbreChange
             Items.Strings = (
               '          '
               '          '
@@ -7481,6 +7575,7 @@ object EditorForm: TEditorForm
               '          ')
           end
           object Pt6Poly: TComboBox
+            Tag = 5
             Left = 1
             Top = 21
             Width = 79
@@ -7504,7 +7599,7 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 6
             Text = '(S)  FIFO'
-            OnChange = Pt6PolyChange
+            OnChange = PtPolyChange
             Items.Strings = (
               '(S)  FIFO'
               '(S)  FILO'
@@ -7512,6 +7607,7 @@ object EditorForm: TEditorForm
               '(M)  FILO')
           end
           object Pt6PtlReserve: TSpinEdit
+            Tag = 5
             Left = 18
             Top = 64
             Width = 48
@@ -7532,10 +7628,11 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 7
             Value = 0
-            OnChange = Pt6PtlReserveChange
+            OnChange = PtPtlReserveChange
           end
         end
         object Pt6Output: TSynthSlider
+          Tag = 5
           Left = 18
           Top = 202
           Width = 48
@@ -7550,7 +7647,7 @@ object EditorForm: TEditorForm
           ParentColor = False
           TabOrder = 7
           TabStop = True
-          OnChange = Pt6OutputChange
+          OnChange = PtOutputChange
         end
       end
       object Pt7MixPanel: TPanel
@@ -7573,6 +7670,7 @@ object EditorForm: TEditorForm
         TabOrder = 6
         VerticalAlignment = taAlignTop
         object Pt7Reverb: TSpeedButton
+          Tag = 6
           Left = 45
           Top = 23
           Width = 34
@@ -7590,7 +7688,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          OnClick = Pt7ReverbClick
+          OnClick = PtReverbClick
         end
         object Pt7Output_label: TLabel
           Left = 7
@@ -7637,6 +7735,7 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object Pt7Enable: TSpeedButton
+          Tag = 6
           Left = 6
           Top = 23
           Width = 34
@@ -7654,7 +7753,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          OnClick = Pt7EnableClick
+          OnClick = PtEnableClick
         end
         object Pt7Bend_label: TLabel
           Left = 7
@@ -7672,6 +7771,7 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object Pt7Pan: TKnobControl
+          Tag = 6
           Left = 7
           Top = 152
           Width = 30
@@ -7679,11 +7779,12 @@ object EditorForm: TEditorForm
           Hint = 'Panning'
           Min = -7
           Max = 7
-          OnChange = Pt7PanChange
+          OnChange = PtPanChange
           StartAngle = 135
           EndAngle = 405
         end
         object Pt7Pan_value: TSpinEdit
+          Tag = 6
           Left = 43
           Top = 160
           Width = 35
@@ -7703,9 +7804,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 1
           Value = 0
-          OnChange = Pt7Pan_valueChange
+          OnChange = PtPan_valueChange
         end
         object Pt7Chan: TSpinEdit
+          Tag = 6
           Left = 39
           Top = 51
           Width = 42
@@ -7724,9 +7826,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 2
           Value = 1
-          OnChange = Pt7ChanChange
+          OnChange = PtChanChange
         end
         object Pt7Output_value: TSpinEdit
+          Tag = 6
           Left = 18
           Top = 537
           Width = 48
@@ -7745,9 +7848,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 3
           Value = 0
-          OnChange = Pt7Output_valueChange
+          OnChange = PtOutput_valueChange
         end
         object Pt7Bend_value: TSpinEdit
+          Tag = 6
           Left = 43
           Top = 111
           Width = 35
@@ -7766,16 +7870,17 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 4
           Value = 0
-          OnChange = Pt7Bend_valueChange
+          OnChange = PtBend_valueChange
         end
         object Pt7Bend: TKnobControl
+          Tag = 6
           Left = 7
           Top = 103
           Width = 30
           Height = 30
           Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
           Max = 24
-          OnChange = Pt7BendChange
+          OnChange = PtBendChange
           StartAngle = 135
           EndAngle = 405
         end
@@ -7871,6 +7976,7 @@ object EditorForm: TEditorForm
             ParentFont = False
           end
           object Pt7Bank: TComboBox
+            Tag = 6
             Left = 1
             Top = 112
             Width = 79
@@ -7881,6 +7987,7 @@ object EditorForm: TEditorForm
               'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
               'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
               ' 33 unique sound effects'#13#10'                '
+            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 4
             Font.Charset = DEFAULT_CHARSET
@@ -7894,7 +8001,7 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 0
             Text = 'Preset A'
-            OnChange = Pt7BankChange
+            OnChange = PtBankChange
             Items.Strings = (
               'Preset A'
               'Preset B'
@@ -7902,6 +8009,7 @@ object EditorForm: TEditorForm
               'Rhythm')
           end
           object Pt7Fine: TKnobControl
+            Tag = 6
             Left = 44
             Top = 176
             Width = 30
@@ -7909,11 +8017,12 @@ object EditorForm: TEditorForm
             Hint = 'Pitch Fine Tune'
             Min = -50
             Max = 50
-            OnChange = Pt7FineChange
+            OnChange = PtFineChange
             StartAngle = 135
             EndAngle = 405
           end
           object Pt7Fine_value: TSpinEdit
+            Tag = 6
             Left = 42
             Top = 212
             Width = 38
@@ -7933,9 +8042,10 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 2
             Value = 0
-            OnChange = Pt7Fine_valueChange
+            OnChange = PtFine_valueChange
           end
           object Pt7Key: TKnobControl
+            Tag = 6
             Left = 8
             Top = 176
             Width = 30
@@ -7945,11 +8055,12 @@ object EditorForm: TEditorForm
               'er'
             Min = -24
             Max = 24
-            OnChange = Pt7KeyChange
+            OnChange = PtKeyChange
             StartAngle = 135
             EndAngle = 405
           end
           object Pt7Key_value: TSpinEdit
+            Tag = 6
             Left = 3
             Top = 212
             Width = 38
@@ -7969,9 +8080,10 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 4
             Value = 0
-            OnChange = Pt7Key_valueChange
+            OnChange = PtKey_valueChange
           end
           object Pt7Timbre: TComboBox
+            Tag = 6
             Left = 1
             Top = 134
             Width = 79
@@ -7979,6 +8091,7 @@ object EditorForm: TEditorForm
             Hint = 
               'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
               ' the'#13#10'four Banks are selected'
+            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 16
             DropDownWidth = 78
@@ -7991,7 +8104,7 @@ object EditorForm: TEditorForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 5
-            OnChange = Pt7TimbreChange
+            OnChange = PtTimbreChange
             Items.Strings = (
               '          '
               '          '
@@ -8059,6 +8172,7 @@ object EditorForm: TEditorForm
               '          ')
           end
           object Pt7Poly: TComboBox
+            Tag = 6
             Left = 1
             Top = 21
             Width = 79
@@ -8082,7 +8196,7 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 6
             Text = '(S)  FIFO'
-            OnChange = Pt7PolyChange
+            OnChange = PtPolyChange
             Items.Strings = (
               '(S)  FIFO'
               '(S)  FILO'
@@ -8090,6 +8204,7 @@ object EditorForm: TEditorForm
               '(M)  FILO')
           end
           object Pt7PtlReserve: TSpinEdit
+            Tag = 6
             Left = 18
             Top = 64
             Width = 48
@@ -8110,10 +8225,11 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 7
             Value = 0
-            OnChange = Pt7PtlReserveChange
+            OnChange = PtPtlReserveChange
           end
         end
         object Pt7Output: TSynthSlider
+          Tag = 6
           Left = 18
           Top = 202
           Width = 48
@@ -8128,7 +8244,7 @@ object EditorForm: TEditorForm
           ParentColor = False
           TabOrder = 7
           TabStop = True
-          OnChange = Pt7OutputChange
+          OnChange = PtOutputChange
         end
       end
       object Pt8MixPanel: TPanel
@@ -8151,6 +8267,7 @@ object EditorForm: TEditorForm
         TabOrder = 7
         VerticalAlignment = taAlignTop
         object Pt8Reverb: TSpeedButton
+          Tag = 7
           Left = 45
           Top = 23
           Width = 34
@@ -8168,7 +8285,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          OnClick = Pt8ReverbClick
+          OnClick = PtReverbClick
         end
         object Pt8Output_label: TLabel
           Left = 7
@@ -8215,6 +8332,7 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object Pt8Enable: TSpeedButton
+          Tag = 7
           Left = 6
           Top = 23
           Width = 34
@@ -8232,7 +8350,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          OnClick = Pt8EnableClick
+          OnClick = PtEnableClick
         end
         object Pt8Bend_label: TLabel
           Left = 7
@@ -8250,6 +8368,7 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object Pt8Pan: TKnobControl
+          Tag = 7
           Left = 7
           Top = 152
           Width = 30
@@ -8257,11 +8376,12 @@ object EditorForm: TEditorForm
           Hint = 'Panning'
           Min = -7
           Max = 7
-          OnChange = Pt8PanChange
+          OnChange = PtPanChange
           StartAngle = 135
           EndAngle = 405
         end
         object Pt8Pan_value: TSpinEdit
+          Tag = 7
           Left = 43
           Top = 160
           Width = 35
@@ -8281,9 +8401,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 1
           Value = 0
-          OnChange = Pt8Pan_valueChange
+          OnChange = PtPan_valueChange
         end
         object Pt8Chan: TSpinEdit
+          Tag = 7
           Left = 41
           Top = 51
           Width = 42
@@ -8302,9 +8423,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 2
           Value = 1
-          OnChange = Pt8ChanChange
+          OnChange = PtChanChange
         end
         object Pt8Output_value: TSpinEdit
+          Tag = 7
           Left = 18
           Top = 537
           Width = 48
@@ -8323,9 +8445,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 3
           Value = 0
-          OnChange = Pt8Output_valueChange
+          OnChange = PtOutput_valueChange
         end
         object Pt8Bend_value: TSpinEdit
+          Tag = 7
           Left = 43
           Top = 111
           Width = 35
@@ -8344,16 +8467,17 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 4
           Value = 0
-          OnChange = Pt8Bend_valueChange
+          OnChange = PtBend_valueChange
         end
         object Pt8Bend: TKnobControl
+          Tag = 7
           Left = 7
           Top = 103
           Width = 30
           Height = 30
           Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
           Max = 24
-          OnChange = Pt8BendChange
+          OnChange = PtBendChange
           StartAngle = 135
           EndAngle = 405
         end
@@ -8449,6 +8573,7 @@ object EditorForm: TEditorForm
             ParentFont = False
           end
           object Pt8Bank: TComboBox
+            Tag = 7
             Left = 1
             Top = 112
             Width = 79
@@ -8459,6 +8584,7 @@ object EditorForm: TEditorForm
               'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
               'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
               ' 33 unique sound effects'#13#10'                '
+            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 4
             Font.Charset = DEFAULT_CHARSET
@@ -8472,7 +8598,7 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 0
             Text = 'Preset A'
-            OnChange = Pt8BankChange
+            OnChange = PtBankChange
             Items.Strings = (
               'Preset A'
               'Preset B'
@@ -8480,6 +8606,7 @@ object EditorForm: TEditorForm
               'Rhythm')
           end
           object Pt8Fine: TKnobControl
+            Tag = 7
             Left = 44
             Top = 176
             Width = 30
@@ -8487,11 +8614,12 @@ object EditorForm: TEditorForm
             Hint = 'Pitch Fine Tune'
             Min = -50
             Max = 50
-            OnChange = Pt8FineChange
+            OnChange = PtFineChange
             StartAngle = 135
             EndAngle = 405
           end
           object Pt8Fine_value: TSpinEdit
+            Tag = 7
             Left = 42
             Top = 212
             Width = 38
@@ -8511,9 +8639,10 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 2
             Value = 0
-            OnChange = Pt8Fine_valueChange
+            OnChange = PtFine_valueChange
           end
           object Pt8Key: TKnobControl
+            Tag = 7
             Left = 8
             Top = 176
             Width = 30
@@ -8523,11 +8652,12 @@ object EditorForm: TEditorForm
               'er'
             Min = -24
             Max = 24
-            OnChange = Pt8KeyChange
+            OnChange = PtKeyChange
             StartAngle = 135
             EndAngle = 405
           end
           object Pt8Key_value: TSpinEdit
+            Tag = 7
             Left = 3
             Top = 212
             Width = 38
@@ -8547,9 +8677,10 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 4
             Value = 0
-            OnChange = Pt8Key_valueChange
+            OnChange = PtKey_valueChange
           end
           object Pt8Timbre: TComboBox
+            Tag = 7
             Left = 1
             Top = 134
             Width = 79
@@ -8557,6 +8688,7 @@ object EditorForm: TEditorForm
             Hint = 
               'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
               ' the'#13#10'four Banks are selected'
+            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 16
             DropDownWidth = 78
@@ -8569,7 +8701,7 @@ object EditorForm: TEditorForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 5
-            OnChange = Pt8TimbreChange
+            OnChange = PtTimbreChange
             Items.Strings = (
               '          '
               '          '
@@ -8637,6 +8769,7 @@ object EditorForm: TEditorForm
               '          ')
           end
           object Pt8Poly: TComboBox
+            Tag = 7
             Left = 1
             Top = 21
             Width = 79
@@ -8660,7 +8793,7 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 6
             Text = '(S)  FIFO'
-            OnChange = Pt8PolyChange
+            OnChange = PtPolyChange
             Items.Strings = (
               '(S)  FIFO'
               '(S)  FILO'
@@ -8668,6 +8801,7 @@ object EditorForm: TEditorForm
               '(M)  FILO')
           end
           object Pt8PtlReserve: TSpinEdit
+            Tag = 7
             Left = 18
             Top = 64
             Width = 48
@@ -8688,10 +8822,11 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 7
             Value = 0
-            OnChange = Pt8PtlReserveChange
+            OnChange = PtPtlReserveChange
           end
         end
         object Pt8Output: TSynthSlider
+          Tag = 7
           Left = 18
           Top = 202
           Width = 48
@@ -8706,7 +8841,7 @@ object EditorForm: TEditorForm
           ParentColor = False
           TabOrder = 7
           TabStop = True
-          OnChange = Pt8OutputChange
+          OnChange = PtOutputChange
         end
       end
       object PtRMixPanel: TPanel
@@ -8758,6 +8893,7 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object PtREnable: TSpeedButton
+          Tag = 8
           Left = 6
           Top = 23
           Width = 34
@@ -8775,7 +8911,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          OnClick = PtREnableClick
+          OnClick = PtEnableClick
         end
         object PtRBend_label: TLabel
           Left = 7
@@ -8793,6 +8929,7 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object PtRChan: TSpinEdit
+          Tag = 8
           Left = 41
           Top = 51
           Width = 42
@@ -8811,9 +8948,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 0
           Value = 1
-          OnChange = PtRChanChange
+          OnChange = PtChanChange
         end
         object PtROutput_value: TSpinEdit
+          Tag = 8
           Left = 18
           Top = 537
           Width = 48
@@ -8832,9 +8970,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 1
           Value = 0
-          OnChange = PtROutput_valueChange
+          OnChange = PtOutput_valueChange
         end
         object PtRBend_value: TSpinEdit
+          Tag = 8
           Left = 43
           Top = 111
           Width = 35
@@ -8853,16 +8992,17 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 2
           Value = 0
-          OnChange = PtRBend_valueChange
+          OnChange = PtBend_valueChange
         end
         object PtRBend: TKnobControl
+          Tag = 8
           Left = 7
           Top = 103
           Width = 30
           Height = 30
           Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
           Max = 24
-          OnChange = PtRBendChange
+          OnChange = PtBendChange
           StartAngle = 135
           EndAngle = 405
         end
@@ -8943,6 +9083,7 @@ object EditorForm: TEditorForm
             ParentFont = False
           end
           object PtRFine: TKnobControl
+            Tag = 8
             Left = 44
             Top = 176
             Width = 30
@@ -8950,11 +9091,12 @@ object EditorForm: TEditorForm
             Hint = 'Pitch Fine Tune'
             Min = -50
             Max = 50
-            OnChange = PtRFineChange
+            OnChange = PtFineChange
             StartAngle = 135
             EndAngle = 405
           end
           object PtRFine_value: TSpinEdit
+            Tag = 8
             Left = 42
             Top = 212
             Width = 38
@@ -8974,9 +9116,10 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 1
             Value = 0
-            OnChange = PtRFine_valueChange
+            OnChange = PtFine_valueChange
           end
           object PtRKey: TKnobControl
+            Tag = 8
             Left = 8
             Top = 176
             Width = 30
@@ -8986,11 +9129,12 @@ object EditorForm: TEditorForm
               'er'
             Min = -24
             Max = 24
-            OnChange = PtRKeyChange
+            OnChange = PtKeyChange
             StartAngle = 135
             EndAngle = 405
           end
           object PtRKey_value: TSpinEdit
+            Tag = 8
             Left = 3
             Top = 212
             Width = 38
@@ -9010,9 +9154,10 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 3
             Value = 0
-            OnChange = PtRKey_valueChange
+            OnChange = PtKey_valueChange
           end
           object PtRPoly: TComboBox
+            Tag = 8
             Left = 1
             Top = 21
             Width = 79
@@ -9036,7 +9181,7 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 4
             Text = '(S)  FIFO'
-            OnChange = PtRPolyChange
+            OnChange = PtPolyChange
             Items.Strings = (
               '(S)  FIFO'
               '(S)  FILO'
@@ -9044,6 +9189,7 @@ object EditorForm: TEditorForm
               '(M)  FILO')
           end
           object PtRPtlReserve: TSpinEdit
+            Tag = 8
             Left = 18
             Top = 64
             Width = 48
@@ -9064,10 +9210,11 @@ object EditorForm: TEditorForm
             ShowHint = True
             TabOrder = 5
             Value = 0
-            OnChange = PtRPtlReserveChange
+            OnChange = PtPtlReserveChange
           end
         end
         object PtROutput: TSynthSlider
+          Tag = 8
           Left = 18
           Top = 202
           Width = 48
@@ -9082,13 +9229,14 @@ object EditorForm: TEditorForm
           ParentColor = False
           TabOrder = 5
           TabStop = True
-          OnChange = PtROutputChange
+          OnChange = PtOutputChange
         end
       end
     end
     object RhythmSetup: TTabSheet
       Caption = 'Rhythm Setup'
       ImageIndex = 3
+      TabVisible = False
     end
     object SystemArea: TTabSheet
       Caption = 'System'
