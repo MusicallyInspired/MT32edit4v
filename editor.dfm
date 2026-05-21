@@ -11,12 +11,12 @@ object EditorForm: TEditorForm
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
-  Font.Style = []
+  Font.Style = [] 
   Position = poScreenCenter
   Visible = True
   OnClose = FormClose
   OnCreate = FormCreate
-  OnShow = FormShow
+  OnShow = FormShow  
   TextHeight = 13
   object MasterVolume_label: TLabel
     Left = 760
@@ -186,8 +186,8 @@ object EditorForm: TEditorForm
       object Partials_label: TLabel
         Left = 380
         Top = 15
-        Width = 15
-        Height = 37
+        Width = 37
+        Height = 15
         Caption = 'Partials'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
@@ -200,8 +200,8 @@ object EditorForm: TEditorForm
       object PartialSelect_label: TLabel
         Left = 5
         Top = 88
-        Width = 15
-        Height = 65
+        Width = 65
+        Height = 15
         Caption = 'Partial Select'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
@@ -867,7 +867,6 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
-          Frequency = 10
           ThumbSize = 10
           ParentColor = False
           TabOrder = 17
@@ -886,7 +885,6 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
-          Frequency = 10
           ThumbSize = 10
           ParentColor = False
           TabOrder = 18
@@ -905,7 +903,6 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
-          Frequency = 10
           ThumbSize = 10
           ParentColor = False
           TabOrder = 19
@@ -994,7 +991,6 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
-          Frequency = 10
           ThumbSize = 7
           ParentColor = False
           TabOrder = 24
@@ -1610,7 +1606,7 @@ object EditorForm: TEditorForm
           OnKeyPress = TVFDepthKeyFollow_valueKeyPress
         end
         object TVFBiasLevel_value: TEdit
-          Left = 214
+          Left = 211
           Top = 382
           Width = 25
           Height = 21
@@ -1974,7 +1970,7 @@ object EditorForm: TEditorForm
         object TVFDepth: TSynthSlider
           Left = 1
           Top = 291
-          Width = 91
+          Width = 88
           Height = 24
           Orientation = stoHorizontal
           TrackColor = 14737632
@@ -1982,7 +1978,6 @@ object EditorForm: TEditorForm
           ThumbColor = 14120960
           TickColor = clSilver
           TickMarks = stmTopLeft
-          Frequency = 10
           ThumbSize = 7
           ParentColor = False
           TabOrder = 27
@@ -1992,7 +1987,7 @@ object EditorForm: TEditorForm
         object TVFDepthKeyFollow: TSynthSlider
           Left = 120
           Top = 290
-          Width = 91
+          Width = 88
           Height = 23
           Max = 4
           Orientation = stoHorizontal
@@ -2010,14 +2005,13 @@ object EditorForm: TEditorForm
         object TVFVelSens: TSynthSlider
           Left = 1
           Top = 333
-          Width = 91
+          Width = 88
           Height = 23
           Orientation = stoHorizontal
           TrackColor = 14737632
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
-          Frequency = 10
           ThumbSize = 7
           ParentColor = False
           TabOrder = 29
@@ -2027,7 +2021,7 @@ object EditorForm: TEditorForm
         object TVFTimeKeyFollow: TSynthSlider
           Left = 120
           Top = 333
-          Width = 91
+          Width = 88
           Height = 23
           Max = 4
           Orientation = stoHorizontal
@@ -2045,7 +2039,7 @@ object EditorForm: TEditorForm
         object TVFBiasLevel: TSynthSlider
           Left = 92
           Top = 384
-          Width = 122
+          Width = 118
           Height = 23
           Min = -7
           Max = 7
@@ -2844,7 +2838,6 @@ object EditorForm: TEditorForm
             FillColor = 16751121
             ThumbColor = 14120960
             TickColor = clSilver
-            TickMarks = stmBoth
             Frequency = 25
             ThumbSize = 13
             ParentColor = False
@@ -3089,7 +3082,6 @@ object EditorForm: TEditorForm
           ThumbColor = 14120960
           TickColor = clSilver
           TickMarks = stmBottomRight
-          Frequency = 10
           ThumbSize = 7
           ParentColor = False
           TabOrder = 26
@@ -3117,7 +3109,7 @@ object EditorForm: TEditorForm
         object TVAVelKeyFollow: TSynthSlider
           Left = 118
           Top = 318
-          Width = 89
+          Width = 88
           Height = 20
           Max = 4
           Orientation = stoHorizontal
@@ -3135,7 +3127,7 @@ object EditorForm: TEditorForm
         object TVABiasLevel1: TSynthSlider
           Left = 92
           Top = 356
-          Width = 115
+          Width = 113
           Height = 24
           Min = -12
           Max = 0
@@ -3155,7 +3147,7 @@ object EditorForm: TEditorForm
         object TVABiasLevel2: TSynthSlider
           Left = 92
           Top = 393
-          Width = 115
+          Width = 113
           Height = 24
           Min = -12
           Max = 0
@@ -3673,8 +3665,6 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
-          TickMarks = stmBoth
-          Frequency = 10
           ThumbSize = 8
           ParentColor = False
           TabOrder = 7
@@ -3716,7 +3706,6 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
-          TickMarks = stmBoth
           Frequency = 12
           ThumbSize = 8
           ParentColor = False
@@ -3738,7 +3727,6 @@ object EditorForm: TEditorForm
           ThumbColor = 14120960
           TickColor = clSilver
           TickMarks = stmBottomRight
-          Frequency = 10
           ThumbSize = 8
           ParentColor = False
           TabOrder = 10
@@ -4412,7 +4400,6 @@ object EditorForm: TEditorForm
               'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
               'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
               ' 33 unique sound effects'#13#10'                '
-            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 4
             Font.Charset = DEFAULT_CHARSET
@@ -4511,10 +4498,8 @@ object EditorForm: TEditorForm
             Hint = 
               'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
               ' the'#13#10'four Banks are selected'
-            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 16
-            DropDownWidth = 78
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
@@ -4656,7 +4641,6 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
-          TickMarks = stmBoth
           Frequency = 5
           ThumbSize = 15
           ParentColor = False
@@ -5002,7 +4986,6 @@ object EditorForm: TEditorForm
               'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
               'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
               ' 33 unique sound effects'#13#10'                '
-            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 4
             Font.Charset = DEFAULT_CHARSET
@@ -5106,10 +5089,8 @@ object EditorForm: TEditorForm
             Hint = 
               'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
               ' the'#13#10'four Banks are selected'
-            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 16
-            DropDownWidth = 78
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
@@ -5253,7 +5234,6 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
-          TickMarks = stmBoth
           Frequency = 5
           ThumbSize = 15
           ParentColor = False
@@ -5599,7 +5579,6 @@ object EditorForm: TEditorForm
               'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
               'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
               ' 33 unique sound effects'#13#10'                '
-            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 4
             Font.Charset = DEFAULT_CHARSET
@@ -5703,10 +5682,8 @@ object EditorForm: TEditorForm
             Hint = 
               'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
               ' the'#13#10'four Banks are selected'
-            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 16
-            DropDownWidth = 78
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
@@ -5850,7 +5827,6 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
-          TickMarks = stmBoth
           Frequency = 5
           ThumbSize = 15
           ParentColor = False
@@ -6196,7 +6172,6 @@ object EditorForm: TEditorForm
               'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
               'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
               ' 33 unique sound effects'#13#10'                '
-            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 4
             Font.Charset = DEFAULT_CHARSET
@@ -6300,10 +6275,8 @@ object EditorForm: TEditorForm
             Hint = 
               'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
               ' the'#13#10'four Banks are selected'
-            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 16
-            DropDownWidth = 78
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
@@ -6447,7 +6420,6 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
-          TickMarks = stmBoth
           Frequency = 5
           ThumbSize = 15
           ParentColor = False
@@ -6793,7 +6765,6 @@ object EditorForm: TEditorForm
               'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
               'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
               ' 33 unique sound effects'#13#10'                '
-            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 4
             Font.Charset = DEFAULT_CHARSET
@@ -6897,10 +6868,8 @@ object EditorForm: TEditorForm
             Hint = 
               'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
               ' the'#13#10'four Banks are selected'
-            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 16
-            DropDownWidth = 78
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
@@ -7044,7 +7013,6 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
-          TickMarks = stmBoth
           Frequency = 5
           ThumbSize = 15
           ParentColor = False
@@ -7390,7 +7358,6 @@ object EditorForm: TEditorForm
               'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
               'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
               ' 33 unique sound effects'#13#10'                '
-            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 4
             Font.Charset = DEFAULT_CHARSET
@@ -7494,10 +7461,8 @@ object EditorForm: TEditorForm
             Hint = 
               'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
               ' the'#13#10'four Banks are selected'
-            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 16
-            DropDownWidth = 78
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
@@ -7641,7 +7606,6 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
-          TickMarks = stmBoth
           Frequency = 5
           ThumbSize = 15
           ParentColor = False
@@ -7987,7 +7951,6 @@ object EditorForm: TEditorForm
               'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
               'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
               ' 33 unique sound effects'#13#10'                '
-            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 4
             Font.Charset = DEFAULT_CHARSET
@@ -8091,10 +8054,8 @@ object EditorForm: TEditorForm
             Hint = 
               'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
               ' the'#13#10'four Banks are selected'
-            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 16
-            DropDownWidth = 78
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
@@ -8238,7 +8199,6 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
-          TickMarks = stmBoth
           Frequency = 5
           ThumbSize = 15
           ParentColor = False
@@ -8405,7 +8365,7 @@ object EditorForm: TEditorForm
         end
         object Pt8Chan: TSpinEdit
           Tag = 7
-          Left = 41
+          Left = 39
           Top = 51
           Width = 42
           Height = 22
@@ -8584,7 +8544,6 @@ object EditorForm: TEditorForm
               'in Timbre Memory'#13#10'Rhythm: 30 default rhythm sounds* (cannot be e' +
               'dited)'#13#10#13#10'*If using the CM-32, this bank includes'#13#10'an additional' +
               ' 33 unique sound effects'#13#10'                '
-            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 4
             Font.Charset = DEFAULT_CHARSET
@@ -8688,10 +8647,8 @@ object EditorForm: TEditorForm
             Hint = 
               'Timbre Selection (0 - 63)'#13#10#13#10'This list changes based on which of' +
               ' the'#13#10'four Banks are selected'
-            AutoDropDownWidth = True
             Style = csDropDownList
             DropDownCount = 16
-            DropDownWidth = 78
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
@@ -8835,7 +8792,6 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
-          TickMarks = stmBoth
           Frequency = 5
           ThumbSize = 15
           ParentColor = False
@@ -8930,7 +8886,7 @@ object EditorForm: TEditorForm
         end
         object PtRChan: TSpinEdit
           Tag = 8
-          Left = 41
+          Left = 39
           Top = 51
           Width = 42
           Height = 22
@@ -9223,7 +9179,6 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
-          TickMarks = stmBoth
           Frequency = 5
           ThumbSize = 15
           ParentColor = False
@@ -9236,12 +9191,12 @@ object EditorForm: TEditorForm
     object RhythmSetup: TTabSheet
       Caption = 'Rhythm Setup'
       ImageIndex = 3
-      TabVisible = False
+      TabVisible = False      
     end
     object SystemArea: TTabSheet
       Caption = 'System'
       ImageIndex = 4
-      TabVisible = False
+      TabVisible = False      
       object Label6: TLabel
         Left = 0
         Top = 247
@@ -9403,7 +9358,6 @@ object EditorForm: TEditorForm
     FillColor = 16751121
     ThumbColor = 14120960
     TickColor = clSilver
-    TickMarks = stmBoth
     Frequency = 5
     ThumbSize = 17
     ParentColor = False
