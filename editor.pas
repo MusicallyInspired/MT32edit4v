@@ -1032,14 +1032,13 @@ type
 
     function BuildSysEx: TBytes;
     function MuntReady: Boolean;
-    function GetByte(Addr: Cardinal; Synth: Integer): Byte;{ overload;
-    function GetByte(Addr: Cardinal): Byte; overload;       }
-    procedure GetData(Addr: Cardinal; Size: Cardinal; Data: Pointer; Synth: Integer); {overload;
-    procedure GetData(Addr: Cardinal; Size: Cardinal; Data: Pointer); overload;        }
+    function GetByte(Addr: Cardinal; Synth: Integer): Byte;
+    procedure GetData(Addr: Cardinal; Size: Cardinal; Data: Pointer; Synth: Integer);
     function BytesToStr(const Buf: array of Byte; Offset, Count: Integer): string;
     function StrToBytes(const S: string): TBytes;
     procedure BuildMuteByte;
     function LinearAddrToBytes(Addr: NativeUInt): TSysExAddr;
+    function BuildTimbreSysex: TBytes;
 
     procedure LoadTimbreNames(BankCombo: TComboBox; TimbreCombo: TComboBox);
     procedure ResolvePartialStructure;
@@ -1084,8 +1083,6 @@ begin
 end;
 
 procedure TEditorForm.FormShow(Sender: TObject);
-{var
-  i: Integer; }
 begin
   UpdatingControls := True;
   CurPt := Byte(CurPart.ItemIndex);
@@ -1094,17 +1091,6 @@ begin
   CurSyn := 0;
   SelPartial1Button.Down := True;
 
-  // Initialize GroupMem with blank 64 10-character names
-  {for i := 0 to 63 do
-  begin
-    Synth[0].GroupMem[i] := StringOfChar(' ', 10);
-    Synth[1].GroupMem[i] := StringOfChar(' ', 10);
-  end;}
-
-  {ComboBox2.Items.Clear;
-  for i := Low(GroupA_Names) to High(GroupA_Names) do
-    ComboBox2.Items.Add(GroupA_Names[i]);
-  }
   UpdatingControls := False;
 end;
 
@@ -1161,20 +1147,12 @@ end;
 
 procedure TEditorForm.SendCurrentSysEx;
 var
-{  j: Integer;
-  de: string;}
   msg: TBytes;
 begin
   if not MuntReady then
     Exit;
 
   msg := BuildSysEx;
-
-{  for j := 0 to High(msg) do
-  begin
-    de := de + IntToHex(msg[j],2) + ' ';
-  end;
-  ShowMessage(de);}
 
   PHandlerInterface_v1.sendSysExMessage(
     MuntVSTiInstance,
@@ -1188,21 +1166,7 @@ function TEditorForm.MuntReady: Boolean;
 begin
   Result := (PHandlerInterface_v1 <> nil) and (MuntVSTiInstance <> nil);
 end;
-{
-function TEditorForm.GetByte(Addr: Cardinal): Byte;
-begin
-  Result := 0;
 
-  if not MuntReady then Exit;
-
-  PHandlerInterface_v1.readMemory(
-    MuntVSTiInstance,
-    Addr,
-    1,
-    @Result
-  );
-end;
-}
 function TEditorForm.GetByte(Addr: Cardinal; Synth: Integer): Byte;
 begin
   Result := 0;
@@ -1229,18 +1193,6 @@ begin
     Synth+1
   );
 end;
-{
-procedure TEditorForm.GetData(Addr: Cardinal; Size: Cardinal; Data: Pointer);
-begin
-  if not MuntReady then Exit;
-  PHandlerInterface_v1.readMemory(
-    MuntVSTiInstance,
-    Addr,
-    Size,
-    Data
-  );
-end;
-}
 
 function TEditorForm.BytesToStr(const Buf: array of Byte; Offset, Count: Integer): string;
 var
@@ -1411,7 +1363,7 @@ begin
           Result := 12;
       end;
 
-    // 3: Stereo Synth
+    // 3: Stereo Synth (S1 -> L) (S2 -> R)
     3:
       begin
         ForcedShape1 := pkSynth;
@@ -1419,7 +1371,7 @@ begin
         Result := 7;
       end;
 
-    // 4: Stereo PCM
+    // 4: Stereo PCM (P1 -> L) (P2 -> R)
     4:
       begin
         ForcedShape1 := pkPCM;
@@ -2473,6 +2425,115 @@ begin
   SendCurrentSysEx;
 end;
 
+{ Sysex Importing/Exporting }
+
+function TEditorForm.BuildTimbreSysEx: TBytes;
+var
+  Timbre: TBytes;
+  MuteByte: Byte;
+  i,q: Integer;
+  sum: Byte;
+
+  procedure AddBytes(var Data: TBytes; const Values: array of Byte);
+  var
+    OldLen, I: Integer;
+  begin
+    OldLen := Length(Data);
+    SetLength(Data, OldLen + Length(Values));
+
+    for I := 0 to High(Values) do
+      Data[OldLen + I] := Values[I];
+  end;
+begin
+  SetLength(Timbre, $F6);
+  for i := 0 to 9 do
+    Timbre[i] := StrToBytes(Synth[CurSyn].Part[CurPt].Name)[i];
+  Timbre[$0A] := Synth[CurSyn].Part[CurPt].Struct1;
+  Timbre[$0B] := Synth[CurSyn].Part[CurPt].Struct2;
+  MuteByte := 0;
+  for q := 0 to 3 do
+    if Synth[CurSyn].Part[CurPt].Partial[q].Mute then
+      MuteByte := MuteByte or (1 shl q);
+  Timbre[$0C] := MuteByte;
+  Timbre[$0D] := Byte(not Synth[CurSyn].Part[CurPt].SustainOn);
+  for q := 0 to 3 do
+  begin
+    Timbre[(q * $3A) + $0E + $00] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PitchCoarse;
+    Timbre[(q * $3A) + $0E + $01] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PitchFine + 50;
+    Timbre[(q * $3A) + $0E + $02] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.KeyFollow + 3;
+    Timbre[(q * $3A) + $0E + $03] := Byte(Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PitchBend);
+    Timbre[(q * $3A) + $0E + $04] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.Shape;
+    Timbre[(q * $3A) + $0E + $05] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PCMSample;
+    Timbre[(q * $3A) + $0E + $06] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PulseWidth;
+    Timbre[(q * $3A) + $0E + $07] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.VelSens + 7;
+    Timbre[(q * $3A) + $0E + $08] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Depth;
+    Timbre[(q * $3A) + $0E + $09] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.VelSens;
+    Timbre[(q * $3A) + $0E + $0A] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.TimeKeyFollow;
+    Timbre[(q * $3A) + $0E + $0B] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Time1;
+    Timbre[(q * $3A) + $0E + $0C] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Time2;
+    Timbre[(q * $3A) + $0E + $0D] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Time3;
+    Timbre[(q * $3A) + $0E + $0E] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Time4;
+    Timbre[(q * $3A) + $0E + $0F] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Level0 + 50;
+    Timbre[(q * $3A) + $0E + $10] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Level1 + 50;
+    Timbre[(q * $3A) + $0E + $11] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Level2 + 50;
+    Timbre[(q * $3A) + $0E + $12] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Sustain + 50;
+    Timbre[(q * $3A) + $0E + $13] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.EndLevel + 50;
+    Timbre[(q * $3A) + $0E + $14] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.LFORate;
+    Timbre[(q * $3A) + $0E + $15] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.LFODepth;
+    Timbre[(q * $3A) + $0E + $16] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.LFOModSens;
+    Timbre[(q * $3A) + $0E + $17] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Cutoff;
+    Timbre[(q * $3A) + $0E + $18] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Resonance;
+    Timbre[(q * $3A) + $0E + $19] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.KeyFollow;
+    Timbre[(q * $3A) + $0E + $1A] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.BiasPoint;
+    Timbre[(q * $3A) + $0E + $1B] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.BiasLevel + 7;
+    Timbre[(q * $3A) + $0E + $1C] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Depth;
+    Timbre[(q * $3A) + $0E + $1D] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.VelSens;
+    Timbre[(q * $3A) + $0E + $1E] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.DepthKeyFollow;
+    Timbre[(q * $3A) + $0E + $1F] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.TimeKeyFollow;
+    Timbre[(q * $3A) + $0E + $20] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Time1;
+    Timbre[(q * $3A) + $0E + $21] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Time2;
+    Timbre[(q * $3A) + $0E + $22] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Time3;
+    Timbre[(q * $3A) + $0E + $23] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Time4;
+    Timbre[(q * $3A) + $0E + $24] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Time5;
+    Timbre[(q * $3A) + $0E + $25] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Level1;
+    Timbre[(q * $3A) + $0E + $26] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Level2;
+    Timbre[(q * $3A) + $0E + $27] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Level3;
+    Timbre[(q * $3A) + $0E + $28] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Sustain;
+    Timbre[(q * $3A) + $0E + $29] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Amplifier;
+    Timbre[(q * $3A) + $0E + $2A] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.VelSens + 50;
+    Timbre[(q * $3A) + $0E + $2B] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.BiasPoint1;
+    Timbre[(q * $3A) + $0E + $2C] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.BiasLevel1 + 12;
+    Timbre[(q * $3A) + $0E + $2D] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.BiasPoint2;
+    Timbre[(q * $3A) + $0E + $2E] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.BiasLevel2 + 12;
+    Timbre[(q * $3A) + $0E + $2F] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.TimeKeyFollow;
+    Timbre[(q * $3A) + $0E + $30] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.VelKeyFollow;
+    Timbre[(q * $3A) + $0E + $31] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Time1;
+    Timbre[(q * $3A) + $0E + $32] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Time2;
+    Timbre[(q * $3A) + $0E + $33] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Time3;
+    Timbre[(q * $3A) + $0E + $34] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Time4;
+    Timbre[(q * $3A) + $0E + $35] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Time5;
+    Timbre[(q * $3A) + $0E + $36] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Level1;
+    Timbre[(q * $3A) + $0E + $37] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Level2;
+    Timbre[(q * $3A) + $0E + $38] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Level3;
+    Timbre[(q * $3A) + $0E + $39] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Sustain;
+  end;
+
+  sum := 0;
+  for i := 0 to High(Timbre) do
+    sum := sum + Timbre[i]; // Data
+  sum := sum + $04 + $00 + $00; // Address
+  sum := sum mod 128;
+  sum := (128 - sum) mod 128;
+
+  AddBytes(Result, [$F0, $41, $10, $16, $12, $04, $00, $00]);
+  AddBytes(Result, Timbre);
+  SetLength(Result, $100);
+  Result[High(Result) - 1] := sum;
+  Result[High(Result)] := $F7;
+end;
+
+{ Patch Temp control event handlers for every part }
+
 procedure TEditorForm.PtBankChange(Sender: TObject);
 begin
   case TComboBox(Sender).Tag of
@@ -3236,7 +3297,7 @@ begin
     if not SaveDialog.Execute then
       Exit;
 
-    //SyxBytes := BuildSyxFromEditorModel;
+    SyxBytes := BuildTimbreSysEx;
 
     TFile.WriteAllBytes(SaveDialog.FileName, SyxBytes);
   finally
