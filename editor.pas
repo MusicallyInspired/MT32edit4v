@@ -283,7 +283,6 @@ type
     Button2: TButton;
     Button3: TButton;
     Button4: TButton;
-    Edit2: TEdit;
     Edit3: TEdit;
     Edit4: TEdit;
     Label1: TLabel;
@@ -428,7 +427,6 @@ type
     SaveSyxButton: TButton;
     PatchTempArea: TTabSheet;
     MasterVolume_label: TLabel;
-    SyncTimbreButton: TButton;
     SyncAllButton: TBitBtn;
     RhythmSetup: TTabSheet;
     SystemArea: TTabSheet;
@@ -441,14 +439,12 @@ type
     WGFine_label: TLabel;
     WGKeyFollow_label: TLabel;
     WGSample_label: TLabel;
-    WGKeyFollowType: TLabel;
     WGCoarseType: TLabel;
     WGShape: TRadioGroup;
     WGPulseWidth_value: TEdit;
     WGVelSens_value: TEdit;
     WGCoarse_value: TEdit;
     WGFine_value: TEdit;
-    WGKeyFollow_value: TEdit;
     PartialGroup: TGroupBox;
     PartialMute_label: TLabel;
     PartialStruct_label: TLabel;
@@ -719,7 +715,6 @@ type
     WGVelSens: TSynthSlider;
     WGCoarse: TSynthSlider;
     WGFine: TSynthSlider;
-    WGKeyFollow: TSynthSlider;
     PEnvLevel0: TSynthSlider;
     PEnvLevel1: TSynthSlider;
     PEnvLevel2: TSynthSlider;
@@ -758,6 +753,10 @@ type
     Pt7Output: TSynthSlider;
     Pt8Output: TSynthSlider;
     PtROutput: TSynthSlider;
+    Helper: TButton;
+    WGKeyFollow: TComboBox;
+    Memo2: TMemo;
+    Label4: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -769,7 +768,6 @@ type
     procedure SendCurrentSysEx;
 
     procedure LoadAllDataFromMunt;
-    procedure RefreshTimbre;
     procedure DecodeSystem(const Buf: array of Byte; var Dest: TSystem);
     procedure DecodePatch(const Buf: array of Byte; var Dest: TPatch);
     procedure DecodeRhythm(const Buf: array of Byte; var Dest: TRhythm);
@@ -782,6 +780,7 @@ type
     procedure RefreshStructs;
     procedure RefreshEnvelopePlots;
     procedure RefreshPatchControls;
+    procedure RefreshGroupMemNames;
     procedure RefreshAllGroupMemCombos;
     procedure SetSynthColors;
 
@@ -813,7 +812,6 @@ type
 
     procedure OpenSyxButtonClick(Sender: TObject);
     procedure SaveSyxButtonClick(Sender: TObject);
-    procedure SyncTimbreButtonClick(Sender: TObject);
     procedure InitTimbreButtonClick(Sender: TObject);
 
     procedure SelPartial1ButtonClick(Sender: TObject);
@@ -826,16 +824,13 @@ type
     procedure WGFine_valueKeyPress(Sender: TObject; var Key: Char);
     procedure WGVelSens_valueKeyPress(Sender: TObject; var Key: Char);
     procedure WGPulseWidth_valueKeyPress(Sender: TObject; var Key: Char);
-    procedure WGKeyFollow_valueKeyPress(Sender: TObject; var Key: Char);
     procedure WGCoarse_valueKeyPress(Sender: TObject; var Key: Char);
     procedure WGSampleClick(Sender: TObject);
     procedure WGPulseWidthChange(Sender: TObject);
     procedure WGVelSensChange(Sender: TObject);
     procedure WGCoarseChange(Sender: TObject);
     procedure WGFineChange(Sender: TObject);
-    procedure WGKeyFollowChange(Sender: TObject);
     procedure WGCoarse_valueExit(Sender: TObject);
-    procedure WGKeyFollow_valueExit(Sender: TObject);
     procedure WGFine_valueExit(Sender: TObject);
     procedure WGPulseWidth_valueExit(Sender: TObject);
     procedure WGVelSens_valueExit(Sender: TObject);
@@ -1012,6 +1007,8 @@ type
     procedure Synth2ToggleClick(Sender: TObject);
     procedure MasterVolume_valueChange(Sender: TObject);
     procedure MasterVolumeChange(Sender: TObject);
+    procedure HelperClick(Sender: TObject);
+    procedure WGKeyFollowChange(Sender: TObject);
 
   private
     { Private declarations }
@@ -1194,6 +1191,38 @@ begin
   );
 end;
 
+procedure TEditorForm.HelperClick(Sender: TObject);
+var
+  buf: TBytes;
+  buf2: TBytes;
+  i: Integer;
+begin
+  SetLength(buf,10);
+  SetLength(buf2,10);
+  for i := 0 to 10 do
+    buf[i] := GetByte(AdTimbreTemp + NativeUInt(i),0);
+  for i := 0 to 10 do
+    buf2[i] := GetByte(AdTimbreMem + NativeUInt((4 * $100) + i),0);
+  //GetData(AdTimbreTemp, 10, buf, 0);
+  //GetData(AdTimbreMem + (4 * $100), 10, buf, 0);
+  ShowMessage(Format(
+                'Contents of Munt Timbre Temp 1 Name:' + sLineBreak + '%s' +
+                  sLineBreak + sLineBreak +
+                  'Contents of Munt Timbre Mem 1 Name:' + sLineBreak + '%s' +
+                  sLineBreak + sLineBreak +
+                  'Contents of GroupMem[0]:' + sLineBreak + '%s' +
+                  sLineBreak + sLineBreak +
+                  'Contents of Pt1Timbre.Items[0]:' + sLineBreak + '%s',
+                [
+                  BytesToStr(buf,0,10),
+                  BytesToStr(buf2,0,10),
+                  Synth[CurSyn].GroupMem[4],
+                  Pt1Timbre.Items[4]
+                ]
+              )
+  );
+end;
+
 function TEditorForm.BytesToStr(const Buf: array of Byte; Offset, Count: Integer): string;
 var
   i: Integer;
@@ -1228,18 +1257,14 @@ end;
 procedure TEditorForm.SyncAllButtonClick(Sender: TObject);
 begin
   LoadAllDataFromMunt;
-  UpdatingControls := True;
   RefreshVisibleControls;
+
+  UpdatingControls := True;
   MasterVolume.Position := Synth[CurSyn].System.MasterVolume;
   MasterVolume_value.Text := IntToStr(Synth[CurSyn].System.MasterVolume);
   UpdatingControls := False;
 
   ActiveControl := nil;
-end;
-
-procedure TEditorForm.SyncTimbreButtonClick(Sender: TObject);
-begin
-  RefreshTimbre;
 end;
 
 procedure TEditorForm.Synth1ToggleClick(Sender: TObject);
@@ -1263,6 +1288,9 @@ begin
 end;
 
 procedure TEditorForm.InitTimbreButtonClick(Sender: TObject);
+var
+  TmbBuf: TBytes;
+  PtcBuf: TBytes;
 begin
   if MessageDlg(
       'Really clear all current Timbre settings? (WARNING: Cannot be undone!)',
@@ -1279,7 +1307,21 @@ begin
     Move(InitTimbre[0], SysExData[0], Length(InitTimbre));
     SendCurrentSysEx;
     Sleep(400);
-    RefreshTimbre;
+
+    SysExAddress := LinearAddrToBytes(AdPatchTemp + (CurPt * $10) + $06);
+    SetLength(SysExData,1);
+    SysExData[0] := Byte(False);
+    SendCurrentSysEx;
+    Sleep(400);
+
+    SetLength(TmbBuf, $F6);
+    SetLength(PtcBuf,$10);
+    GetData(AdTimbreTemp + (CurPt * $F6), $F6, TmbBuf, CurSyn);
+    GetData(AdPatchTemp, $10, PtcBuf, CurSyn);
+    DecodeTimbrePart(TmbBuf, Synth[CurSyn].Part[CurPt]);
+    DecodePatch(PtcBuf, Synth[CurSyn].Patch[CurPt]);
+
+    RefreshVisibleControls;
   end;
 end;
 
@@ -1403,7 +1445,10 @@ begin
           TimbreCombo.Items.Add(GroupB_Names[I]);
       2:
         for I := 0 to 63 do
+        begin
           TimbreCombo.Items.Add(Synth[CurSyn].GroupMem[I]);
+          //ShowMessage(Format('%s',[Synth[CurSyn].GroupMem[I]]));
+        end;
       3:
         for I := 0 to 63 do
           TimbreCombo.Items.Add(GroupRhy_Names[I]);
@@ -1615,30 +1660,11 @@ begin
       Addr := AdTimbreMem + (NativeUInt(p) * $100);
       GetData(Addr, SizeOf(TmbMemBuf), @TmbMemBuf, i);
       DecodeTimbrePart(TmbMemBuf, Synth[i].TimbreMem[p]);
-      Synth[i].GroupMem[p] := BytesToStr(TmbMemBuf, 0, 10);
+      Synth[i].GroupMem[p] := '          ';
+      //Synth[i].GroupMem[p] := BytesToStr(TmbMemBuf, 0, 10);
+      //ShowMessage(Format('Updating Synth[%d].GroupMem[%d]' + sLineBreak + '''%s''',[i,p,Synth[i].GroupMem[p]]));
     end;
   end;
-end;
-
-procedure TEditorForm.RefreshTimbre;
-var
-  Buf: array[0..$F5] of Byte;
-  Addr: Cardinal;
-begin
-  if not MuntReady then Exit;
-
-  Addr := AdSystem + $0D + CurPt;
-  Synth[CurSyn].System.MidiChannel[CurPt] := GetByte(Addr,CurSyn);
-  Addr := AdPatchTemp + $06 + (CurPt * $10);
-  Synth[CurSyn].Patch[CurPt].Reverb := GetByte(Addr,CurSyn) = 1;
-  Addr := AdPatchTemp + $04 + (CurPt * $10);
-  Synth[CurSyn].Patch[CurPt].BendRange := GetByte(Addr,CurSyn);
-
-  Addr := AdTimbreTemp + (CurPt * $F6);
-  GetData(Addr, SizeOf(Buf), @Buf, CurSyn);
-  DecodeTimbrePart(Buf, Synth[CurSyn].Part[CurPt]);
-
-  RefreshVisibleControls;
 end;
 
 procedure TEditorForm.DecodeSystem(const Buf: array of Byte; var Dest: TSystem);
@@ -1713,7 +1739,7 @@ begin
   { Decode Wave Generator SysEx Data }
   Dest.WaveGen.PitchCoarse := Buf[$00 + Offset];
   Dest.WaveGen.PitchFine := Buf[$01 + Offset] - 50;
-  Dest.WaveGen.KeyFollow := Buf[$02 + Offset] - 3;
+  Dest.WaveGen.KeyFollow := Buf[$02 + Offset];
   Dest.WaveGen.PitchBend := Buf[$03 + Offset] <> 0;
   Dest.WaveGen.Shape := Buf[$04 + Offset];
   Dest.WaveGen.PCMSample := Buf[$05 + Offset];
@@ -1778,10 +1804,11 @@ procedure TEditorForm.RefreshVisibleControls;
 begin
   UpdatingControls := True;
   try
-    RefreshPartControls;
-    RefreshPartialControls;
+    RefreshGroupMemNames;
     RefreshPatchControls;
     RefreshAllGroupMemCombos;
+    RefreshPartControls;
+    RefreshPartialControls;
     //RefreshSystemControls;
     MasterVolume.Position := Synth[CurSyn].System.MasterVolume;
     MasterVolume_value.Value := Synth[CurSyn].System.MasterVolume;
@@ -1789,6 +1816,30 @@ begin
     SetSynthColors;
   finally
     UpdatingControls := False;
+  end;
+end;
+
+procedure TEditorForm.RefreshGroupMemNames;
+var
+  i, j: Integer;
+  Buf: TBytes;
+begin
+  for j := 0 to 1 do
+  begin
+    for i := 0 to 63 do
+    begin
+      SetLength(Buf,10);
+      GetData(
+        AdTimbreMem +               // Address
+        (NativeUInt(i) * $100),     //
+        10,                         // Size
+        Buf,                        // Data Pointer
+        j                           // Synth #
+      );
+      Synth[j].GroupMem[i] := BytesToStr(Buf, 0, 10);
+      //ShowMessage(Format('RefreshGroupMemNames' + sLineBreak + 'Synth %d: %d: ''%s''',[j + 1, i, Synth[j].GroupMem[i]]));
+      SetLength(Buf,0);
+    end;
   end;
 end;
 
@@ -1838,8 +1889,7 @@ begin
   WGCoarse_value.Text := IntToStr(WGCoarse.Position);
   WGFine.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.PitchFine;
   WGFine_value.Text := IntToStr(WGFine.Position);
-  WGKeyFollow.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.KeyFollow;
-  WGKeyFollow_value.Text := IntToStr(WGKeyFollow.Position);
+  WGKeyFollow.ItemIndex := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.KeyFollow;
   WGPitchBend.Down := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.PitchBend;
   case CurPtl of
     0:
@@ -2256,8 +2306,6 @@ begin
     WGCoarse.ThumbColor := clSliderThumb;
     WGFine.FillColor := clSliderFill;
     WGFine.ThumbColor := clSliderThumb;
-    WGKeyFollow.FillColor := clSliderFill;
-    WGKeyFollow.ThumbColor := clSliderThumb;
     PitchEnvGroup.Font.Color :=clSynthText;
     PEnvLevel0.FillColor := clSliderFill;
     PEnvLevel0.ThumbColor := clSliderThumb;
@@ -2558,6 +2606,33 @@ begin
   SetLength(SysExData,1);
   SysExData[0] := Synth[CurSyn].Patch[TComboBox(Sender).Tag].TmbGroup;
   SendCurrentSysEx;
+
+  if CurPt = TComboBox(Sender).Tag then
+  begin
+    Sleep(400);
+    RefreshVisibleControls;
+  end;
+end;
+
+procedure TEditorForm.PtTimbreChange(Sender: TObject);
+begin
+  if UpdatingControls then Exit;
+
+  Synth[CurSyn].Patch[TComboBox(Sender).Tag].TmbNumber := TComboBox(Sender).ItemIndex;
+  SysExAddress := LinearAddrToBytes(
+    AdPatchTemp +
+    (NativeUInt(TComboBox(Sender).Tag) * $10) +
+    $01
+  );
+  SetLength(SysExData,1);
+  SysExData[0] := Synth[CurSyn].Patch[TComboBox(Sender).Tag].TmbNumber;
+  SendCurrentSysEx;
+
+  if CurPt = TComboBox(Sender).Tag then
+  begin
+    Sleep(400);
+    RefreshVisibleControls;
+  end;
 end;
 
 procedure TEditorForm.PtBendChange(Sender: TObject);
@@ -3038,21 +3113,6 @@ begin
   SendCurrentSysEx;
 end;
 
-procedure TEditorForm.PtTimbreChange(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Patch[TComboBox(Sender).Tag].TmbNumber := TComboBox(Sender).ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (NativeUInt(TComboBox(Sender).Tag) * $10) +
-    $01
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[TComboBox(Sender).Tag].TmbNumber;
-  SendCurrentSysEx;
-end;
-
 procedure TEditorForm.PtBendRangeChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
@@ -3310,10 +3370,7 @@ begin
   if CurPt <> CurPart.ItemIndex then
   begin
     CurPt := CurPart.ItemIndex;
-
-    UpdatingControls := True;
     RefreshVisibleControls;
-    UpdatingControls := False;
   end;
 end;
 
@@ -3322,6 +3379,7 @@ begin
   if UpdatingControls then Exit;
 
   Synth[CurSyn].System.MidiChannel[CurPt] := PartMidiChan.ItemIndex;
+  UpdatingControls := True;
   if PartMidiChan.ItemIndex < 16 then
     case CurPt of
       0: begin
@@ -3409,6 +3467,7 @@ begin
         PtRChan.Enabled := False;
       end;
     end;
+  UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
     AdSystem +
@@ -3861,30 +3920,9 @@ end;
 
 procedure TEditorForm.WGKeyFollowChange(Sender: TObject);
 begin
-  case (WGKeyFollow.Position + 3) of
-    0: WGKeyFollowType.Caption := '-1';
-    1: WGKeyFollowType.Caption := '-1/2';
-    2: WGKeyFollowType.Caption := '-1/4';
-    3: WGKeyFollowType.Caption := '0';
-    4: WGKeyFollowType.Caption := '1/8';
-    5: WGKeyFollowType.Caption := '1/4';
-    6: WGKeyFollowType.Caption := '3/8';
-    7: WGKeyFollowType.Caption := '1/2';
-    8: WGKeyFollowType.Caption := '5/8';
-    9: WGKeyFollowType.Caption := '3/4';
-    10: WGKeyFollowType.Caption := '7/8';
-    11: WGKeyFollowType.Caption := '1';
-    12: WGKeyFollowType.Caption := '5/4';
-    13: WGKeyFollowType.Caption := '3/2';
-    14: WGKeyFollowType.Caption := '2';
-    15: WGKeyFollowType.Caption := 's1';
-    16: WGKeyFollowType.Caption := 's2';
-  end;
-
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.KeyFollow := WGKeyFollow.Position;
-  WGKeyFollow_value.Text := IntToStr(Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.KeyFollow);
+  Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.KeyFollow := WGKeyFollow.ItemIndex;
 
   SysExAddress := LinearAddrToBytes(
     AdTimbreTemp +
@@ -3893,37 +3931,8 @@ begin
     $02
   );
   SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.KeyFollow + 3;
+  SysExData[0] := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.KeyFollow;
   SendCurrentSysEx;
-end;
-
-procedure TEditorForm.WGKeyFollow_valueExit(Sender: TObject);
-begin
-  if StrToInt(WGKeyFollow_value.Text) < WGKeyFollow.Min then
-    WGKeyFollow_value.Text := IntToStr(WGKeyFollow.Min);
-  if StrToInt(WGKeyFollow_value.Text) > WGKeyFollow.Max then
-    WGKeyFollow_value.Text := IntToStr(WGKeyFollow.Max);
-
-  Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.KeyFollow := StrToInt(WGKeyFollow_value.Text);
-  UpdatingControls := True;
-  WGKeyFollow.Position := StrToInt(WGKeyFollow_value.Text);
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdTimbreTemp +
-    (CurPt * $F6) +
-    (CurPtl * $3A) + $0E +
-    $02
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.KeyFollow + 3;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.WGKeyFollow_valueKeyPress(Sender: TObject; var Key: Char);
-begin
-  if not AllowSignedNumericKey(TEdit(Sender), Key) then Exit;
-  PressedKey(Sender,Key);
 end;
 
 { Pitch Envelope Controls }
@@ -6887,7 +6896,7 @@ var
   i, idx: Integer;
   token: string;
 begin
-  input := Edit2.Text;
+  input := Memo2.Text;
 
   parts := TStringList.Create;
   parts.Delimiter := ' ';

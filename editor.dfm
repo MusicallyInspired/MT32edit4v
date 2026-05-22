@@ -11,12 +11,12 @@ object EditorForm: TEditorForm
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
-  Font.Style = [] 
+  Font.Style = []
   Position = poScreenCenter
   Visible = True
   OnClose = FormClose
   OnCreate = FormCreate
-  OnShow = FormShow  
+  OnShow = FormShow
   TextHeight = 13
   object MasterVolume_label: TLabel
     Left = 760
@@ -70,7 +70,7 @@ object EditorForm: TEditorForm
     Top = 3
     Width = 756
     Height = 619
-    ActivePage = TimbreTempArea
+    ActivePage = Debug
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -186,8 +186,8 @@ object EditorForm: TEditorForm
       object Partials_label: TLabel
         Left = 380
         Top = 15
-        Width = 37
-        Height = 15
+        Width = 15
+        Height = 37
         Caption = 'Partials'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
@@ -200,8 +200,8 @@ object EditorForm: TEditorForm
       object PartialSelect_label: TLabel
         Left = 5
         Top = 88
-        Width = 65
-        Height = 15
+        Width = 15
+        Height = 65
         Caption = 'Partial Select'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
@@ -227,9 +227,9 @@ object EditorForm: TEditorForm
         ParentColor = False
         ParentDoubleBuffered = False
         ParentFont = False
-        TabOrder = 6
+        TabOrder = 5
         object PEnvLevel0_label: TLabel
-          Left = 3
+          Left = 5
           Top = 17
           Width = 22
           Height = 13
@@ -867,6 +867,7 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          Frequency = 10
           ThumbSize = 10
           ParentColor = False
           TabOrder = 17
@@ -885,6 +886,7 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          Frequency = 10
           ThumbSize = 10
           ParentColor = False
           TabOrder = 18
@@ -903,6 +905,7 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          Frequency = 10
           ThumbSize = 10
           ParentColor = False
           TabOrder = 19
@@ -921,6 +924,7 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          Frequency = 10
           ThumbSize = 10
           ParentColor = False
           TabOrder = 20
@@ -934,11 +938,13 @@ object EditorForm: TEditorForm
           Height = 70
           Min = -50
           Max = 50
+          Position = -1
           CenterMark = True
           TrackColor = 14737632
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          Frequency = 10
           ThumbSize = 10
           ParentColor = False
           TabOrder = 21
@@ -1012,7 +1018,7 @@ object EditorForm: TEditorForm
         Font.Style = []
         ParentDoubleBuffered = False
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         object TVFLevel0_label: TLabel
           Left = 5
           Top = 17
@@ -1866,6 +1872,7 @@ object EditorForm: TEditorForm
             FillColor = 16751121
             ThumbColor = 14120960
             TickColor = clSilver
+            Frequency = 10
             ThumbSize = 10
             ParentColor = False
             TabOrder = 2
@@ -1898,6 +1905,7 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          Frequency = 10
           ThumbSize = 10
           ParentColor = False
           TabOrder = 22
@@ -1913,6 +1921,7 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          Frequency = 10
           ThumbSize = 10
           ParentColor = False
           TabOrder = 23
@@ -1928,6 +1937,7 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          Frequency = 10
           ThumbSize = 10
           ParentColor = False
           TabOrder = 24
@@ -1943,6 +1953,7 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          Frequency = 10
           ThumbSize = 10
           ParentColor = False
           TabOrder = 25
@@ -1978,6 +1989,7 @@ object EditorForm: TEditorForm
           ThumbColor = 14120960
           TickColor = clSilver
           TickMarks = stmTopLeft
+          Frequency = 10
           ThumbSize = 7
           ParentColor = False
           TabOrder = 27
@@ -2040,7 +2052,7 @@ object EditorForm: TEditorForm
           Left = 92
           Top = 384
           Width = 118
-          Height = 23
+          Height = 24
           Min = -7
           Max = 7
           Orientation = stoHorizontal
@@ -2071,7 +2083,7 @@ object EditorForm: TEditorForm
         Font.Style = []
         ParentDoubleBuffered = False
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 7
         object TVALevel1_label: TLabel
           Left = 19
           Top = 17
@@ -2830,14 +2842,15 @@ object EditorForm: TEditorForm
             OnKeyPress = TVAAmplifier_valueKeyPress
           end
           object TVAAmplifier: TSynthSlider
-            Left = 15
+            Left = 13
             Top = 20
-            Width = 30
+            Width = 32
             Height = 131
             TrackColor = 14737632
             FillColor = 16751121
             ThumbColor = 14120960
             TickColor = clSilver
+            TickMarks = stmBoth
             Frequency = 25
             ThumbSize = 13
             ParentColor = False
@@ -3017,6 +3030,7 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          Frequency = 10
           ThumbSize = 10
           ParentColor = False
           TabOrder = 22
@@ -3032,6 +3046,7 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          Frequency = 10
           ThumbSize = 10
           ParentColor = False
           TabOrder = 23
@@ -3047,6 +3062,7 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          Frequency = 10
           ThumbSize = 10
           ParentColor = False
           TabOrder = 24
@@ -3062,6 +3078,7 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          Frequency = 10
           ThumbSize = 10
           ParentColor = False
           TabOrder = 25
@@ -3070,9 +3087,9 @@ object EditorForm: TEditorForm
         end
         object TVAVelSens: TSynthSlider
           Left = 1
-          Top = 281
+          Top = 283
           Width = 202
-          Height = 23
+          Height = 20
           Min = -50
           Max = 50
           Orientation = stoHorizontal
@@ -3082,6 +3099,7 @@ object EditorForm: TEditorForm
           ThumbColor = 14120960
           TickColor = clSilver
           TickMarks = stmBottomRight
+          Frequency = 10
           ThumbSize = 7
           ParentColor = False
           TabOrder = 26
@@ -3147,7 +3165,7 @@ object EditorForm: TEditorForm
         object TVABiasLevel2: TSynthSlider
           Left = 92
           Top = 393
-          Width = 113
+          Width = 115
           Height = 24
           Min = -12
           Max = 0
@@ -3226,18 +3244,6 @@ object EditorForm: TEditorForm
         TabOrder = 2
         OnClick = SaveSyxButtonClick
       end
-      object SyncTimbreButton: TButton
-        Left = 591
-        Top = 37
-        Width = 69
-        Height = 24
-        Hint = 'Refresh the current Part'#39's Timbre settings from MuntVSTi'
-        Caption = 'Sync Timbre'
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 4
-        OnClick = SyncTimbreButtonClick
-      end
       object WaveGenGroup: TGroupBox
         Left = 51
         Top = 70
@@ -3250,7 +3256,7 @@ object EditorForm: TEditorForm
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        TabOrder = 5
+        TabOrder = 4
         object WGPulseWidth_label: TLabel
           Left = 86
           Top = 11
@@ -3268,7 +3274,7 @@ object EditorForm: TEditorForm
         end
         object WGVelSens_label: TLabel
           Left = 86
-          Top = 51
+          Top = 53
           Width = 89
           Height = 13
           Caption = 'Velocity Sensitivity'
@@ -3318,7 +3324,7 @@ object EditorForm: TEditorForm
         end
         object WGFine_label: TLabel
           Left = 414
-          Top = 51
+          Top = 53
           Width = 54
           Height = 13
           Caption = 'Pitch (Fine)'
@@ -3334,9 +3340,9 @@ object EditorForm: TEditorForm
         object WGKeyFollow_label: TLabel
           Left = 558
           Top = 11
-          Width = 51
+          Width = 103
           Height = 13
-          Caption = 'Key Follow'
+          Caption = 'Key Follow (multi/oct)'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -3359,20 +3365,6 @@ object EditorForm: TEditorForm
           Font.Style = []
           ParentFont = False
         end
-        object WGKeyFollowType: TLabel
-          Left = 670
-          Top = 11
-          Width = 7
-          Height = 13
-          Alignment = taRightJustify
-          Caption = '0'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-        end
         object WGCoarseType: TLabel
           Left = 526
           Top = 11
@@ -3391,14 +3383,20 @@ object EditorForm: TEditorForm
           Left = 6
           Top = 11
           Width = 68
-          Height = 76
+          Height = 78
           Hint = 'Shape of the waveform that this partial will generate'
           Caption = ' '
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
           ItemIndex = 0
           Items.Strings = (
             'Square'
             'Saw'
             'PCM')
+          ParentFont = False
           ParentShowHint = False
           ShowHint = True
           TabOrder = 0
@@ -3487,29 +3485,11 @@ object EditorForm: TEditorForm
           OnExit = WGFine_valueExit
           OnKeyPress = WGFine_valueKeyPress
         end
-        object WGKeyFollow_value: TEdit
-          Left = 655
-          Top = 27
-          Width = 26
-          Height = 21
-          Hint = '-3 ~ +13'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          MaxLength = 3
-          ParentFont = False
-          TabOrder = 5
-          Text = '0'
-          OnExit = WGKeyFollow_valueExit
-          OnKeyPress = WGKeyFollow_valueKeyPress
-        end
         object WGSample: TListBox
           Left = 222
           Top = 26
           Width = 179
-          Height = 60
+          Height = 61
           Hint = 'PCM sample for this partial (instead of waveform)'
           Enabled = False
           ExtendedSelect = False
@@ -3651,12 +3631,12 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 6
+          TabOrder = 5
           OnClick = WGSampleClick
         end
         object WGPulseWidth: TSynthSlider
           Left = 77
-          Top = 23
+          Top = 24
           Width = 107
           Height = 29
           Hint = 'Pulse Width of the partial'#39's waveform'
@@ -3665,9 +3645,11 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          TickMarks = stmBoth
+          Frequency = 10
           ThumbSize = 8
           ParentColor = False
-          TabOrder = 7
+          TabOrder = 6
           TabStop = True
           OnChange = WGPulseWidthChange
         end
@@ -3688,13 +3670,13 @@ object EditorForm: TEditorForm
           TickMarks = stmBottomRight
           ThumbSize = 8
           ParentColor = False
-          TabOrder = 8
+          TabOrder = 7
           TabStop = True
           OnChange = WGVelSensChange
         end
         object WGCoarse: TSynthSlider
           Left = 407
-          Top = 23
+          Top = 24
           Width = 105
           Height = 29
           Max = 96
@@ -3706,10 +3688,11 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          TickMarks = stmBoth
           Frequency = 12
           ThumbSize = 8
           ParentColor = False
-          TabOrder = 9
+          TabOrder = 8
           TabStop = True
           OnChange = WGCoarseChange
         end
@@ -3727,31 +3710,47 @@ object EditorForm: TEditorForm
           ThumbColor = 14120960
           TickColor = clSilver
           TickMarks = stmBottomRight
+          Frequency = 10
           ThumbSize = 8
           ParentColor = False
-          TabOrder = 10
+          TabOrder = 9
           TabStop = True
           OnChange = WGFineChange
         end
-        object WGKeyFollow: TSynthSlider
-          Left = 550
-          Top = 23
-          Width = 105
-          Height = 29
-          Min = -3
-          Max = 13
-          Orientation = stoHorizontal
-          CenterMark = True
-          TrackColor = 14737632
-          FillColor = 16751121
-          ThumbColor = 14120960
-          TickColor = clSilver
-          TickMarks = stmBottomRight
-          ThumbSize = 8
-          ParentColor = False
-          TabOrder = 11
-          TabStop = True
+        object WGKeyFollow: TComboBox
+          Left = 558
+          Top = 27
+          Width = 122
+          Height = 21
+          Style = csDropDownList
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ItemIndex = 11
+          ParentFont = False
+          TabOrder = 10
+          Text = '1 (Standard)'
           OnChange = WGKeyFollowChange
+          Items.Strings = (
+            '-1 (Inverted)'
+            '-1/2'
+            '-1/4'
+            '0 (Fixed)'
+            '1/8 (Microtonal)'
+            '1/4'
+            '3/8'
+            '1/2'
+            '5/8'
+            '3/4'
+            '7/8'
+            '1 (Standard)'
+            '5/4'
+            '3/2'
+            '2 (Double)'
+            's1 (Stretch +1'#162'/oct)'
+            's2 (Stretch +5'#162'/oct)')
         end
       end
       object PartialGroup: TGroupBox
@@ -3759,7 +3758,7 @@ object EditorForm: TEditorForm
         Top = 3
         Width = 189
         Height = 64
-        TabOrder = 9
+        TabOrder = 8
         object PartialMute_label: TLabel
           Left = 12
           Top = 2
@@ -3890,7 +3889,7 @@ object EditorForm: TEditorForm
         ParentBackground = False
         ParentColor = False
         ParentFont = False
-        TabOrder = 10
+        TabOrder = 9
         object CurPart_label: TLabel
           Left = 5
           Top = 22
@@ -4641,6 +4640,7 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          TickMarks = stmBoth
           Frequency = 5
           ThumbSize = 15
           ParentColor = False
@@ -5234,6 +5234,7 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          TickMarks = stmBoth
           Frequency = 5
           ThumbSize = 15
           ParentColor = False
@@ -5827,6 +5828,7 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          TickMarks = stmBoth
           Frequency = 5
           ThumbSize = 15
           ParentColor = False
@@ -6420,6 +6422,7 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          TickMarks = stmBoth
           Frequency = 5
           ThumbSize = 15
           ParentColor = False
@@ -7013,6 +7016,7 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          TickMarks = stmBoth
           Frequency = 5
           ThumbSize = 15
           ParentColor = False
@@ -7606,6 +7610,7 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          TickMarks = stmBoth
           Frequency = 5
           ThumbSize = 15
           ParentColor = False
@@ -8199,6 +8204,7 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          TickMarks = stmBoth
           Frequency = 5
           ThumbSize = 15
           ParentColor = False
@@ -8792,6 +8798,7 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          TickMarks = stmBoth
           Frequency = 5
           ThumbSize = 15
           ParentColor = False
@@ -9179,6 +9186,7 @@ object EditorForm: TEditorForm
           FillColor = 16751121
           ThumbColor = 14120960
           TickColor = clSilver
+          TickMarks = stmBoth
           Frequency = 5
           ThumbSize = 15
           ParentColor = False
@@ -9191,12 +9199,12 @@ object EditorForm: TEditorForm
     object RhythmSetup: TTabSheet
       Caption = 'Rhythm Setup'
       ImageIndex = 3
-      TabVisible = False      
+      TabVisible = False
     end
     object SystemArea: TTabSheet
       Caption = 'System'
       ImageIndex = 4
-      TabVisible = False      
+      TabVisible = False
       object Label6: TLabel
         Left = 0
         Top = 247
@@ -9221,7 +9229,6 @@ object EditorForm: TEditorForm
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabVisible = False
       object Label1: TLabel
         Left = 109
         Top = 61
@@ -9239,9 +9246,16 @@ object EditorForm: TEditorForm
       object Label3: TLabel
         Left = 29
         Top = 109
-        Width = 75
+        Width = 79
         Height = 13
-        Caption = 'Returned Bytes'
+        Caption = 'Returned Bytes:'
+      end
+      object Label4: TLabel
+        Left = 412
+        Top = 109
+        Width = 71
+        Height = 13
+        Caption = 'Bytes to Send:'
       end
       object Button1: TButton
         Left = 16
@@ -9271,28 +9285,20 @@ object EditorForm: TEditorForm
         OnClick = Button3Click
       end
       object Button4: TButton
-        Left = 322
-        Top = 4
+        Left = 400
+        Top = 80
         Width = 95
         Height = 25
         Caption = 'Send SysEx String'
         TabOrder = 3
         OnClick = Button4Click
       end
-      object Edit2: TEdit
-        Left = 423
-        Top = 4
-        Width = 306
-        Height = 97
-        AutoSize = False
-        TabOrder = 4
-      end
       object Edit3: TEdit
         Left = 97
         Top = 80
         Width = 73
         Height = 21
-        TabOrder = 5
+        TabOrder = 4
         Text = '10000'
       end
       object Edit4: TEdit
@@ -9300,13 +9306,29 @@ object EditorForm: TEditorForm
         Top = 80
         Width = 90
         Height = 21
-        TabOrder = 6
+        TabOrder = 5
         Text = 'F6'
       end
       object Memo1: TMemo
         Left = 17
         Top = 128
         Width = 360
+        Height = 401
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Lucida Console'
+        Font.Style = []
+        Lines.Strings = (
+          '')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 6
+      end
+      object Memo2: TMemo
+        Left = 400
+        Top = 128
+        Width = 329
         Height = 401
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -9358,12 +9380,22 @@ object EditorForm: TEditorForm
     FillColor = 16751121
     ThumbColor = 14120960
     TickColor = clSilver
+    TickMarks = stmBoth
     Frequency = 5
     ThumbSize = 17
     ParentColor = False
     TabOrder = 3
     TabStop = True
     OnChange = MasterVolumeChange
+  end
+  object Helper: TButton
+    Left = 758
+    Top = 158
+    Width = 50
+    Height = 28
+    Caption = 'Helper'
+    TabOrder = 4
+    OnClick = HelperClick
   end
   object Timer1: TTimer
     Enabled = False
