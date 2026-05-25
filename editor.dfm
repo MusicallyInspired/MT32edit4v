@@ -70,7 +70,7 @@ object EditorForm: TEditorForm
     Top = 3
     Width = 756
     Height = 619
-    ActivePage = Debug
+    ActivePage = TimbreTempArea
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
