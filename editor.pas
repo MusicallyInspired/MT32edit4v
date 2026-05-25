@@ -278,16 +278,15 @@ type
   { TEditorForm }
 
   TEditorForm = class(TForm)
-    Button1: TButton;
+    TestNoteButton: TButton;
     Timer1: TTimer;
-    Button2: TButton;
-    Button3: TButton;
-    Button4: TButton;
-    Edit3: TEdit;
-    Edit4: TEdit;
-    Label1: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
+    ReadMemory: TButton;
+    SendSysExStr: TButton;
+    ReadMemAddr: TEdit;
+    ReadMemSize: TEdit;
+    ReadMemAddr_label: TLabel;
+    ReadMemSize_label: TLabel;
+    ReturnedBytes_label: TLabel;
     PageControl1: TPageControl;
     Debug: TTabSheet;
     TimbreTempArea: TTabSheet;
@@ -418,19 +417,15 @@ type
     TVABiasPoint2: TComboBox;
     TVABiasLevel2_label: TLabel;
     TVABiasLevel2_value: TEdit;
-    Memo1: TMemo;
+    ReturnedBytes: TMemo;
     TimbreName_label: TLabel;
     EnvMode: TSpeedButton;
     TimbreName: TEdit;
-    InitTimbreButton: TButton;
-    OpenSyxButton: TButton;
-    SaveSyxButton: TButton;
     PatchTempArea: TTabSheet;
     MasterVolume_label: TLabel;
     SyncAllButton: TBitBtn;
     RhythmSetup: TTabSheet;
     SystemArea: TTabSheet;
-    Label6: TLabel;
     WaveGenGroup: TGroupBox;
     WGPulseWidth_label: TLabel;
     WGVelSens_label: TLabel;
@@ -753,33 +748,70 @@ type
     Pt7Output: TSynthSlider;
     Pt8Output: TSynthSlider;
     PtROutput: TSynthSlider;
-    Helper: TButton;
     WGKeyFollow: TComboBox;
-    Memo2: TMemo;
-    Label4: TLabel;
+    BytesToSend: TMemo;
+    BytesToSend_label: TLabel;
+    MasterTune: TSynthSlider;
+    MasterTune_label: TLabel;
+    MasterTune_value: TSpinEdit;
+    MasterTuneHz: TLabel;
+    ReverbRoomButton: TSpeedButton;
+    ReverbHallButton: TSpeedButton;
+    ReverbPlateButton: TSpeedButton;
+    ReverbTapDelayButton: TSpeedButton;
+    ReverbTime: TSynthSlider;
+    ReverbLevel: TSynthSlider;
+    ReverbLevel_value: TSpinEdit;
+    ReverbTime_value: TSpinEdit;
+    ReverbMode_label: TLabel;
+    ReverbTime_label: TLabel;
+    ReverbLevel_label: TLabel;
+    OpenSyxButton: TButton;
+    SaveSyxButton: TButton;
+    PtBank: TComboBox;
+    InitTimbreButton: TButton;
+    SaveTmbMemButton: TButton;
+    PtBank_label: TLabel;
+    Label5: TLabel;
+    PtTimbre: TComboBox;
+    TestNote: TComboBox;
+    TestNoteVel: TSpinEdit;
+    TestNoteChan: TSpinEdit;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
+    procedure TestNoteButtonClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
-    procedure Button3Click(Sender: TObject);
-    procedure Button4Click(Sender: TObject);
+    procedure ReadMemoryClick(Sender: TObject);
+    procedure SendSysExStrClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure SendCurrentSysEx;
 
     procedure LoadAllDataFromMunt;
+    procedure LoadTimbreTempFromMunt(I: Integer);
+    procedure LoadPatchTempFromMunt(I: Integer);
+    procedure LoadRhythmSetupFromMunt;
+    procedure LoadSystemFromMunt;
+    procedure LoadPatchMemFromMunt(I: Integer);
+    procedure LoadTimbreMemFromMunt(I: Integer);
+
     procedure DecodeSystem(const Buf: array of Byte; var Dest: TSystem);
     procedure DecodePatch(const Buf: array of Byte; var Dest: TPatch);
     procedure DecodeRhythm(const Buf: array of Byte; var Dest: TRhythm);
     procedure DecodeTimbrePart(const Buf: array of Byte; var Dest: TPart);
     procedure DecodePartial(const Buf: array of Byte; Offset: Integer; var Dest: TPartial);
     procedure DecodePatchMem(const Buf: array of Byte; var Dest: TPatchMem);
+
+    procedure WriteTimbreToMemory(MemIndex: Integer);
+
+    procedure RefreshTimbre;
     procedure RefreshVisibleControls;
     procedure RefreshPartControls;
     procedure RefreshPartialControls;
     procedure RefreshStructs;
     procedure RefreshEnvelopePlots;
+    procedure RefreshTargetPatchControls(Target: Integer);
     procedure RefreshPatchControls;
+    procedure RefreshSystemControls;
     procedure RefreshGroupMemNames;
     procedure RefreshAllGroupMemCombos;
     procedure SetSynthColors;
@@ -808,16 +840,11 @@ type
     procedure EnvModeClick(Sender: TObject);
     procedure PtRevButtonClick(Sender: TObject);
     procedure PtBendRangeChange(Sender: TObject);
-    procedure PtBendRangeKeyPress(Sender: TObject; var Key: Char);
 
     procedure OpenSyxButtonClick(Sender: TObject);
     procedure SaveSyxButtonClick(Sender: TObject);
     procedure InitTimbreButtonClick(Sender: TObject);
-
-    procedure SelPartial1ButtonClick(Sender: TObject);
-    procedure SelPartial2ButtonClick(Sender: TObject);
-    procedure SelPartial3ButtonClick(Sender: TObject);
-    procedure SelPartial4ButtonClick(Sender: TObject);
+    procedure SelPartialButtonClick(Sender: TObject);
 
     procedure WGShapeClick(Sender: TObject);
     procedure WGPitchBendClick(Sender: TObject);
@@ -834,6 +861,7 @@ type
     procedure WGFine_valueExit(Sender: TObject);
     procedure WGPulseWidth_valueExit(Sender: TObject);
     procedure WGVelSens_valueExit(Sender: TObject);
+    procedure WGKeyFollowChange(Sender: TObject);
 
     procedure PEnvLevel1Change(Sender: TObject);
     procedure PEnvLevel2Change(Sender: TObject);
@@ -1007,8 +1035,15 @@ type
     procedure Synth2ToggleClick(Sender: TObject);
     procedure MasterVolume_valueChange(Sender: TObject);
     procedure MasterVolumeChange(Sender: TObject);
-    procedure HelperClick(Sender: TObject);
-    procedure WGKeyFollowChange(Sender: TObject);
+    procedure SaveTmbMemButtonClick(Sender: TObject);
+    procedure MasterTuneChange(Sender: TObject);
+    procedure MasterTuneMakeHzVal;
+    procedure MasterTune_valueChange(Sender: TObject);
+    procedure ReverbTimeChange(Sender: TObject);
+    procedure ReverbTime_valueChange(Sender: TObject);
+    procedure ReverbLevelChange(Sender: TObject);
+    procedure ReverbLevel_valueChange(Sender: TObject);
+    procedure ReverbModeButtonClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -1035,7 +1070,8 @@ type
     function StrToBytes(const S: string): TBytes;
     procedure BuildMuteByte;
     function LinearAddrToBytes(Addr: NativeUInt): TSysExAddr;
-    function BuildTimbreSysex: TBytes;
+    function BuildTimbreBytes: TBytes;
+    function BuildSysExOutput(const AdMSB, AdMID, AdLSB: Byte; const Data: TBytes): TBytes;
 
     procedure LoadTimbreNames(BankCombo: TComboBox; TimbreCombo: TComboBox);
     procedure ResolvePartialStructure;
@@ -1191,38 +1227,6 @@ begin
   );
 end;
 
-procedure TEditorForm.HelperClick(Sender: TObject);
-var
-  buf: TBytes;
-  buf2: TBytes;
-  i: Integer;
-begin
-  SetLength(buf,10);
-  SetLength(buf2,10);
-  for i := 0 to 10 do
-    buf[i] := GetByte(AdTimbreTemp + NativeUInt(i),0);
-  for i := 0 to 10 do
-    buf2[i] := GetByte(AdTimbreMem + NativeUInt((4 * $100) + i),0);
-  //GetData(AdTimbreTemp, 10, buf, 0);
-  //GetData(AdTimbreMem + (4 * $100), 10, buf, 0);
-  ShowMessage(Format(
-                'Contents of Munt Timbre Temp 1 Name:' + sLineBreak + '%s' +
-                  sLineBreak + sLineBreak +
-                  'Contents of Munt Timbre Mem 1 Name:' + sLineBreak + '%s' +
-                  sLineBreak + sLineBreak +
-                  'Contents of GroupMem[0]:' + sLineBreak + '%s' +
-                  sLineBreak + sLineBreak +
-                  'Contents of Pt1Timbre.Items[0]:' + sLineBreak + '%s',
-                [
-                  BytesToStr(buf,0,10),
-                  BytesToStr(buf2,0,10),
-                  Synth[CurSyn].GroupMem[4],
-                  Pt1Timbre.Items[4]
-                ]
-              )
-  );
-end;
-
 function TEditorForm.BytesToStr(const Buf: array of Byte; Offset, Count: Integer): string;
 var
   i: Integer;
@@ -1258,10 +1262,19 @@ procedure TEditorForm.SyncAllButtonClick(Sender: TObject);
 begin
   LoadAllDataFromMunt;
   RefreshVisibleControls;
-
+  LoadTimbreTempFromMunt(CurPt);
   UpdatingControls := True;
-  MasterVolume.Position := Synth[CurSyn].System.MasterVolume;
-  MasterVolume_value.Text := IntToStr(Synth[CurSyn].System.MasterVolume);
+  if PtTimbre.ItemIndex <> -1 then
+    case CurPt of
+      0: PtTimbreChange(Pt1Timbre);
+      1: PtTimbreChange(Pt2Timbre);
+      2: PtTimbreChange(Pt3Timbre);
+      3: PtTimbreChange(Pt4Timbre);
+      4: PtTimbreChange(Pt5Timbre);
+      5: PtTimbreChange(Pt6Timbre);
+      6: PtTimbreChange(Pt7Timbre);
+      7: PtTimbreChange(Pt8Timbre);
+    end;
   UpdatingControls := False;
 
   ActiveControl := nil;
@@ -1275,6 +1288,8 @@ begin
   Synth1Toggle.Font.Style := [fsBold];
   Synth2Toggle.Font.Style := [];
   RefreshVisibleControls;
+
+  ActiveControl := nil;
 end;
 
 procedure TEditorForm.Synth2ToggleClick(Sender: TObject);
@@ -1285,6 +1300,8 @@ begin
   Synth2Toggle.Font.Style := [fsBold];
   Synth1Toggle.Font.Style := [];
   RefreshVisibleControls;
+
+  ActiveControl := nil;
 end;
 
 procedure TEditorForm.InitTimbreButtonClick(Sender: TObject);
@@ -1306,13 +1323,13 @@ begin
     SetLength(SysExData, $F6);
     Move(InitTimbre[0], SysExData[0], Length(InitTimbre));
     SendCurrentSysEx;
-    Sleep(400);
+    Sleep(200);
 
     SysExAddress := LinearAddrToBytes(AdPatchTemp + (CurPt * $10) + $06);
     SetLength(SysExData,1);
     SysExData[0] := Byte(False);
     SendCurrentSysEx;
-    Sleep(400);
+    Sleep(200);
 
     SetLength(TmbBuf, $F6);
     SetLength(PtcBuf,$10);
@@ -1321,8 +1338,10 @@ begin
     DecodeTimbrePart(TmbBuf, Synth[CurSyn].Part[CurPt]);
     DecodePatch(PtcBuf, Synth[CurSyn].Patch[CurPt]);
 
-    RefreshVisibleControls;
+    RefreshTimbre;
   end;
+
+  ActiveControl := nil;
 end;
 
 function TEditorForm.IsPartialPCM(const StructValue: Byte; const PairIndex: Integer): Boolean;
@@ -1445,10 +1464,7 @@ begin
           TimbreCombo.Items.Add(GroupB_Names[I]);
       2:
         for I := 0 to 63 do
-        begin
           TimbreCombo.Items.Add(Synth[CurSyn].GroupMem[I]);
-          //ShowMessage(Format('%s',[Synth[CurSyn].GroupMem[I]]));
-        end;
       3:
         for I := 0 to 63 do
           TimbreCombo.Items.Add(GroupRhy_Names[I]);
@@ -1599,6 +1615,8 @@ begin
     end;
 
     ResolvePartialStructure;
+    if PtTimbre.ItemIndex <> -1 then
+      PtTimbre.ItemIndex := -1;
 
   finally
     CurPtl := OldCurPtl;
@@ -1621,7 +1639,7 @@ var
 begin
   if not MuntReady then Exit;
 
-  for i := 0 to 1 do //Integer(PHandlerInterface_v1.isDualSynthMode(MuntVSTiInstance)) do
+  for i := 0 to 1 do
   begin
     // Get System data
     GetData(AdSystem, SizeOf(SysBuf), @SysBuf, i);
@@ -1660,11 +1678,92 @@ begin
       Addr := AdTimbreMem + (NativeUInt(p) * $100);
       GetData(Addr, SizeOf(TmbMemBuf), @TmbMemBuf, i);
       DecodeTimbrePart(TmbMemBuf, Synth[i].TimbreMem[p]);
-      Synth[i].GroupMem[p] := '          ';
-      //Synth[i].GroupMem[p] := BytesToStr(TmbMemBuf, 0, 10);
-      //ShowMessage(Format('Updating Synth[%d].GroupMem[%d]' + sLineBreak + '''%s''',[i,p,Synth[i].GroupMem[p]]));
+      Synth[i].GroupMem[p] := BytesToStr(TmbMemBuf,0,10);
     end;
   end;
+end;
+
+procedure TEditorForm.LoadTimbreTempFromMunt(I: Integer);
+var
+  PtBuf: array[0..$F6] of Byte;
+  Addr: Cardinal;
+begin
+  if not MuntReady then Exit;
+
+  // Get Timbre Temp data
+  Addr := AdTimbreTemp + (NativeUInt(I) * $F6);
+  GetData(Addr, SizeOf(PtBuf), @PtBuf, CurSyn);
+  DecodeTimbrePart(PtBuf, Synth[CurSyn].Part[I]);
+  if PtTimbre.Text <> Synth[CurSyn].Part[I].Name then
+    PtTimbre.ItemIndex := -1;
+end;
+
+procedure TEditorForm.LoadPatchTempFromMunt;
+var
+  PtcTmpBuf: array[0..$0F] of Byte;
+  Addr: Cardinal;
+begin
+  if not MuntReady then Exit;
+
+  // Get Patch Temp data
+  Addr := AdPatchTemp + (NativeUInt(I) * $10);
+  GetData(Addr, SizeOf(PtcTmpBuf), @PtcTmpBuf, CurSyn);
+  DecodePatch(PtcTmpBuf, Synth[CurSyn].Patch[I]);
+end;
+
+procedure TEditorForm.LoadRhythmSetupFromMunt;
+var
+  p: Integer;
+  RhyBuf: array[0..3] of Byte;
+  Addr: Cardinal;
+begin
+  if not MuntReady then Exit;
+
+  // Get Rhythm Setup Data
+  for p := 0 to 63 do
+  begin
+    Addr := AdRhythmSetup + (NativeUInt(p) * $04);
+    GetData(Addr, SizeOf(RhyBuf), @RhyBuf, CurSyn);
+    DecodeRhythm(RhyBuf, Synth[CurSyn].Rhythm[p]);
+  end;
+end;
+
+procedure TEditorForm.LoadSystemFromMunt;
+var
+  SysBuf: array[0..$16] of Byte;
+begin
+  if not MuntReady then Exit;
+
+  // Get System data
+  GetData(AdSystem, SizeOf(SysBuf), @SysBuf, CurSyn);
+  DecodeSystem(SysBuf, Synth[CurSyn].System);
+end;
+
+procedure TEditorForm.LoadPatchMemFromMunt(I: Integer);
+var
+  PtcMemBuf: array[0..7] of Byte;
+  Addr: Cardinal;
+begin
+  if not MuntReady then Exit;
+
+  // Get Patch Memory data
+  Addr := AdPatchMem + (NativeUInt(I) * $08);
+  GetData(Addr, SizeOf(PtcMemBuf), @PtcMemBuf, CurSyn);
+  DecodePatchMem(PtcMemBuf, Synth[CurSyn].PatchMem[I]);
+end;
+
+procedure TEditorForm.LoadTimbreMemFromMunt(I: Integer);
+var
+  TmbMemBuf: array[0..$FF] of Byte;
+  Addr: Cardinal;
+begin
+  if not MuntReady then Exit;
+
+  // Get Timbre Memory data
+  Addr := AdTimbreMem + (NativeUInt(I) * $100);
+  GetData(Addr, SizeOf(TmbMemBuf), @TmbMemBuf, CurSyn);
+  DecodeTimbrePart(TmbMemBuf, Synth[CurSyn].TimbreMem[I]);
+  Synth[CurSyn].GroupMem[I] := Synth[CurSyn].TimbreMem[I].Name;
 end;
 
 procedure TEditorForm.DecodeSystem(const Buf: array of Byte; var Dest: TSystem);
@@ -1800,6 +1899,113 @@ begin
   Dest.TVA.Sustain := Buf[$39 + Offset];
 end;
 
+procedure TEditorForm.WriteTimbreToMemory(MemIndex: Integer);
+var
+  q: Integer;
+begin
+  Synth[CurSyn].TimbreMem[MemIndex].Name := Synth[CurSyn].Part[CurPt].Name;
+  Synth[CurSyn].TimbreMem[MemIndex].Struct1 := Synth[CurSyn].Part[CurPt].Struct1;
+  Synth[CurSyn].TimbreMem[MemIndex].Struct2 := Synth[CurSyn].Part[CurPt].Struct2;
+  Synth[CurSyn].TimbreMem[MemIndex].SustainOn := Synth[CurSyn].Part[CurPt].SustainOn;
+  for q := 0 to 3 do
+    begin
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].Mute := Synth[CurSyn].Part[CurPt].Partial[q].Mute;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].WaveGen.PitchCoarse := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PitchCoarse;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].WaveGen.PitchFine := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PitchFine;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].WaveGen.KeyFollow := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.KeyFollow;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].WaveGen.PitchBend := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PitchBend;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].WaveGen.Shape := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.Shape;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].WaveGen.PCMSample := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PCMSample;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].WaveGen.PulseWidth := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PulseWidth;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].WaveGen.VelSens := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.VelSens;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].PitchEnv.Depth := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Depth;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].PitchEnv.VelSens := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.VelSens;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].PitchEnv.TimeKeyFollow := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.TimeKeyFollow;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].PitchEnv.Time1 := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Time1;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].PitchEnv.Time2 := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Time2;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].PitchEnv.Time3 := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Time3;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].PitchEnv.Time4 := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Time4;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].PitchEnv.Level0 := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Level0;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].PitchEnv.Level1 := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Level1;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].PitchEnv.Level2 := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Level2;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].PitchEnv.Sustain := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Sustain;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].PitchEnv.EndLevel := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.EndLevel;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].PitchEnv.LFORate := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.LFORate;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].PitchEnv.LFODepth := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.LFODepth;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].PitchEnv.LFOModSens := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.LFOModSens;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVF.Cutoff := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Cutoff;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVF.Resonance := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Resonance;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVF.KeyFollow := Synth[CurSyn].Part[CurPt].Partial[q].TVF.KeyFollow;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVF.BiasPoint := Synth[CurSyn].Part[CurPt].Partial[q].TVF.BiasPoint;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVF.BiasLevel := Synth[CurSyn].Part[CurPt].Partial[q].TVF.BiasLevel;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVF.Depth := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Depth;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVF.VelSens := Synth[CurSyn].Part[CurPt].Partial[q].TVF.VelSens;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVF.DepthKeyFollow := Synth[CurSyn].Part[CurPt].Partial[q].TVF.DepthKeyFollow;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVF.TimeKeyFollow := Synth[CurSyn].Part[CurPt].Partial[q].TVF.TimeKeyFollow;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVF.Time1 := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Time1;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVF.Time2 := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Time2;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVF.Time3 := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Time3;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVF.Time4 := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Time4;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVF.Time5 := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Time5;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVF.Level1 := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Level1;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVF.Level2 := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Level2;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVF.Level3 := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Level3;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVF.Sustain := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Sustain;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVA.Amplifier := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Amplifier;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVA.VelSens := Synth[CurSyn].Part[CurPt].Partial[q].TVA.VelSens;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVA.BiasPoint1 := Synth[CurSyn].Part[CurPt].Partial[q].TVA.BiasPoint1;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVA.BiasLevel1 := Synth[CurSyn].Part[CurPt].Partial[q].TVA.BiasLevel1;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVA.BiasPoint2 := Synth[CurSyn].Part[CurPt].Partial[q].TVA.BiasPoint2;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVA.BiasLevel2 := Synth[CurSyn].Part[CurPt].Partial[q].TVA.BiasLevel2;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVA.TimeKeyFollow := Synth[CurSyn].Part[CurPt].Partial[q].TVA.TimeKeyFollow;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVA.VelKeyFollow := Synth[CurSyn].Part[CurPt].Partial[q].TVA.VelKeyFollow;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVA.Time1 := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Time1;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVA.Time2 := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Time2;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVA.Time3 := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Time3;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVA.Time4 := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Time4;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVA.Time5 := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Time5;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVA.Level1 := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Level1;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVA.Level2 := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Level2;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVA.Level3 := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Level3;
+      Synth[CurSyn].TimbreMem[MemIndex].Partial[q].TVA.Sustain := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Sustain;
+    end;
+  Synth[CurSyn].GroupMem[MemIndex] := Synth[CurSyn].Part[CurPt].Name;
+end;
+
+procedure TEditorForm.RefreshTimbre;
+begin
+  UpdatingControls := True;
+  try
+    LoadTimbreTempFromMunt(CurPt);
+    LoadPatchTempFromMunt(CurPt);
+    RefreshPartControls;
+    RefreshPartialControls;
+    RefreshTargetPatchControls(CurPt);
+    RefreshAllGroupMemCombos;
+  finally
+    UpdatingControls := False;
+  end;
+end;
+
+procedure TEditorForm.RefreshSystemControls;
+begin
+  MasterTune.Position := Synth[CurSyn].System.MasterTune;
+  MasterTune_value.Value := Synth[CurSyn].System.MasterTune;
+  MasterTuneMakeHzVal;
+  case Synth[CurSyn].System.ReverbMode of
+    0: ReverbRoomButton.Down := True;
+    1: ReverbHallButton.Down := True;
+    2: ReverbPlateButton.Down := True;
+    3: ReverbTapDelayButton.Down := True;
+  end;
+  ReverbTime.Position := Synth[CurSyn].System.ReverbTime;
+  ReverbTime_value.Value := Synth[CurSyn].System.ReverbTime;
+  ReverbLevel.Position := Synth[CurSyn].System.ReverbLevel;
+  ReverbLevel_value.Value := Synth[CurSyn].System.ReverbLevel;
+  MasterVolume.Position := Synth[CurSyn].System.MasterVolume;
+  MasterVolume_value.Value := Synth[CurSyn].System.MasterVolume;
+end;
+
 procedure TEditorForm.RefreshVisibleControls;
 begin
   UpdatingControls := True;
@@ -1809,9 +2015,7 @@ begin
     RefreshAllGroupMemCombos;
     RefreshPartControls;
     RefreshPartialControls;
-    //RefreshSystemControls;
-    MasterVolume.Position := Synth[CurSyn].System.MasterVolume;
-    MasterVolume_value.Value := Synth[CurSyn].System.MasterVolume;
+    RefreshSystemControls;
 
     SetSynthColors;
   finally
@@ -1837,7 +2041,6 @@ begin
         j                           // Synth #
       );
       Synth[j].GroupMem[i] := BytesToStr(Buf, 0, 10);
-      //ShowMessage(Format('RefreshGroupMemNames' + sLineBreak + 'Synth %d: %d: ''%s''',[j + 1, i, Synth[j].GroupMem[i]]));
       SetLength(Buf,0);
     end;
   end;
@@ -1880,6 +2083,9 @@ begin
   PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[CurPt];
   PtRevButton.Down := Synth[CurSyn].Patch[CurPt].Reverb;
   PtBendRange.Value := Synth[CurSyn].Patch[CurPt].BendRange;
+  PtBank.ItemIndex := Synth[CurSyn].Patch[CurPt].TmbGroup;
+  if PtTimbre.ItemIndex <> -1 then
+    PtTimbre.ItemIndex := Synth[CurSyn].Patch[CurPt].TmbNumber;
 end;
 
 procedure TEditorForm.RefreshPartialControls;
@@ -2053,6 +2259,240 @@ begin
   end;
 end;
 
+procedure TEditorForm.RefreshTargetPatchControls(Target: Integer);
+begin
+  case Target of
+    0:
+    begin
+      Pt1Enable.Down := Synth[CurSyn].System.MidiChannel[0] <> 16;
+      Pt1Reverb.Down := Synth[CurSyn].Patch[0].Reverb;
+      if Synth[CurSyn].System.MidiChannel[0] < 16 then
+      begin
+        Pt1Chan.Value := Synth[CurSyn].System.MidiChannel[0]+1;
+        Pt1Chan.Enabled := True;
+      end
+      else Pt1Chan.Enabled := False;
+      Pt1Poly.ItemIndex := Synth[CurSyn].Patch[0].PolyMode;
+      Pt1PtlReserve.Value := Synth[CurSyn].System.PtlReserve[0];
+      Pt1Bank.ItemIndex := Synth[CurSyn].Patch[0].TmbGroup;
+      if Pt1Timbre.ItemIndex <> -1 then
+        Pt1Timbre.ItemIndex := Synth[CurSyn].Patch[0].TmbNumber;
+      Pt1Key.Value := Synth[CurSyn].Patch[0].KeyShift;
+      Pt1Key_value.Value := Pt1Key.Value;
+      Pt1Fine.Value := Synth[CurSyn].Patch[0].FineTune;
+      Pt1Fine_value.Value := Pt1Fine.Value;
+      Pt1Bend.Value := Synth[CurSyn].Patch[0].BendRange;
+      Pt1Bend_value.Value := Pt1Bend.Value;
+      Pt1Pan.Value := Synth[CurSyn].Patch[0].Pan;
+      Pt1Pan_value.Value := Pt1Pan.Value;
+      Pt1Output.Position := Synth[CurSyn].Patch[0].Output;
+      Pt1Output_value.Value := Pt1Output.Position;
+    end;
+    1:
+    begin
+      Pt2Enable.Down := Synth[CurSyn].System.MidiChannel[1] <> 16;
+      Pt2Reverb.Down := Synth[CurSyn].Patch[1].Reverb;
+      if Synth[CurSyn].System.MidiChannel[1] < 16 then
+      begin
+        Pt2Chan.Value := Synth[CurSyn].System.MidiChannel[1]+1;
+        Pt2Chan.Enabled := True;
+      end
+      else Pt2Chan.Enabled := False;
+      Pt2Poly.ItemIndex := Synth[CurSyn].Patch[1].PolyMode;
+      Pt2PtlReserve.Value := Synth[CurSyn].System.PtlReserve[1];
+      Pt2Bank.ItemIndex := Synth[CurSyn].Patch[1].TmbGroup;
+      if Pt2Timbre.ItemIndex <> -1 then
+        Pt2Timbre.ItemIndex := Synth[CurSyn].Patch[1].TmbNumber;
+      Pt2Key.Value := Synth[CurSyn].Patch[1].KeyShift;
+      Pt2Key_value.Value := Pt2Key.Value;
+      Pt2Fine.Value := Synth[CurSyn].Patch[1].FineTune;
+      Pt2Fine_value.Value := Pt2Fine.Value;
+      Pt2Bend.Value := Synth[CurSyn].Patch[1].BendRange;
+      Pt2Bend_value.Value := Pt2Bend.Value;
+      Pt2Pan.Value := Synth[CurSyn].Patch[1].Pan;
+      Pt2Pan_value.Value := Pt2Pan.Value;
+      Pt2Output.Position := Synth[CurSyn].Patch[1].Output;
+      Pt2Output_value.Value := Pt2Output.Position;
+    end;
+    2:
+    begin
+      Pt3Enable.Down := Synth[CurSyn].System.MidiChannel[2] <> 16;
+      Pt3Reverb.Down := Synth[CurSyn].Patch[2].Reverb;
+      if Synth[CurSyn].System.MidiChannel[2] < 16 then
+      begin
+        Pt3Chan.Value := Synth[CurSyn].System.MidiChannel[2]+1;
+        Pt3Chan.Enabled := True;
+      end
+      else Pt3Chan.Enabled := False;
+      Pt3Poly.ItemIndex := Synth[CurSyn].Patch[2].PolyMode;
+      Pt3PtlReserve.Value := Synth[CurSyn].System.PtlReserve[2];
+      Pt3Bank.ItemIndex := Synth[CurSyn].Patch[2].TmbGroup;
+      if Pt3Timbre.ItemIndex <> -1 then
+        Pt3Timbre.ItemIndex := Synth[CurSyn].Patch[2].TmbNumber;
+      Pt3Key.Value := Synth[CurSyn].Patch[2].KeyShift;
+      Pt3Key_value.Value := Pt2Key.Value;
+      Pt3Fine.Value := Synth[CurSyn].Patch[2].FineTune;
+      Pt3Fine_value.Value := Pt2Fine.Value;
+      Pt3Bend.Value := Synth[CurSyn].Patch[2].BendRange;
+      Pt3Bend_value.Value := Pt2Bend.Value;
+      Pt3Pan.Value := Synth[CurSyn].Patch[2].Pan;
+      Pt3Pan_value.Value := Pt3Pan.Value;
+      Pt3Output.Position := Synth[CurSyn].Patch[2].Output;
+      Pt3Output_value.Value := Pt2Output.Position;
+    end;
+    3:
+    begin
+      Pt4Enable.Down := Synth[CurSyn].System.MidiChannel[3] <> 16;
+      Pt4Reverb.Down := Synth[CurSyn].Patch[3].Reverb;
+      if Synth[CurSyn].System.MidiChannel[3] < 16 then
+      begin
+        Pt4Chan.Value := Synth[CurSyn].System.MidiChannel[3]+1;
+        Pt4Chan.Enabled := True;
+      end
+      else Pt4Chan.Enabled := False;
+      Pt4Poly.ItemIndex := Synth[CurSyn].Patch[3].PolyMode;
+      Pt4PtlReserve.Value := Synth[CurSyn].System.PtlReserve[3];
+      Pt4Bank.ItemIndex := Synth[CurSyn].Patch[3].TmbGroup;
+      if Pt4Timbre.ItemIndex <> -1 then
+        Pt4Timbre.ItemIndex := Synth[CurSyn].Patch[3].TmbNumber;
+      Pt4Key.Value := Synth[CurSyn].Patch[3].KeyShift;
+      Pt4Key_value.Value := Pt2Key.Value;
+      Pt4Fine.Value := Synth[CurSyn].Patch[3].FineTune;
+      Pt4Fine_value.Value := Pt2Fine.Value;
+      Pt4Bend.Value := Synth[CurSyn].Patch[3].BendRange;
+      Pt4Bend_value.Value := Pt2Bend.Value;
+      Pt4Pan.Value := Synth[CurSyn].Patch[3].Pan;
+      Pt4Pan_value.Value := Pt4Pan.Value;
+      Pt4Output.Position := Synth[CurSyn].Patch[3].Output;
+      Pt4Output_value.Value := Pt2Output.Position;
+    end;
+    4:
+    begin
+      Pt5Enable.Down := Synth[CurSyn].System.MidiChannel[4] <> 16;
+      Pt5Reverb.Down := Synth[CurSyn].Patch[4].Reverb;
+      if Synth[CurSyn].System.MidiChannel[4] < 16 then
+      begin
+        Pt5Chan.Value := Synth[CurSyn].System.MidiChannel[4]+1;
+        Pt5Chan.Enabled := True;
+      end
+      else Pt5Chan.Enabled := False;
+      Pt5Poly.ItemIndex := Synth[CurSyn].Patch[4].PolyMode;
+      Pt5PtlReserve.Value := Synth[CurSyn].System.PtlReserve[4];
+      Pt5Bank.ItemIndex := Synth[CurSyn].Patch[4].TmbGroup;
+      if Pt5Timbre.ItemIndex <> -1 then
+        Pt5Timbre.ItemIndex := Synth[CurSyn].Patch[4].TmbNumber;
+      Pt5Key.Value := Synth[CurSyn].Patch[4].KeyShift;
+      Pt5Key_value.Value := Pt2Key.Value;
+      Pt5Fine.Value := Synth[CurSyn].Patch[4].FineTune;
+      Pt5Fine_value.Value := Pt2Fine.Value;
+      Pt5Bend.Value := Synth[CurSyn].Patch[4].BendRange;
+      Pt5Bend_value.Value := Pt2Bend.Value;
+      Pt5Pan.Value := Synth[CurSyn].Patch[4].Pan;
+      Pt5Pan_value.Value := Pt5Pan.Value;
+      Pt5Output.Position := Synth[CurSyn].Patch[4].Output;
+      Pt5Output_value.Value := Pt2Output.Position;
+    end;
+    5:
+    begin
+      Pt6Enable.Down := Synth[CurSyn].System.MidiChannel[5] <> 16;
+      Pt6Reverb.Down := Synth[CurSyn].Patch[5].Reverb;
+      if Synth[CurSyn].System.MidiChannel[5] < 16 then
+      begin
+        Pt6Chan.Value := Synth[CurSyn].System.MidiChannel[5]+1;
+        Pt6Chan.Enabled := True;
+      end
+      else Pt6Chan.Enabled := False;
+      Pt6Poly.ItemIndex := Synth[CurSyn].Patch[5].PolyMode;
+      Pt6PtlReserve.Value := Synth[CurSyn].System.PtlReserve[5];
+      Pt6Bank.ItemIndex := Synth[CurSyn].Patch[5].TmbGroup;
+      if Pt6Timbre.ItemIndex <> -1 then
+        Pt6Timbre.ItemIndex := Synth[CurSyn].Patch[5].TmbNumber;
+      Pt6Key.Value := Synth[CurSyn].Patch[5].KeyShift;
+      Pt6Key_value.Value := Pt6Key.Value;
+      Pt6Fine.Value := Synth[CurSyn].Patch[5].FineTune;
+      Pt6Fine_value.Value := Pt6Fine.Value;
+      Pt6Bend.Value := Synth[CurSyn].Patch[5].BendRange;
+      Pt6Bend_value.Value := Pt6Bend.Value;
+      Pt6Pan.Value := Synth[CurSyn].Patch[5].Pan;
+      Pt6Pan_value.Value := Pt6Pan.Value;
+      Pt6Output.Position := Synth[CurSyn].Patch[5].Output;
+      Pt6Output_value.Value := Pt6Output.Position;
+    end;
+    6:
+    begin
+      Pt7Enable.Down := Synth[CurSyn].System.MidiChannel[6] <> 16;
+      Pt7Reverb.Down := Synth[CurSyn].Patch[6].Reverb;
+      if Synth[CurSyn].System.MidiChannel[6] < 16 then
+      begin
+        Pt7Chan.Value := Synth[CurSyn].System.MidiChannel[6]+1;
+        Pt7Chan.Enabled := True;
+      end
+      else Pt7Chan.Enabled := False;
+      Pt7Poly.ItemIndex := Synth[CurSyn].Patch[6].PolyMode;
+      Pt7PtlReserve.Value := Synth[CurSyn].System.PtlReserve[6];
+      Pt7Bank.ItemIndex := Synth[CurSyn].Patch[6].TmbGroup;
+      if Pt7Timbre.ItemIndex <> -1 then
+        Pt7Timbre.ItemIndex := Synth[CurSyn].Patch[6].TmbNumber;
+      Pt7Key.Value := Synth[CurSyn].Patch[6].KeyShift;
+      Pt7Key_value.Value := Pt7Key.Value;
+      Pt7Fine.Value := Synth[CurSyn].Patch[6].FineTune;
+      Pt7Fine_value.Value := Pt7Fine.Value;
+      Pt7Bend.Value := Synth[CurSyn].Patch[6].BendRange;
+      Pt7Bend_value.Value := Pt7Bend.Value;
+      Pt7Pan.Value := Synth[CurSyn].Patch[6].Pan;
+      Pt7Pan_value.Value := Pt7Pan.Value;
+      Pt7Output.Position := Synth[CurSyn].Patch[6].Output;
+      Pt7Output_value.Value := Pt7Output.Position;
+    end;
+    7:
+    begin
+      Pt8Enable.Down := Synth[CurSyn].System.MidiChannel[7] <> 16;
+      Pt8Reverb.Down := Synth[CurSyn].Patch[7].Reverb;
+      if Synth[CurSyn].System.MidiChannel[7] < 16 then
+      begin
+        Pt8Chan.Value := Synth[CurSyn].System.MidiChannel[7]+1;
+        Pt8Chan.Enabled := True;
+      end
+      else Pt8Chan.Enabled := False;
+      Pt8Poly.ItemIndex := Synth[CurSyn].Patch[7].PolyMode;
+      Pt8PtlReserve.Value := Synth[CurSyn].System.PtlReserve[7];
+      Pt8Bank.ItemIndex := Synth[CurSyn].Patch[7].TmbGroup;
+      if Pt8Timbre.ItemIndex <> -1 then
+        Pt8Timbre.ItemIndex := Synth[CurSyn].Patch[7].TmbNumber;
+      Pt8Key.Value := Synth[CurSyn].Patch[7].KeyShift;
+      Pt8Key_value.Value := Pt8Key.Value;
+      Pt8Fine.Value := Synth[CurSyn].Patch[7].FineTune;
+      Pt8Fine_value.Value := Pt8Fine.Value;
+      Pt8Bend.Value := Synth[CurSyn].Patch[7].BendRange;
+      Pt8Bend_value.Value := Pt8Bend.Value;
+      Pt8Pan.Value := Synth[CurSyn].Patch[7].Pan;
+      Pt8Pan_value.Value := Pt8Pan.Value;
+      Pt8Output.Position := Synth[CurSyn].Patch[7].Output;
+      Pt8Output_value.Value := Pt8Output.Position;
+    end;
+    8:
+    begin
+      PtREnable.Down := Synth[CurSyn].System.MidiChannel[8] <> 16;
+      if Synth[CurSyn].System.MidiChannel[8] < 16 then
+      begin
+        PtRChan.Value := Synth[CurSyn].System.MidiChannel[8]+1;
+        PtRChan.Enabled := True;
+      end
+      else PtRChan.Enabled := False;
+      PtRPoly.ItemIndex := Synth[CurSyn].Patch[8].PolyMode;
+      PtRPtlReserve.Value := Synth[CurSyn].System.PtlReserve[8];
+      PtRKey.Value := Synth[CurSyn].Patch[8].KeyShift;
+      PtRKey_value.Value := PtRKey.Value;
+      PtRFine.Value := Synth[CurSyn].Patch[8].FineTune;
+      PtRFine_value.Value := PtRFine.Value;
+      PtRBend.Value := Synth[CurSyn].Patch[8].BendRange;
+      PtRBend_value.Value := PtRBend.Value;
+      PtROutput.Position := Synth[CurSyn].Patch[8].Output;
+      PtROutput_value.Value := PtROutput.Position;
+    end;
+  end;
+end;
+
 procedure TEditorForm.RefreshPatchControls;
 begin
   Pt1Enable.Down := Synth[CurSyn].System.MidiChannel[0] <> 16;
@@ -2066,7 +2506,8 @@ begin
   Pt1Poly.ItemIndex := Synth[CurSyn].Patch[0].PolyMode;
   Pt1PtlReserve.Value := Synth[CurSyn].System.PtlReserve[0];
   Pt1Bank.ItemIndex := Synth[CurSyn].Patch[0].TmbGroup;
-  Pt1Timbre.ItemIndex := Synth[CurSyn].Patch[0].TmbNumber;
+  if Pt1Timbre.ItemIndex <> -1 then
+    Pt1Timbre.ItemIndex := Synth[CurSyn].Patch[0].TmbNumber;
   Pt1Key.Value := Synth[CurSyn].Patch[0].KeyShift;
   Pt1Key_value.Value := Pt1Key.Value;
   Pt1Fine.Value := Synth[CurSyn].Patch[0].FineTune;
@@ -2089,7 +2530,8 @@ begin
   Pt2Poly.ItemIndex := Synth[CurSyn].Patch[1].PolyMode;
   Pt2PtlReserve.Value := Synth[CurSyn].System.PtlReserve[1];
   Pt2Bank.ItemIndex := Synth[CurSyn].Patch[1].TmbGroup;
-  Pt2Timbre.ItemIndex := Synth[CurSyn].Patch[1].TmbNumber;
+  if Pt2Timbre.ItemIndex <> -1 then
+    Pt2Timbre.ItemIndex := Synth[CurSyn].Patch[1].TmbNumber;
   Pt2Key.Value := Synth[CurSyn].Patch[1].KeyShift;
   Pt2Key_value.Value := Pt2Key.Value;
   Pt2Fine.Value := Synth[CurSyn].Patch[1].FineTune;
@@ -2112,7 +2554,8 @@ begin
   Pt3Poly.ItemIndex := Synth[CurSyn].Patch[2].PolyMode;
   Pt3PtlReserve.Value := Synth[CurSyn].System.PtlReserve[2];
   Pt3Bank.ItemIndex := Synth[CurSyn].Patch[2].TmbGroup;
-  Pt3Timbre.ItemIndex := Synth[CurSyn].Patch[2].TmbNumber;
+  if Pt3Timbre.ItemIndex <> -1 then
+    Pt3Timbre.ItemIndex := Synth[CurSyn].Patch[2].TmbNumber;
   Pt3Key.Value := Synth[CurSyn].Patch[2].KeyShift;
   Pt3Key_value.Value := Pt2Key.Value;
   Pt3Fine.Value := Synth[CurSyn].Patch[2].FineTune;
@@ -2135,7 +2578,8 @@ begin
   Pt4Poly.ItemIndex := Synth[CurSyn].Patch[3].PolyMode;
   Pt4PtlReserve.Value := Synth[CurSyn].System.PtlReserve[3];
   Pt4Bank.ItemIndex := Synth[CurSyn].Patch[3].TmbGroup;
-  Pt4Timbre.ItemIndex := Synth[CurSyn].Patch[3].TmbNumber;
+  if Pt4Timbre.ItemIndex <> -1 then
+    Pt4Timbre.ItemIndex := Synth[CurSyn].Patch[3].TmbNumber;
   Pt4Key.Value := Synth[CurSyn].Patch[3].KeyShift;
   Pt4Key_value.Value := Pt2Key.Value;
   Pt4Fine.Value := Synth[CurSyn].Patch[3].FineTune;
@@ -2158,7 +2602,8 @@ begin
   Pt5Poly.ItemIndex := Synth[CurSyn].Patch[4].PolyMode;
   Pt5PtlReserve.Value := Synth[CurSyn].System.PtlReserve[4];
   Pt5Bank.ItemIndex := Synth[CurSyn].Patch[4].TmbGroup;
-  Pt5Timbre.ItemIndex := Synth[CurSyn].Patch[4].TmbNumber;
+  if Pt5Timbre.ItemIndex <> -1 then
+    Pt5Timbre.ItemIndex := Synth[CurSyn].Patch[4].TmbNumber;
   Pt5Key.Value := Synth[CurSyn].Patch[4].KeyShift;
   Pt5Key_value.Value := Pt2Key.Value;
   Pt5Fine.Value := Synth[CurSyn].Patch[4].FineTune;
@@ -2181,7 +2626,8 @@ begin
   Pt6Poly.ItemIndex := Synth[CurSyn].Patch[5].PolyMode;
   Pt6PtlReserve.Value := Synth[CurSyn].System.PtlReserve[5];
   Pt6Bank.ItemIndex := Synth[CurSyn].Patch[5].TmbGroup;
-  Pt6Timbre.ItemIndex := Synth[CurSyn].Patch[5].TmbNumber;
+  if Pt6Timbre.ItemIndex <> -1 then
+    Pt6Timbre.ItemIndex := Synth[CurSyn].Patch[5].TmbNumber;
   Pt6Key.Value := Synth[CurSyn].Patch[5].KeyShift;
   Pt6Key_value.Value := Pt6Key.Value;
   Pt6Fine.Value := Synth[CurSyn].Patch[5].FineTune;
@@ -2204,7 +2650,8 @@ begin
   Pt7Poly.ItemIndex := Synth[CurSyn].Patch[6].PolyMode;
   Pt7PtlReserve.Value := Synth[CurSyn].System.PtlReserve[6];
   Pt7Bank.ItemIndex := Synth[CurSyn].Patch[6].TmbGroup;
-  Pt7Timbre.ItemIndex := Synth[CurSyn].Patch[6].TmbNumber;
+  if Pt7Timbre.ItemIndex <> -1 then
+    Pt7Timbre.ItemIndex := Synth[CurSyn].Patch[6].TmbNumber;
   Pt7Key.Value := Synth[CurSyn].Patch[6].KeyShift;
   Pt7Key_value.Value := Pt7Key.Value;
   Pt7Fine.Value := Synth[CurSyn].Patch[6].FineTune;
@@ -2227,7 +2674,8 @@ begin
   Pt8Poly.ItemIndex := Synth[CurSyn].Patch[7].PolyMode;
   Pt8PtlReserve.Value := Synth[CurSyn].System.PtlReserve[7];
   Pt8Bank.ItemIndex := Synth[CurSyn].Patch[7].TmbGroup;
-  Pt8Timbre.ItemIndex := Synth[CurSyn].Patch[7].TmbNumber;
+  if Pt8Timbre.ItemIndex <> -1 then
+    Pt8Timbre.ItemIndex := Synth[CurSyn].Patch[7].TmbNumber;
   Pt8Key.Value := Synth[CurSyn].Patch[7].KeyShift;
   Pt8Key_value.Value := Pt8Key.Value;
   Pt8Fine.Value := Synth[CurSyn].Patch[7].FineTune;
@@ -2268,6 +2716,7 @@ begin
   LoadTimbreNames(Pt6Bank, Pt6Timbre);
   LoadTimbreNames(Pt7Bank, Pt7Timbre);
   LoadTimbreNames(Pt8Bank, Pt8Timbre);
+  LoadTimbreNames(PtBank, PtTimbre);
 end;
 
 procedure TEditorForm.SetSynthColors;
@@ -2286,6 +2735,13 @@ begin
         clSliderFill := $008FBC8F;
       end;
     end;
+    MasterTune.FillColor := clSliderFill;
+    MasterTune.ThumbColor := clSliderThumb;
+    MasterTuneHz.Font.Color := clSynthText;
+    ReverbTime.FillColor := clSliderFill;
+    ReverbTime.ThumbColor := clSliderThumb;
+    ReverbLevel.FillColor := clSliderFill;
+    ReverbLevel.ThumbColor := clSliderThumb;
     MasterVolume_label.Font.Color := clSynthText;
     MasterVolume.FillColor := clSliderFill;
     MasterVolume.ThumbColor := clSliderThumb;
@@ -2471,146 +2927,158 @@ begin
   SetLength(SysExData,1);
   SysExData[0] := MuteByte;
   SendCurrentSysEx;
+  if PtTimbre.ItemIndex <> -1 then
+    PtTimbre.ItemIndex := -1;
 end;
 
 { Sysex Importing/Exporting }
 
-function TEditorForm.BuildTimbreSysEx: TBytes;
+function TEditorForm.BuildSysExOutput(const AdMSB, AdMID, AdLSB: Byte; const Data: TBytes): TBytes;
 var
-  Timbre: TBytes;
-  MuteByte: Byte;
-  i,q: Integer;
+  i: Integer;
   sum: Byte;
 
-  procedure AddBytes(var Data: TBytes; const Values: array of Byte);
+  procedure AddBytes(var SubData: TBytes; const Values: array of Byte);
   var
     OldLen, I: Integer;
   begin
-    OldLen := Length(Data);
-    SetLength(Data, OldLen + Length(Values));
+    OldLen := Length(SubData);
+    SetLength(SubData, OldLen + Length(Values));
 
     for I := 0 to High(Values) do
-      Data[OldLen + I] := Values[I];
+      SubData[OldLen + I] := Values[I];
   end;
+
 begin
-  SetLength(Timbre, $F6);
+  sum := 0;
+  for i := 0 to High(Data) do
+    sum := sum + Data[i]; // Data
+  sum := sum + AdMSB + AdMID + AdLSB; // Address
+  sum := sum mod 128;
+  sum := (128 - sum) mod 128;
+
+  AddBytes(Result, [$F0, $41, $10, $16, $12, AdMSB, AdMID, AdLSB]);
+  AddBytes(Result, Data);
+  SetLength(Result, $100);
+  Result[High(Result) - 1] := sum;
+  Result[High(Result)] := $F7;
+end;
+
+function TEditorForm.BuildTimbreBytes: TBytes;
+var
+  MuteByte: Byte;
+  i,q: Integer;
+begin
+  SetLength(Result, $F6);
   for i := 0 to 9 do
-    Timbre[i] := StrToBytes(Synth[CurSyn].Part[CurPt].Name)[i];
-  Timbre[$0A] := Synth[CurSyn].Part[CurPt].Struct1;
-  Timbre[$0B] := Synth[CurSyn].Part[CurPt].Struct2;
+    Result[i] := StrToBytes(Synth[CurSyn].Part[CurPt].Name)[i];
+  Result[$0A] := Synth[CurSyn].Part[CurPt].Struct1;
+  Result[$0B] := Synth[CurSyn].Part[CurPt].Struct2;
   MuteByte := 0;
   for q := 0 to 3 do
     if Synth[CurSyn].Part[CurPt].Partial[q].Mute then
       MuteByte := MuteByte or (1 shl q);
-  Timbre[$0C] := MuteByte;
-  Timbre[$0D] := Byte(not Synth[CurSyn].Part[CurPt].SustainOn);
+  Result[$0C] := MuteByte;
+  Result[$0D] := Byte(not Synth[CurSyn].Part[CurPt].SustainOn);
   for q := 0 to 3 do
   begin
-    Timbre[(q * $3A) + $0E + $00] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PitchCoarse;
-    Timbre[(q * $3A) + $0E + $01] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PitchFine + 50;
-    Timbre[(q * $3A) + $0E + $02] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.KeyFollow + 3;
-    Timbre[(q * $3A) + $0E + $03] := Byte(Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PitchBend);
-    Timbre[(q * $3A) + $0E + $04] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.Shape;
-    Timbre[(q * $3A) + $0E + $05] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PCMSample;
-    Timbre[(q * $3A) + $0E + $06] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PulseWidth;
-    Timbre[(q * $3A) + $0E + $07] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.VelSens + 7;
-    Timbre[(q * $3A) + $0E + $08] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Depth;
-    Timbre[(q * $3A) + $0E + $09] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.VelSens;
-    Timbre[(q * $3A) + $0E + $0A] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.TimeKeyFollow;
-    Timbre[(q * $3A) + $0E + $0B] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Time1;
-    Timbre[(q * $3A) + $0E + $0C] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Time2;
-    Timbre[(q * $3A) + $0E + $0D] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Time3;
-    Timbre[(q * $3A) + $0E + $0E] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Time4;
-    Timbre[(q * $3A) + $0E + $0F] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Level0 + 50;
-    Timbre[(q * $3A) + $0E + $10] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Level1 + 50;
-    Timbre[(q * $3A) + $0E + $11] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Level2 + 50;
-    Timbre[(q * $3A) + $0E + $12] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Sustain + 50;
-    Timbre[(q * $3A) + $0E + $13] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.EndLevel + 50;
-    Timbre[(q * $3A) + $0E + $14] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.LFORate;
-    Timbre[(q * $3A) + $0E + $15] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.LFODepth;
-    Timbre[(q * $3A) + $0E + $16] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.LFOModSens;
-    Timbre[(q * $3A) + $0E + $17] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Cutoff;
-    Timbre[(q * $3A) + $0E + $18] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Resonance;
-    Timbre[(q * $3A) + $0E + $19] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.KeyFollow;
-    Timbre[(q * $3A) + $0E + $1A] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.BiasPoint;
-    Timbre[(q * $3A) + $0E + $1B] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.BiasLevel + 7;
-    Timbre[(q * $3A) + $0E + $1C] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Depth;
-    Timbre[(q * $3A) + $0E + $1D] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.VelSens;
-    Timbre[(q * $3A) + $0E + $1E] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.DepthKeyFollow;
-    Timbre[(q * $3A) + $0E + $1F] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.TimeKeyFollow;
-    Timbre[(q * $3A) + $0E + $20] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Time1;
-    Timbre[(q * $3A) + $0E + $21] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Time2;
-    Timbre[(q * $3A) + $0E + $22] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Time3;
-    Timbre[(q * $3A) + $0E + $23] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Time4;
-    Timbre[(q * $3A) + $0E + $24] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Time5;
-    Timbre[(q * $3A) + $0E + $25] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Level1;
-    Timbre[(q * $3A) + $0E + $26] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Level2;
-    Timbre[(q * $3A) + $0E + $27] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Level3;
-    Timbre[(q * $3A) + $0E + $28] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Sustain;
-    Timbre[(q * $3A) + $0E + $29] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Amplifier;
-    Timbre[(q * $3A) + $0E + $2A] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.VelSens + 50;
-    Timbre[(q * $3A) + $0E + $2B] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.BiasPoint1;
-    Timbre[(q * $3A) + $0E + $2C] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.BiasLevel1 + 12;
-    Timbre[(q * $3A) + $0E + $2D] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.BiasPoint2;
-    Timbre[(q * $3A) + $0E + $2E] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.BiasLevel2 + 12;
-    Timbre[(q * $3A) + $0E + $2F] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.TimeKeyFollow;
-    Timbre[(q * $3A) + $0E + $30] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.VelKeyFollow;
-    Timbre[(q * $3A) + $0E + $31] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Time1;
-    Timbre[(q * $3A) + $0E + $32] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Time2;
-    Timbre[(q * $3A) + $0E + $33] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Time3;
-    Timbre[(q * $3A) + $0E + $34] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Time4;
-    Timbre[(q * $3A) + $0E + $35] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Time5;
-    Timbre[(q * $3A) + $0E + $36] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Level1;
-    Timbre[(q * $3A) + $0E + $37] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Level2;
-    Timbre[(q * $3A) + $0E + $38] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Level3;
-    Timbre[(q * $3A) + $0E + $39] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Sustain;
+    Result[(q * $3A) + $0E + $00] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PitchCoarse;
+    Result[(q * $3A) + $0E + $01] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PitchFine + 50;
+    Result[(q * $3A) + $0E + $02] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.KeyFollow + 3;
+    Result[(q * $3A) + $0E + $03] := Byte(Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PitchBend);
+    Result[(q * $3A) + $0E + $04] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.Shape;
+    Result[(q * $3A) + $0E + $05] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PCMSample;
+    Result[(q * $3A) + $0E + $06] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PulseWidth;
+    Result[(q * $3A) + $0E + $07] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.VelSens + 7;
+    Result[(q * $3A) + $0E + $08] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Depth;
+    Result[(q * $3A) + $0E + $09] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.VelSens;
+    Result[(q * $3A) + $0E + $0A] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.TimeKeyFollow;
+    Result[(q * $3A) + $0E + $0B] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Time1;
+    Result[(q * $3A) + $0E + $0C] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Time2;
+    Result[(q * $3A) + $0E + $0D] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Time3;
+    Result[(q * $3A) + $0E + $0E] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Time4;
+    Result[(q * $3A) + $0E + $0F] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Level0 + 50;
+    Result[(q * $3A) + $0E + $10] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Level1 + 50;
+    Result[(q * $3A) + $0E + $11] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Level2 + 50;
+    Result[(q * $3A) + $0E + $12] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.Sustain + 50;
+    Result[(q * $3A) + $0E + $13] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.EndLevel + 50;
+    Result[(q * $3A) + $0E + $14] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.LFORate;
+    Result[(q * $3A) + $0E + $15] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.LFODepth;
+    Result[(q * $3A) + $0E + $16] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.LFOModSens;
+    Result[(q * $3A) + $0E + $17] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Cutoff;
+    Result[(q * $3A) + $0E + $18] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Resonance;
+    Result[(q * $3A) + $0E + $19] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.KeyFollow;
+    Result[(q * $3A) + $0E + $1A] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.BiasPoint;
+    Result[(q * $3A) + $0E + $1B] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.BiasLevel + 7;
+    Result[(q * $3A) + $0E + $1C] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Depth;
+    Result[(q * $3A) + $0E + $1D] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.VelSens;
+    Result[(q * $3A) + $0E + $1E] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.DepthKeyFollow;
+    Result[(q * $3A) + $0E + $1F] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.TimeKeyFollow;
+    Result[(q * $3A) + $0E + $20] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Time1;
+    Result[(q * $3A) + $0E + $21] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Time2;
+    Result[(q * $3A) + $0E + $22] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Time3;
+    Result[(q * $3A) + $0E + $23] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Time4;
+    Result[(q * $3A) + $0E + $24] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Time5;
+    Result[(q * $3A) + $0E + $25] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Level1;
+    Result[(q * $3A) + $0E + $26] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Level2;
+    Result[(q * $3A) + $0E + $27] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Level3;
+    Result[(q * $3A) + $0E + $28] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Sustain;
+    Result[(q * $3A) + $0E + $29] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Amplifier;
+    Result[(q * $3A) + $0E + $2A] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.VelSens + 50;
+    Result[(q * $3A) + $0E + $2B] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.BiasPoint1;
+    Result[(q * $3A) + $0E + $2C] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.BiasLevel1 + 12;
+    Result[(q * $3A) + $0E + $2D] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.BiasPoint2;
+    Result[(q * $3A) + $0E + $2E] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.BiasLevel2 + 12;
+    Result[(q * $3A) + $0E + $2F] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.TimeKeyFollow;
+    Result[(q * $3A) + $0E + $30] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.VelKeyFollow;
+    Result[(q * $3A) + $0E + $31] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Time1;
+    Result[(q * $3A) + $0E + $32] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Time2;
+    Result[(q * $3A) + $0E + $33] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Time3;
+    Result[(q * $3A) + $0E + $34] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Time4;
+    Result[(q * $3A) + $0E + $35] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Time5;
+    Result[(q * $3A) + $0E + $36] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Level1;
+    Result[(q * $3A) + $0E + $37] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Level2;
+    Result[(q * $3A) + $0E + $38] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Level3;
+    Result[(q * $3A) + $0E + $39] := Synth[CurSyn].Part[CurPt].Partial[q].TVA.Sustain;
   end;
-
-  sum := 0;
-  for i := 0 to High(Timbre) do
-    sum := sum + Timbre[i]; // Data
-  sum := sum + $04 + $00 + $00; // Address
-  sum := sum mod 128;
-  sum := (128 - sum) mod 128;
-
-  AddBytes(Result, [$F0, $41, $10, $16, $12, $04, $00, $00]);
-  AddBytes(Result, Timbre);
-  SetLength(Result, $100);
-  Result[High(Result) - 1] := sum;
-  Result[High(Result)] := $F7;
 end;
 
 { Patch Temp control event handlers for every part }
 
 procedure TEditorForm.PtBankChange(Sender: TObject);
 begin
-  case TComboBox(Sender).Tag of
-    0: LoadTimbreNames(Pt1Bank, Pt1Timbre);
-    1: LoadTimbreNames(Pt2Bank, Pt2Timbre);
-    2: LoadTimbreNames(Pt3Bank, Pt3Timbre);
-    3: LoadTimbreNames(Pt4Bank, Pt4Timbre);
-    4: LoadTimbreNames(Pt5Bank, Pt5Timbre);
-    5: LoadTimbreNames(Pt6Bank, Pt6Timbre);
-    6: LoadTimbreNames(Pt7Bank, Pt7Timbre);
-    7: LoadTimbreNames(Pt8Bank, Pt8Timbre);
-  end;
+  try
+    if UpdatingControls then Exit;
 
-  if UpdatingControls then Exit;
+    Synth[CurSyn].Patch[TComboBox(Sender).Tag].TmbGroup := TComboBox(Sender).ItemIndex;
+    SysExAddress := LinearAddrToBytes(
+      AdPatchTemp +
+      (NativeUInt(TComboBox(Sender).Tag) * $10) +
+      $00
+    );
+    SetLength(SysExData,1);
+    SysExData[0] := Synth[CurSyn].Patch[TComboBox(Sender).Tag].TmbGroup;
+    SendCurrentSysEx;
 
-  Synth[CurSyn].Patch[TComboBox(Sender).Tag].TmbGroup := TComboBox(Sender).ItemIndex;
-  SysExAddress := LinearAddrToBytes(
-    AdPatchTemp +
-    (NativeUInt(TComboBox(Sender).Tag) * $10) +
-    $00
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Patch[TComboBox(Sender).Tag].TmbGroup;
-  SendCurrentSysEx;
-
-  if CurPt = TComboBox(Sender).Tag then
-  begin
-    Sleep(400);
-    RefreshVisibleControls;
+    if CurPt = TComboBox(Sender).Tag then
+    begin
+      Sleep(200);
+      RefreshTimbre;
+    end;
+  finally
+    case TComboBox(Sender).Tag of
+      0: LoadTimbreNames(Pt1Bank, Pt1Timbre);
+      1: LoadTimbreNames(Pt2Bank, Pt2Timbre);
+      2: LoadTimbreNames(Pt3Bank, Pt3Timbre);
+      3: LoadTimbreNames(Pt4Bank, Pt4Timbre);
+      4: LoadTimbreNames(Pt5Bank, Pt5Timbre);
+      5: LoadTimbreNames(Pt6Bank, Pt6Timbre);
+      6: LoadTimbreNames(Pt7Bank, Pt7Timbre);
+      7: LoadTimbreNames(Pt8Bank, Pt8Timbre);
+    end;
+    if (TComboBox(Sender).Name = 'PtBank') or
+        (TComboBox(Sender).Tag = CurPt) then
+      LoadTimbreNames(PtBank, PtTimbre);
   end;
 end;
 
@@ -2630,8 +3098,8 @@ begin
 
   if CurPt = TComboBox(Sender).Tag then
   begin
-    Sleep(400);
-    RefreshVisibleControls;
+    Sleep(200);
+    RefreshTimbre;
   end;
 end;
 
@@ -2808,6 +3276,8 @@ begin
   SetLength(SysExData,1);
   SysExData[0] := Synth[CurSyn].System.MidiChannel[TSpeedButton(Sender).Tag];
   SendCurrentSysEx;
+
+  ActiveControl := nil;
 end;
 
 procedure TEditorForm.PtFineChange(Sender: TObject);
@@ -3111,6 +3581,8 @@ begin
   SetLength(SysExData,1);
   SysExData[0] := Byte(Synth[CurSyn].Patch[TSpeedButton(Sender).Tag].Reverb);
   SendCurrentSysEx;
+
+  ActiveControl := nil;
 end;
 
 procedure TEditorForm.PtBendRangeChange(Sender: TObject);
@@ -3173,11 +3645,6 @@ begin
   SendCurrentSysEx;
 end;
 
-procedure TEditorForm.PtBendRangeKeyPress(Sender: TObject; var Key: Char);
-begin
-  ActiveControl := nil;
-end;
-
 procedure TEditorForm.PtRevButtonClick(Sender: TObject);
 begin
   if UpdatingControls then Exit;
@@ -3200,6 +3667,8 @@ begin
   SetLength(SysExData,1);
   SysExData[0] := Byte(Synth[CurSyn].Patch[CurPt].Reverb);
   SendCurrentSysEx;
+
+  ActiveControl := nil;
 end;
 
 procedure TEditorForm.SetWGSynth;
@@ -3309,7 +3778,6 @@ var
   OpenDialog: TOpenDialog;
   SyxBytes: TBytes;
 begin
-  //ShowMessage('Coming soon');
   OpenDialog := TOpenDialog.Create(Self);
   try
     OpenDialog.Title := 'Open SysEx File';
@@ -3332,10 +3800,62 @@ begin
       ShowMessage('This does not appear to be a valid SysEx file.');
       Exit;
     end;
+    if not CompareMem(@SyxBytes[0], @SysExHeader, Length(SysExHeader)) or (SyxBytes[High(SyxBytes)] <> $F7) then
+    begin
+      ShowMessage('This does not appear to be a valid MT-32 SysEx File.');
+      Exit;
+    end;
 
-    //SendSyxBytesToMunt(SyxBytes);
+    PHandlerInterface_v1.sendSysExMessage(
+      MuntVSTiInstance,
+      @SyxBytes[0],
+      Length(SyxBytes),
+      CurSyn+1
+    );
+    {
+    case SyxBytes[5] of
+      $03:                    // Patch Temp Area
+      begin
+
+      end;
+      $04:                    // Timbre Temp Area
+      begin
+
+      end;
+      $05:                    // Patch Memory Area
+      begin
+
+      end;
+      $08:                    // Timbre Memory Area
+      begin
+
+      end;
+      $10:                    // System Area
+      begin
+
+      end;
+      $20:                    // Display
+      begin
+
+      end;
+    end;
+    }
     LoadAllDataFromMunt;
     RefreshVisibleControls;
+    LoadTimbreTempFromMunt(CurPt);
+    UpdatingControls := True;
+    if PtTimbre.ItemIndex <> -1 then
+      case CurPt of
+        0: PtTimbreChange(Pt1Timbre);
+        1: PtTimbreChange(Pt2Timbre);
+        2: PtTimbreChange(Pt3Timbre);
+        3: PtTimbreChange(Pt4Timbre);
+        4: PtTimbreChange(Pt5Timbre);
+        5: PtTimbreChange(Pt6Timbre);
+        6: PtTimbreChange(Pt7Timbre);
+        7: PtTimbreChange(Pt8Timbre);
+      end;
+    UpdatingControls := False;
 
   finally
     OpenDialog.Free;
@@ -3357,11 +3877,56 @@ begin
     if not SaveDialog.Execute then
       Exit;
 
-    SyxBytes := BuildTimbreSysEx;
+    SyxBytes := BuildSysExOutput($04, $00, $00, BuildTimbreBytes);
 
     TFile.WriteAllBytes(SaveDialog.FileName, SyxBytes);
   finally
     SaveDialog.Free;
+    ActiveControl := nil;
+  end;
+end;
+
+procedure TEditorForm.SaveTmbMemButtonClick(Sender: TObject);
+var
+  i, CurMem: Integer;
+  TimbreData: TBytes;
+begin
+  CurMem := 0;
+  case CurPt of
+    0: CurMem := Pt1Timbre.ItemIndex;
+    1: CurMem := Pt2Timbre.ItemIndex;
+    2: CurMem := Pt3Timbre.ItemIndex;
+    3: CurMem := Pt4Timbre.ItemIndex;
+    4: CurMem := Pt5Timbre.ItemIndex;
+    5: CurMem := Pt6Timbre.ItemIndex;
+    6: CurMem := Pt7Timbre.ItemIndex;
+    7: CurMem := Pt8Timbre.ItemIndex;
+  end;
+  if MessageDlg(
+      Format('Save current Timbre to Timbre Memory #%d?' + sLineBreak +
+              '(Warning: This will overwrite the timbre "%s" currently stored there)',
+              [CurMem, Synth[CurSyn].GroupMem[CurMem]]
+      ),
+      mtConfirmation,
+      [mbOK, mbCancel],
+      0
+      ) = mrOK then
+  begin
+    WriteTimbreToMemory(CurMem);
+    SetLength(TimbreData, $F6);
+    TimbreData := BuildTimbreBytes;
+
+    SysExAddress := LinearAddrToBytes(
+      AdTimbreMem +
+      NativeUInt(CurMem * $100)
+    );
+    SetLength(SysExData, $F6);
+    for i := 0 to $F6 do
+      SysExData[i] := TimbreData[i];
+    SendCurrentSysEx;
+    Sleep(200);
+    RefreshGroupMemNames;
+    RefreshAllGroupMemCombos;
   end;
 end;
 
@@ -3370,6 +3935,8 @@ begin
   if CurPt <> CurPart.ItemIndex then
   begin
     CurPt := CurPart.ItemIndex;
+    PtBank.Tag := CurPt;
+    PtTimbre.Tag := CurPt;
     RefreshVisibleControls;
   end;
 end;
@@ -3495,6 +4062,9 @@ begin
   SetLength(SysExData,10);
   SysExData := StrToBytes(Synth[CurSyn].Part[CurPt].Name);
   SendCurrentSysEx;
+
+  if PtTimbre.ItemIndex <> -1 then
+    PtTimbre.ItemIndex := -1;
 end;
 
 procedure TEditorForm.TimbreNameKeyPress(Sender: TObject; var Key: Char);
@@ -3548,6 +4118,10 @@ begin
   SetLength(SysExData,1);
   SysExData[0] := Byte(not Synth[CurSyn].Part[CurPt].SustainOn);
   SendCurrentSysEx;
+
+  ActiveControl := nil;
+  if PtTimbre.ItemIndex <> -1 then
+    PtTimbre.ItemIndex := -1;
 end;
 
 procedure TEditorForm.PartialStruct1Change(Sender: TObject);
@@ -3585,47 +4159,11 @@ begin
   SendCurrentSysEx;}
 end;
 
-procedure TEditorForm.SelPartial1ButtonClick(Sender: TObject);
+procedure TEditorForm.SelPartialButtonClick(Sender: TObject);
 begin
-  if CurPtl <> 0 then
+  if CurPtl <> TSpeedButton(Sender).Tag then
   begin
-    CurPtl := 0;
-
-    UpdatingControls := True;
-    RefreshPartialControls;
-    UpdatingControls := False;
-  end;
-end;
-
-procedure TEditorForm.SelPartial2ButtonClick(Sender: TObject);
-begin
-  if CurPtl <> 1 then
-  begin
-    CurPtl := 1;
-
-    UpdatingControls := True;
-    RefreshPartialControls;
-    UpdatingControls := False;
-  end;
-end;
-
-procedure TEditorForm.SelPartial3ButtonClick(Sender: TObject);
-begin
-  if CurPtl <> 2 then
-  begin
-    CurPtl := 2;
-
-    UpdatingControls := True;
-    RefreshPartialControls;
-    UpdatingControls := False;
-  end;
-end;
-
-procedure TEditorForm.SelPartial4ButtonClick(Sender: TObject);
-begin
-  if CurPtl <> 3 then
-  begin
-    CurPtl := 3;
+    CurPtl := TSpeedButton(Sender).Tag;
 
     UpdatingControls := True;
     RefreshPartialControls;
@@ -3732,6 +4270,8 @@ begin
   SetLength(SysExData,1);
   SysExData[0] := Byte(Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.PitchBend);
   SendCurrentSysEx;
+
+  ActiveControl := nil;
 end;
 
 procedure TEditorForm.WGShapeClick(Sender: TObject);
@@ -6591,6 +7131,173 @@ begin
 end;
 
 { System Controls }
+procedure TEditorForm.MasterTuneChange(Sender: TObject);
+begin
+  if UpdatingControls then Exit;
+
+  Synth[CurSyn].System.MasterTune := MasterTune.Position;
+  UpdatingControls := True;
+  MasterTune_value.Value := Synth[CurSyn].System.MasterTune;
+  UpdatingControls := False;
+  MasterTuneMakeHzVal;
+
+  SysExAddress := LinearAddrToBytes(AdSystem + $00);
+  SetLength(SysExData,1);
+  SysExData[0] := Synth[CurSyn].System.MasterTune;
+  SendCurrentSysEx;
+end;
+
+procedure TEditorForm.MasterTuneMakeHzVal;
+var
+  HzVal: TArray<string>;
+begin
+  HzVal := [
+    '427.5',                                  //   0
+    '427.6','427.8','428.0','428.2','428.4',  //   1-  5
+    '428.6','428.8','429.0','429.2','429.4',  //   6- 10
+    '429.6','429.7','429.9','430.1','430.3',  //  11- 15
+    '430.5','430.7','430.9','431.1','431.3',  //  16- 20
+    '431.5','431.7','431.9','432.1','432.3',  //  21- 25
+    '432.5','432.7','432.9','433.1','433.3',  //  26- 30
+    '433.4','433.6','433.8','434.0','434.2',  //  31- 35
+    '434.4','434.6','434.8','435.0','435.2',  //  36- 40
+    '435.4','435.6','435.8','436.0','436.2',  //  41- 45
+    '436.4','436.6','436.8','437.0','437.2',  //  46- 50
+    '437.4','437.6','437.8','438.0','438.2',  //  51- 55
+    '438.4','438.6','438.8','439.0','439.2',  //  56- 60
+    '439.4','439.6','439.8','440.0','440.2',  //  61- 65
+    '440.4','440.6','440.8','441.0','441.2',  //  66- 70
+    '441.4','441.6','441.8','442.0','442.2',  //  71- 75
+    '442.4','442.6','442.8','443.0','443.2',  //  76- 80
+    '443.4','443.6','443.8','444.0','444.2',  //  81- 85
+    '444.4','444.6','444.8','445.0','445.2',  //  86- 90
+    '445.4','445.6','445.8','446.0','446.2',  //  91- 95
+    '446.4','446.6','446.8','447.0','447.2',  //  96-100
+    '447.4','447.6','447.8','448.0','448.2',  // 101-105
+    '448.4','448.6','448.8','449.0','449.2',  // 106-110
+    '449.4','449.6','449.8','450.0','450.2',  // 111-115
+    '450.4','450.6','450.8','451.0','451.2',  // 116-120
+    '451.4','451.6','451.8','452.0','452.2',  // 121-125
+    '452.4','452.6'                           // 126-127
+  ];
+
+  MasterTuneHz.Caption := HzVal[Synth[CurSyn].System.MasterTune];
+end;
+
+procedure TEditorForm.MasterTune_valueChange(Sender: TObject);
+begin
+    if UpdatingControls then Exit;
+
+  Synth[CurSyn].System.MasterTune := MasterTune_value.Value;
+  UpdatingControls := True;
+  MasterTune.Position := Synth[CurSyn].System.MasterTune;
+  UpdatingControls := False;
+  MasterTuneMakeHzVal;
+
+  SysExAddress := LinearAddrToBytes(AdSystem + $00);
+  SetLength(SysExData,1);
+  SysExData[0] := Synth[CurSyn].System.MasterTune;
+  SendCurrentSysEx;
+end;
+
+procedure TEditorForm.ReverbTimeChange(Sender: TObject);
+begin
+  if UpdatingControls then Exit;
+
+  Synth[CurSyn].System.ReverbTime := ReverbTime.Position;
+  ReverbTime_value.Value := Synth[CurSyn].System.ReverbTime;
+
+  SysExAddress := LinearAddrToBytes(
+    AdSystem +
+    $02
+  );
+  SetLength(SysExData,1);
+  SysExData[0] := Synth[CurSyn].System.ReverbTime;
+  SendCurrentSysEx;
+end;
+
+procedure TEditorForm.ReverbTime_valueChange(Sender: TObject);
+begin
+  if UpdatingControls then Exit;
+
+  if ReverbTime_value.Value = Synth[CurSyn].System.ReverbTime then Exit;
+  if ReverbTime_value.Value < ReverbTime.Min then
+    ReverbTime_value.Value := ReverbTime.Min;
+  if ReverbTime_value.Value > ReverbTime.Max then
+    ReverbTime_value.Value := ReverbTime.Max;
+
+  Synth[CurSyn].System.ReverbTime := ReverbTime_value.Value;
+  UpdatingControls := True;
+  ReverbTime.Position := ReverbTime_value.Value;
+  UpdatingControls := False;
+
+  SysExAddress := LinearAddrToBytes(
+    AdSystem +
+    $02
+  );
+  SetLength(SysExData,1);
+  SysExData[0] := Synth[CurSyn].System.ReverbTime;
+  SendCurrentSysEx;
+end;
+
+procedure TEditorForm.ReverbLevelChange(Sender: TObject);
+begin
+  if UpdatingControls then Exit;
+
+  Synth[CurSyn].System.ReverbLevel := ReverbLevel.Position;
+  ReverbLevel_value.Value := Synth[CurSyn].System.ReverbLevel;
+
+  SysExAddress := LinearAddrToBytes(
+    AdSystem +
+    $03
+  );
+  SetLength(SysExData,1);
+  SysExData[0] := Synth[CurSyn].System.ReverbLevel;
+  SendCurrentSysEx;
+end;
+
+procedure TEditorForm.ReverbLevel_valueChange(Sender: TObject);
+begin
+  if UpdatingControls then Exit;
+
+  if ReverbLevel_value.Value = Synth[CurSyn].System.ReverbLevel then Exit;
+  if ReverbLevel_value.Value < ReverbLevel.Min then
+    ReverbLevel_value.Value := ReverbLevel.Min;
+  if ReverbLevel_value.Value > ReverbLevel.Max then
+    ReverbLevel_value.Value := ReverbLevel.Max;
+
+  Synth[CurSyn].System.ReverbLevel := ReverbLevel_value.Value;
+  UpdatingControls := True;
+  ReverbLevel.Position := ReverbLevel_value.Value;
+  UpdatingControls := False;
+
+  SysExAddress := LinearAddrToBytes(
+    AdSystem +
+    $03
+  );
+  SetLength(SysExData,1);
+  SysExData[0] := Synth[CurSyn].System.ReverbLevel;
+  SendCurrentSysEx;
+end;
+
+procedure TEditorForm.ReverbModeButtonClick(Sender: TObject);
+begin
+  if UpdatingControls then Exit;
+
+  if Synth[CurSyn].System.ReverbMode <> TSpeedButton(Sender).Tag then
+  begin
+    Synth[CurSyn].System.ReverbMode := TSpeedButton(Sender).Tag;
+
+    SysExAddress := LinearAddrToBytes(
+      AdSystem +
+      $01
+    );
+    SetLength(SysExData,1);
+    SysExData[0] := Synth[CurSyn].System.ReverbMode;
+    SendCurrentSysEx;
+  end;
+end;
+
 procedure TEditorForm.MasterVolumeChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
@@ -6836,11 +7543,16 @@ begin
 end;
 
 { Debug Example Controls }
-procedure TEditorForm.Button1Click(Sender: TObject);
+procedure TEditorForm.TestNoteButtonClick(Sender: TObject);
 begin
   if MuntReady then
   begin
-    PHandlerInterface_v1.sendShortMessage(MuntVSTiInstance, $007F4091);
+    PHandlerInterface_v1.sendShortMessage(MuntVSTiInstance,
+      ($00 shl 16) +
+      (Byte(TestNoteVel.Value) shl 8) +
+      (Byte(TestNote.ItemIndex) shl 4) +
+      ($90 + Byte(TestNoteChan.Value))
+    );
     Timer1.Interval := 500;
     Timer1.Enabled := true;
   end;
@@ -6850,22 +7562,17 @@ procedure TEditorForm.Timer1Timer(Sender: TObject);
 begin
   if MuntReady then
   begin
-    PHandlerInterface_v1.sendShortMessage(MuntVSTiInstance, $007F4081);
+    PHandlerInterface_v1.sendShortMessage(MuntVSTiInstance,
+      ($00 shl 6) +
+      (Byte(TestNoteVel.Value) shl 4) +
+      (Byte(TestNote.ItemIndex) shl 2) +
+      ($80 + Byte(TestNoteChan.Value))
+    );
     Timer1.Enabled := false;
   end;
 end;
 
-procedure TEditorForm.Button2Click(Sender: TObject);
-const
-  LCDMESSAGE: array[0..29] of byte = ($F0, $41, $10, $16, $12, $20, $00, $00, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $00, $00, $20, $F7);
-begin
-  if MuntReady then
-  begin
-    PHandlerInterface_v1.sendSysExMessage(MuntVSTiInstance, @LCDMESSAGE, 30);
-  end;
-end;
-
-procedure TEditorForm.Button3Click(Sender: TObject);
+procedure TEditorForm.ReadMemoryClick(Sender: TObject);
 var
   MemoryInfo: array of byte;
   i: integer;
@@ -6873,8 +7580,8 @@ var
 begin
   if MuntReady then
   begin
-    Addr := Cardinal(StrToInt('$' + Edit3.Text));
-    DataSize := Cardinal(StrToInt('$' + Edit4.Text));
+    Addr := Cardinal(StrToInt('$' + ReadMemAddr.Text));
+    DataSize := Cardinal(StrToInt('$' + ReadMemSize.Text));
 
     SetLength(MemoryInfo, DataSize);
     GetData(Addr,
@@ -6882,13 +7589,13 @@ begin
             MemoryInfo,
             CurSyn
     );
-    Memo1.Text := '';
+    ReturnedBytes.Text := '';
     for i := 0 to High(MemoryInfo) do
-      Memo1.Text := Memo1.Text + IntToHex(MemoryInfo[i], 2) + ' ';
+      ReturnedBytes.Text := ReturnedBytes.Text + IntToHex(MemoryInfo[i], 2) + ' ';
   end;
 end;
 
-procedure TEditorForm.Button4Click(Sender: TObject);
+procedure TEditorForm.SendSysExStrClick(Sender: TObject);
 var
   input: string;
   parts: TStringList;
@@ -6896,7 +7603,7 @@ var
   i, idx: Integer;
   token: string;
 begin
-  input := Memo2.Text;
+  input := BytesToSend.Text;
 
   parts := TStringList.Create;
   parts.Delimiter := ' ';
