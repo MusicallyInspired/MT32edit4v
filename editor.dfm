@@ -9731,6 +9731,16 @@ object EditorForm: TEditorForm
         TabOrder = 8
         Value = 127
       end
+      object TestNoteChan: TSpinEdit
+        Left = 111
+        Top = 6
+        Width = 47
+        Height = 22
+        MaxValue = 16
+        MinValue = 1
+        TabOrder = 9
+        Value = 1
+      end
     end
   end
   object SyncAllButton: TBitBtn
@@ -9849,16 +9859,6 @@ object EditorForm: TEditorForm
     TabOrder = 7
     WordWrap = True
     OnClick = SaveTmbMemButtonClick
-  end
-  object TestNoteChan: TSpinEdit
-    Left = 116
-    Top = 33
-    Width = 47
-    Height = 22
-    MaxValue = 16
-    MinValue = 1
-    TabOrder = 8
-    Value = 1
   end
   object Timer1: TTimer
     Enabled = False

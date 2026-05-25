@@ -7563,9 +7563,9 @@ begin
   if MuntReady then
   begin
     PHandlerInterface_v1.sendShortMessage(MuntVSTiInstance,
-      ($00 shl 6) +
-      (Byte(TestNoteVel.Value) shl 4) +
-      (Byte(TestNote.ItemIndex) shl 2) +
+      ($00 shl 16) +
+      (Byte(TestNoteVel.Value) shl 8) +
+      (Byte(TestNote.ItemIndex) shl 4) +
       ($80 + Byte(TestNoteChan.Value))
     );
     Timer1.Enabled := false;
