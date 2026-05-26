@@ -14,7 +14,7 @@ MT32edit4v functions as a companion DLL for MuntVSTi 3.0 by Falcosoft, which is 
 <img width="455" height="411" alt="Launching MT32edit4v" src="https://github.com/user-attachments/assets/a1bdec3c-ec95-4c47-895d-043999664d9b" />
 
 * MuntVSTi allows its memory to be accessed directly by MT32edit4v. This is crucial to keep the editor in sync with MuntVSTi as MUNT itself does not have a MIDI output in any current implementation and does not send sysex data externally as a hardware MT-32 does. It also does not respond at all to Data Request sysex messages.
-* MuntVSTi allows its memory to be written to by accepting sysex MIDI message commands (like a hardware MT-32 would), which is how MT32edit4v operates. Since MT32edit4v is a child process with MuntVSTi acting as the host, the communication is direct and bypasses the need for any external programs to facilitate sending the sysex messages (which only few DAWs can do).
+* MuntVSTi allows its memory to be written to by accepting sysex MIDI message commands (like a hardware MT-32 would), which is how MT32edit4v operates. Since MT32edit4v is a child in-process library with MuntVSTi acting as the host, the communication is direct and bypasses the need for any external programs to facilitate sending the sysex messages (which only few DAWs can do).
 * MT32edit4v will also have access to *BOTH* of MuntVSTi's emulated synths separately in real-time at all times. It's like having two MT-32's!
 * Previously, unless you had a real hardware MT-32 or the ability to reverse engineer game files, there was no way to capture the custom instrument banks of computer games that supported the MT-32 (since MUNT does not respond to Data Request sysex messages and has no MIDI output). Now with utilizing MuntVSTi with DOSBox or PC emulators/virtual machines to play those games, you will easily be able access their custom banks and back them up as SysEx files via MT32edit4v without needing a real MT-32!  
 
@@ -55,7 +55,7 @@ Very special thanks and high praise to [Falcosoft](https://github.com/falcosoft)
 *In fact, currently this is the only way to be able to do this WITHOUT owning a real hardware MT-32 as all implementations of MUNT (other than MuntVSTi) do not have the capability to send sysex data out or respond to incoming Data Request sysex messages.*
 <br><br>
 **Is this a standalone editor?**<br>
-*No, it can only be run as a child process of MuntVSTi.*
+*No, it can only be run as a child in-process library of MuntVSTi.*
 <br><br>
 **Can this be used with a real hardware MT-32, MT32-Pi device, or other implementation of MUNT?**<br>
 *No, currently it's designed specifically to be used only with MuntVSTi (3.0+).*
