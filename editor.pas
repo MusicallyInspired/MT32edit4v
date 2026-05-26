@@ -13,7 +13,7 @@ uses
   Vcl.Graphics, Math, Types, IOUtils, Vcl.Samples.Spin, SynthSlider, KnobControl, PatchUxTheme;
 
 const
-  EditorVersion: Double = 1.00 ;
+  EditorVersion: String = 'BETA 1.00a' ;
 
   SysExHeader: array[0..4] of Byte = (
     $F0, $41, $10, $16, $12
@@ -1053,6 +1053,7 @@ type
     procedure PageControl1Change(Sender: TObject);
     procedure LoadTmbMemButtonClick(Sender: TObject);
     procedure AboutButtonClick(Sender: TObject);
+    procedure PEnvLevel0Change(Sender: TObject);
 
   private
     { Private declarations }
@@ -3751,7 +3752,7 @@ end;
 procedure TEditorForm.AboutButtonClick(Sender: TObject);
 begin
   ShowMessage(Format(
-      'MuntVSTi Editor  -  BETA %.2f' + sLineBreak + sLineBreak +
+      'MuntVSTi Editor  -  %s' + sLineBreak + sLineBreak +
       'Developed by Brandon Blume in association with' + sLineBreak +
       'Zoltán Bacskó (Falcosoft).' + sLineBreak + sLineBreak +
       'Designed for use specifically with MuntVSTi 3.0 by Falcosoft.' + sLineBreak + sLineBreak +
@@ -4510,6 +4511,25 @@ begin
 end;
 
 { Pitch Envelope Controls }
+procedure TEditorForm.PEnvLevel0Change(Sender: TObject);
+begin
+  if UpdatingControls then Exit;
+
+  Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level0 := PEnvLevel0.Position;
+  PEnvLevel0_value.Text := IntToStr(Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level0);
+  PEnvPlot.Invalidate;
+
+  SysExAddress := LinearAddrToBytes(
+    AdTimbreTemp +
+    (CurPt * $F6) +
+    (CurPtl * $3A) + $0E +
+    $0F
+  );
+  SetLength(SysExData,1);
+  SysExData[0] := Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level0 + 50;
+  SendCurrentSysEx;
+end;
+
 procedure TEditorForm.PEnvLevel0_valueExit(Sender: TObject);
 begin
   if StrToInt(PEnvLevel0_value.Text) = Synth[CurSyn].Part[CurPt].Partial[CurPtl].PitchEnv.Level0 then Exit;

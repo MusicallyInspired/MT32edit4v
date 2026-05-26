@@ -877,7 +877,7 @@ object EditorForm: TEditorForm
           ParentColor = False
           TabOrder = 17
           TabStop = True
-          OnChange = PEnvLevel1Change
+          OnChange = PEnvLevel0Change
         end
         object PEnvLevel1: TSynthSlider
           Left = 36
