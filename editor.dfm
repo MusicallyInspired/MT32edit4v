@@ -36,7 +36,7 @@ object EditorForm: TEditorForm
   end
   object Synth1Toggle: TSpeedButton
     Left = 756
-    Top = 4
+    Top = 28
     Width = 52
     Height = 24
     GroupIndex = 1
@@ -46,13 +46,14 @@ object EditorForm: TEditorForm
     Font.Color = 12014080
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
-    OnClick = Synth1ToggleClick
+    OnClick = SynthToggleClick
   end
   object Synth2Toggle: TSpeedButton
+    Tag = 1
     Left = 756
-    Top = 27
+    Top = 51
     Width = 52
     Height = 24
     GroupIndex = 1
@@ -63,7 +64,7 @@ object EditorForm: TEditorForm
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    OnClick = Synth2ToggleClick
+    OnClick = SynthToggleClick
   end
   object PageControl1: TPageControl
     Left = 0
@@ -80,6 +81,7 @@ object EditorForm: TEditorForm
     ParentFont = False
     TabOrder = 0
     TabWidth = 100
+    OnChange = PageControl1Change
     object TimbreTempArea: TTabSheet
       Caption = 'Timbre'
       Font.Charset = DEFAULT_CHARSET
@@ -90,17 +92,17 @@ object EditorForm: TEditorForm
       ImageIndex = 1
       ParentFont = False
       object TimbreName_label: TLabel
-        Left = 395
-        Top = 16
+        Left = 398
+        Top = 27
         Width = 62
         Height = 13
         Caption = 'Timbre Name'
       end
       object EnvMode: TSpeedButton
-        Left = 475
-        Top = 17
-        Width = 51
-        Height = 40
+        Left = 476
+        Top = 29
+        Width = 55
+        Height = 35
         Hint = 'Sustain On: notes held'#13#10'Sustain Off: notes not held'
         AllowAllUp = True
         GroupIndex = 1
@@ -1269,6 +1271,20 @@ object EditorForm: TEditorForm
           ParentColor = False
           ParentFont = False
         end
+        object TVFKeyFollow_result: TLabel
+          Left = 133
+          Top = 105
+          Width = 28
+          Height = 13
+          AutoSize = False
+          Caption = '0'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
         object TVFLevel2_value: TEdit
           Left = 37
           Top = 102
@@ -1332,27 +1348,6 @@ object EditorForm: TEditorForm
           OnExit = TVFSustain_valueExit
           OnKeyPress = TVFSustain_valueKeyPress
         end
-        object TVFKeyFollow_value: TEdit
-          Left = 133
-          Top = 102
-          Width = 26
-          Height = 21
-          Hint = '0 ~ 17'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          MaxLength = 3
-          NumbersOnly = True
-          ParentFont = False
-          ParentShowHint = False
-          ShowHint = True
-          TabOrder = 4
-          Text = '0'
-          OnExit = TVFKeyFollow_valueExit
-          OnKeyPress = TVFKeyFollow_valueKeyPress
-        end
         object TVFLevel1_value: TEdit
           Left = 5
           Top = 102
@@ -1390,7 +1385,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 5
+          TabOrder = 4
           Text = '0'
           OnExit = TVFTime1_valueExit
           OnKeyPress = TVFTime1_valueKeyPress
@@ -1411,7 +1406,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 6
+          TabOrder = 5
           Text = '0'
           OnExit = TVFTime2_valueExit
           OnKeyPress = TVFTime2_valueKeyPress
@@ -1432,7 +1427,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 7
+          TabOrder = 6
           Text = '0'
           OnExit = TVFTime3_valueExit
           OnKeyPress = TVFTime3_valueKeyPress
@@ -1453,7 +1448,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 8
+          TabOrder = 7
           Text = '0'
           OnExit = TVFTime4_valueExit
           OnKeyPress = TVFTime4_valueKeyPress
@@ -1525,7 +1520,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 9
+          TabOrder = 8
           Text = '0'
           OnExit = TVFTime5_valueExit
           OnKeyPress = TVFTime5_valueKeyPress
@@ -1546,7 +1541,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 11
+          TabOrder = 10
           Text = '0'
           OnExit = TVFDepth_valueExit
           OnKeyPress = TVFDepth_valueKeyPress
@@ -1567,7 +1562,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 12
+          TabOrder = 11
           Text = '0'
           OnExit = TVFVelSens_valueExit
           OnKeyPress = TVFVelSens_valueKeyPress
@@ -1588,7 +1583,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 13
+          TabOrder = 12
           Text = '0'
           OnExit = TVFTimeKeyFollow_valueExit
           OnKeyPress = TVFTimeKeyFollow_valueKeyPress
@@ -1609,7 +1604,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 14
+          TabOrder = 13
           Text = '0'
           OnExit = TVFDepthKeyFollow_valueExit
           OnKeyPress = TVFDepthKeyFollow_valueKeyPress
@@ -1629,7 +1624,7 @@ object EditorForm: TEditorForm
           ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 16
+          TabOrder = 15
           Text = '0'
           OnExit = TVFBiasLevel_valueExit
           OnKeyPress = TVFBiasLevel_valueKeyPress
@@ -1640,10 +1635,16 @@ object EditorForm: TEditorForm
           Width = 78
           Height = 21
           Style = csDropDownList
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
           ItemIndex = 0
+          ParentFont = False
           ParentShowHint = False
           ShowHint = True
-          TabOrder = 15
+          TabOrder = 14
           Text = '< A0'
           OnChange = TVFBiasPointChange
           Items.Strings = (
@@ -1790,7 +1791,7 @@ object EditorForm: TEditorForm
           ParentBackground = False
           ParentColor = False
           ParentFont = False
-          TabOrder = 10
+          TabOrder = 9
           object TVFResonance_label: TLabel
             Left = 44
             Top = 7
@@ -1911,7 +1912,7 @@ object EditorForm: TEditorForm
           Frequency = 10
           ThumbSize = 10
           ParentColor = False
-          TabOrder = 22
+          TabOrder = 21
           TabStop = True
           OnChange = TVFLevel1Change
         end
@@ -1927,7 +1928,7 @@ object EditorForm: TEditorForm
           Frequency = 10
           ThumbSize = 10
           ParentColor = False
-          TabOrder = 23
+          TabOrder = 22
           TabStop = True
           OnChange = TVFLevel3Change
         end
@@ -1943,7 +1944,7 @@ object EditorForm: TEditorForm
           Frequency = 10
           ThumbSize = 10
           ParentColor = False
-          TabOrder = 24
+          TabOrder = 23
           TabStop = True
           OnChange = TVFLevel2Change
         end
@@ -1959,7 +1960,7 @@ object EditorForm: TEditorForm
           Frequency = 10
           ThumbSize = 10
           ParentColor = False
-          TabOrder = 25
+          TabOrder = 24
           TabStop = True
           OnChange = TVFSustainChange
         end
@@ -1968,7 +1969,9 @@ object EditorForm: TEditorForm
           Top = 31
           Width = 29
           Height = 70
-          Max = 17
+          Min = -3
+          Max = 11
+          CenterMark = True
           TrackColor = 14737632
           FillColor = 16751121
           ThumbColor = 14120960
@@ -1977,7 +1980,7 @@ object EditorForm: TEditorForm
           Frequency = 3
           ThumbSize = 10
           ParentColor = False
-          TabOrder = 26
+          TabOrder = 25
           TabStop = True
           OnChange = TVFKeyFollowChange
         end
@@ -1995,7 +1998,7 @@ object EditorForm: TEditorForm
           Frequency = 10
           ThumbSize = 7
           ParentColor = False
-          TabOrder = 27
+          TabOrder = 26
           TabStop = True
           OnChange = TVFDepthChange
         end
@@ -2013,7 +2016,7 @@ object EditorForm: TEditorForm
           TickMarks = stmBottomRight
           ThumbSize = 7
           ParentColor = False
-          TabOrder = 28
+          TabOrder = 27
           TabStop = True
           OnChange = TVFDepthKeyFollowChange
         end
@@ -2029,7 +2032,7 @@ object EditorForm: TEditorForm
           TickColor = clSilver
           ThumbSize = 7
           ParentColor = False
-          TabOrder = 29
+          TabOrder = 28
           TabStop = True
           OnChange = TVFVelSensChange
         end
@@ -2047,7 +2050,7 @@ object EditorForm: TEditorForm
           TickMarks = stmBottomRight
           ThumbSize = 7
           ParentColor = False
-          TabOrder = 30
+          TabOrder = 29
           TabStop = True
           OnChange = TVFTimeKeyFollowChange
         end
@@ -2067,7 +2070,7 @@ object EditorForm: TEditorForm
           TickMarks = stmTopLeft
           ThumbSize = 7
           ParentColor = False
-          TabOrder = 31
+          TabOrder = 30
           TabStop = True
           OnChange = TVFBiasLevelChange
         end
@@ -2642,7 +2645,13 @@ object EditorForm: TEditorForm
           Width = 78
           Height = 21
           Style = csDropDownList
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
           ItemIndex = 0
+          ParentFont = False
           ParentShowHint = False
           ShowHint = True
           TabOrder = 13
@@ -2868,7 +2877,13 @@ object EditorForm: TEditorForm
           Width = 78
           Height = 21
           Style = csDropDownList
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
           ItemIndex = 0
+          ParentFont = False
           ParentShowHint = False
           ShowHint = True
           TabOrder = 15
@@ -3187,9 +3202,9 @@ object EditorForm: TEditorForm
         end
       end
       object TimbreName: TEdit
-        Left = 392
-        Top = 37
-        Width = 71
+        Left = 393
+        Top = 43
+        Width = 77
         Height = 21
         Hint = 'Set the name of the current Part'#39's Timbre (10 chars max)'
         Font.Charset = ANSI_CHARSET
@@ -3616,9 +3631,9 @@ object EditorForm: TEditorForm
         end
         object WGVelSens: TSynthSlider
           Left = 77
-          Top = 65
+          Top = 66
           Width = 107
-          Height = 22
+          Height = 21
           Hint = 'Note velocity sensitivity of the waveform pulse width'
           Min = -7
           Max = 7
@@ -3751,9 +3766,10 @@ object EditorForm: TEditorForm
           ShowHint = True
           State = cbChecked
           TabOrder = 0
-          OnClick = PartialMute1Click
+          OnClick = PartialMuteClick
         end
         object PartialMute2: TCheckBox
+          Tag = 1
           Left = 36
           Top = 16
           Width = 27
@@ -3762,9 +3778,10 @@ object EditorForm: TEditorForm
           ParentShowHint = False
           ShowHint = True
           TabOrder = 1
-          OnClick = PartialMute2Click
+          OnClick = PartialMuteClick
         end
         object PartialMute3: TCheckBox
+          Tag = 2
           Left = 8
           Top = 37
           Width = 27
@@ -3773,9 +3790,10 @@ object EditorForm: TEditorForm
           ParentShowHint = False
           ShowHint = True
           TabOrder = 2
-          OnClick = PartialMute3Click
+          OnClick = PartialMuteClick
         end
         object PartialMute4: TCheckBox
+          Tag = 3
           Left = 36
           Top = 37
           Width = 27
@@ -3784,7 +3802,7 @@ object EditorForm: TEditorForm
           ParentShowHint = False
           ShowHint = True
           TabOrder = 3
-          OnClick = PartialMute4Click
+          OnClick = PartialMuteClick
         end
         object PartialStruct1: TComboBox
           Left = 66
@@ -3836,12 +3854,12 @@ object EditorForm: TEditorForm
         end
       end
       object PartControlsGroup: TGroupBox
-        Left = 3
+        Left = 4
         Top = -1
-        Width = 378
+        Width = 383
         Height = 68
         Margins.Right = 7
-        Caption = 'Patch Controls for Current Part'
+        Caption = 'Patch Controls'
         Color = clBtnFace
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
@@ -3852,6 +3870,12 @@ object EditorForm: TEditorForm
         ParentColor = False
         ParentFont = False
         TabOrder = 6
+        object PtTmbMemBevel: TBevel
+          Left = 227
+          Top = 9
+          Width = 151
+          Height = 54
+        end
         object CurPart_label: TLabel
           Left = 5
           Top = 22
@@ -3879,7 +3903,7 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object PtRevButton: TSpeedButton
-          Left = 132
+          Left = 127
           Top = 18
           Width = 46
           Height = 40
@@ -3899,7 +3923,7 @@ object EditorForm: TEditorForm
           OnClick = PtRevButtonClick
         end
         object PtPitchBend_label: TLabel
-          Left = 189
+          Left = 179
           Top = 22
           Width = 40
           Height = 13
@@ -3911,32 +3935,19 @@ object EditorForm: TEditorForm
           Font.Style = [fsBold]
           ParentFont = False
         end
-        object PtBank_label: TLabel
-          Left = 253
-          Top = 14
-          Width = 31
+        object CurMem_label: TLabel
+          Left = 235
+          Top = 16
+          Width = 47
           Height = 13
-          Alignment = taRightJustify
-          Caption = 'Bank:'
+          Caption = 'Memory'
+          Color = 12014080
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
-          ParentFont = False
-        end
-        object Label5: TLabel
-          Left = 241
-          Top = 41
-          Width = 43
-          Height = 13
-          Alignment = taRightJustify
-          Caption = 'Timbre:'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          ParentColor = False
           ParentFont = False
         end
         object CurPart: TComboBox
@@ -4009,8 +4020,8 @@ object EditorForm: TEditorForm
             'OFF')
         end
         object PtBendRange: TSpinEdit
-          Left = 189
-          Top = 37
+          Left = 179
+          Top = 38
           Width = 41
           Height = 22
           Hint = 'Pitch Bender Range (0 ~ 24)'
@@ -4030,32 +4041,47 @@ object EditorForm: TEditorForm
           OnChange = PtBendRangeChange
           OnKeyPress = PressedKey
         end
-        object PtBank: TComboBox
+        object SaveTmbMemButton: TButton
           Left = 289
           Top = 11
-          Width = 82
-          Height = 21
-          Style = csDropDownList
+          Width = 43
+          Height = 26
+          Hint = 'Store current Timbre to Timbre Memory Area'
+          Caption = 'Save'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
-          ItemIndex = 0
           ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
           TabOrder = 3
-          Text = 'Preset A'
-          OnChange = PtBankChange
-          Items.Strings = (
-            'Preset A'
-            'Preset B'
-            'Custom'
-            'Rhythm')
+          WordWrap = True
+          OnClick = SaveTmbMemButtonClick
         end
-        object PtTimbre: TComboBox
-          Left = 289
+        object LoadTmbMemButton: TButton
+          Left = 331
+          Top = 11
+          Width = 43
+          Height = 26
+          Hint = 'Load Timbre from Timbre Memory Area'
+          Caption = 'Load'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = False
+          TabOrder = 4
+          OnClick = LoadTmbMemButtonClick
+        end
+        object CurMem: TComboBox
+          Left = 235
           Top = 38
-          Width = 82
+          Width = 139
           Height = 21
           Style = csDropDownList
           Font.Charset = DEFAULT_CHARSET
@@ -4064,9 +4090,27 @@ object EditorForm: TEditorForm
           Font.Name = 'Tahoma'
           Font.Style = []
           ParentFont = False
-          TabOrder = 4
-          OnChange = PtTimbreChange
+          TabOrder = 5
         end
+      end
+      object InitTimbreButton: TButton
+        Left = 393
+        Top = 1
+        Width = 138
+        Height = 22
+        Hint = 'Initialize current Timbre settings'
+        Caption = 'Initialize Timbre'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 7
+        WordWrap = True
+        OnClick = InitTimbreButtonClick
       end
     end
     object PatchTempArea: TTabSheet
@@ -4271,6 +4315,7 @@ object EditorForm: TEditorForm
           TabOrder = 2
           Value = 1
           OnChange = PtChanChange
+          OnKeyPress = PressedKey
         end
         object Pt1Output_value: TSpinEdit
           Left = 18
@@ -4482,6 +4527,7 @@ object EditorForm: TEditorForm
             TabOrder = 2
             Value = 0
             OnChange = PtFine_valueChange
+            OnKeyPress = PressedKey
           end
           object Pt1Key: TKnobControl
             Left = 8
@@ -4518,6 +4564,7 @@ object EditorForm: TEditorForm
             TabOrder = 4
             Value = 0
             OnChange = PtKey_valueChange
+            OnKeyPress = PressedKey
           end
           object Pt1Timbre: TComboBox
             Left = 1
@@ -4834,6 +4881,7 @@ object EditorForm: TEditorForm
           TabOrder = 1
           Value = 0
           OnChange = PtPan_valueChange
+          OnKeyPress = PressedKey
         end
         object Pt2Chan: TSpinEdit
           Tag = 1
@@ -4856,6 +4904,7 @@ object EditorForm: TEditorForm
           TabOrder = 2
           Value = 1
           OnChange = PtChanChange
+          OnKeyPress = PressedKey
         end
         object Pt2Output_value: TSpinEdit
           Tag = 1
@@ -4878,6 +4927,7 @@ object EditorForm: TEditorForm
           TabOrder = 3
           Value = 0
           OnChange = PtOutput_valueChange
+          OnKeyPress = PressedKey
         end
         object Pt2Bend_value: TSpinEdit
           Tag = 1
@@ -4900,6 +4950,7 @@ object EditorForm: TEditorForm
           TabOrder = 4
           Value = 0
           OnChange = PtBend_valueChange
+          OnKeyPress = PressedKey
         end
         object Pt2Bend: TKnobControl
           Tag = 1
@@ -5071,6 +5122,7 @@ object EditorForm: TEditorForm
             TabOrder = 2
             Value = 0
             OnChange = PtFine_valueChange
+            OnKeyPress = PressedKey
           end
           object Pt2Key: TKnobControl
             Tag = 1
@@ -5109,6 +5161,7 @@ object EditorForm: TEditorForm
             TabOrder = 4
             Value = 0
             OnChange = PtKey_valueChange
+            OnKeyPress = PressedKey
           end
           object Pt2Timbre: TComboBox
             Tag = 1
@@ -5428,6 +5481,7 @@ object EditorForm: TEditorForm
           TabOrder = 1
           Value = 0
           OnChange = PtPan_valueChange
+          OnKeyPress = PressedKey
         end
         object Pt3Chan: TSpinEdit
           Tag = 2
@@ -5450,6 +5504,7 @@ object EditorForm: TEditorForm
           TabOrder = 2
           Value = 1
           OnChange = PtChanChange
+          OnKeyPress = PressedKey
         end
         object Pt3Output_value: TSpinEdit
           Tag = 2
@@ -5472,6 +5527,7 @@ object EditorForm: TEditorForm
           TabOrder = 3
           Value = 0
           OnChange = PtOutput_valueChange
+          OnKeyPress = PressedKey
         end
         object Pt3Bend_value: TSpinEdit
           Tag = 2
@@ -5494,6 +5550,7 @@ object EditorForm: TEditorForm
           TabOrder = 4
           Value = 0
           OnChange = PtBend_valueChange
+          OnKeyPress = PressedKey
         end
         object Pt3Bend: TKnobControl
           Tag = 2
@@ -5665,6 +5722,7 @@ object EditorForm: TEditorForm
             TabOrder = 2
             Value = 0
             OnChange = PtFine_valueChange
+            OnKeyPress = PressedKey
           end
           object Pt3Key: TKnobControl
             Tag = 2
@@ -5703,6 +5761,7 @@ object EditorForm: TEditorForm
             TabOrder = 4
             Value = 0
             OnChange = PtKey_valueChange
+            OnKeyPress = PressedKey
           end
           object Pt3Timbre: TComboBox
             Tag = 2
@@ -6022,6 +6081,7 @@ object EditorForm: TEditorForm
           TabOrder = 1
           Value = 0
           OnChange = PtPan_valueChange
+          OnKeyPress = PressedKey
         end
         object Pt4Chan: TSpinEdit
           Tag = 3
@@ -6044,6 +6104,7 @@ object EditorForm: TEditorForm
           TabOrder = 2
           Value = 1
           OnChange = PtChanChange
+          OnKeyPress = PressedKey
         end
         object Pt4Output_value: TSpinEdit
           Tag = 3
@@ -6066,6 +6127,7 @@ object EditorForm: TEditorForm
           TabOrder = 3
           Value = 0
           OnChange = PtOutput_valueChange
+          OnKeyPress = PressedKey
         end
         object Pt4Bend_value: TSpinEdit
           Tag = 3
@@ -6088,6 +6150,7 @@ object EditorForm: TEditorForm
           TabOrder = 4
           Value = 0
           OnChange = PtBend_valueChange
+          OnKeyPress = PressedKey
         end
         object Pt4Bend: TKnobControl
           Tag = 3
@@ -6259,6 +6322,7 @@ object EditorForm: TEditorForm
             TabOrder = 2
             Value = 0
             OnChange = PtFine_valueChange
+            OnKeyPress = PressedKey
           end
           object Pt4Key: TKnobControl
             Tag = 3
@@ -6297,6 +6361,7 @@ object EditorForm: TEditorForm
             TabOrder = 4
             Value = 0
             OnChange = PtKey_valueChange
+            OnKeyPress = PressedKey
           end
           object Pt4Timbre: TComboBox
             Tag = 3
@@ -6616,6 +6681,7 @@ object EditorForm: TEditorForm
           TabOrder = 1
           Value = 0
           OnChange = PtPan_valueChange
+          OnKeyPress = PressedKey
         end
         object Pt5Chan: TSpinEdit
           Tag = 4
@@ -6638,6 +6704,7 @@ object EditorForm: TEditorForm
           TabOrder = 2
           Value = 1
           OnChange = PtChanChange
+          OnKeyPress = PressedKey
         end
         object Pt5Output_value: TSpinEdit
           Tag = 4
@@ -6660,6 +6727,7 @@ object EditorForm: TEditorForm
           TabOrder = 3
           Value = 0
           OnChange = PtOutput_valueChange
+          OnKeyPress = PressedKey
         end
         object Pt5Bend_value: TSpinEdit
           Tag = 4
@@ -6682,6 +6750,7 @@ object EditorForm: TEditorForm
           TabOrder = 4
           Value = 0
           OnChange = PtBend_valueChange
+          OnKeyPress = PressedKey
         end
         object Pt5Bend: TKnobControl
           Tag = 4
@@ -6853,6 +6922,7 @@ object EditorForm: TEditorForm
             TabOrder = 2
             Value = 0
             OnChange = PtFine_valueChange
+            OnKeyPress = PressedKey
           end
           object Pt5Key: TKnobControl
             Tag = 4
@@ -6891,6 +6961,7 @@ object EditorForm: TEditorForm
             TabOrder = 4
             Value = 0
             OnChange = PtKey_valueChange
+            OnKeyPress = PressedKey
           end
           object Pt5Timbre: TComboBox
             Tag = 4
@@ -7210,6 +7281,7 @@ object EditorForm: TEditorForm
           TabOrder = 1
           Value = 0
           OnChange = PtPan_valueChange
+          OnKeyPress = PressedKey
         end
         object Pt6Chan: TSpinEdit
           Tag = 5
@@ -7232,6 +7304,7 @@ object EditorForm: TEditorForm
           TabOrder = 2
           Value = 1
           OnChange = PtChanChange
+          OnKeyPress = PressedKey
         end
         object Pt6Output_value: TSpinEdit
           Tag = 5
@@ -7254,6 +7327,7 @@ object EditorForm: TEditorForm
           TabOrder = 3
           Value = 0
           OnChange = PtOutput_valueChange
+          OnKeyPress = PressedKey
         end
         object Pt6Bend_value: TSpinEdit
           Tag = 5
@@ -7276,6 +7350,7 @@ object EditorForm: TEditorForm
           TabOrder = 4
           Value = 0
           OnChange = PtBend_valueChange
+          OnKeyPress = PressedKey
         end
         object Pt6Bend: TKnobControl
           Tag = 5
@@ -7447,6 +7522,7 @@ object EditorForm: TEditorForm
             TabOrder = 2
             Value = 0
             OnChange = PtFine_valueChange
+            OnKeyPress = PressedKey
           end
           object Pt6Key: TKnobControl
             Tag = 5
@@ -7485,6 +7561,7 @@ object EditorForm: TEditorForm
             TabOrder = 4
             Value = 0
             OnChange = PtKey_valueChange
+            OnKeyPress = PressedKey
           end
           object Pt6Timbre: TComboBox
             Tag = 5
@@ -7804,6 +7881,7 @@ object EditorForm: TEditorForm
           TabOrder = 1
           Value = 0
           OnChange = PtPan_valueChange
+          OnKeyPress = PressedKey
         end
         object Pt7Chan: TSpinEdit
           Tag = 6
@@ -7826,6 +7904,7 @@ object EditorForm: TEditorForm
           TabOrder = 2
           Value = 1
           OnChange = PtChanChange
+          OnKeyPress = PressedKey
         end
         object Pt7Output_value: TSpinEdit
           Tag = 6
@@ -7848,6 +7927,7 @@ object EditorForm: TEditorForm
           TabOrder = 3
           Value = 0
           OnChange = PtOutput_valueChange
+          OnKeyPress = PressedKey
         end
         object Pt7Bend_value: TSpinEdit
           Tag = 6
@@ -7870,6 +7950,7 @@ object EditorForm: TEditorForm
           TabOrder = 4
           Value = 0
           OnChange = PtBend_valueChange
+          OnKeyPress = PressedKey
         end
         object Pt7Bend: TKnobControl
           Tag = 6
@@ -8041,6 +8122,7 @@ object EditorForm: TEditorForm
             TabOrder = 2
             Value = 0
             OnChange = PtFine_valueChange
+            OnKeyPress = PressedKey
           end
           object Pt7Key: TKnobControl
             Tag = 6
@@ -8079,6 +8161,7 @@ object EditorForm: TEditorForm
             TabOrder = 4
             Value = 0
             OnChange = PtKey_valueChange
+            OnKeyPress = PressedKey
           end
           object Pt7Timbre: TComboBox
             Tag = 6
@@ -8398,6 +8481,7 @@ object EditorForm: TEditorForm
           TabOrder = 1
           Value = 0
           OnChange = PtPan_valueChange
+          OnKeyPress = PressedKey
         end
         object Pt8Chan: TSpinEdit
           Tag = 7
@@ -8420,6 +8504,7 @@ object EditorForm: TEditorForm
           TabOrder = 2
           Value = 1
           OnChange = PtChanChange
+          OnKeyPress = PressedKey
         end
         object Pt8Output_value: TSpinEdit
           Tag = 7
@@ -8442,6 +8527,7 @@ object EditorForm: TEditorForm
           TabOrder = 3
           Value = 0
           OnChange = PtOutput_valueChange
+          OnKeyPress = PressedKey
         end
         object Pt8Bend_value: TSpinEdit
           Tag = 7
@@ -8464,6 +8550,7 @@ object EditorForm: TEditorForm
           TabOrder = 4
           Value = 0
           OnChange = PtBend_valueChange
+          OnKeyPress = PressedKey
         end
         object Pt8Bend: TKnobControl
           Tag = 7
@@ -8635,6 +8722,7 @@ object EditorForm: TEditorForm
             TabOrder = 2
             Value = 0
             OnChange = PtFine_valueChange
+            OnKeyPress = PressedKey
           end
           object Pt8Key: TKnobControl
             Tag = 7
@@ -8673,6 +8761,7 @@ object EditorForm: TEditorForm
             TabOrder = 4
             Value = 0
             OnChange = PtKey_valueChange
+            OnKeyPress = PressedKey
           end
           object Pt8Timbre: TComboBox
             Tag = 7
@@ -8942,6 +9031,7 @@ object EditorForm: TEditorForm
           TabOrder = 0
           Value = 1
           OnChange = PtChanChange
+          OnKeyPress = PressedKey
         end
         object PtROutput_value: TSpinEdit
           Tag = 8
@@ -8964,6 +9054,7 @@ object EditorForm: TEditorForm
           TabOrder = 1
           Value = 0
           OnChange = PtOutput_valueChange
+          OnKeyPress = PressedKey
         end
         object PtRBend_value: TSpinEdit
           Tag = 8
@@ -8986,6 +9077,7 @@ object EditorForm: TEditorForm
           TabOrder = 2
           Value = 0
           OnChange = PtBend_valueChange
+          OnKeyPress = PressedKey
         end
         object PtRBend: TKnobControl
           Tag = 8
@@ -9110,6 +9202,7 @@ object EditorForm: TEditorForm
             TabOrder = 1
             Value = 0
             OnChange = PtFine_valueChange
+            OnKeyPress = PressedKey
           end
           object PtRKey: TKnobControl
             Tag = 8
@@ -9148,6 +9241,7 @@ object EditorForm: TEditorForm
             TabOrder = 3
             Value = 0
             OnChange = PtKey_valueChange
+            OnKeyPress = PressedKey
           end
           object PtRPoly: TComboBox
             Tag = 8
@@ -9234,9 +9328,15 @@ object EditorForm: TEditorForm
     object SystemArea: TTabSheet
       Caption = 'System'
       ImageIndex = 4
+      object ReverbBevel: TBevel
+        Left = 3
+        Top = 130
+        Width = 446
+        Height = 335
+      end
       object MasterTune_label: TLabel
         Left = 12
-        Top = 53
+        Top = 36
         Width = 72
         Height = 16
         Caption = 'Master Tune'
@@ -9249,7 +9349,7 @@ object EditorForm: TEditorForm
       end
       object MasterTuneHz: TLabel
         Left = 332
-        Top = 50
+        Top = 33
         Width = 56
         Height = 16
         Alignment = taCenter
@@ -9262,10 +9362,13 @@ object EditorForm: TEditorForm
         ParentFont = False
       end
       object ReverbRoomButton: TSpeedButton
-        Left = 112
-        Top = 162
+        Left = 85
+        Top = 178
         Width = 57
         Height = 49
+        Hint = 
+          'Reverb mode setting or the whole synth (every Part with reverb e' +
+          'nabled will be affected)'
         GroupIndex = 1
         Down = True
         Caption = 'Room'
@@ -9279,10 +9382,13 @@ object EditorForm: TEditorForm
       end
       object ReverbHallButton: TSpeedButton
         Tag = 1
-        Left = 195
-        Top = 162
+        Left = 168
+        Top = 178
         Width = 57
         Height = 49
+        Hint = 
+          'Reverb mode setting or the whole synth (every Part with reverb e' +
+          'nabled will be affected)'
         GroupIndex = 1
         Caption = 'Hall'
         Font.Charset = DEFAULT_CHARSET
@@ -9295,10 +9401,13 @@ object EditorForm: TEditorForm
       end
       object ReverbPlateButton: TSpeedButton
         Tag = 2
-        Left = 280
-        Top = 162
+        Left = 253
+        Top = 178
         Width = 57
         Height = 49
+        Hint = 
+          'Reverb mode setting or the whole synth (every Part with reverb e' +
+          'nabled will be affected)'
         GroupIndex = 1
         Caption = 'Plate'
         Font.Charset = DEFAULT_CHARSET
@@ -9311,10 +9420,13 @@ object EditorForm: TEditorForm
       end
       object ReverbTapDelayButton: TSpeedButton
         Tag = 3
-        Left = 366
-        Top = 162
+        Left = 339
+        Top = 178
         Width = 57
         Height = 49
+        Hint = 
+          'Reverb mode setting or the whole synth (every Part with reverb e' +
+          'nabled will be affected)'
         GroupIndex = 1
         Caption = 'Tap'#13#10'Delay'
         Font.Charset = DEFAULT_CHARSET
@@ -9326,11 +9438,11 @@ object EditorForm: TEditorForm
         OnClick = ReverbModeButtonClick
       end
       object ReverbMode_label: TLabel
-        Left = 12
-        Top = 178
-        Width = 75
+        Left = 19
+        Top = 194
+        Width = 31
         Height = 16
-        Caption = 'Reverb Mode'
+        Caption = 'Mode'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -9339,11 +9451,11 @@ object EditorForm: TEditorForm
         ParentFont = False
       end
       object ReverbTime_label: TLabel
-        Left = 14
-        Top = 241
-        Width = 73
+        Left = 21
+        Top = 257
+        Width = 29
         Height = 16
-        Caption = 'Reverb Time'
+        Caption = 'Time'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -9352,11 +9464,11 @@ object EditorForm: TEditorForm
         ParentFont = False
       end
       object ReverbLevel_label: TLabel
-        Left = 14
-        Top = 347
-        Width = 73
+        Left = 21
+        Top = 363
+        Width = 29
         Height = 16
-        Caption = 'Reverb Level'
+        Caption = 'Level'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -9364,11 +9476,50 @@ object EditorForm: TEditorForm
         Font.Style = []
         ParentFont = False
       end
+      object MasterTuneBevel: TBevel
+        Left = 3
+        Top = 23
+        Width = 739
+        Height = 81
+      end
+      object EnableDebug: TSpeedButton
+        Left = 640
+        Top = 162
+        Width = 93
+        Height = 28
+        Hint = 'Enable hidden debug option controls for testing'
+        AllowAllUp = True
+        GroupIndex = 2
+        Caption = 'Debug Options'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        OnClick = EnableDebugClick
+      end
+      object ReverbControls_label: TLabel
+        Left = 3
+        Top = 145
+        Width = 446
+        Height = 13
+        Alignment = taCenter
+        AutoSize = False
+        Caption = 'Reverb'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
       object MasterTune: TSynthSlider
         Left = 12
-        Top = 72
+        Top = 55
         Width = 665
         Height = 33
+        Hint = 'Master Tune setting for the whole synth (all Parts affected)'
         Max = 127
         Orientation = stoHorizontal
         CenterMark = True
@@ -9385,7 +9536,7 @@ object EditorForm: TEditorForm
       end
       object MasterTune_value: TSpinEdit
         Left = 683
-        Top = 72
+        Top = 55
         Width = 50
         Height = 22
         Font.Charset = DEFAULT_CHARSET
@@ -9393,18 +9544,23 @@ object EditorForm: TEditorForm
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
+        MaxLength = 3
         MaxValue = 127
         MinValue = 0
         ParentFont = False
         TabOrder = 1
         Value = 0
         OnChange = MasterTune_valueChange
+        OnKeyPress = PressedKey
       end
       object ReverbTime: TSynthSlider
-        Left = 14
-        Top = 270
+        Left = 21
+        Top = 279
         Width = 357
         Height = 40
+        Hint = 
+          'Reverb time setting for the whole synth (every Part with reverb ' +
+          'enabled will be affected)'
         Max = 7
         Orientation = stoHorizontal
         TrackColor = 14737632
@@ -9419,10 +9575,13 @@ object EditorForm: TEditorForm
         OnChange = ReverbTimeChange
       end
       object ReverbLevel: TSynthSlider
-        Left = 14
-        Top = 377
+        Left = 21
+        Top = 393
         Width = 357
         Height = 40
+        Hint = 
+          'Reverb level setting or the whole synth (every Part with reverb ' +
+          'enabled will be affected)'
         Max = 7
         Orientation = stoHorizontal
         TrackColor = 14737632
@@ -9437,38 +9596,63 @@ object EditorForm: TEditorForm
         OnChange = ReverbLevelChange
       end
       object ReverbLevel_value: TSpinEdit
-        Left = 377
-        Top = 383
+        Left = 384
+        Top = 399
         Width = 46
         Height = 26
+        Hint = 
+          'Reverb level setting or the whole synth (every Part with reverb ' +
+          'enabled will be affected)'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
+        MaxLength = 1
         MaxValue = 0
         MinValue = 0
         ParentFont = False
         TabOrder = 4
         Value = 0
         OnChange = ReverbLevel_valueChange
+        OnKeyPress = PressedKey
       end
       object ReverbTime_value: TSpinEdit
-        Left = 377
-        Top = 270
+        Left = 384
+        Top = 286
         Width = 46
         Height = 26
+        Hint = 
+          'Reverb time setting for the whole synth (every Part with reverb ' +
+          'enabled will be affected)'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
+        MaxLength = 1
         MaxValue = 0
         MinValue = 0
         ParentFont = False
         TabOrder = 5
         Value = 0
         OnChange = ReverbTime_valueChange
+        OnKeyPress = PressedKey
+      end
+      object AboutButton: TButton
+        Left = 640
+        Top = 128
+        Width = 93
+        Height = 28
+        Caption = 'About'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 6
+        OnClick = AboutButtonClick
       end
     end
     object Debug: TTabSheet
@@ -9479,6 +9663,7 @@ object EditorForm: TEditorForm
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
+      TabVisible = False
       object ReadMemAddr_label: TLabel
         Left = 97
         Top = 61
@@ -9506,6 +9691,27 @@ object EditorForm: TEditorForm
         Width = 71
         Height = 13
         Caption = 'Bytes to Send:'
+      end
+      object TestNoteCh_label: TLabel
+        Left = 112
+        Top = 34
+        Width = 39
+        Height = 13
+        Caption = 'Channel'
+      end
+      object TestNote_label: TLabel
+        Left = 178
+        Top = 34
+        Width = 23
+        Height = 13
+        Caption = 'Note'
+      end
+      object TestNoteVel_label: TLabel
+        Left = 255
+        Top = 34
+        Width = 37
+        Height = 13
+        Caption = 'Velocity'
       end
       object TestNoteButton: TButton
         Left = 4
@@ -9587,7 +9793,7 @@ object EditorForm: TEditorForm
       object TestNote: TComboBox
         Left = 178
         Top = 6
-        Width = 76
+        Width = 55
         Height = 21
         ItemIndex = 60
         TabOrder = 7
@@ -9722,7 +9928,7 @@ object EditorForm: TEditorForm
           'F#8')
       end
       object TestNoteVel: TSpinEdit
-        Left = 269
+        Left = 253
         Top = 6
         Width = 49
         Height = 22
@@ -9739,7 +9945,7 @@ object EditorForm: TEditorForm
         MaxValue = 16
         MinValue = 1
         TabOrder = 9
-        Value = 1
+        Value = 2
       end
     end
   end
@@ -9748,7 +9954,7 @@ object EditorForm: TEditorForm
     Top = 197
     Width = 52
     Height = 24
-    Caption = 'Sync All'
+    Caption = 'Sync'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -9798,11 +10004,11 @@ object EditorForm: TEditorForm
   end
   object OpenSyxButton: TButton
     Left = 756
-    Top = 125
+    Top = 134
     Width = 52
-    Height = 33
+    Height = 24
     Hint = 'Import a SYX file'
-    Caption = 'Import SYX'
+    Caption = 'Import'
     ParentShowHint = False
     ShowHint = True
     TabOrder = 4
@@ -9813,52 +10019,14 @@ object EditorForm: TEditorForm
     Left = 756
     Top = 157
     Width = 52
-    Height = 33
+    Height = 24
     Hint = 'Export a SYX file'
-    Caption = 'Export SYX'
+    Caption = 'Export'
     ParentShowHint = False
     ShowHint = True
     TabOrder = 5
     WordWrap = True
     OnClick = SaveSyxButtonClick
-  end
-  object InitTimbreButton: TButton
-    Left = 756
-    Top = 55
-    Width = 52
-    Height = 33
-    Hint = 'Initialize current Timbre settings'
-    Caption = 'Initialize Timbre'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-    ParentShowHint = False
-    ShowHint = True
-    TabOrder = 6
-    WordWrap = True
-    OnClick = InitTimbreButtonClick
-  end
-  object SaveTmbMemButton: TButton
-    Left = 756
-    Top = 87
-    Width = 52
-    Height = 33
-    Hint = 'Store current Timbre to Timbre Memory Area'
-    Caption = 'Save to Memory'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-    ParentShowHint = False
-    ShowHint = True
-    TabOrder = 7
-    WordWrap = True
-    OnClick = SaveTmbMemButtonClick
   end
   object Timer1: TTimer
     Enabled = False

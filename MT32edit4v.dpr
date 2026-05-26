@@ -28,6 +28,7 @@ begin
   SetWindowLong(EditorForm.Handle, GWL_HWNDPARENT, wndHandle);
   {$ENDIF}
 
+  EditorForm.Caption := EditorForm.Caption + Format(' - BETA %.2f', [EditorVersion]);
   EditorForm.Show;
   EditorForm.LoadAllDataFromMunt;
   EditorForm.RefreshVisibleControls;

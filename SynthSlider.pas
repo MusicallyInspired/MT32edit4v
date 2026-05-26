@@ -416,8 +416,16 @@ var
     MarkSize := System.Math.Max(2, (TickOuter - TickInner) div 2);
     MarkDepth := MarkSize;
 
-    Canvas.Brush.Color := clBlack;
-    Canvas.Pen.Color := clBlack;
+    if Enabled then
+    begin
+      Canvas.Brush.Color := clBlack;
+      Canvas.Pen.Color := clBlack;
+    end
+    else
+    begin
+      Canvas.Brush.Color := clSilver;
+      Canvas.Pen.Color := clSilver;
+    end;
 
     if FOrientation = stoHorizontal then
     begin

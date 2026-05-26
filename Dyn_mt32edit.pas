@@ -1,17 +1,15 @@
 unit Dyn_mt32edit;
-{$EXCESSPRECISION OFF}
-{$WEAKLINKRTTI ON}
-{$RTTI EXPLICIT METHODS([]) PROPERTIES([]) FIELDS([])}
-{$IMPORTEDDATA OFF}
-{$O+}
 
 interface
 
-uses windows;
+uses windows, SysUtils;
 
- const
-   editor_library_name='mt32edit4v.dll';
-   synth_both = 3;
+const
+  editor_library_name='mt32edit4v.dll';
+  synth_both = 3;
+
+  res_ok = 0;
+  res_fail = -1;
 
 type
   PLongint = ^Longint;
@@ -68,11 +66,12 @@ type
   Pmt32edit_report_handler_i_v1 = ^mt32edit_report_handler_i_v1;
   mt32edit_report_handler_i_v1 = record
         getVersionID: function(i: mt32edit_report_handler_i): mt32edit_report_handler_version; cdecl;
-        sendSysExMessage: procedure(instance_data: TObject; msg: pointer; len: mt32edit_bit32u; synthNum: mt32edit_bit8u = synth_both); cdecl;
-        sendShortMessage: procedure(instance_data: TObject; msg: mt32edit_bit32u); cdecl;
-        readMemory: procedure(instance_data: TObject; addr: mt32edit_bit32u; len: mt32edit_bit32u; data: pointer; synthNum: mt32edit_bit8u = 1); cdecl;
+        sendSysExMessage: function(instance_data: TObject; msg: pointer; len: mt32edit_bit32u; synthNum: mt32edit_bit8u = synth_both): mt32edit_bit32s; cdecl;
+        sendShortMessage: function(instance_data: TObject; msg: mt32edit_bit32u): mt32edit_bit32s; cdecl;
+        readMemory: function(instance_data: TObject; addr: mt32edit_bit32u; len: mt32edit_bit32u; data: pointer; synthNum: mt32edit_bit8u = 1): mt32edit_bit32s; cdecl;
         onClose: procedure(instance_data: TObject); cdecl;
         isDualSynthMode: function(instance_data: TObject): mt32edit_boolean; cdecl;
+        isReverbOverridden: function(instance_data: TObject): mt32edit_boolean; cdecl;
    end; 
 
 
@@ -126,12 +125,20 @@ begin
 end;
 
 Procedure Unload_mt32edit;
+var
+  st1: array[0..MAX_PATH] of Char;
 begin
  if mt32edit_Handle <> 0 then
   begin
-   FreeLibrary(mt32edit_Handle);
+   GetModuleFileName(0, @st1[0], MAX_PATH);
+   if Pos('midiplayer.exe', Lowercase(ExtractFileName(st1))) = 0 then
+   begin
+    SLEEP(5);
+    FreeLibrary(mt32edit_Handle);
+    SLEEP(5);
+    mt32edit_Handle:=0;
+   end;
   end;
- mt32edit_Handle:=0;
 end;
 
 

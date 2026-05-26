@@ -13,6 +13,8 @@ uses
   Vcl.Graphics, Math, Types, IOUtils, Vcl.Samples.Spin, SynthSlider, KnobControl, PatchUxTheme;
 
 const
+  EditorVersion: Double = 1.00 ;
+
   SysExHeader: array[0..4] of Byte = (
     $F0, $41, $10, $16, $12
   );
@@ -166,7 +168,7 @@ type
   TTVF = record
     Cutoff: Byte;
     Resonance: Byte;
-    KeyFollow: Byte;
+    KeyFollow: ShortInt;
     BiasPoint: Byte;
     BiasLevel: ShortInt;
     Depth: Byte;
@@ -312,7 +314,6 @@ type
     TVFLevel2_value: TEdit;
     TVFLevel3_value: TEdit;
     TVFSustain_value: TEdit;
-    TVFKeyFollow_value: TEdit;
     TVALevel1_label: TLabel;
     TVALevel2_label: TLabel;
     TVALevel3_label: TLabel;
@@ -768,15 +769,24 @@ type
     ReverbLevel_label: TLabel;
     OpenSyxButton: TButton;
     SaveSyxButton: TButton;
-    PtBank: TComboBox;
-    InitTimbreButton: TButton;
-    SaveTmbMemButton: TButton;
-    PtBank_label: TLabel;
-    Label5: TLabel;
-    PtTimbre: TComboBox;
+    CurMem_label: TLabel;
     TestNote: TComboBox;
     TestNoteVel: TSpinEdit;
     TestNoteChan: TSpinEdit;
+    TVFKeyFollow_result: TLabel;
+    ReverbBevel: TBevel;
+    MasterTuneBevel: TBevel;
+    EnableDebug: TSpeedButton;
+    TestNoteCh_label: TLabel;
+    TestNote_label: TLabel;
+    TestNoteVel_label: TLabel;
+    SaveTmbMemButton: TButton;
+    PtTmbMemBevel: TBevel;
+    ReverbControls_label: TLabel;
+    InitTimbreButton: TButton;
+    LoadTmbMemButton: TButton;
+    CurMem: TComboBox;
+    AboutButton: TButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure TestNoteButtonClick(Sender: TObject);
@@ -829,10 +839,7 @@ type
     procedure CurPartChange(Sender: TObject);
     procedure PartMidiChanChange(Sender: TObject);
 
-    procedure PartialMute1Click(Sender: TObject);
-    procedure PartialMute2Click(Sender: TObject);
-    procedure PartialMute3Click(Sender: TObject);
-    procedure PartialMute4Click(Sender: TObject);
+    procedure PartialMuteClick(Sender: TObject);
     procedure PartialStruct1Change(Sender: TObject);
     procedure PartialStruct2Change(Sender: TObject);
     procedure TimbreNameExit(Sender: TObject);
@@ -912,13 +919,11 @@ type
     procedure TVFLevel2_valueExit(Sender: TObject);
     procedure TVFLevel3_valueKeyPress(Sender: TObject; var Key: Char);
     procedure TVFSustain_valueKeyPress(Sender: TObject; var Key: Char);
-    procedure TVFKeyFollow_valueKeyPress(Sender: TObject; var Key: Char);
     procedure TVFPlotPaint(Sender: TObject);
     procedure TVFCutoff_valueExit(Sender: TObject);
     procedure TVFCutoff_valueKeyPress(Sender: TObject; var Key: Char);
     procedure TVFResonance_valueKeyPress(Sender: TObject; var Key: Char);
     procedure TVFFilterPlotPaint(Sender: TObject);
-    procedure TVFKeyFollow_valueExit(Sender: TObject);
     procedure TVFLevel3_valueExit(Sender: TObject);
     procedure TVFResonance_valueExit(Sender: TObject);
     procedure TVFSustain_valueExit(Sender: TObject);
@@ -953,6 +958,7 @@ type
     procedure TVFLevel3Change(Sender: TObject);
     procedure TVFSustainChange(Sender: TObject);
     procedure TVFKeyFollowChange(Sender: TObject);
+    procedure TVFKeyFollowMakeResult;
     procedure TVFCutoffChange(Sender: TObject);
     procedure TVFResonanceChange(Sender: TObject);
     procedure TVFDepthChange(Sender: TObject);
@@ -1031,8 +1037,7 @@ type
     procedure PtOutput_valueChange(Sender: TObject);
 
     procedure SyncAllButtonClick(Sender: TObject);
-    procedure Synth1ToggleClick(Sender: TObject);
-    procedure Synth2ToggleClick(Sender: TObject);
+    procedure SynthToggleClick(Sender: TObject);
     procedure MasterVolume_valueChange(Sender: TObject);
     procedure MasterVolumeChange(Sender: TObject);
     procedure SaveTmbMemButtonClick(Sender: TObject);
@@ -1044,6 +1049,10 @@ type
     procedure ReverbLevelChange(Sender: TObject);
     procedure ReverbLevel_valueChange(Sender: TObject);
     procedure ReverbModeButtonClick(Sender: TObject);
+    procedure EnableDebugClick(Sender: TObject);
+    procedure PageControl1Change(Sender: TObject);
+    procedure LoadTmbMemButtonClick(Sender: TObject);
+    procedure AboutButtonClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -1064,7 +1073,7 @@ type
 
     function BuildSysEx: TBytes;
     function MuntReady: Boolean;
-    function GetByte(Addr: Cardinal; Synth: Integer): Byte;
+    //function GetByte(Addr: Cardinal; Synth: Integer): Byte;
     procedure GetData(Addr: Cardinal; Size: Cardinal; Data: Pointer; Synth: Integer);
     function BytesToStr(const Buf: array of Byte; Offset, Count: Integer): string;
     function StrToBytes(const S: string): TBytes;
@@ -1073,7 +1082,8 @@ type
     function BuildTimbreBytes: TBytes;
     function BuildSysExOutput(const AdMSB, AdMID, AdLSB: Byte; const Data: TBytes): TBytes;
 
-    procedure LoadTimbreNames(BankCombo: TComboBox; TimbreCombo: TComboBox);
+    procedure LoadTimbreNames(TimbreCombo: TComboBox); overload;
+    procedure LoadTimbreNames(BankCombo: TComboBox; TimbreCombo: TComboBox); overload;
     procedure ResolvePartialStructure;
     function IsPartialPCM(const StructValue: Byte; const PairIndex: Integer): Boolean;
     function BuildMT32StructValue(
@@ -1084,6 +1094,7 @@ type
       out ForcedShape2: TPartialKind
     ): Byte;
     procedure ApplyPartialStructState(APair: Integer);
+    function ReverbOverride: Boolean;
 
   public
     { Public declarations }
@@ -1199,7 +1210,7 @@ function TEditorForm.MuntReady: Boolean;
 begin
   Result := (PHandlerInterface_v1 <> nil) and (MuntVSTiInstance <> nil);
 end;
-
+{
 function TEditorForm.GetByte(Addr: Cardinal; Synth: Integer): Byte;
 begin
   Result := 0;
@@ -1214,7 +1225,7 @@ begin
     Synth+1
   );
 end;
-
+}
 procedure TEditorForm.GetData(Addr: Cardinal; Size: Cardinal; Data: Pointer; Synth: Integer);
 begin
   if not MuntReady then Exit;
@@ -1263,43 +1274,19 @@ begin
   LoadAllDataFromMunt;
   RefreshVisibleControls;
   LoadTimbreTempFromMunt(CurPt);
-  UpdatingControls := True;
-  if PtTimbre.ItemIndex <> -1 then
-    case CurPt of
-      0: PtTimbreChange(Pt1Timbre);
-      1: PtTimbreChange(Pt2Timbre);
-      2: PtTimbreChange(Pt3Timbre);
-      3: PtTimbreChange(Pt4Timbre);
-      4: PtTimbreChange(Pt5Timbre);
-      5: PtTimbreChange(Pt6Timbre);
-      6: PtTimbreChange(Pt7Timbre);
-      7: PtTimbreChange(Pt8Timbre);
-    end;
-  UpdatingControls := False;
 
   ActiveControl := nil;
 end;
 
-procedure TEditorForm.Synth1ToggleClick(Sender: TObject);
+procedure TEditorForm.SynthToggleClick(Sender: TObject);
 begin
   if not MuntReady then Exit;
 
-  if CurSyn <> 0 then CurSyn := 0;
-  Synth1Toggle.Font.Style := [fsBold];
-  Synth2Toggle.Font.Style := [];
-  RefreshVisibleControls;
-
-  ActiveControl := nil;
-end;
-
-procedure TEditorForm.Synth2ToggleClick(Sender: TObject);
-begin
-  if not MuntReady then Exit;
-  
-  if CurSyn <> 1 then CurSyn := 1;
-  Synth2Toggle.Font.Style := [fsBold];
-  Synth1Toggle.Font.Style := [];
-  RefreshVisibleControls;
+  if CurSyn <> TSpeedButton(Sender).Tag then
+  begin
+    CurSyn := TSpeedButton(Sender).Tag;
+    RefreshVisibleControls;
+  end;
 
   ActiveControl := nil;
 end;
@@ -1316,10 +1303,7 @@ begin
       0
       ) = mrOK then
   begin
-    SysExAddress := LinearAddrToBytes(
-      AdTimbreTemp +
-      (CurPt * $F6)
-    );
+    SysExAddress := LinearAddrToBytes(AdTimbreTemp + (CurPt * $F6));
     SetLength(SysExData, $F6);
     Move(InitTimbre[0], SysExData[0], Length(InitTimbre));
     SendCurrentSysEx;
@@ -1442,6 +1426,27 @@ begin
 
   else
     Result := 0;
+  end;
+end;
+
+procedure TEditorForm.LoadTimbreNames(TimbreCombo: TComboBox);
+var
+  I, OldIndex: Integer;
+begin
+  OldIndex := TimbreCombo.ItemIndex;
+
+  TimbreCombo.Items.BeginUpdate;
+  try
+    TimbreCombo.Items.Clear;
+    for I := 0 to 63 do
+      TimbreCombo.Items.Add(Synth[CurSyn].GroupMem[I]);
+
+    if OldIndex in [0..TimbreCombo.Items.Count - 1] then
+      TimbreCombo.ItemIndex := OldIndex
+    else
+      TimbreCombo.ItemIndex := 0;
+  finally
+    TimbreCombo.Items.EndUpdate;
   end;
 end;
 
@@ -1615,12 +1620,22 @@ begin
     end;
 
     ResolvePartialStructure;
-    if PtTimbre.ItemIndex <> -1 then
-      PtTimbre.ItemIndex := -1;
-
   finally
     CurPtl := OldCurPtl;
   end;
+end;
+
+function TEditorForm.ReverbOverride: Boolean;
+begin
+  Result := PHandlerInterface_v1.isReverbOverridden(MuntVSTiInstance);
+  ReverbRoomButton.Enabled := not Result;
+  ReverbHallButton.Enabled := not Result;
+  ReverbPlateButton.Enabled := not Result;
+  ReverbTapDelayButton.Enabled := not Result;
+  ReverbTime.Enabled := not Result;
+  ReverbTime_value.Enabled := not Result;
+  ReverbLevel.Enabled := not Result;
+  ReverbLevel_value.Enabled := not Result;
 end;
 
 { Model Backend Updating (read memory from MUNT) }
@@ -1694,8 +1709,6 @@ begin
   Addr := AdTimbreTemp + (NativeUInt(I) * $F6);
   GetData(Addr, SizeOf(PtBuf), @PtBuf, CurSyn);
   DecodeTimbrePart(PtBuf, Synth[CurSyn].Part[I]);
-  if PtTimbre.Text <> Synth[CurSyn].Part[I].Name then
-    PtTimbre.ItemIndex := -1;
 end;
 
 procedure TEditorForm.LoadPatchTempFromMunt;
@@ -1863,7 +1876,7 @@ begin
   { Decode TVF (Time Variant Filter) SysEx Data }
   Dest.TVF.Cutoff := (Buf[$17 + Offset]);
   Dest.TVF.Resonance := (Buf[$18 + Offset]);
-  Dest.TVF.KeyFollow := (Buf[$19 + Offset]);
+  Dest.TVF.KeyFollow := (Buf[$19 + Offset]) - 3;
   Dest.TVF.BiasPoint := Buf[$1A + Offset];
   Dest.TVF.BiasLevel := Buf[$1B + Offset] - 7;
   Dest.TVF.Depth := Buf[$1C + Offset];
@@ -1976,12 +1989,13 @@ procedure TEditorForm.RefreshTimbre;
 begin
   UpdatingControls := True;
   try
-    LoadTimbreTempFromMunt(CurPt);
     LoadPatchTempFromMunt(CurPt);
+    LoadTimbreTempFromMunt(CurPt);
+    RefreshGroupMemNames;
     RefreshPartControls;
     RefreshPartialControls;
     RefreshTargetPatchControls(CurPt);
-    RefreshAllGroupMemCombos;
+    //RefreshAllGroupMemCombos;
   finally
     UpdatingControls := False;
   end;
@@ -2004,6 +2018,7 @@ begin
   ReverbLevel_value.Value := Synth[CurSyn].System.ReverbLevel;
   MasterVolume.Position := Synth[CurSyn].System.MasterVolume;
   MasterVolume_value.Value := Synth[CurSyn].System.MasterVolume;
+  ReverbOverride;
 end;
 
 procedure TEditorForm.RefreshVisibleControls;
@@ -2040,7 +2055,7 @@ begin
         Buf,                        // Data Pointer
         j                           // Synth #
       );
-      Synth[j].GroupMem[i] := BytesToStr(Buf, 0, 10);
+      Synth[j].GroupMem[i] := Format('%.2d: ',[i]) + BytesToStr(Buf, 0, 10);
       SetLength(Buf,0);
     end;
   end;
@@ -2083,9 +2098,6 @@ begin
   PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[CurPt];
   PtRevButton.Down := Synth[CurSyn].Patch[CurPt].Reverb;
   PtBendRange.Value := Synth[CurSyn].Patch[CurPt].BendRange;
-  PtBank.ItemIndex := Synth[CurSyn].Patch[CurPt].TmbGroup;
-  if PtTimbre.ItemIndex <> -1 then
-    PtTimbre.ItemIndex := Synth[CurSyn].Patch[CurPt].TmbNumber;
 end;
 
 procedure TEditorForm.RefreshPartialControls;
@@ -2169,7 +2181,7 @@ begin
   TVFResonance.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Resonance;
   TVFResonance_value.Text := IntToStr(TVFResonance.Position);
   TVFKeyFollow.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.KeyFollow;
-  TVFKeyFollow_value.Text := IntToStr(TVFKeyFollow.Position);
+  TVFKeyFollowMakeResult;
   TVFBiasPoint.ItemIndex := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.BiasPoint;
   TVFBiasLevel.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.BiasLevel;
   TVFBiasLevel_value.Text := IntToStr(TVFBiasLevel.Position);
@@ -2708,6 +2720,7 @@ end;
 
 procedure TEditorForm.RefreshAllGroupMemCombos;
 begin
+  LoadTimbreNames(CurMem);
   LoadTimbreNames(Pt1Bank, Pt1Timbre);
   LoadTimbreNames(Pt2Bank, Pt2Timbre);
   LoadTimbreNames(Pt3Bank, Pt3Timbre);
@@ -2716,7 +2729,6 @@ begin
   LoadTimbreNames(Pt6Bank, Pt6Timbre);
   LoadTimbreNames(Pt7Bank, Pt7Timbre);
   LoadTimbreNames(Pt8Bank, Pt8Timbre);
-  LoadTimbreNames(PtBank, PtTimbre);
 end;
 
 procedure TEditorForm.SetSynthColors;
@@ -2738,6 +2750,7 @@ begin
     MasterTune.FillColor := clSliderFill;
     MasterTune.ThumbColor := clSliderThumb;
     MasterTuneHz.Font.Color := clSynthText;
+    ReverbControls_label.Font.Color := clSynthText;
     ReverbTime.FillColor := clSliderFill;
     ReverbTime.ThumbColor := clSliderThumb;
     ReverbLevel.FillColor := clSliderFill;
@@ -2927,8 +2940,6 @@ begin
   SetLength(SysExData,1);
   SysExData[0] := MuteByte;
   SendCurrentSysEx;
-  if PtTimbre.ItemIndex <> -1 then
-    PtTimbre.ItemIndex := -1;
 end;
 
 { Sysex Importing/Exporting }
@@ -3076,9 +3087,6 @@ begin
       6: LoadTimbreNames(Pt7Bank, Pt7Timbre);
       7: LoadTimbreNames(Pt8Bank, Pt8Timbre);
     end;
-    if (TComboBox(Sender).Name = 'PtBank') or
-        (TComboBox(Sender).Tag = CurPt) then
-      LoadTimbreNames(PtBank, PtTimbre);
   end;
 end;
 
@@ -3709,6 +3717,12 @@ begin
     WGSample.Enabled := True;
 end;
 
+procedure TEditorForm.EnableDebugClick(Sender: TObject);
+begin
+  if Debug.TabVisible <> EnableDebug.Down then
+    Debug.TabVisible := EnableDebug.Down;
+end;
+
 procedure TEditorForm.EnableTVF;
 var
   i: Integer;
@@ -3732,6 +3746,19 @@ begin
 
   TVFPlot.Invalidate;
   TVFFilterPlot.Invalidate;
+end;
+
+procedure TEditorForm.AboutButtonClick(Sender: TObject);
+begin
+  ShowMessage(Format(
+      'MuntVSTi Editor  -  BETA %.2f' + sLineBreak + sLineBreak +
+      'Developed by Brandon Blume in association with' + sLineBreak +
+      'Zoltán Bacskó (Falcosoft).' + sLineBreak + sLineBreak +
+      'Designed for use specifically with MuntVSTi 3.0 by Falcosoft.' + sLineBreak + sLineBreak +
+      'Check for updates:' + sLineBreak +
+      'https://github.com/MusicallyInspired/MT32edit4v'
+    , [EditorVersion])
+  );
 end;
 
 function TEditorForm.AllowSignedNumericKey(Edit: TEdit; var Key: Char): Boolean;
@@ -3786,6 +3813,13 @@ begin
     OpenDialog.Options := [ofFileMustExist, ofPathMustExist];
 
     if not OpenDialog.Execute then Exit;
+    TThread.Queue(nil,
+    procedure
+    begin
+      SetForegroundWindow(Handle);
+      SetActiveWindow(Handle);
+      SetFocus;
+    end);
 
     SyxBytes := TFile.ReadAllBytes(OpenDialog.FileName);
 
@@ -3812,7 +3846,7 @@ begin
       Length(SyxBytes),
       CurSyn+1
     );
-    {
+    { // For later when sorting multiple sysex messages in one file
     case SyxBytes[5] of
       $03:                    // Patch Temp Area
       begin
@@ -3840,23 +3874,24 @@ begin
       end;
     end;
     }
+    Sleep(400);
     LoadAllDataFromMunt;
     RefreshVisibleControls;
     LoadTimbreTempFromMunt(CurPt);
     UpdatingControls := True;
-    if PtTimbre.ItemIndex <> -1 then
-      case CurPt of
-        0: PtTimbreChange(Pt1Timbre);
-        1: PtTimbreChange(Pt2Timbre);
-        2: PtTimbreChange(Pt3Timbre);
-        3: PtTimbreChange(Pt4Timbre);
-        4: PtTimbreChange(Pt5Timbre);
-        5: PtTimbreChange(Pt6Timbre);
-        6: PtTimbreChange(Pt7Timbre);
-        7: PtTimbreChange(Pt8Timbre);
-      end;
+    case CurPt of
+      0: PtTimbreChange(Pt1Timbre);
+      1: PtTimbreChange(Pt2Timbre);
+      2: PtTimbreChange(Pt3Timbre);
+      3: PtTimbreChange(Pt4Timbre);
+      4: PtTimbreChange(Pt5Timbre);
+      5: PtTimbreChange(Pt6Timbre);
+      6: PtTimbreChange(Pt7Timbre);
+      7: PtTimbreChange(Pt8Timbre);
+    end;
     UpdatingControls := False;
 
+    SetForegroundWindow(Handle);
   finally
     OpenDialog.Free;
   end;
@@ -3874,8 +3909,14 @@ begin
     SaveDialog.DefaultExt := 'syx';
     SaveDialog.Options := [ofOverwritePrompt, ofPathMustExist];
 
-    if not SaveDialog.Execute then
-      Exit;
+    if not SaveDialog.Execute then Exit;
+    TThread.Queue(nil,
+    procedure
+    begin
+      SetForegroundWindow(Handle);
+      SetActiveWindow(Handle);
+      SetFocus;
+    end);
 
     SyxBytes := BuildSysExOutput($04, $00, $00, BuildTimbreBytes);
 
@@ -3886,42 +3927,60 @@ begin
   end;
 end;
 
-procedure TEditorForm.SaveTmbMemButtonClick(Sender: TObject);
-var
-  i, CurMem: Integer;
-  TimbreData: TBytes;
+procedure TEditorForm.LoadTmbMemButtonClick(Sender: TObject);
 begin
-  CurMem := 0;
-  case CurPt of
-    0: CurMem := Pt1Timbre.ItemIndex;
-    1: CurMem := Pt2Timbre.ItemIndex;
-    2: CurMem := Pt3Timbre.ItemIndex;
-    3: CurMem := Pt4Timbre.ItemIndex;
-    4: CurMem := Pt5Timbre.ItemIndex;
-    5: CurMem := Pt6Timbre.ItemIndex;
-    6: CurMem := Pt7Timbre.ItemIndex;
-    7: CurMem := Pt8Timbre.ItemIndex;
-  end;
   if MessageDlg(
-      Format('Save current Timbre to Timbre Memory #%d?' + sLineBreak +
-              '(Warning: This will overwrite the timbre "%s" currently stored there)',
-              [CurMem, Synth[CurSyn].GroupMem[CurMem]]
+      Format('Load Timbre "%s" from Timbre Memory #%d?' + sLineBreak +
+              '(Warning: You will lose the control settings for the timbre' + sLineBreak +
+              '"%s" you''re currently editing)',
+              [Synth[CurSyn].GroupMem[CurMem.ItemIndex], CurMem.ItemIndex, TimbreName.Text]
       ),
       mtConfirmation,
       [mbOK, mbCancel],
       0
       ) = mrOK then
   begin
-    WriteTimbreToMemory(CurMem);
+    Synth[CurSyn].Patch[CurPt].TmbGroup := 2;
+    Synth[CurSyn].Patch[CurPt].TmbNumber := CurMem.ItemIndex;
+
+    SysExAddress := LinearAddrToBytes(
+      AdPatchTemp +
+      NativeUInt(CurPt * $10)
+    );
+    SetLength(SysExData, 2);
+    SysExData[0] := Synth[CurSyn].Patch[CurPt].TmbGroup;
+    SysExData[1] := Synth[CurSyn].Patch[CurPt].TmbNumber;
+    SendCurrentSysEx;
+    Sleep(200);
+    RefreshTimbre;
+  end;
+end;
+
+procedure TEditorForm.SaveTmbMemButtonClick(Sender: TObject);
+var
+  i: Integer;
+  TimbreData: TBytes;
+begin
+  if MessageDlg(
+      Format('Save current Timbre to Timbre Memory #%d?' + sLineBreak +
+              '(Warning: This will overwrite the timbre "%s" currently stored there)',
+              [CurMem.ItemIndex, Synth[CurSyn].GroupMem[CurMem.ItemIndex]]
+      ),
+      mtConfirmation,
+      [mbOK, mbCancel],
+      0
+      ) = mrOK then
+  begin
+    WriteTimbreToMemory(CurMem.ItemIndex);
     SetLength(TimbreData, $F6);
     TimbreData := BuildTimbreBytes;
 
     SysExAddress := LinearAddrToBytes(
       AdTimbreMem +
-      NativeUInt(CurMem * $100)
+      NativeUInt(CurMem.ItemIndex * $100)
     );
     SetLength(SysExData, $F6);
-    for i := 0 to $F6 do
+    for i := 0 to $F5 do
       SysExData[i] := TimbreData[i];
     SendCurrentSysEx;
     Sleep(200);
@@ -3935,9 +3994,7 @@ begin
   if CurPt <> CurPart.ItemIndex then
   begin
     CurPt := CurPart.ItemIndex;
-    PtBank.Tag := CurPt;
-    PtTimbre.Tag := CurPt;
-    RefreshVisibleControls;
+    RefreshTimbre;
   end;
 end;
 
@@ -4062,9 +4119,6 @@ begin
   SetLength(SysExData,10);
   SysExData := StrToBytes(Synth[CurSyn].Part[CurPt].Name);
   SendCurrentSysEx;
-
-  if PtTimbre.ItemIndex <> -1 then
-    PtTimbre.ItemIndex := -1;
 end;
 
 procedure TEditorForm.TimbreNameKeyPress(Sender: TObject; var Key: Char);
@@ -4076,35 +4130,17 @@ begin
   end;
 end;
 
-procedure TEditorForm.PartialMute1Click(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
 
-  Synth[CurSyn].Part[CurPt].Partial[0].Mute := PartialMute1.Checked;
-  BuildMuteByte;
+procedure TEditorForm.PageControl1Change(Sender: TObject);
+begin
+  ReverbOverride;
 end;
 
-procedure TEditorForm.PartialMute2Click(Sender: TObject);
+procedure TEditorForm.PartialMuteClick(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Part[CurPt].Partial[1].Mute := PartialMute2.Checked;
-  BuildMuteByte;
-end;
-
-procedure TEditorForm.PartialMute3Click(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Part[CurPt].Partial[2].Mute := PartialMute3.Checked;
-  BuildMuteByte;
-end;
-
-procedure TEditorForm.PartialMute4Click(Sender: TObject);
-begin
-  if UpdatingControls then Exit;
-
-  Synth[CurSyn].Part[CurPt].Partial[3].Mute := PartialMute4.Checked;
+  Synth[CurSyn].Part[CurPt].Partial[TCheckBox(Sender).Tag].Mute := TCheckBox(Sender).Checked;
   BuildMuteByte;
 end;
 
@@ -4120,8 +4156,6 @@ begin
   SendCurrentSysEx;
 
   ActiveControl := nil;
-  if PtTimbre.ItemIndex <> -1 then
-    PtTimbre.ItemIndex := -1;
 end;
 
 procedure TEditorForm.PartialStruct1Change(Sender: TObject);
@@ -5487,7 +5521,7 @@ begin
   if UpdatingControls then Exit;
 
   Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.KeyFollow := TVFKeyFollow.Position;
-  TVFKeyFollow_value.Text := IntToStr(Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.KeyFollow);
+  TVFKeyFollowMakeResult;
 
   SysExAddress := LinearAddrToBytes(
     AdTimbreTemp +
@@ -5496,38 +5530,18 @@ begin
     $19
   );
   SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.KeyFollow;
+  SysExData[0] := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.KeyFollow + 3;
   SendCurrentSysEx;
 end;
 
-procedure TEditorForm.TVFKeyFollow_valueExit(Sender: TObject);
+procedure TEditorForm.TVFKeyFollowMakeResult;
+var
+  KFVal: TArray<string>;
 begin
-  if StrToInt(TVFKeyFollow_value.Text) = Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.KeyFollow then Exit;
-  if StrToInt(TVFKeyFollow_value.Text) < TVFKeyFollow.Min then
-    TVFKeyFollow_value.Text := IntToStr(TVFKeyFollow.Min);
-  if StrToInt(TVFKeyFollow_value.Text) > TVFKeyFollow.Max then
-    TVFKeyFollow_value.Text := IntToStr(TVFKeyFollow.Max);
+  KFVal := ['-1', '-1/2', '-1/4', '0', '1/8', '1/4', '3/8', '1/2', '5/8', '3/4',
+            '7/8', '1', '5/4', '3/2', '2'];
 
-  Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.KeyFollow := StrToInt(TVFKeyFollow_value.Text);
-  UpdatingControls := True;
-  TVFKeyFollow.Position := StrToInt(TVFKeyFollow_value.Text);
-  UpdatingControls := False;
-
-  SysExAddress := LinearAddrToBytes(
-    AdTimbreTemp +
-    (CurPt * $F6) +
-    (CurPtl * $3A) + $0E +
-    $19
-  );
-  SetLength(SysExData,1);
-  SysExData[0] := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.KeyFollow;
-  SendCurrentSysEx;
-end;
-
-procedure TEditorForm.TVFKeyFollow_valueKeyPress(Sender: TObject;
-  var Key: Char);
-begin
-  PressedKey(Sender,Key);
+  TVFKeyFollow_result.Caption := KFVal[Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.KeyFollow + 3];
 end;
 
 procedure TEditorForm.TVFLevel1Change(Sender: TObject);
@@ -7203,6 +7217,7 @@ end;
 procedure TEditorForm.ReverbTimeChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
+  if ReverbOverride then Exit;
 
   Synth[CurSyn].System.ReverbTime := ReverbTime.Position;
   ReverbTime_value.Value := Synth[CurSyn].System.ReverbTime;
@@ -7219,6 +7234,7 @@ end;
 procedure TEditorForm.ReverbTime_valueChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
+  if ReverbOverride then Exit;
 
   if ReverbTime_value.Value = Synth[CurSyn].System.ReverbTime then Exit;
   if ReverbTime_value.Value < ReverbTime.Min then
@@ -7243,6 +7259,7 @@ end;
 procedure TEditorForm.ReverbLevelChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
+  if ReverbOverride then Exit;
 
   Synth[CurSyn].System.ReverbLevel := ReverbLevel.Position;
   ReverbLevel_value.Value := Synth[CurSyn].System.ReverbLevel;
@@ -7259,6 +7276,7 @@ end;
 procedure TEditorForm.ReverbLevel_valueChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
+  if ReverbOverride then Exit;
 
   if ReverbLevel_value.Value = Synth[CurSyn].System.ReverbLevel then Exit;
   if ReverbLevel_value.Value < ReverbLevel.Min then
@@ -7283,6 +7301,7 @@ end;
 procedure TEditorForm.ReverbModeButtonClick(Sender: TObject);
 begin
   if UpdatingControls then Exit;
+  if ReverbOverride then Exit;
 
   if Synth[CurSyn].System.ReverbMode <> TSpeedButton(Sender).Tag then
   begin
@@ -7544,30 +7563,34 @@ end;
 
 { Debug Example Controls }
 procedure TEditorForm.TestNoteButtonClick(Sender: TObject);
+var
+  data: Cardinal;
 begin
+  data := 0;
   if MuntReady then
+
+  data := ($90 or (Byte(TestNoteChan.Value - 1) and $0F)) or
+      (Byte(TestNote.ItemIndex) shl 8) or
+      (Byte(TestNoteVel.Value) shl 16);
   begin
-    PHandlerInterface_v1.sendShortMessage(MuntVSTiInstance,
-      ($00 shl 16) +
-      (Byte(TestNoteVel.Value) shl 8) +
-      (Byte(TestNote.ItemIndex) shl 4) +
-      ($90 + Byte(TestNoteChan.Value))
-    );
+    PHandlerInterface_v1.sendShortMessage(MuntVSTiInstance, data);
     Timer1.Interval := 500;
     Timer1.Enabled := true;
   end;
 end;
 
 procedure TEditorForm.Timer1Timer(Sender: TObject);
+var
+  data: Cardinal;
 begin
+  data := 0;
   if MuntReady then
+
+  data := ($80 or (Byte(TestNoteChan.Value - 1) and $0F)) or
+      (Byte(TestNote.ItemIndex) shl 8) or
+      ($00 shl 16);
   begin
-    PHandlerInterface_v1.sendShortMessage(MuntVSTiInstance,
-      ($00 shl 16) +
-      (Byte(TestNoteVel.Value) shl 8) +
-      (Byte(TestNote.ItemIndex) shl 4) +
-      ($80 + Byte(TestNoteChan.Value))
-    );
+    PHandlerInterface_v1.sendShortMessage(MuntVSTiInstance, data);
     Timer1.Enabled := false;
   end;
 end;
