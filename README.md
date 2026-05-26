@@ -1,14 +1,15 @@
-# MT32edit4v
+# MuntVSTi Editor (MT32edit4v)
 MT-32 sysex editor/programmer companion DLL for MuntVSTi 3.0 by Falcosoft. You can download MuntVSTi from here:
 
 https://falcosoft.hu/softwares.html#munt_vsti
 
-<img width="811" height="643" alt="Timbre Editor" src="https://github.com/user-attachments/assets/1d8981d1-dafd-4c40-a6a6-0bafda5d6fd4" />
-<img width="811" height="643" alt="Timbre Editor (Synth 2)" src="https://github.com/user-attachments/assets/4b65c23e-02fc-4561-9662-7fe30a4cc74e" />
-<img width="811" height="643" alt="Part Mixer" src="https://github.com/user-attachments/assets/f53ec2f8-54ac-4b58-85c4-6ca2e7f708ed" />
-<img width="811" height="643" alt="Part Mixer (Advanced Controls, Synth 2)" src="https://github.com/user-attachments/assets/1d3ac383-0cc9-4c87-8bcb-634f4794ceea" />
+<img width="811" height="643" alt="Timbre Editor (Synth 1)" src="https://github.com/user-attachments/assets/1050204c-8f2b-4765-badc-eaf69a46ba0b" />
+<img width="811" height="643" alt="Timbre Editor (Synth 2)" src="https://github.com/user-attachments/assets/fb05cbb3-11c4-4bb6-b5d0-334849111744" />
+<img width="811" height="643" alt="Part Mixer" src="https://github.com/user-attachments/assets/a96aeeda-63a3-41e8-b836-7697155342f0" />
+<img width="811" height="643" alt="Part Mixer (Advanced Controls, Synth 2)" src="https://github.com/user-attachments/assets/5956207a-6a6f-46f2-8a51-4b2eb3895c55" />
+<img width="811" height="643" alt="System Settings" src="https://github.com/user-attachments/assets/49ad3fcb-57ab-4f31-b8cd-5d78d5a1cbfb" />
 
-MT32edit4v functions as a companion DLL for MuntVSTi by Falcosoft, which is a VSTi virtual synth instrument that includes the MUNT core for MT-32 emulation with several options. However, sorely missing is an actual sound editor/programmer for musicians and producers. There does exist wonderful timbre editors and MT-32 system programmers that are perfectly usable, even supporting modern Windows (namely, the incredible [MT-32 Editor by sfryers](https://www.vogons.org/viewtopic.php?t=93609) written in .NET), but it's high time that we had a fully virtual tool for DAWs with the sensibilities and intuitive apporach of modern virtual instruments. Also, there are very few DAWs that even allow sysex messages to be sent to VST plugins (only Reaper and Cubase are known to work) which makes directly programming MuntVSTi inside a DAW environment very hard. If MuntVSTi detects the MT32edit4v DLL in its directory, it will expose a button to activate the editor automatically:
+MT32edit4v functions as a companion DLL for MuntVSTi 3.0 by Falcosoft, which is a VSTi virtual synth instrument that includes the MUNT core for MT-32 emulation with several options. However, sorely missing is an actual sound editor/programmer for musicians and producers. There does exist wonderful timbre editors and MT-32 system programmers that are perfectly usable, even supporting modern Windows (namely, the incredible [MT-32 Editor by sfryers](https://www.vogons.org/viewtopic.php?t=93609) written in .NET), but it's high time that we had a fully virtual tool for DAWs with the sensibilities and intuitive apporach of modern virtual instruments. Also, there are very few DAWs that even allow sysex messages to be sent to VST plugins (only Reaper and Cubase are known to work) which makes directly programming MuntVSTi inside a DAW environment very hard. If MuntVSTi detects the MT32edit4v DLL in its directory, it will expose a button to activate the editor automatically:
 
 <img width="455" height="411" alt="MT32edit4v_muntvsti" src="https://github.com/user-attachments/assets/98148271-dfba-440e-9591-4e1628b98514" />
 
@@ -19,13 +20,13 @@ MT32edit4v functions as a companion DLL for MuntVSTi by Falcosoft, which is a VS
 
 Currently, as you can see, MT32edit4v utilizes the standard Windows GUI control interface aesthetic. This will be replaced with graphics to make it more appealing at some point in the future. Right now the focus is on function and intuitive design.
 
-# Planned Features
+# Milestones/Planned Features
 - Full timbre editor for each melodic Part (Part Temp Area) - **COMPLETE**
-- "Mixer" view editor for each Part's Patch data (Patch Temp Area) - *IN PROGRESS*
+- Patch Mixer view for controlling each Part's Patch data (Patch Temp Area) - **COMPLETE**
+- Reverb & Master Tuning controls (System Area) - **COMPLETE**
+- Full access to each synth's custom timbre bank (64 timbres x 2 synths = 128 custom timbres) - **COMPLETE *(basic operation)***
+- Import/Export SYX files for timbre settings, patch settings, or synth-wide state backup and for use with a real hardware MT-32 (if you have one) - ***IN PROGRESS (import any Sysex, export individual Timbres only)***
 - Rhythm Setup editor for the rhythm/percussion Part (Part 9)
-- Reverb & Master Tuning controls
-- Full access to each synth's custom timbre bank (64 timbres * 2 synths = 128 custom timbres)
-- Import/Export SYX files for timbre settings, patch settings, or synth-wide state backup and for use with a real hardware MT-32 (if you have one)
 - Prettier graphics overhaul for entire interface
 
 # Wishlist
