@@ -1,5 +1,5 @@
 # MT32edit4v
-MT-32 sysex editor/programmer companion DLL for MuntVSTi by Falcosoft. You can download MuntVSTi from here:
+MT-32 sysex editor/programmer companion DLL for MuntVSTi 3.0 by Falcosoft. You can download MuntVSTi from here:
 
 https://falcosoft.hu/softwares.html#munt_vsti
 
