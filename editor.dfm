@@ -66,7 +66,7 @@ object EditorForm: TEditorForm
     ParentFont = False
     OnClick = SynthToggleClick
   end
-  object PageControl1: TPageControl
+  object EditorPage: TPageControl
     Left = 0
     Top = 3
     Width = 756
@@ -81,9 +81,9 @@ object EditorForm: TEditorForm
     ParentFont = False
     TabOrder = 0
     TabWidth = 100
-    OnChange = PageControl1Change
+    OnChange = EditorPageChange
     object TimbreTempArea: TTabSheet
-      Caption = 'Timbre'
+      Caption = 'Timbre Editor'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -1085,15 +1085,16 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object TVFKeyFollow_label: TLabel
-          Left = 140
-          Top = 17
-          Width = 12
-          Height = 13
-          Caption = 'KF'
+          Left = 133
+          Top = 6
+          Width = 30
+          Height = 24
+          Alignment = taCenter
+          Caption = 'Key'#13#10'Follow'
           Color = clBtnFace
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -11
+          Font.Height = -10
           Font.Name = 'Tahoma'
           Font.Style = []
           ParentColor = False
@@ -1649,131 +1650,131 @@ object EditorForm: TEditorForm
           OnChange = TVFBiasPointChange
           Items.Strings = (
             '< A0'
-            '< A#/Bb0'
+            '< A#0'
             '< B0'
             '< C1'
-            '< C#/Db1'
+            '< C#1'
             '< D1'
-            '< D#/Eb1'
+            '< D#1'
             '< E1'
             '< F1'
-            '< F#/Gb1'
+            '< F#1'
             '< G1'
-            '< G#/Ab1'
+            '< G#1'
             '< A1'
-            '< A#/Bb1'
+            '< A#1'
             '< B1'
             '< C2'
-            '< C#/Db2'
+            '< C#2'
             '< D2'
-            '< D#/Eb2'
+            '< D#2'
             '< E2'
             '< F2'
-            '< F#/Gb2'
+            '< F#2'
             '< G2'
-            '< G#/Ab2'
+            '< G#2'
             '< A2'
-            '< A#/Bb2'
+            '< A#2'
             '< B2'
             '< C3'
-            '< C#/Db3'
+            '< C#3'
             '< D3'
-            '< D#/Eb3'
+            '< D#3'
             '< E3'
             '< F3'
-            '< F#/Gb3'
+            '< F#3'
             '< G3'
-            '< G#/Ab3'
+            '< G#3'
             '< A3'
-            '< A#/Bb3'
+            '< A#3'
             '< B3'
             '< C4'
-            ' < C#/Db4'
+            ' < C#4'
             '< D4'
-            '< D#/Eb4'
+            '< D#4'
             '< E4'
             '< F4'
-            '< F#/Gb4'
+            '< F#4'
             '< G4'
-            '< G#/Ab4'
+            '< G#4'
             '< A4'
-            '< A#/Bb4'
+            '< A#4'
             '< B4'
             '< C5'
-            ' < C#/Db5'
+            ' < C#5'
             '< D5'
-            '< D#/Eb5'
+            '< D#5'
             '< E5'
             '< F5'
-            '< F#/Gb5'
+            '< F#5'
             '< G5'
-            '< G#/Ab5'
+            '< G#5'
             '< A5'
-            '< A#/Bb5'
+            '< A#5'
             '< B5'
             '< C6'
             '> A0'
-            '> A#/Bb0'
+            '> A#0'
             '> B0'
             '> C1'
-            '> C#/Db1'
+            '> C#1'
             '> D1'
-            '> D#/Eb1'
+            '> D#1'
             '> E1'
             '> F1'
-            '> F#/Gb1'
+            '> F#1'
             '> G1'
-            '> G#/Ab1'
+            '> G#1'
             '> A1'
-            '> A#/Bb1'
+            '> A#1'
             '> B1'
             '> C2'
-            '> C#/Db2'
+            '> C#2'
             '> D2'
-            '> D#/Eb2'
+            '> D#2'
             '> E2'
             '> F2'
-            '> F#/Gb2'
+            '> F#2'
             '> G2'
-            '> G#/Ab2'
+            '> G#2'
             '> A2'
-            '> A#/Bb2'
+            '> A#2'
             '> B2'
             '> C3'
-            '> C#/Db3'
+            '> C#3'
             '> D3'
-            '> D#/Eb3'
+            '> D#3'
             '> E3'
             '> F3'
-            '> F#/Gb3'
+            '> F#3'
             '> G3'
-            '> G#/Ab3'
+            '> G#3'
             '> A3'
-            '> A#/Bb3'
+            '> A#3'
             '> B3'
             '> C4'
-            '> C#/Db4'
+            '> C#4'
             '> D4'
-            '> D#/Eb4'
+            '> D#4'
             '> E4'
             '> F4'
-            '> F#/Gb4'
+            '> F#4'
             '> G4'
-            '> G#/Ab4'
+            '> G#4'
             '> A4'
-            '> A#/Bb4'
+            '> A#4'
             '> B4'
             '> C5'
-            '> C#/Db5'
+            '> C#5'
             '> D5'
-            '> D#/Eb5'
+            '> D#5'
             '> E5'
             '> F5'
-            '> F#/Gb5'
+            '> F#5'
             '> G5'
-            '> G#/Ab5'
+            '> G#5'
             '> A5'
-            '> A#/Bb5'
+            '> A#5'
             '> B5'
             '> C6')
         end
@@ -1965,8 +1966,8 @@ object EditorForm: TEditorForm
           OnChange = TVFSustainChange
         end
         object TVFKeyFollow: TSynthSlider
-          Left = 132
-          Top = 31
+          Left = 133
+          Top = 29
           Width = 29
           Height = 70
           Min = -3
@@ -1978,7 +1979,7 @@ object EditorForm: TEditorForm
           TickColor = clSilver
           TickMarks = stmBottomRight
           Frequency = 3
-          ThumbSize = 10
+          ThumbSize = 11
           ParentColor = False
           TabOrder = 25
           TabStop = True
@@ -2659,131 +2660,131 @@ object EditorForm: TEditorForm
           OnChange = TVABiasPoint1Change
           Items.Strings = (
             '< A0'
-            '< A#/Bb0'
+            '< A#0'
             '< B0'
             '< C1'
-            '< C#/Db1'
+            '< C#1'
             '< D1'
-            '< D#/Eb1'
+            '< D#1'
             '< E1'
             '< F1'
-            '< F#/Gb1'
+            '< F#1'
             '< G1'
-            '< G#/Ab1'
+            '< G#1'
             '< A1'
-            '< A#/Bb1'
+            '< A#1'
             '< B1'
             '< C2'
-            '< C#/Db2'
+            '< C#2'
             '< D2'
-            '< D#/Eb2'
+            '< D#2'
             '< E2'
             '< F2'
-            '< F#/Gb2'
+            '< F#2'
             '< G2'
-            '< G#/Ab2'
+            '< G#2'
             '< A2'
-            '< A#/Bb2'
+            '< A#2'
             '< B2'
             '< C3'
-            '< C#/Db3'
+            '< C#3'
             '< D3'
-            '< D#/Eb3'
+            '< D#3'
             '< E3'
             '< F3'
-            '< F#/Gb3'
+            '< F#3'
             '< G3'
-            '< G#/Ab3'
+            '< G#3'
             '< A3'
-            '< A#/Bb3'
+            '< A#3'
             '< B3'
             '< C4'
-            ' < C#/Db4'
+            ' < C#4'
             '< D4'
-            '< D#/Eb4'
+            '< D#4'
             '< E4'
             '< F4'
-            '< F#/Gb4'
+            '< F#4'
             '< G4'
-            '< G#/Ab4'
+            '< G#4'
             '< A4'
-            '< A#/Bb4'
+            '< A#4'
             '< B4'
             '< C5'
-            ' < C#/Db5'
+            ' < C#5'
             '< D5'
-            '< D#/Eb5'
+            '< D#5'
             '< E5'
             '< F5'
-            '< F#/Gb5'
+            '< F#5'
             '< G5'
-            '< G#/Ab5'
+            '< G#5'
             '< A5'
-            '< A#/Bb5'
+            '< A#5'
             '< B5'
             '< C6'
             '> A0'
-            '> A#/Bb0'
+            '> A#0'
             '> B0'
             '> C1'
-            '> C#/Db1'
+            '> C#1'
             '> D1'
-            '> D#/Eb1'
+            '> D#1'
             '> E1'
             '> F1'
-            '> F#/Gb1'
+            '> F#1'
             '> G1'
-            '> G#/Ab1'
+            '> G#1'
             '> A1'
-            '> A#/Bb1'
+            '> A#1'
             '> B1'
             '> C2'
-            '> C#/Db2'
+            '> C#2'
             '> D2'
-            '> D#/Eb2'
+            '> D#2'
             '> E2'
             '> F2'
-            '> F#/Gb2'
+            '> F#2'
             '> G2'
-            '> G#/Ab2'
+            '> G#2'
             '> A2'
-            '> A#/Bb2'
+            '> A#2'
             '> B2'
             '> C3'
-            '> C#/Db3'
+            '> C#3'
             '> D3'
-            '> D#/Eb3'
+            '> D#3'
             '> E3'
             '> F3'
-            '> F#/Gb3'
+            '> F#3'
             '> G3'
-            '> G#/Ab3'
+            '> G#3'
             '> A3'
-            '> A#/Bb3'
+            '> A#3'
             '> B3'
             '> C4'
-            '> C#/Db4'
+            '> C#4'
             '> D4'
-            '> D#/Eb4'
+            '> D#4'
             '> E4'
             '> F4'
-            '> F#/Gb4'
+            '> F#4'
             '> G4'
-            '> G#/Ab4'
+            '> G#4'
             '> A4'
-            '> A#/Bb4'
+            '> A#4'
             '> B4'
             '> C5'
-            '> C#/Db5'
+            '> C#5'
             '> D5'
-            '> D#/Eb5'
+            '> D#5'
             '> E5'
             '> F5'
-            '> F#/Gb5'
+            '> F#5'
             '> G5'
-            '> G#/Ab5'
+            '> G#5'
             '> A5'
-            '> A#/Bb5'
+            '> A#5'
             '> B5'
             '> C6')
         end
@@ -2891,131 +2892,131 @@ object EditorForm: TEditorForm
           OnChange = TVABiasPoint2Change
           Items.Strings = (
             '< A0'
-            '< A#/Bb0'
+            '< A#0'
             '< B0'
             '< C1'
-            '< C#/Db1'
+            '< C#1'
             '< D1'
-            '< D#/Eb1'
+            '< D#1'
             '< E1'
             '< F1'
-            '< F#/Gb1'
+            '< F#1'
             '< G1'
-            '< G#/Ab1'
+            '< G#1'
             '< A1'
-            '< A#/Bb1'
+            '< A#1'
             '< B1'
             '< C2'
-            '< C#/Db2'
+            '< C#2'
             '< D2'
-            '< D#/Eb2'
+            '< D#2'
             '< E2'
             '< F2'
-            '< F#/Gb2'
+            '< F#2'
             '< G2'
-            '< G#/Ab2'
+            '< G#2'
             '< A2'
-            '< A#/Bb2'
+            '< A#2'
             '< B2'
             '< C3'
-            '< C#/Db3'
+            '< C#3'
             '< D3'
-            '< D#/Eb3'
+            '< D#3'
             '< E3'
             '< F3'
-            '< F#/Gb3'
+            '< F#3'
             '< G3'
-            '< G#/Ab3'
+            '< G#3'
             '< A3'
-            '< A#/Bb3'
+            '< A#3'
             '< B3'
             '< C4'
-            ' < C#/Db4'
+            ' < C#4'
             '< D4'
-            '< D#/Eb4'
+            '< D#4'
             '< E4'
             '< F4'
-            '< F#/Gb4'
+            '< F#4'
             '< G4'
-            '< G#/Ab4'
+            '< G#4'
             '< A4'
-            '< A#/Bb4'
+            '< A#4'
             '< B4'
             '< C5'
-            ' < C#/Db5'
+            ' < C#5'
             '< D5'
-            '< D#/Eb5'
+            '< D#5'
             '< E5'
             '< F5'
-            '< F#/Gb5'
+            '< F#5'
             '< G5'
-            '< G#/Ab5'
+            '< G#5'
             '< A5'
-            '< A#/Bb5'
+            '< A#5'
             '< B5'
             '< C6'
             '> A0'
-            '> A#/Bb0'
+            '> A#0'
             '> B0'
             '> C1'
-            '> C#/Db1'
+            '> C#1'
             '> D1'
-            '> D#/Eb1'
+            '> D#1'
             '> E1'
             '> F1'
-            '> F#/Gb1'
+            '> F#1'
             '> G1'
-            '> G#/Ab1'
+            '> G#1'
             '> A1'
-            '> A#/Bb1'
+            '> A#1'
             '> B1'
             '> C2'
-            '> C#/Db2'
+            '> C#2'
             '> D2'
-            '> D#/Eb2'
+            '> D#2'
             '> E2'
             '> F2'
-            '> F#/Gb2'
+            '> F#2'
             '> G2'
-            '> G#/Ab2'
+            '> G#2'
             '> A2'
-            '> A#/Bb2'
+            '> A#2'
             '> B2'
             '> C3'
-            '> C#/Db3'
+            '> C#3'
             '> D3'
-            '> D#/Eb3'
+            '> D#3'
             '> E3'
             '> F3'
-            '> F#/Gb3'
+            '> F#3'
             '> G3'
-            '> G#/Ab3'
+            '> G#3'
             '> A3'
-            '> A#/Bb3'
+            '> A#3'
             '> B3'
             '> C4'
-            '> C#/Db4'
+            '> C#4'
             '> D4'
-            '> D#/Eb4'
+            '> D#4'
             '> E4'
             '> F4'
-            '> F#/Gb4'
+            '> F#4'
             '> G4'
-            '> G#/Ab4'
+            '> G#4'
             '> A4'
-            '> A#/Bb4'
+            '> A#4'
             '> B4'
             '> C5'
-            '> C#/Db5'
+            '> C#5'
             '> D5'
-            '> D#/Eb5'
+            '> D#5'
             '> E5'
             '> F5'
-            '> F#/Gb5'
+            '> F#5'
             '> G5'
-            '> G#/Ab5'
+            '> G#5'
             '> A5'
-            '> A#/Bb5'
+            '> A#5'
             '> B5'
             '> C6')
         end
@@ -3222,7 +3223,7 @@ object EditorForm: TEditorForm
       end
       object WaveGenGroup: TGroupBox
         Left = 51
-        Top = 70
+        Top = 69
         Width = 690
         Height = 95
         Caption = 'Wave Generator'
@@ -3235,7 +3236,7 @@ object EditorForm: TEditorForm
         TabOrder = 1
         object WGPulseWidth_label: TLabel
           Left = 86
-          Top = 11
+          Top = 9
           Width = 56
           Height = 13
           Caption = 'Pulse Width'
@@ -3284,8 +3285,8 @@ object EditorForm: TEditorForm
           OnClick = WGPitchBendClick
         end
         object WGCoarse_label: TLabel
-          Left = 414
-          Top = 11
+          Left = 423
+          Top = 9
           Width = 68
           Height = 13
           Caption = 'Pitch (Coarse)'
@@ -3299,7 +3300,7 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object WGFine_label: TLabel
-          Left = 414
+          Left = 423
           Top = 53
           Width = 54
           Height = 13
@@ -3315,7 +3316,7 @@ object EditorForm: TEditorForm
         end
         object WGKeyFollow_label: TLabel
           Left = 558
-          Top = 11
+          Top = 9
           Width = 103
           Height = 13
           Caption = 'Key Follow (multi/oct)'
@@ -3330,10 +3331,10 @@ object EditorForm: TEditorForm
         end
         object WGSample_label: TLabel
           Left = 222
-          Top = 11
-          Width = 58
+          Top = 9
+          Width = 67
           Height = 13
-          Caption = 'PCM Sample'
+          Caption = 'PCM Samples:'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clGrayText
           Font.Height = -11
@@ -3342,8 +3343,8 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object WGCoarseType: TLabel
-          Left = 526
-          Top = 11
+          Left = 531
+          Top = 9
           Width = 14
           Height = 13
           Alignment = taRightJustify
@@ -3421,7 +3422,7 @@ object EditorForm: TEditorForm
           OnKeyPress = WGVelSens_valueKeyPress
         end
         object WGCoarse_value: TEdit
-          Left = 518
+          Left = 523
           Top = 27
           Width = 26
           Height = 21
@@ -3442,7 +3443,7 @@ object EditorForm: TEditorForm
           OnKeyPress = WGCoarse_valueKeyPress
         end
         object WGFine_value: TEdit
-          Left = 518
+          Left = 523
           Top = 64
           Width = 26
           Height = 21
@@ -3464,7 +3465,7 @@ object EditorForm: TEditorForm
         object WGSample: TListBox
           Left = 222
           Top = 26
-          Width = 179
+          Width = 188
           Height = 61
           Hint = 'PCM sample for this partial (instead of waveform)'
           Enabled = False
@@ -3651,7 +3652,7 @@ object EditorForm: TEditorForm
           OnChange = WGVelSensChange
         end
         object WGCoarse: TSynthSlider
-          Left = 407
+          Left = 416
           Top = 24
           Width = 105
           Height = 29
@@ -3673,7 +3674,7 @@ object EditorForm: TEditorForm
           OnChange = WGCoarseChange
         end
         object WGFine: TSynthSlider
-          Left = 404
+          Left = 413
           Top = 65
           Width = 105
           Height = 22
@@ -3728,6 +3729,28 @@ object EditorForm: TEditorForm
             's1 (Stretch +1'#162'/oct)'
             's2 (Stretch +5'#162'/oct)')
         end
+        object WGSampleBank1: TRadioButton
+          Left = 294
+          Top = 9
+          Width = 61
+          Height = 15
+          Caption = 'Standard'
+          Checked = True
+          Enabled = False
+          TabOrder = 11
+          TabStop = True
+          OnClick = WGSampleBank1Click
+        end
+        object WGSampleBank2: TRadioButton
+          Left = 359
+          Top = 9
+          Width = 54
+          Height = 15
+          Caption = 'CM-32L'
+          Enabled = False
+          TabOrder = 12
+          OnClick = WGSampleBank2Click
+        end
       end
       object PartialGroup: TGroupBox
         Left = 552
@@ -3749,7 +3772,7 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object PartialStruct_label: TLabel
-          Left = 70
+          Left = 66
           Top = 2
           Width = 45
           Height = 13
@@ -3770,7 +3793,7 @@ object EditorForm: TEditorForm
         end
         object PartialMute2: TCheckBox
           Tag = 1
-          Left = 36
+          Left = 34
           Top = 16
           Width = 27
           Height = 17
@@ -3794,7 +3817,7 @@ object EditorForm: TEditorForm
         end
         object PartialMute4: TCheckBox
           Tag = 3
-          Left = 36
+          Left = 34
           Top = 37
           Width = 27
           Height = 17
@@ -3805,9 +3828,9 @@ object EditorForm: TEditorForm
           OnClick = PartialMuteClick
         end
         object PartialStruct1: TComboBox
-          Left = 66
+          Left = 62
           Top = 15
-          Width = 116
+          Width = 122
           Height = 21
           Hint = 
             'Structure of partial output signals (P1 & P2)'#13#10#13#10'S = Synth, P = ' +
@@ -3829,9 +3852,9 @@ object EditorForm: TEditorForm
             'Stereo (PCM)')
         end
         object PartialStruct2: TComboBox
-          Left = 66
+          Left = 62
           Top = 36
-          Width = 116
+          Width = 122
           Height = 21
           Hint = 
             'Structure of partial output signals (P3 & P4)'#13#10#13#10'S = Synth, P = ' +
@@ -3859,7 +3882,7 @@ object EditorForm: TEditorForm
         Width = 383
         Height = 68
         Margins.Right = 7
-        Caption = 'Patch Controls'
+        Caption = 'Patch Controls (current part)'
         Color = clBtnFace
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
@@ -3903,7 +3926,7 @@ object EditorForm: TEditorForm
           ParentFont = False
         end
         object PtRevButton: TSpeedButton
-          Left = 127
+          Left = 177
           Top = 18
           Width = 46
           Height = 40
@@ -3922,8 +3945,8 @@ object EditorForm: TEditorForm
           ShowHint = True
           OnClick = PtRevButtonClick
         end
-        object PtPitchBend_label: TLabel
-          Left = 179
+        object PtBendRange_label: TLabel
+          Left = 128
           Top = 22
           Width = 40
           Height = 13
@@ -3999,7 +4022,7 @@ object EditorForm: TEditorForm
           ShowHint = True
           TabOrder = 1
           Text = '2'
-          OnChange = PartMidiChanChange
+          OnChange = PtMidiChanChange
           Items.Strings = (
             '1'
             '2'
@@ -4020,7 +4043,7 @@ object EditorForm: TEditorForm
             'OFF')
         end
         object PtBendRange: TSpinEdit
-          Left = 179
+          Left = 128
           Top = 38
           Width = 41
           Height = 22
@@ -4111,6 +4134,370 @@ object EditorForm: TEditorForm
         TabOrder = 7
         WordWrap = True
         OnClick = InitTimbreButtonClick
+      end
+    end
+    object RhythmSetup: TTabSheet
+      Caption = 'Rhythm Set Up'
+      ImageIndex = 3
+      TabVisible = False
+      object RhyControlsGroup: TGroupBox
+        Left = 4
+        Top = -1
+        Width = 737
+        Height = 68
+        Margins.Right = 7
+        Caption = 'Patch Controls (rhythm)'
+        Color = clBtnFace
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 12014080
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentBackground = False
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 0
+        object RhyPartBevel: TBevel
+          Left = 5
+          Top = 38
+          Width = 63
+          Height = 22
+          Shape = bsFrame
+        end
+        object RhyMidiChan_label: TLabel
+          Left = 75
+          Top = 22
+          Width = 45
+          Height = 13
+          Caption = 'Channel'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object RhyBendRange_label: TLabel
+          Left = 127
+          Top = 22
+          Width = 40
+          Height = 13
+          Caption = 'Bender'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object RhyPart_label: TLabel
+          Left = 5
+          Top = 22
+          Width = 34
+          Height = 13
+          Caption = 'Part 9'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 12014080
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object RhyPart: TLabel
+          Left = 9
+          Top = 42
+          Width = 37
+          Height = 13
+          Caption = 'Rhythm'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object RhyFine_label: TLabel
+          Left = 221
+          Top = 9
+          Width = 28
+          Height = 26
+          Caption = 'Fine'#13#10'Tune'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object RhyKey_label: TLabel
+          Left = 176
+          Top = 9
+          Width = 26
+          Height = 26
+          Caption = 'Key'#13#10'Shift'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object RhyPoly_label: TLabel
+          Left = 649
+          Top = 22
+          Width = 58
+          Height = 13
+          AutoSize = False
+          Caption = 'Poly Mode'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object RhyPtlReserve_label: TLabel
+          Left = 591
+          Top = 9
+          Width = 47
+          Height = 26
+          AutoSize = False
+          Caption = 'Partial'#13#10'Reserve'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object RhyOutput_label: TLabel
+          Left = 269
+          Top = 9
+          Width = 39
+          Height = 13
+          Caption = 'Output'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object RhyMidiChan: TComboBox
+          Tag = 8
+          Left = 75
+          Top = 38
+          Width = 44
+          Height = 21
+          Hint = 'MIDI channel that the Rhythm Part will respond on (1 ~ 16, Off)'
+          DropDownCount = 17
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ItemIndex = 9
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          Text = '10'
+          OnChange = RhyMidiChanChange
+          Items.Strings = (
+            '1'
+            '2'
+            '3'
+            '4'
+            '5'
+            '6'
+            '7'
+            '8'
+            '9'
+            '10'
+            '11'
+            '12'
+            '13'
+            '14'
+            '15'
+            '16'
+            'OFF')
+        end
+        object RhyBendRange: TSpinEdit
+          Tag = 8
+          Left = 127
+          Top = 38
+          Width = 42
+          Height = 22
+          Hint = 'Pitch Bender Range (0 ~ 24)'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 24
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+          Value = 12
+          OnChange = RhyBendRangeChange
+          OnKeyPress = PressedKey
+        end
+        object RhyFine: TSpinEdit
+          Tag = 8
+          Left = 221
+          Top = 38
+          Width = 38
+          Height = 22
+          Hint = '-50 ~ +50'
+          AutoSize = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          MaxLength = 3
+          MaxValue = 50
+          MinValue = -50
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+          Value = 0
+          OnChange = RhyFineChange
+          OnKeyPress = PressedKey
+        end
+        object RhyKey: TSpinEdit
+          Tag = 8
+          Left = 176
+          Top = 38
+          Width = 38
+          Height = 22
+          Hint = '-24 ~ +24'
+          AutoSize = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          MaxLength = 3
+          MaxValue = 24
+          MinValue = -24
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+          Value = 0
+          OnChange = RhyKeyChange
+          OnKeyPress = PressedKey
+        end
+        object RhyPoly: TComboBox
+          Tag = 8
+          Left = 649
+          Top = 38
+          Width = 79
+          Height = 21
+          Hint = 
+            '1: Single Assign, FIFO (priority given to last note)'#13#10'2: Single ' +
+            'Assign, FILO (priority given to first note)'#13#10'3: Multiple Assign,' +
+            ' FIFO (priority given to last note)'#13#10'4: Multiple Assign, FILO (p' +
+            'riority given to first note)'#13#10#13#10'Single Assign = identical notes ' +
+            'do NOT stack'#13#10'(conserves partials)'#13#10#13#10'Multiple Assign = identica' +
+            'l notes DO stack'#13#10'(uses more partials)'
+          Style = csDropDownList
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ItemIndex = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 4
+          Text = '(S)  FIFO'
+          OnChange = RhyPolyChange
+          Items.Strings = (
+            '(S)  FIFO'
+            '(S)  FILO'
+            '(M)  FIFO'
+            '(M)  FILO')
+        end
+        object RhyPtlReserve: TSpinEdit
+          Tag = 8
+          Left = 591
+          Top = 38
+          Width = 48
+          Height = 22
+          Hint = 
+            'Reserves partials for the Rhythm Part (0 ~ 32)'#13#10#13#10'NOTE: The tota' +
+            'l sum of each Part'#39's reserve'#13#10'partial settings cannot exceed 32.'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          MaxLength = 2
+          MaxValue = 32
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 5
+          Value = 0
+          OnChange = RhyPtlReserveChange
+        end
+        object RhyOutput: TSynthSlider
+          Tag = 8
+          Left = 262
+          Top = 25
+          Width = 264
+          Height = 36
+          Hint = 'Output level of the Rhythm Part'
+          Orientation = stoHorizontal
+          TrackColor = 14737632
+          FillColor = 16751121
+          ThumbColor = 14120960
+          TickColor = clSilver
+          TickMarks = stmBoth
+          Frequency = 5
+          ParentColor = False
+          TabOrder = 6
+          TabStop = True
+          OnChange = RhyOutputChange
+        end
+        object RhyOutput_value: TSpinEdit
+          Tag = 8
+          Left = 532
+          Top = 38
+          Width = 48
+          Height = 22
+          Hint = '0 ~ 100'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          MaxLength = 3
+          MaxValue = 100
+          MinValue = 0
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 7
+          Value = 0
+          OnChange = RhyOutput_valueChange
+          OnKeyPress = PressedKey
+        end
+      end
+      object ScrollBox1: TScrollBox
+        Left = 13
+        Top = 113
+        Width = 719
+        Height = 464
+        TabOrder = 1
       end
     end
     object PatchTempArea: TTabSheet
@@ -8934,7 +9321,7 @@ object EditorForm: TEditorForm
         Margins.Left = 2
         Margins.Right = 2
         BevelOuter = bvLowered
-        Caption = 'Part Rhy'
+        Caption = 'Part 9 (R)'
         DoubleBuffered = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = 12014080
@@ -9320,23 +9707,18 @@ object EditorForm: TEditorForm
         end
       end
     end
-    object RhythmSetup: TTabSheet
-      Caption = 'Rhythm Setup'
-      ImageIndex = 3
-      TabVisible = False
-    end
     object SystemArea: TTabSheet
       Caption = 'System'
       ImageIndex = 4
-      object ReverbBevel: TBevel
+      object SystemBevel: TBevel
         Left = 3
-        Top = 130
-        Width = 446
-        Height = 335
+        Top = 24
+        Width = 366
+        Height = 417
       end
       object MasterTune_label: TLabel
         Left = 12
-        Top = 36
+        Top = 48
         Width = 72
         Height = 16
         Caption = 'Master Tune'
@@ -9348,8 +9730,8 @@ object EditorForm: TEditorForm
         ParentFont = False
       end
       object MasterTuneHz: TLabel
-        Left = 332
-        Top = 33
+        Left = 157
+        Top = 45
         Width = 56
         Height = 16
         Alignment = taCenter
@@ -9362,8 +9744,8 @@ object EditorForm: TEditorForm
         ParentFont = False
       end
       object ReverbRoomButton: TSpeedButton
-        Left = 85
-        Top = 178
+        Left = 69
+        Top = 155
         Width = 57
         Height = 49
         Hint = 
@@ -9382,8 +9764,8 @@ object EditorForm: TEditorForm
       end
       object ReverbHallButton: TSpeedButton
         Tag = 1
-        Left = 168
-        Top = 178
+        Left = 132
+        Top = 155
         Width = 57
         Height = 49
         Hint = 
@@ -9401,8 +9783,8 @@ object EditorForm: TEditorForm
       end
       object ReverbPlateButton: TSpeedButton
         Tag = 2
-        Left = 253
-        Top = 178
+        Left = 195
+        Top = 155
         Width = 57
         Height = 49
         Hint = 
@@ -9420,8 +9802,8 @@ object EditorForm: TEditorForm
       end
       object ReverbTapDelayButton: TSpeedButton
         Tag = 3
-        Left = 339
-        Top = 178
+        Left = 258
+        Top = 155
         Width = 57
         Height = 49
         Hint = 
@@ -9439,7 +9821,7 @@ object EditorForm: TEditorForm
       end
       object ReverbMode_label: TLabel
         Left = 19
-        Top = 194
+        Top = 171
         Width = 31
         Height = 16
         Caption = 'Mode'
@@ -9451,8 +9833,8 @@ object EditorForm: TEditorForm
         ParentFont = False
       end
       object ReverbTime_label: TLabel
-        Left = 21
-        Top = 257
+        Left = 19
+        Top = 234
         Width = 29
         Height = 16
         Caption = 'Time'
@@ -9464,8 +9846,8 @@ object EditorForm: TEditorForm
         ParentFont = False
       end
       object ReverbLevel_label: TLabel
-        Left = 21
-        Top = 363
+        Left = 19
+        Top = 340
         Width = 29
         Height = 16
         Caption = 'Level'
@@ -9476,16 +9858,10 @@ object EditorForm: TEditorForm
         Font.Style = []
         ParentFont = False
       end
-      object MasterTuneBevel: TBevel
-        Left = 3
-        Top = 23
-        Width = 739
-        Height = 81
-      end
       object EnableDebug: TSpeedButton
-        Left = 640
-        Top = 162
-        Width = 93
+        Left = 610
+        Top = 91
+        Width = 101
         Height = 28
         Hint = 'Enable hidden debug option controls for testing'
         AllowAllUp = True
@@ -9493,7 +9869,7 @@ object EditorForm: TEditorForm
         Caption = 'Debug Options'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -11
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
@@ -9501,8 +9877,8 @@ object EditorForm: TEditorForm
       end
       object ReverbControls_label: TLabel
         Left = 3
-        Top = 145
-        Width = 446
+        Top = 122
+        Width = 366
         Height = 13
         Alignment = taCenter
         AutoSize = False
@@ -9514,10 +9890,23 @@ object EditorForm: TEditorForm
         Font.Style = [fsBold]
         ParentFont = False
       end
+      object EditorOptions_label: TLabel
+        Left = 520
+        Top = 24
+        Width = 116
+        Height = 19
+        Caption = 'Editor Options'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
       object MasterTune: TSynthSlider
         Left = 12
-        Top = 55
-        Width = 665
+        Top = 67
+        Width = 286
         Height = 33
         Hint = 'Master Tune setting for the whole synth (all Parts affected)'
         Max = 127
@@ -9529,14 +9918,15 @@ object EditorForm: TEditorForm
         ThumbColor = 14120960
         TickColor = clSilver
         TickMarks = stmBottomRight
+        Frequency = 2
         ParentColor = False
         TabOrder = 0
         TabStop = True
         OnChange = MasterTuneChange
       end
       object MasterTune_value: TSpinEdit
-        Left = 683
-        Top = 55
+        Left = 304
+        Top = 67
         Width = 50
         Height = 22
         Font.Charset = DEFAULT_CHARSET
@@ -9554,9 +9944,9 @@ object EditorForm: TEditorForm
         OnKeyPress = PressedKey
       end
       object ReverbTime: TSynthSlider
-        Left = 21
-        Top = 279
-        Width = 357
+        Left = 19
+        Top = 256
+        Width = 283
         Height = 40
         Hint = 
           'Reverb time setting for the whole synth (every Part with reverb ' +
@@ -9575,9 +9965,9 @@ object EditorForm: TEditorForm
         OnChange = ReverbTimeChange
       end
       object ReverbLevel: TSynthSlider
-        Left = 21
-        Top = 393
-        Width = 357
+        Left = 19
+        Top = 370
+        Width = 283
         Height = 40
         Hint = 
           'Reverb level setting or the whole synth (every Part with reverb ' +
@@ -9596,8 +9986,8 @@ object EditorForm: TEditorForm
         OnChange = ReverbLevelChange
       end
       object ReverbLevel_value: TSpinEdit
-        Left = 384
-        Top = 399
+        Left = 308
+        Top = 376
         Width = 46
         Height = 26
         Hint = 
@@ -9618,8 +10008,8 @@ object EditorForm: TEditorForm
         OnKeyPress = PressedKey
       end
       object ReverbTime_value: TSpinEdit
-        Left = 384
-        Top = 286
+        Left = 308
+        Top = 263
         Width = 46
         Height = 26
         Hint = 
@@ -9640,19 +10030,40 @@ object EditorForm: TEditorForm
         OnKeyPress = PressedKey
       end
       object AboutButton: TButton
-        Left = 640
-        Top = 128
-        Width = 93
+        Left = 610
+        Top = 57
+        Width = 101
         Height = 28
         Caption = 'About'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -11
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
         TabOrder = 6
         OnClick = AboutButtonClick
+      end
+      object CMSamples: TCheckBox
+        Left = 451
+        Top = 63
+        Width = 144
+        Height = 17
+        Hint = 
+          'Check this if you'#39're using CM-32L ROMs with MuntVSTi.'#13#10#13#10'The CM-' +
+          '32L PCM sample ROM contains 33 extra sounds'#13#10'in the Rhythm Bank ' +
+          '(accessible via the Patch Mixer) as well'#13#10'as 127 extra samples i' +
+          'n the sample bank (accessible to each'#13#10'partial via the Timbre Ed' +
+          'itor).'
+        Caption = 'CM-32L Sample Mode'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 7
+        OnClick = CMSamplesClick
       end
     end
     object Debug: TTabSheet
@@ -9665,53 +10076,60 @@ object EditorForm: TEditorForm
       ParentFont = False
       TabVisible = False
       object ReadMemAddr_label: TLabel
-        Left = 97
-        Top = 61
+        Left = 88
+        Top = 84
         Width = 39
         Height = 13
         Caption = 'Address'
       end
       object ReadMemSize_label: TLabel
-        Left = 172
-        Top = 61
+        Left = 149
+        Top = 84
         Width = 19
         Height = 13
         Caption = 'Size'
       end
       object ReturnedBytes_label: TLabel
-        Left = 17
-        Top = 109
+        Left = 205
+        Top = 102
         Width = 79
         Height = 13
         Caption = 'Returned Bytes:'
       end
       object BytesToSend_label: TLabel
-        Left = 392
-        Top = 109
+        Left = 491
+        Top = 102
         Width = 71
         Height = 13
         Caption = 'Bytes to Send:'
       end
       object TestNoteCh_label: TLabel
-        Left = 112
-        Top = 34
+        Left = 100
+        Top = 28
         Width = 39
         Height = 13
         Caption = 'Channel'
       end
       object TestNote_label: TLabel
-        Left = 178
-        Top = 34
+        Left = 151
+        Top = 28
         Width = 23
         Height = 13
         Caption = 'Note'
       end
       object TestNoteVel_label: TLabel
-        Left = 255
-        Top = 34
+        Left = 212
+        Top = 28
         Width = 37
         Height = 13
         Caption = 'Velocity'
+      end
+      object LastSysEx_label: TLabel
+        Left = 293
+        Top = 9
+        Width = 81
+        Height = 13
+        Caption = 'Last SysEx Sent:'
       end
       object TestNoteButton: TButton
         Left = 4
@@ -9723,9 +10141,9 @@ object EditorForm: TEditorForm
         OnClick = TestNoteButtonClick
       end
       object ReadMemory: TButton
-        Left = 4
-        Top = 78
-        Width = 75
+        Left = 3
+        Top = 97
+        Width = 79
         Height = 25
         Caption = 'Read Memory'
         TabOrder = 1
@@ -9733,25 +10151,25 @@ object EditorForm: TEditorForm
       end
       object SendSysExStr: TButton
         Left = 380
-        Top = 80
-        Width = 95
+        Top = 97
+        Width = 99
         Height = 25
         Caption = 'Send SysEx String'
         TabOrder = 2
         OnClick = SendSysExStrClick
       end
       object ReadMemAddr: TEdit
-        Left = 85
-        Top = 80
-        Width = 73
+        Left = 88
+        Top = 99
+        Width = 55
         Height = 21
         TabOrder = 3
         Text = '10000'
       end
       object ReadMemSize: TEdit
-        Left = 164
-        Top = 80
-        Width = 90
+        Left = 149
+        Top = 99
+        Width = 43
         Height = 22
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -9763,7 +10181,7 @@ object EditorForm: TEditorForm
         Text = 'F6'
       end
       object ReturnedBytes: TMemo
-        Left = 5
+        Left = 3
         Top = 128
         Width = 360
         Height = 401
@@ -9791,7 +10209,7 @@ object EditorForm: TEditorForm
         TabOrder = 6
       end
       object TestNote: TComboBox
-        Left = 178
+        Left = 151
         Top = 6
         Width = 55
         Height = 21
@@ -9928,7 +10346,7 @@ object EditorForm: TEditorForm
           'F#8')
       end
       object TestNoteVel: TSpinEdit
-        Left = 253
+        Left = 210
         Top = 6
         Width = 49
         Height = 22
@@ -9938,7 +10356,7 @@ object EditorForm: TEditorForm
         Value = 127
       end
       object TestNoteChan: TSpinEdit
-        Left = 111
+        Left = 99
         Top = 6
         Width = 47
         Height = 22
@@ -9946,6 +10364,20 @@ object EditorForm: TEditorForm
         MinValue = 1
         TabOrder = 9
         Value = 2
+      end
+      object LastSysEx: TMemo
+        Left = 380
+        Top = 3
+        Width = 360
+        Height = 88
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Lucida Console'
+        Font.Style = []
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 10
       end
     end
   end

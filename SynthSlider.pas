@@ -65,6 +65,7 @@ type
     function PosToPixel: Integer;
     function PixelToPos(X, Y: Integer): Integer;
     function PointInThumb(X, Y: Integer): Boolean;
+    function GetThumbCenter: TPoint;
 
     procedure DoChange;
 
@@ -149,6 +150,14 @@ begin
   ParentColor := True;
   Color := clBtnFace;
   TabStop := True;
+end;
+
+function TSynthSlider.GetThumbCenter: TPoint;
+begin
+  if FOrientation = stoHorizontal then
+    Result := Point(PosToPixel, Height div 2)
+  else
+    Result := Point(Width div 2, PosToPixel);
 end;
 
 procedure TSynthSlider.SetCenterMark(Value: Boolean);
@@ -343,27 +352,20 @@ end;
 
 function TSynthSlider.PointInThumb(X, Y: Integer): Boolean;
 var
-  P: Integer;
-  ThumbHalf: Integer;
+  C: TPoint;
+  HitSize: Integer;
   R: TRect;
 begin
-  P := PosToPixel;
-  ThumbHalf := FThumbSize div 2;
+  C := GetThumbCenter;
 
-  if FOrientation = stoHorizontal then
-    R := Rect(
-      P - ThumbHalf,
-      Height div 2 - FThumbSize,
-      P + ThumbHalf,
-      Height div 2 + FThumbSize
-    )
-  else
-    R := Rect(
-      Width div 2 - FThumbSize,
-      P - ThumbHalf,
-      Width div 2 + FThumbSize,
-      P + ThumbHalf
-    );
+  HitSize := FThumbSize + 4; // padding for usability
+
+  R := Rect(
+    C.X - HitSize,
+    C.Y - HitSize,
+    C.X + HitSize,
+    C.Y + HitSize
+  );
 
   Result := PtInRect(R, Point(X, Y));
 end;

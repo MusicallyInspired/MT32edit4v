@@ -1,4 +1,4 @@
-unit editor;
+Ôªøunit editor;
 {$EXCESSPRECISION OFF}
 {$WEAKLINKRTTI ON}
 {$RTTI EXPLICIT METHODS([]) PROPERTIES([]) FIELDS([])}
@@ -8,9 +8,10 @@ unit editor;
 interface
 
 uses
-  Windows, Messages, SysUtils, Classes, Forms, Dyn_mt32edit, UITypes,
+  Windows, Messages, SysUtils, System.StrUtils, Classes, Forms, Dyn_mt32edit, UITypes,
   StdCtrls, Controls, ExtCtrls, Vcl.ComCtrls, Vcl.Buttons, Vcl.Dialogs,
-  Vcl.Graphics, Math, Types, IOUtils, Vcl.Samples.Spin, SynthSlider, KnobControl, PatchUxTheme;
+  Vcl.Graphics, Math, Types, IOUtils, Vcl.Samples.Spin, SynthSlider, KnobControl, PatchUxTheme,
+  Vcl.Grids;
 
 const
   EditorVersion: String = 'BETA 1.00a' ;
@@ -18,24 +19,37 @@ const
   SysExHeader: array[0..4] of Byte = (
     $F0, $41, $10, $16, $12
   );
+  timbreHeader: array[0..39] of Byte = (
+    $4D, $54, $2D, $33, $32, $20, $45, $64, $69, $74, $6F, $72, $20, $76, $31,
+    $20, $74, $69, $6D, $62, $72, $65, $20, $64, $65, $66, $69, $6E, $69, $74,
+    $69, $6F, $6E, $20, $66, $69, $6C, $65, $3A, $20
+  );
   InitTimbre: array[0..245] of Byte = (
-    $69, $6E, $69, $74, $20, $20, $20, $20, $20, $20, $00, $00, $01, $00, $24,
-    $32, $0B, $01, $00, $00, $00, $07, $00, $00, $00, $00, $00, $00, $00, $32,
-    $32, $32, $32, $32, $00, $00, $00, $32, $00, $03, $00, $07, $00, $00, $00,
-    $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $64, $32, $00, $0C, $00,
-    $0C, $00, $00, $05, $00, $00, $00, $0F, $64, $64, $64, $64, $24, $32, $0B,
-    $01, $00, $00, $00, $07, $00, $00, $00, $00, $00, $00, $00, $32, $32, $32,
-    $32, $32, $00, $00, $00, $32, $00, $03, $00, $07, $00, $00, $00, $00, $00,
-    $00, $00, $00, $00, $00, $00, $00, $00, $64, $32, $00, $0C, $00, $0C, $00,
-    $00, $05, $00, $00, $00, $0F, $64, $64, $64, $64, $24, $32, $0B, $01, $00,
-    $00, $00, $07, $00, $00, $00, $00, $00, $00, $00, $32, $32, $32, $32, $32,
-    $00, $00, $00, $32, $00, $03, $00, $07, $00, $00, $00, $00, $00, $00, $00,
-    $00, $00, $00, $00, $00, $00, $64, $32, $00, $0C, $00, $0C, $00, $00, $05,
-    $00, $00, $00, $0F, $64, $64, $64, $64, $24, $32, $0B, $01, $00, $00, $00,
-    $07, $00, $00, $00, $00, $00, $00, $00, $32, $32, $32, $32, $32, $00, $00,
-    $00, $32, $00, $03, $00, $07, $00, $00, $00, $00, $00, $00, $00, $00, $00,
-    $00, $00, $00, $00, $64, $32, $00, $0C, $00, $0C, $00, $00, $05, $00, $00,
-    $00, $0F, $64, $64, $64, $64
+    $69, $6E, $69, $74, $20, $20, $20, $20, $20, $20, $00, $00, $01, $00,       // Timbre Common
+    $24, $32, $0B, $01, $00, $00, $00, $07,                                     // P1: Wave Gen
+    $00, $00, $00, $00, $00, $00, $00, $32, $32, $32, $32, $32, $00, $00, $00,  // P1: Pitch Env
+    $32, $00, $0B, $00, $07, $00, $00, $00, $00,                                // P1: TVF
+    $00, $00, $00, $00, $00, $00, $00, $00, $00,
+    $64, $32, $00, $0C, $00, $0C, $00, $00,                                     // P1: TVA
+    $05, $00, $00, $00, $0F, $64, $64, $64, $64,
+    $24, $32, $0B, $01, $00, $00, $00, $07,                                     // P2: Wave Gen
+    $00, $00, $00, $00, $00, $00, $00, $32, $32, $32, $32, $32, $00, $00, $00,  // P2: Pitch Env
+    $32, $00, $0B, $00, $07, $00, $00, $00, $00,                                // P2: TVF
+    $00, $00, $00, $00, $00, $00, $00, $00, $00,
+    $64, $32, $00, $0C, $00, $0C, $00, $00,                                     // P2: TVA
+    $05, $00, $00, $00, $0F, $64, $64, $64, $64,
+    $24, $32, $0B, $01, $00, $00, $00, $07,                                     // P3: Wave Gen
+    $00, $00, $00, $00, $00, $00, $00, $32, $32, $32, $32, $32, $00, $00, $00,  // P3: Pitch Env
+    $32, $00, $0B, $00, $07, $00, $00, $00, $00,                                // P3: TVF
+    $00, $00, $00, $00, $00, $00, $00, $00, $00,
+    $64, $32, $00, $0C, $00, $0C, $00, $00,                                     // P3: TVA
+    $05, $00, $00, $00, $0F, $64, $64, $64, $64,
+    $24, $32, $0B, $01, $00, $00, $00, $07,                                     // P4: Wave Gen
+    $00, $00, $00, $00, $00, $00, $00, $32, $32, $32, $32, $32, $00, $00, $00,  // P4: Pitch Env
+    $32, $00, $0B, $00, $07, $00, $00, $00, $00,                                // P4: TVF
+    $00, $00, $00, $00, $00, $00, $00, $00, $00,
+    $64, $32, $00, $0C, $00, $0C, $00, $00,                                     // P4: TVA
+    $05, $00, $00, $00, $0F, $64, $64, $64, $64
   );
   GroupA_Names: array[0..63] of String = (
     'AcouPiano1','AcouPiano2','AcouPiano3','ElecPiano1',
@@ -109,6 +123,70 @@ const
     'Birds     ','Rain      ','Thunder   ','Wind      ',
     'Waves     ','Stream    ','Bubble    ','[none]    '
   );
+  MTSampleNames: array[0..127] of String = (
+    'Ac. Bass Drum','Ac. Snare Drum','El. Snare Drum','Electric Tom',
+    'Closed Hihat','Open Hihat','Crash Cymbal','Crash Cymbal (loop)',
+    'Ride cymbal','Rim Shot','Hand Clap','Muted Conga','Conga','Bongo',
+    'Cowbell','Tambourine','Agogo Bell','Claves','Timbale','Cabasa',
+    'Keypress','Perc Organ','Trombone','Trumpet','Breath Noise (loop)',
+    'Clarient','Flute','Pan Pipes','Shakuhachi','Alto Sax','Baritone Sax',
+    'Marimba','Glockenspiel','Xylophone','Tubular Bells','Fingered Bass',
+    'Slap Bass','Picked Bass (loop)','Acoustic Bass','Nylon Guitar',
+    'Steel Guitar','Pizzicato','Harp','Harpsichord (loop)','Bow string',
+    'Violin','Timpani','Orchestra Hit','Flute','Organ (loop)',
+    'Bowed Glass (loop)','Telephone','Bowed Glass','Reverse Cymbal',
+    'Ac. Bass Drum #','Ac. Snare Drum #','El. Snare Drum #','Ac. Tom #',
+    'Closed Hihat #','Open Hihat #','Crash Cymbal #','Crash Cymbal (loop) #',
+    'Ride Cymbal #','Rim shot #','Hand clap #','Mute Conga #','Conga #',
+    'Bongo #','Cowbell #','Tambourine #','Agogo #','Claves #','Timbale #',
+    'Cabasa #','Bass Drum (loop)','Snare (loop)','Acoustic Tom (loop)',
+    'Electric Tom (loop)','Hihat (loop)','Crash Cymbal (loop)',
+    'Ride cymbal (loop)','Ride cymbal 2 (loop)','Rim (loop)',
+    'Hand clap (loop)','Bongo (loop)','Conga (loop)','Muted conga (loop)',
+    'Cowbell (loop)','Tambourine (loop)','Agogo (loop)','Woodblock (loop)',
+    'Timbales (loop)','Maracas (loop)','Sticks (loop)','Perc Organ (loop)',
+    'Trombone (loop)','Trumpet (loop)','Clarinet (loop)','Piccolo (loop)',
+    'Pan Pipe (loop)','Breath Noise (loop)','Alto Sax (loop)',
+    'Baritone Sax (loop)','Xylophone (loop)','Glockenspiel (loop)',
+    'Marimba (loop)','Tubular Bells (loop)','Fingered Bass (loop)',
+    'Slap Bass (loop)','Acoustic Bass (loop)','Nylon Guitar (loop)',
+    'Steel Guitar (loop)','Pizzicato (loop)','Harp (loop)',
+    'Bowed string (loop)','String Ensemble (loop)','Timpani (loop)',
+    'Orchestra Hit (loop)','Flute (loop)','Perc. loop 1','Perc. loop 2',
+    'Orch&Perc loop','Wind&Perc loop','Guitar & Bass loop','Orchestra loop',
+    'Perc. loop 3','Bass & Perc. loop', 'Bass & Snare loop'
+  );
+  CMSampleNames: array[0..127] of String = (
+    'Laugh #','Applause #','Windchime #','Crash #','Train #','Wind #',
+    'Bird #','Stream #','Door Creak #','Scream #','Punch #','Footsteps #',
+    'Door Slam #','Car Start #','Aircraft #','Gun Shot #','Horse #',
+    'Thunder #','Bubble #','Heartbeat #','Engine #','Tire Screech #',
+    'Siren #','Helicopter #','Dog Bark #','Car Pass #','Male Voice #',
+    'Machine Gun #','Starship #','Laugh (Loop) #','Applause (Loop) #',
+    'Windchime (Loop) #','Crash (Loop) #','Train (Loop) #','Wind (Loop) #',
+    'Bird (Loop) #','Stream (Loop) #','Door Creak (Loop) #','Scream (Loop) #',
+    'Punch (Loop) #','Footsteps (Loop) #','Door Slam (Loop) #',
+    'Car Start (Loop) #','Aircraft (Loop) #','Gun Shot (Loop) #',
+    'Horse (Loop) #','Thunder (Loop) #','Bubble (Loop) #','Heartbeat (Loop) #',
+    'Engine (Loop) #','Tire Screech (Loop) #','Siren (Loop) #',
+    'Helicopter (Loop) #','Dog Bark (Loop) #','Car Pass (Loop) #',
+    'Male Voice (Loop) #','Machine Gun (Loop) #','Starship (Loop) #',
+    'Jam-1 (Loop)','Jam-2 (Loop)','Jam-3 (Loop)','Jam-4 (Loop)','Jam-5 (Loop)',
+    'Jam-6 (Loop)','Jam-7 (Loop)','Jam-8 (Loop)','Jam-9 (Loop)','Jam-10 (Loop)',
+    'Jam-11 (Loop)','Jam-12 (Loop)','Jam-13 (Loop)','Jam-14 (Loop)',
+    'Jam-15 (Loop)','Jam-16 (Loop)','Jam-17 (Loop)','Jam-18 (Loop)',
+    'Jam-19 (Loop)','Jam-20 (Loop)','Jam-21 (Loop)','Jam-22 (Loop)',
+    'Jam-23 (Loop)','Jam-24 (Loop)','Jam-25 (Loop)','Jam-26 (Loop)',
+    'Jam-27 (Loop)','Jam-28 (Loop)','Jam-29 (Loop)','Jam-30 (Loop)',
+    'Jam-31 (Loop)','Jam-32 (Loop)','Jam-33 (Loop)','Jam-34 (Loop)',
+    'Jam-35 (Loop)','Jam-36 (Loop)','Jam-37 (Loop)','Jam-38 (Loop)',
+    'Jam-39 (Loop)','Jam-40 (Loop)','Shot-1','Shot-2','Shot-3','Shot-4','Shot-5',
+    'Shot-6','Shot-7','Shot-8','Shot-9','Shot-10','Shot-11','Shot-12','Shot-13',
+    'Shot-14','Shot-15','Shot-16','Shot-17','Shot-18','Shot-19','Shot-20',
+    'Shot-21','Shot-22','Shot-23','Shot-24','Shot-25','Shot-26','Alto Sax',
+    'Shakuhachi','Marimba','Dog Bark'
+  );
+
   AdPatchTemp: NativeUInt = $C000;
   AdPatchTemp1: NativeUInt = $C000;
   AdPatchTemp2: NativeUInt = $C010;
@@ -142,6 +220,7 @@ type
     KeyFollow: ShortInt;
     PitchBend: Boolean;
     Shape: Byte;
+    CMBank: Byte;
     PCMSample: Byte;
     PulseWidth: Byte;
     VelSens: ShortInt;
@@ -289,7 +368,7 @@ type
     ReadMemAddr_label: TLabel;
     ReadMemSize_label: TLabel;
     ReturnedBytes_label: TLabel;
-    PageControl1: TPageControl;
+    EditorPage: TPageControl;
     Debug: TTabSheet;
     TimbreTempArea: TTabSheet;
     PitchEnvGroup: TGroupBox;
@@ -454,7 +533,7 @@ type
     CurPart_label: TLabel;
     PartMidiChan_label: TLabel;
     PtRevButton: TSpeedButton;
-    PtPitchBend_label: TLabel;
+    PtBendRange_label: TLabel;
     CurPart: TComboBox;
     PartMidiChan: TComboBox;
     SelPartial1Button: TSpeedButton;
@@ -774,8 +853,7 @@ type
     TestNoteVel: TSpinEdit;
     TestNoteChan: TSpinEdit;
     TVFKeyFollow_result: TLabel;
-    ReverbBevel: TBevel;
-    MasterTuneBevel: TBevel;
+    SystemBevel: TBevel;
     EnableDebug: TSpeedButton;
     TestNoteCh_label: TLabel;
     TestNote_label: TLabel;
@@ -787,6 +865,32 @@ type
     LoadTmbMemButton: TButton;
     CurMem: TComboBox;
     AboutButton: TButton;
+    CMSamples: TCheckBox;
+    WGSampleBank1: TRadioButton;
+    WGSampleBank2: TRadioButton;
+    RhyControlsGroup: TGroupBox;
+    RhyMidiChan_label: TLabel;
+    RhyBendRange_label: TLabel;
+    RhyMidiChan: TComboBox;
+    RhyBendRange: TSpinEdit;
+    RhyPart_label: TLabel;
+    RhyPart: TLabel;
+    RhyPartBevel: TBevel;
+    RhyFine_label: TLabel;
+    RhyFine: TSpinEdit;
+    RhyKey_label: TLabel;
+    RhyKey: TSpinEdit;
+    RhyPoly: TComboBox;
+    RhyPoly_label: TLabel;
+    RhyPtlReserve: TSpinEdit;
+    RhyPtlReserve_label: TLabel;
+    RhyOutput_label: TLabel;
+    RhyOutput: TSynthSlider;
+    RhyOutput_value: TSpinEdit;
+    LastSysEx_label: TLabel;
+    LastSysEx: TMemo;
+    EditorOptions_label: TLabel;
+    ScrollBox1: TScrollBox;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure TestNoteButtonClick(Sender: TObject);
@@ -837,7 +941,7 @@ type
     procedure PressedKey(Sender: TObject; var Key: Char);
 
     procedure CurPartChange(Sender: TObject);
-    procedure PartMidiChanChange(Sender: TObject);
+    procedure PtMidiChanChange(Sender: TObject);
 
     procedure PartialMuteClick(Sender: TObject);
     procedure PartialStruct1Change(Sender: TObject);
@@ -847,6 +951,9 @@ type
     procedure EnvModeClick(Sender: TObject);
     procedure PtRevButtonClick(Sender: TObject);
     procedure PtBendRangeChange(Sender: TObject);
+
+    procedure RhyMidiChanChange(Sender: TObject);
+    procedure RhyBendRangeChange(Sender: TObject);
 
     procedure OpenSyxButtonClick(Sender: TObject);
     procedure SaveSyxButtonClick(Sender: TObject);
@@ -1050,10 +1157,19 @@ type
     procedure ReverbLevel_valueChange(Sender: TObject);
     procedure ReverbModeButtonClick(Sender: TObject);
     procedure EnableDebugClick(Sender: TObject);
-    procedure PageControl1Change(Sender: TObject);
+    procedure EditorPageChange(Sender: TObject);
     procedure LoadTmbMemButtonClick(Sender: TObject);
     procedure AboutButtonClick(Sender: TObject);
     procedure PEnvLevel0Change(Sender: TObject);
+    procedure CMSamplesClick(Sender: TObject);
+    procedure WGSampleBank1Click(Sender: TObject);
+    procedure WGSampleBank2Click(Sender: TObject);
+    procedure RhyKeyChange(Sender: TObject);
+    procedure RhyFineChange(Sender: TObject);
+    procedure RhyOutputChange(Sender: TObject);
+    procedure RhyOutput_valueChange(Sender: TObject);
+    procedure RhyPtlReserveChange(Sender: TObject);
+    procedure RhyPolyChange(Sender: TObject);
 
   private
     { Private declarations }
@@ -1083,6 +1199,7 @@ type
     function BuildTimbreBytes: TBytes;
     function BuildSysExOutput(const AdMSB, AdMID, AdLSB: Byte; const Data: TBytes): TBytes;
 
+    procedure LoadSampleNames(SampleNames: array of String);
     procedure LoadTimbreNames(TimbreCombo: TComboBox); overload;
     procedure LoadTimbreNames(BankCombo: TComboBox; TimbreCombo: TComboBox); overload;
     procedure ResolvePartialStructure;
@@ -1193,11 +1310,23 @@ end;
 procedure TEditorForm.SendCurrentSysEx;
 var
   msg: TBytes;
+  i: Integer;
 begin
   if not MuntReady then
     Exit;
 
   msg := BuildSysEx;
+  if EnableDebug.Down then
+  begin
+    LastSysEx.Text := '';
+    for i := 0 to High(msg) do
+    begin
+      if i <> High(msg) then
+        LastSysEx.Text := LastSysEx.Text + IntToHex(msg[i], 2) + ' '
+      else
+        LastSysEx.Text := LastSysEx.Text + IntToHex(msg[i], 2);
+    end;
+  end;
 
   PHandlerInterface_v1.sendSysExMessage(
     MuntVSTiInstance,
@@ -1430,6 +1559,31 @@ begin
   end;
 end;
 
+procedure TEditorForm.LoadSampleNames(SampleNames: array of String);
+var
+  I, OldIndex: Integer;
+  WasUpdatingControls: Boolean;
+begin
+  OldIndex := WGSample.ItemIndex;
+
+  WasUpdatingControls := UpdatingControls;
+  UpdatingControls := True;
+  WGSample.Items.BeginUpdate;
+  try
+    WGSample.Items.Clear;
+    for I := 0 to 127 do
+      WGSample.Items.Add(SampleNames[I]);
+
+    if OldIndex in [0..WGSample.Items.Count - 1] then
+      WGSample.ItemIndex := OldIndex
+    else
+      WGSample.ItemIndex := 0;
+  finally
+    WGSample.Items.EndUpdate;
+  end;
+  UpdatingControls := WasUpdatingControls;
+end;
+
 procedure TEditorForm.LoadTimbreNames(TimbreCombo: TComboBox);
 var
   I, OldIndex: Integer;
@@ -1472,8 +1626,16 @@ begin
         for I := 0 to 63 do
           TimbreCombo.Items.Add(Synth[CurSyn].GroupMem[I]);
       3:
-        for I := 0 to 63 do
-          TimbreCombo.Items.Add(GroupRhy_Names[I]);
+        if not CMSamples.Checked then
+        begin
+          for I := 0 to 63 do
+            TimbreCombo.Items.Add(GroupRhy_Names[I]);
+        end
+        else
+        begin
+          for I := 0 to 63 do
+            TimbreCombo.Items.Add(GroupRhyCM_Names[I]);
+        end;
     end;
 
     WasUpdatingControls := UpdatingControls;
@@ -1855,6 +2017,8 @@ begin
   Dest.WaveGen.KeyFollow := Buf[$02 + Offset];
   Dest.WaveGen.PitchBend := Buf[$03 + Offset] <> 0;
   Dest.WaveGen.Shape := Buf[$04 + Offset];
+  if Dest.WaveGen.Shape > 1 then
+    Dest.WaveGen.CMBank := $02;
   Dest.WaveGen.PCMSample := Buf[$05 + Offset];
   Dest.WaveGen.PulseWidth := Buf[$06 + Offset];
   Dest.WaveGen.VelSens := Buf[$07 + Offset] - 7;
@@ -2116,29 +2280,41 @@ begin
         2, 3, 5, 6, 8, 10, 12:
           WGShape.ItemIndex := 2;
       else
-        WGShape.ItemIndex := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.Shape;
+        WGShape.ItemIndex := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.Shape - Synth[Cursyn].Part[CurPt].Partial[CurPtl].WaveGen.CMBank;
       end;
     1:
       case Synth[CurSyn].Part[CurPt].Struct1 of
         4, 5, 6, 8, 11, 12:
           WGShape.ItemIndex := 2;
       else
-        WGShape.ItemIndex := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.Shape;
+        WGShape.ItemIndex := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.Shape - Synth[Cursyn].Part[CurPt].Partial[CurPtl].WaveGen.CMBank;
       end;
     2:
       case Synth[CurSyn].Part[CurPt].Struct2 of
         2, 3, 5, 6, 8, 10, 12:
           WGShape.ItemIndex := 2;
       else
-        WGShape.ItemIndex := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.Shape;
+        WGShape.ItemIndex := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.Shape - Synth[Cursyn].Part[CurPt].Partial[CurPtl].WaveGen.CMBank;
       end;
     3:
       case Synth[CurSyn].Part[CurPt].Struct2 of
         4, 5, 6, 8, 11, 12:
           WGShape.ItemIndex := 2;
       else
-        WGShape.ItemIndex := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.Shape;
+        WGShape.ItemIndex := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.Shape - Synth[Cursyn].Part[CurPt].Partial[CurPtl].WaveGen.CMBank;
       end;
+  end;
+  if Synth[Cursyn].Part[CurPt].Partial[CurPtl].WaveGen.CMBank > 0 then
+  begin
+    WGSampleBank1.Checked := False;
+    WGSampleBank2.Checked := True;
+    LoadSampleNames(CMSampleNames);
+  end
+  else
+  begin
+    WGSampleBank1.Checked := True;
+    WGSampleBank2.Checked := False;
+    LoadSampleNames(MTSampleNames);
   end;
   WGSample.ItemIndex := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.PCMSample;
   WGPulseWidth.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.PulseWidth;
@@ -2188,7 +2364,7 @@ begin
   TVFBiasLevel_value.Text := IntToStr(TVFBiasLevel.Position);
   TVFDepth.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Depth;
   TVFDepth_value.Text := IntToStr(TVFDepth.Position);
-  TVFVelSens.Position := -Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.VelSens;
+  TVFVelSens.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.VelSens;
   TVFVelSens_value.Text := IntToStr(TVFVelSens.Position);
   TVFDepthKeyFollow.Position := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.DepthKeyFollow;
   TVFDepthKeyFollow_value.Text := IntToStr(TVFDepthKeyFollow.Position);
@@ -2748,17 +2924,6 @@ begin
         clSliderFill := $008FBC8F;
       end;
     end;
-    MasterTune.FillColor := clSliderFill;
-    MasterTune.ThumbColor := clSliderThumb;
-    MasterTuneHz.Font.Color := clSynthText;
-    ReverbControls_label.Font.Color := clSynthText;
-    ReverbTime.FillColor := clSliderFill;
-    ReverbTime.ThumbColor := clSliderThumb;
-    ReverbLevel.FillColor := clSliderFill;
-    ReverbLevel.ThumbColor := clSliderThumb;
-    MasterVolume_label.Font.Color := clSynthText;
-    MasterVolume.FillColor := clSliderFill;
-    MasterVolume.ThumbColor := clSliderThumb;
     PartControlsGroup.Font.Color := clSynthText;
     CurPart_label.Font.Color := clSynthText;
     Partials_label.Font.Color := clSynthText;
@@ -2857,6 +3022,12 @@ begin
     TVABiasLevel1.ThumbColor := clSliderThumb;
     TVABiasLevel2.FillColor := clSliderFill;
     TVABiasLevel2.ThumbColor := clSliderThumb;
+
+    RhyOutput.FillColor := clSliderFill;
+    RhyOutput.Thumbcolor := clSliderThumb;
+    RhyControlsGroup.Font.Color := clSynthText;
+    RhyPart_label.Font.Color := clSynthText;
+
     Pt1MixPanel.Font.Color := clSynthText;
     Pt1Key.IndColor := clSliderThumb;
     Pt1Fine.IndColor := clSliderThumb;
@@ -2919,6 +3090,18 @@ begin
     PtRBend.IndColor := clSliderThumb;
     PtROutput.FillColor := clSliderFill;
     PtROutput.ThumbColor := clSliderThumb;
+
+    MasterTune.FillColor := clSliderFill;
+    MasterTune.ThumbColor := clSliderThumb;
+    MasterTuneHz.Font.Color := clSynthText;
+    ReverbControls_label.Font.Color := clSynthText;
+    ReverbTime.FillColor := clSliderFill;
+    ReverbTime.ThumbColor := clSliderThumb;
+    ReverbLevel.FillColor := clSliderFill;
+    ReverbLevel.ThumbColor := clSliderThumb;
+    MasterVolume_label.Font.Color := clSynthText;
+    MasterVolume.FillColor := clSliderFill;
+    MasterVolume.ThumbColor := clSliderThumb;
 end;
 
 procedure TEditorForm.BuildMuteByte;
@@ -2996,7 +3179,7 @@ begin
   begin
     Result[(q * $3A) + $0E + $00] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PitchCoarse;
     Result[(q * $3A) + $0E + $01] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PitchFine + 50;
-    Result[(q * $3A) + $0E + $02] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.KeyFollow + 3;
+    Result[(q * $3A) + $0E + $02] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.KeyFollow;
     Result[(q * $3A) + $0E + $03] := Byte(Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PitchBend);
     Result[(q * $3A) + $0E + $04] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.Shape;
     Result[(q * $3A) + $0E + $05] := Synth[CurSyn].Part[CurPt].Partial[q].WaveGen.PCMSample;
@@ -3019,7 +3202,7 @@ begin
     Result[(q * $3A) + $0E + $16] := Synth[CurSyn].Part[CurPt].Partial[q].PitchEnv.LFOModSens;
     Result[(q * $3A) + $0E + $17] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Cutoff;
     Result[(q * $3A) + $0E + $18] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Resonance;
-    Result[(q * $3A) + $0E + $19] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.KeyFollow;
+    Result[(q * $3A) + $0E + $19] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.KeyFollow + 3;
     Result[(q * $3A) + $0E + $1A] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.BiasPoint;
     Result[(q * $3A) + $0E + $1B] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.BiasLevel + 7;
     Result[(q * $3A) + $0E + $1C] := Synth[CurSyn].Part[CurPt].Partial[q].TVF.Depth;
@@ -3116,22 +3299,32 @@ procedure TEditorForm.PtBendChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange := TKnobControl(Sender).Value;
-  UpdatingControls := True;
-  case TKnobControl(Sender).Tag of
-    0: Pt1Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
-    1: Pt2Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
-    2: Pt3Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
-    3: Pt4Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
-    4: Pt5Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
-    5: Pt6Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
-    6: Pt7Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
-    7: Pt8Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
-    8: PtRBend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
+  if TKnobControl(Sender).Tag = 8 then
+  begin // if sender is the Rhythm Part Patch
+    Synth[CurSyn].Patch[8].BendRange := TKnobControl(Sender).Value;
+    UpdatingControls := True;
+    RhyBendRange.Value := Synth[CurSyn].Patch[8].BendRange;
+    UpdatingControls := False;
+  end
+  else
+  begin // if sender is any other Part Patch
+    Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange := TKnobControl(Sender).Value;
+    UpdatingControls := True;
+    case TKnobControl(Sender).Tag of
+      0: Pt1Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
+      1: Pt2Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
+      2: Pt3Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
+      3: Pt4Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
+      4: Pt5Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
+      5: Pt6Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
+      6: Pt7Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
+      7: Pt8Bend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
+      8: PtRBend_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
+    end;
+    if CurPt = TKnobControl(Sender).Tag then
+      PtBendRange.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
+    UpdatingControls := False;
   end;
-  if CurPt = TKnobControl(Sender).Tag then
-    PtBendRange.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].BendRange;
-  UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
@@ -3147,22 +3340,32 @@ procedure TEditorForm.PtBend_valueChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange := TSpinEdit(Sender).Value;
-  UpdatingControls := True;
-  case TSpinEdit(Sender).Tag of
-    0: Pt1Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
-    1: Pt2Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
-    2: Pt3Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
-    3: Pt4Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
-    4: Pt5Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
-    5: Pt6Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
-    6: Pt7Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
-    7: Pt8Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
-    8: PtRBend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
+  if TSpinEdit(Sender).Tag = 8 then
+  begin // if sender is the Rhythm Part Patch
+    Synth[CurSyn].Patch[8].BendRange := TSpinEdit(Sender).Value;
+    UpdatingControls := True;
+    RhyBendRange.Value := Synth[CurSyn].Patch[8].BendRange;
+    UpdatingControls := False;
+  end
+  else
+  begin // if sender is any other Part Patch
+    Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange := TSpinEdit(Sender).Value;
+    UpdatingControls := True;
+    case TSpinEdit(Sender).Tag of
+      0: Pt1Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
+      1: Pt2Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
+      2: Pt3Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
+      3: Pt4Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
+      4: Pt5Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
+      5: Pt6Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
+      6: Pt7Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
+      7: Pt8Bend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
+      8: PtRBend.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
+    end;
+    if CurPt = TSpinEdit(Sender).Tag then
+      PtBendRange.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
+    UpdatingControls := False;
   end;
-  if CurPt = TSpinEdit(Sender).Tag then
-    PtBendRange.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].BendRange;
-  UpdatingControls := False;
 
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
@@ -3178,11 +3381,21 @@ procedure TEditorForm.PtChanChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
-  Synth[CurSyn].System.MidiChannel[TSpinEdit(Sender).Tag] := TSpinEdit(Sender).Value - 1;
-  UpdatingControls := True;
-  if CurPt = TSpinEdit(Sender).Tag then
-    PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[TSpinEdit(Sender).Tag];
-  UpdatingControls := False;
+  if TSPinEdit(Sender).Tag = 8 then
+  begin // if sender is the Rhythm Part Patch
+    Synth[CurSyn].System.MidiChannel[8] := TSpinEdit(Sender).Value - 1;
+    UpdatingControls := True;
+    RhyMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[8];
+    UpdatingControls := False;
+  end
+  else
+  begin // if sender is any other Part Patch
+    Synth[CurSyn].System.MidiChannel[TSpinEdit(Sender).Tag] := TSpinEdit(Sender).Value - 1;
+    UpdatingControls := True;
+    if CurPt = TSpinEdit(Sender).Tag then
+      PartMidiChan.ItemIndex := Synth[CurSyn].System.MidiChannel[TSpinEdit(Sender).Tag];
+    UpdatingControls := False;
+  end;
 
   SysExAddress := LinearAddrToBytes(
     AdSystem +
@@ -3304,7 +3517,11 @@ begin
     5: Pt6Fine_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].FineTune;
     6: Pt7Fine_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].FineTune;
     7: Pt8Fine_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].FineTune;
-    8: PtRFine_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].FineTune;
+    8:
+    begin
+      PtRFine_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].FineTune;
+      RhyFine.Value := Synth[CurSyn].Patch[8].FineTune;
+    end;
   end;
   UpdatingControls := False;
 
@@ -3333,7 +3550,11 @@ begin
     5: Pt6Fine.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].FineTune;
     6: Pt7Fine.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].FineTune;
     7: Pt8Fine.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].FineTune;
-    8: PtRFine.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].FineTune;
+    8:
+    begin
+      RhyFine.Value := Synth[CurSyn].Patch[8].FineTune;
+      PtRFine.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].FineTune;
+    end;
   end;
   UpdatingControls := False;
 
@@ -3344,6 +3565,26 @@ begin
   );
   SetLength(SysExData,1);
   SysExData[0] := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].FineTune + 50;
+  SendCurrentSysEx;
+end;
+
+procedure TEditorForm.RhyKeyChange(Sender: TObject);
+begin
+  if UpdatingControls then Exit;
+
+  Synth[CurSyn].Patch[8].KeyShift := RhyKey.Value;
+  UpdatingControls := True;
+  PtRKey.Value := Synth[CurSyn].Patch[8].KeyShift;
+  PtRKey_value.Value := Synth[CurSyn].Patch[8].KeyShift;
+  UpdatingControls := False;
+
+  SysExAddress := LinearAddrToBytes(
+    AdPatchTemp +
+    (8 * $10) +
+    $02
+  );
+  SetLength(SysExData,1);
+  SysExData[0] := Synth[CurSyn].Patch[8].KeyShift + 24;
   SendCurrentSysEx;
 end;
 
@@ -3362,7 +3603,11 @@ begin
     5: Pt6Key_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].KeyShift;
     6: Pt7Key_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].KeyShift;
     7: Pt8Key_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].KeyShift;
-    8: PtRKey_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].KeyShift;
+    8:
+    begin
+      PtRKey_value.Value := Synth[CurSyn].Patch[TKnobControl(Sender).Tag].KeyShift;
+      RhyKey.Value := Synth[CurSyn].Patch[8].KeyShift;
+    end;
   end;
   UpdatingControls := False;
 
@@ -3391,7 +3636,11 @@ begin
     5: Pt6Key.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].KeyShift;
     6: Pt7Key.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].KeyShift;
     7: Pt8Key.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].KeyShift;
-    8: PtRKey.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].KeyShift;
+    8:
+    begin
+      PtRKey.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].KeyShift;
+      RhyKey.Value := Synth[CurSyn].Patch[TSpinEdit(Sender).Tag].KeyShift;
+    end;
   end;
   UpdatingControls := False;
 
@@ -3420,7 +3669,12 @@ begin
     5: Pt6Output_value.Value := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
     6: Pt7Output_value.Value := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
     7: Pt8Output_value.Value := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
-    8: PtROutput_value.Value := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+    8:
+    begin
+      PtROutput_value.Value := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+      RhyOutput.Position := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+      RhyOutput_value.Value := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+    end;
   end;
   UpdatingControls := False;
 
@@ -3449,7 +3703,12 @@ begin
     5: Pt6Output.Position := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
     6: Pt7Output.Position := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
     7: Pt8Output.Position := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
-    8: PtROutput.Position := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+    8:
+    begin
+      PtROutput.Position := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+      RhyOutput.Position := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+      RhyOutput_value.Value := Synth[CurSyn].Patch[TSynthSlider(Sender).Tag].Output;
+    end;
   end;
   UpdatingControls := False;
 
@@ -3524,6 +3783,12 @@ begin
   if UpdatingControls then Exit;
 
   Synth[CurSyn].Patch[TComboBox(Sender).Tag].PolyMode := TComboBox(Sender).ItemIndex;
+  if TComboBox(Sender).Tag = 8 then
+  begin
+    UpdatingControls := True;
+    RhyPoly.ItemIndex := Synth[CurSyn].Patch[8].PolyMode;
+    UpdatingControls := False;
+  end;
   SysExAddress := LinearAddrToBytes(
     AdPatchTemp +
     (NativeUInt(TComboBox(Sender).Tag) * $10) +
@@ -3560,6 +3825,12 @@ begin
   if Synth[CurSyn].System.PtlReserve[TSpinEdit(Sender).Tag] <> TSpinEdit(Sender).Value then
   begin
     Synth[CurSyn].System.PtlReserve[TSpinEdit(Sender).Tag] := TSpinEdit(Sender).Value;
+    if TSpinEdit(Sender).Tag = 8 then
+    begin
+      UpdatingControls := True;
+      RhyPtlReserve.Value := Synth[CurSyn].System.PtlReserve[8];
+      UpdatingControls := False;
+    end;
     SysExAddress := LinearAddrToBytes(
       AdSystem +
       NativeUInt(TSpinEdit(Sender).Tag) +
@@ -3592,6 +3863,46 @@ begin
   SendCurrentSysEx;
 
   ActiveControl := nil;
+end;
+
+procedure TEditorForm.RhyBendRangeChange(Sender: TObject);
+begin
+  if UpdatingControls then Exit;
+
+  Synth[CurSyn].Patch[8].BendRange := RhyBendRange.Value;
+  UpdatingControls := True;
+  PtRBend.Value := Synth[CurSyn].Patch[8].BendRange;
+  PtRBend_value.Value := Synth[CurSyn].Patch[8].BendRange;
+  UpdatingControls := False;
+
+  SysExAddress := LinearAddrToBytes(
+    AdPatchTemp +
+    (8 * $10) +
+    $04
+  );
+  SetLength(SysExData,1);
+  SysExData[0] := Synth[CurSyn].Patch[8].BendRange;
+  SendCurrentSysEx;
+end;
+
+procedure TEditorForm.RhyFineChange(Sender: TObject);
+begin
+  if UpdatingControls then Exit;
+
+  Synth[CurSyn].Patch[8].FineTune := RhyFine.Value;
+  UpdatingControls := True;
+  PtRFine_value.Value := Synth[CurSyn].Patch[8].FineTune;
+  PtRFine.Value := Synth[CurSyn].Patch[8].FineTune;
+  UpdatingControls := False;
+
+  SysExAddress := LinearAddrToBytes(
+    AdPatchTemp +
+    (8 * $10) +
+    $03
+  );
+  SetLength(SysExData,1);
+  SysExData[0] := Synth[CurSyn].Patch[8].FineTune + 50;
+  SendCurrentSysEx;
 end;
 
 procedure TEditorForm.PtBendRangeChange(Sender: TObject);
@@ -3697,6 +4008,12 @@ begin
   WGSample_label.Font.Color := clGrayText;
   if WGSample.Enabled then
     WGSample.Enabled := False;
+  if WGSampleBank1.Enabled then
+  begin
+    WGSampleBank1.Enabled := False;
+    if WGSampleBank2.Enabled then
+      WGSampleBank2.Enabled := False;
+  end;
 end;
 
 procedure TEditorForm.SetWGPCM;
@@ -3716,6 +4033,12 @@ begin
   WGSample_label.Font.Color := clWindowText;
   if not WGSample.Enabled then
     WGSample.Enabled := True;
+  if not WGSampleBank1.Enabled then
+  begin
+    WGSampleBank1.Enabled := True;
+    if CMSamples.Checked and not WGSampleBank2.Enabled then
+      WGSampleBank2.Enabled := True;
+  end;
 end;
 
 procedure TEditorForm.EnableDebugClick(Sender: TObject);
@@ -3754,7 +4077,7 @@ begin
   ShowMessage(Format(
       'MuntVSTi Editor  -  %s' + sLineBreak + sLineBreak +
       'Developed by Brandon Blume in association with' + sLineBreak +
-      'Zolt·n BacskÛ (Falcosoft).' + sLineBreak + sLineBreak +
+      'Zolt√°n Bacsk√≥ (Falcosoft).' + sLineBreak + sLineBreak +
       'Designed for use specifically with MuntVSTi 3.0 by Falcosoft.' + sLineBreak + sLineBreak +
       'Check for updates:' + sLineBreak +
       'https://github.com/MusicallyInspired/MT32edit4v'
@@ -3805,11 +4128,12 @@ procedure TEditorForm.OpenSyxButtonClick(Sender: TObject);
 var
   OpenDialog: TOpenDialog;
   SyxBytes: TBytes;
+  FileName, Ext: string;
 begin
   OpenDialog := TOpenDialog.Create(Self);
   try
     OpenDialog.Title := 'Open SysEx File';
-    OpenDialog.Filter := 'SysEx files (*.syx)|*.syx|All files (*.*)|*.*';
+    OpenDialog.Filter := 'SysEx files (*.syx)|*.syx|MT-32 Editor timbre files (*.timbre)|*.timbre|All files (*.*)|*.*';
     OpenDialog.DefaultExt := 'syx';
     OpenDialog.Options := [ofFileMustExist, ofPathMustExist];
 
@@ -3821,32 +4145,63 @@ begin
       SetActiveWindow(Handle);
       SetFocus;
     end);
-
+    FileName := OpenDialog.FileName;
+    Ext := LowerCase(ExtractFileExt(FileName));
     SyxBytes := TFile.ReadAllBytes(OpenDialog.FileName);
 
-    if Length(SyxBytes) = 0 then
-    begin
-      ShowMessage('The selected file is empty.');
-      Exit;
-    end;
+    case IndexStr(Ext, ['.syx', '.timbre']) of
+      0: // .syx
+      begin
+        if Length(SyxBytes) = 0 then
+        begin
+          ShowMessage('The selected file is empty.');
+          Exit;
+        end;
 
-    if (SyxBytes[0] <> $F0) or (SyxBytes[High(SyxBytes)] <> $F7) then
-    begin
-      ShowMessage('This does not appear to be a valid SysEx file.');
-      Exit;
-    end;
-    if not CompareMem(@SyxBytes[0], @SysExHeader, Length(SysExHeader)) or (SyxBytes[High(SyxBytes)] <> $F7) then
-    begin
-      ShowMessage('This does not appear to be a valid MT-32 SysEx File.');
-      Exit;
-    end;
+        if (SyxBytes[0] <> $F0) or (SyxBytes[High(SyxBytes)] <> $F7) then
+        begin
+          ShowMessage('This does not appear to be a valid SysEx file.');
+          Exit;
+        end;
+        if not CompareMem(@SyxBytes[0], @SysExHeader, Length(SysExHeader)) or (SyxBytes[High(SyxBytes)] <> $F7) then
+        begin
+          ShowMessage('This does not appear to be a valid MT-32 SysEx File.');
+          Exit;
+        end;
 
-    PHandlerInterface_v1.sendSysExMessage(
-      MuntVSTiInstance,
-      @SyxBytes[0],
-      Length(SyxBytes),
-      CurSyn+1
-    );
+        PHandlerInterface_v1.sendSysExMessage(
+          MuntVSTiInstance,
+          @SyxBytes[0],
+          Length(SyxBytes),
+          CurSyn+1
+        );
+      end;
+      1: // .timbre
+      begin
+        if Length(SyxBytes) = 0 then
+        begin
+          ShowMessage('The selected file is empty.');
+          Exit;
+        end;
+
+        if (Length(SyxBytes) <> $11E) or
+          (not CompareMem(@SyxBytes[0], @timbreHeader, Length(timbreHeader))) then
+        begin
+          ShowMessage('This does not appear to be a valid MT-32 Editor .timbre file.');
+          Exit;
+        end;
+
+        SyxBytes := Copy(SyxBytes, 40, Length(SyxBytes) - 40);
+
+        SysExAddress := LinearAddrToBytes(
+          $10000 +
+          (CurPt * $F6)
+        );
+        SetLength(SysExData,Length(SyxBytes));
+        SysExData := SyxBytes;
+        SendCurrentSysEx;
+      end;
+    end;
     { // For later when sorting multiple sysex messages in one file
     case SyxBytes[5] of
       $03:                    // Patch Temp Area
@@ -3902,11 +4257,12 @@ procedure TEditorForm.SaveSyxButtonClick(Sender: TObject);
 var
   SaveDialog: TSaveDialog;
   SyxBytes: TBytes;
+  FileName, Ext: string;
 begin
   SaveDialog := TSaveDialog.Create(Self);
   try
     SaveDialog.Title := 'Save SysEx File';
-    SaveDialog.Filter := 'SysEx files (*.syx)|*.syx|All files (*.*)|*.*';
+    SaveDialog.Filter := 'SysEx files (*.syx)|*.syx|MT-32 Editor timbre files (*.timbre)|*.timbre|All files (*.*)|*.*';
     SaveDialog.DefaultExt := 'syx';
     SaveDialog.Options := [ofOverwritePrompt, ofPathMustExist];
 
@@ -3919,7 +4275,20 @@ begin
       SetFocus;
     end);
 
-    SyxBytes := BuildSysExOutput($04, $00, $00, BuildTimbreBytes);
+    FileName := SaveDialog.FileName;
+    Ext := LowerCase(ExtractFileExt(FileName));
+
+    case IndexStr(Ext, ['.syx', '.timbre']) of
+      0: // .syx
+        SyxBytes := BuildSysExOutput($04, $00, $00, BuildTimbreBytes);
+      1: // .timbre
+      begin
+        SetLength(SyxBytes,Length(timbreHeader) + $F6);
+        Move(timbreHeader[0], SyxBytes[0], Length(timbreHeader));
+        Move(BuildTimbreBytes[0], SyxBytes[Length(timbreHeader)], $F6);
+      end;
+    end;
+    //SyxBytes := BuildSysExOutput($04, $00, $00, BuildTimbreBytes);
 
     TFile.WriteAllBytes(SaveDialog.FileName, SyxBytes);
   finally
@@ -3990,6 +4359,29 @@ begin
   end;
 end;
 
+procedure TEditorForm.CMSamplesClick(Sender: TObject);
+begin
+  if CMSamples.Checked then
+  begin
+    if WGShape.ItemIndex = 2 then
+      WGSampleBank2.Enabled := True;
+  end
+  else
+  begin
+    if WGShape.ItemIndex = 2 then
+    begin
+      WGSampleBank2.Enabled := False;
+      UpdatingControls := True;
+      if not WGSampleBank1.Checked then
+      begin
+        WGSampleBank1.Checked := True;
+        WGSampleBank2.Checked := False;
+      end;
+    end;
+  end;
+  RefreshAllGroupMemCombos;
+end;
+
 procedure TEditorForm.CurPartChange(Sender: TObject);
 begin
   if CurPt <> CurPart.ItemIndex then
@@ -3999,7 +4391,135 @@ begin
   end;
 end;
 
-procedure TEditorForm.PartMidiChanChange(Sender: TObject);
+procedure TEditorForm.RhyMidiChanChange(Sender: TObject);
+begin
+  if UpdatingControls then Exit;
+
+  Synth[CurSyn].System.MidiChannel[8] := RhyMidiChan.ItemIndex;
+  UpdatingControls := True;
+  if RhyMidiChan.ItemIndex < 16 then
+  begin
+    PtREnable.Down := True;
+    PtRChan.Value := Synth[CurSyn].System.MidiChannel[8]+1;
+    PtRChan.Enabled := True;
+  end
+  else
+  begin
+    PtREnable.Down := False;
+    PtRChan.Enabled := False;
+  end;
+  UpdatingControls := False;
+
+  SysExAddress := LinearAddrToBytes(
+    AdSystem +
+    8 + $0D
+  );
+  SetLength(SysExData,1);
+  SysExData[0] := Synth[CurSyn].System.MidiChannel[8];
+  SendCurrentSysEx;
+end;
+
+procedure TEditorForm.RhyOutputChange(Sender: TObject);
+begin
+  if UpdatingControls then Exit;
+
+  Synth[CurSyn].Patch[8].Output := RhyOutput.Position;
+  UpdatingControls := True;
+  RhyOutput_value.Value := Synth[CurSyn].Patch[8].Output;
+  PtROutput.Position := Synth[CurSyn].Patch[8].Output;
+  PtROutput_value.Value := Synth[CurSyn].Patch[8].Output;
+  UpdatingControls := False;
+
+  SysExAddress := LinearAddrToBytes(
+    AdPatchTemp +
+    (8 * $10) +
+    $08
+  );
+  SetLength(SysExData,1);
+  SysExData[0] := Synth[CurSyn].Patch[8].Output;
+  SendCurrentSysEx;
+end;
+
+procedure TEditorForm.RhyOutput_valueChange(Sender: TObject);
+begin
+  if UpdatingControls then Exit;
+
+  Synth[CurSyn].Patch[8].Output := RhyOutput_value.Value;
+  UpdatingControls := True;
+  RhyOutput.Position := Synth[CurSyn].Patch[8].Output;
+  PtROutput.Position := Synth[CurSyn].Patch[8].Output;
+  PtROutput_value.Value := Synth[CurSyn].Patch[8].Output;
+  UpdatingControls := False;
+
+  SysExAddress := LinearAddrToBytes(
+    AdPatchTemp +
+    (8 * $10) +
+    $08
+  );
+  SetLength(SysExData,1);
+  SysExData[0] := Synth[CurSyn].Patch[8].Output;
+  SendCurrentSysEx;
+end;
+
+procedure TEditorForm.RhyPolyChange(Sender: TObject);
+begin
+  if UpdatingControls then Exit;
+
+  Synth[CurSyn].Patch[8].PolyMode := RhyPoly.ItemIndex;
+  UpdatingControls := True;
+  PtRPoly.ItemIndex := Synth[CurSyn].Patch[8].PolyMode;
+  UpdatingControls := False;
+
+  SysExAddress := LinearAddrToBytes(
+    AdPatchTemp +
+    (8 * $10) +
+    $05
+  );
+  SetLength(SysExData,1);
+  SysExData[0] := Synth[CurSyn].Patch[8].PolyMode;
+  SendCurrentSysEx;
+end;
+
+procedure TEditorForm.RhyPtlReserveChange(Sender: TObject);
+var
+  NewSum: Integer;
+begin
+  if UpdatingControls then Exit;
+
+  NewSum := Pt1PtlReserve.Value +
+            Pt2PtlReserve.Value +
+            Pt3PtlReserve.Value +
+            Pt4PtlReserve.Value +
+            Pt5PtlReserve.Value +
+            Pt6PtlReserve.Value +
+            Pt7PtlReserve.Value +
+            Pt8PtlReserve.Value +
+            RhyPtlReserve.Value;
+  if NewSum > 32 then
+  begin
+    MessageBeep(MB_ICONERROR);
+    ShowMessage('Sum of all Parts'' partial reserves must not exdeed 32');
+    UpdatingControls := True;
+    RhyPtlReserve.Value := RhyPtlReserve.Value - (NewSum - 32);
+    UpdatingControls := False;
+  end;
+  if Synth[CurSyn].System.PtlReserve[8] <> RhyPtlReserve.Value then
+  begin
+    Synth[CurSyn].System.PtlReserve[8] := RhyPtlReserve.Value;
+    UpdatingControls := True;
+    PtRPtlReserve.Value := Synth[CurSyn].System.PtlReserve[8];
+    UpdatingControls := False;
+    SysExAddress := LinearAddrToBytes(
+      AdSystem +
+      8 +
+      $04
+    );
+    SetLength(SysExData,1);
+    SysExData[0] := Synth[CurSyn].System.PtlReserve[8];
+  end;
+end;
+
+procedure TEditorForm.PtMidiChanChange(Sender: TObject);
 begin
   if UpdatingControls then Exit;
 
@@ -4132,7 +4652,7 @@ begin
 end;
 
 
-procedure TEditorForm.PageControl1Change(Sender: TObject);
+procedure TEditorForm.EditorPageChange(Sender: TObject);
 begin
   ReverbOverride;
 end;
@@ -4327,9 +4847,50 @@ begin
       $04
     );
     SetLength(SysExData,1);
-    SysExData[0] := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.Shape;
+    SysExData[0] := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.Shape +
+                    Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.CMBank;
     SendCurrentSysEx;
   end
+end;
+
+procedure TEditorForm.WGSampleBank1Click(Sender: TObject);
+begin
+  WGSampleBank2.Checked := False;
+  LoadSampleNames(MTSampleNames);
+
+  if UpdatingControls then Exit;
+
+  Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.CMBank := 0;
+  SysExAddress := LinearAddrToBytes(
+    AdTimbreTemp +
+    (CurPt * $F6) +
+    (CurPtl * $3A) + $0E +
+    $04
+  );
+  SetLength(SysExData,1);
+  SysExData[0] := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.Shape +
+                  Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.CMBank;
+  SendCurrentSysEx;
+end;
+
+procedure TEditorForm.WGSampleBank2Click(Sender: TObject);
+begin
+  WGSampleBank1.Checked := False;
+  LoadSampleNames(CMSampleNames);
+
+  if UpdatingControls then Exit;
+
+  Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.CMBank := 2;
+  SysExAddress := LinearAddrToBytes(
+    AdTimbreTemp +
+    (CurPt * $F6) +
+    (CurPtl * $3A) + $0E +
+    $04
+  );
+  SetLength(SysExData,1);
+  SysExData[0] := Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.Shape +
+                  Synth[CurSyn].Part[CurPt].Partial[CurPtl].WaveGen.CMBank;
+  SendCurrentSysEx;
 end;
 
 procedure TEditorForm.WGSampleClick(Sender: TObject);
@@ -5801,75 +6362,102 @@ procedure TEditorForm.DrawTVFFilterGraph(PaintBox: TPaintBox);
 var
   W, H: Integer;
   Cutoff, Resonance: Integer;
-  CutoffNorm, ResonanceNorm: Double;
+  CutoffX: Double;
   X, Y: Integer;
-  FreqNorm, Response, ResonancePeak: Double;
+  FreqNorm: Double;
   Points: array of TPoint;
-  NominalY: Integer;
-  PeakHeadroom: Integer;
-  DropHeight: Integer;
+  NominalY, PeakHeadroom, DropHeight: Integer;
+  kneeWidth: Double;
+  k: Double;
+  slopeBase: Double;
+  response, prevResponse: Double;
+  resonanceAmt, dist, resonanceShape: Double;
 begin
   W := PaintBox.Width;
   H := PaintBox.Height;
-  if (W <= 1) or (H <= 1) then Exit;
+  if (W <= 2) or (H <= 2) then Exit;
 
-  NominalY := H div 3;            // 1/3 from the top
-  PeakHeadroom := NominalY;   // resonance can rise all the way to top
-  DropHeight := H - NominalY;     // lowpass rolloff falls from nominal line to bottom
+  NominalY := H div 3;
+  PeakHeadroom := Round(NominalY * 0.85);
+  DropHeight := H - NominalY;
 
   Cutoff := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Cutoff;
   Resonance := Synth[CurSyn].Part[CurPt].Partial[CurPtl].TVF.Resonance;
 
-  CutoffNorm := Cutoff / 100.0;
-  ResonanceNorm := Resonance / 30.0;
+  CutoffX := Cutoff / 100.0;
 
   SetLength(Points, W);
+
+  kneeWidth := 0.32;
+  k := 3.0;
+
+  resonanceAmt := Resonance / 30.0;
+
+  prevResponse := 1.0;
 
   for X := 0 to W - 1 do
   begin
     FreqNorm := X / (W - 1);
 
-    if FreqNorm <= CutoffNorm then
-      Response := 1.0
+    { -------------------------
+      STRUCTURAL CURVE ONLY (NO RESONANCE HERE)
+      ------------------------- }
+    if FreqNorm <= CutoffX then
+      slopeBase := 0
     else
-      Response := 1.0 / (1.0 + Sqr((FreqNorm - CutoffNorm) * 12.0));
+      slopeBase :=
+        -5.5 *
+        (1 - Exp(-Sqr((FreqNorm - CutoffX) / kneeWidth) * k));
 
-    ResonancePeak :=
-      ResonanceNorm *
-      Exp(-Sqr((FreqNorm - CutoffNorm) * 7.0)) *
-      0.55;
+    response := prevResponse + slopeBase / W;
+    prevResponse := response;
 
-    Response := Response + ResonancePeak;
+    { -------------------------
+      RESONANCE (PURE LOCAL OUTPUT MODIFIER)
+      ------------------------- }
+    dist := FreqNorm - CutoffX;
 
-    if Response < 0.0 then Response := 0.0;
+    resonanceShape :=
+      Exp(-Sqr(dist * 6.0)) * resonanceAmt;
 
-    if Response >= 1.0 then
-      Y := NominalY - Round((Response - 1.0) / 0.65 * PeakHeadroom)
+    response := response + resonanceShape;
+
+    { -------------------------
+      MAPPING
+      ------------------------- }
+    if response >= 1.0 then
+      Y := NominalY - Round((response - 1.0) * PeakHeadroom)
     else
-      Y := NominalY + Round((1.0 - Response) * DropHeight);
+      Y := NominalY + Round((1.0 - response) * DropHeight);
 
     if Y < 0 then Y := 0;
     if Y > H - 1 then Y := H - 1;
+
+    if Y >= H - 1 then
+    begin
+      SetLength(Points, X + 1);
+      Points[X] := Point(X, H - 1);
+      Break;
+    end;
 
     Points[X] := Point(X, Y);
   end;
 
   with PaintBox.Canvas do
   begin
-    {if TVFCutoff.Enabled then
-      Brush.Color := clMoneyGreen
-    else}
-      Brush.Color := clBtnFace;
+    Brush.Color := clBtnFace;
     FillRect(PaintBox.ClientRect);
+
     Pen.Width := 1;
     Pen.Color := clGray;
     Rectangle(0, 0, W, H);
 
-    if TVFCutoff.Enabled then
+    if TVFFilterPlot.Enabled then
     begin
       Pen.Width := 2;
-      Pen.Color := clGreen
+      Pen.Color := clGreen;
     end;
+
     Polyline(Points);
   end;
 end;
@@ -7634,7 +8222,12 @@ begin
     );
     ReturnedBytes.Text := '';
     for i := 0 to High(MemoryInfo) do
-      ReturnedBytes.Text := ReturnedBytes.Text + IntToHex(MemoryInfo[i], 2) + ' ';
+    begin
+      if i <> High(MemoryInfo) then
+        ReturnedBytes.Text := ReturnedBytes.Text + IntToHex(MemoryInfo[i], 2) + ' '
+      else
+        ReturnedBytes.Text := ReturnedBytes.Text + IntToHex(MemoryInfo[i], 2);
+    end;
   end;
 end;
 
