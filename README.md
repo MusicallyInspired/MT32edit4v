@@ -3,11 +3,12 @@ MT-32 sysex editor/programmer companion DLL for MuntVSTi 3.0 by Falcosoft. You c
 
 https://falcosoft.hu/softwares.html#munt_vsti
 
-<img width="811" height="643" alt="Timbre Editor (Synth 1)" src="https://github.com/user-attachments/assets/1050204c-8f2b-4765-badc-eaf69a46ba0b" />
-<img width="811" height="643" alt="Timbre Editor (Synth 2)" src="https://github.com/user-attachments/assets/fb05cbb3-11c4-4bb6-b5d0-334849111744" />
+<img width="811" height="643" alt="Timbre Editor (Synth 1)" src="https://github.com/user-attachments/assets/c7dfbd8f-5321-4403-b559-67caa3d4f735" />
+<img width="811" height="643" alt="Timbre Editor (Synth 2)" src="https://github.com/user-attachments/assets/2f1e17e4-79ce-4a79-899f-64319eb2e65a" />
 <img width="811" height="643" alt="Part Mixer" src="https://github.com/user-attachments/assets/a96aeeda-63a3-41e8-b836-7697155342f0" />
 <img width="811" height="643" alt="Part Mixer (Advanced Controls, Synth 2)" src="https://github.com/user-attachments/assets/5956207a-6a6f-46f2-8a51-4b2eb3895c55" />
-<img width="811" height="643" alt="System Settings" src="https://github.com/user-attachments/assets/49ad3fcb-57ab-4f31-b8cd-5d78d5a1cbfb" />  
+<img width="811" height="643" alt="System Settings" src="https://github.com/user-attachments/assets/a72e727c-f43e-4952-b78e-8e86d236bc4a" />
+
 
 MT32edit4v functions as a companion DLL for MuntVSTi 3.0 by Falcosoft, which is a VSTi virtual synth instrument that includes the MUNT core for MT-32 emulation with several options. However, sorely missing is an actual sound editor/programmer for musicians and producers. There does exist wonderful timbre editors and MT-32 system programmers that are perfectly usable, even supporting modern Windows (namely, the incredible [MT-32 Editor by sfryers](https://www.vogons.org/viewtopic.php?t=93609) written in .NET), but it's high time that we had a fully virtual tool for DAWs with the sensibilities and intuitive approach of modern virtual instruments. Also, there are very few DAWs that even allow sysex messages to be sent to VST plugins (only Reaper and Cubase are known to work) which makes directly programming MuntVSTi inside a DAW environment very hard. If MuntVSTi detects the MT32edit4v DLL in its directory, it will expose a button to activate the editor automatically:  
 
@@ -25,8 +26,10 @@ Currently, as you can see, MT32edit4v utilizes the standard Windows GUI control 
 - Patch Mixer view for controlling each Part's Patch data (Patch Temp Area) - **COMPLETE**
 - Reverb & Master Tuning controls (System Area) - **COMPLETE**
 - Full access to each synth's custom timbre bank (64 timbres x 2 synths = 128 custom timbres) - **COMPLETE *(basic operation)***
+- Support for CM-32L extra PCM samples (set in System tab) - **COMPLETE *(must be using CM-32L ROMs!)***
+- Import/Export TIMBRE file format (for sfryers' MT-32 Editor) - **COMPLETE**
 - Import/Export SYX files for timbre settings, patch settings, or synth-wide state backup and for use with a real hardware MT-32 (if you have one) - ***IN PROGRESS (import any Sysex, export individual Timbres only)***
-- Rhythm Setup editor for the rhythm/percussion Part (Part 9)
+- Rhythm Setup editor for the rhythm/percussion Part (Part 9) - ***IN PROGRESS***
 - Prettier graphics overhaul for entire interface
 
 # Wishlist
