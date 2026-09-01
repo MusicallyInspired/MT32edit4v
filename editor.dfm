@@ -67,8 +67,8 @@ object EditorForm: TEditorForm
     OnClick = SynthToggleClick
   end
   object EditorPage: TPageControl
-    Left = 0
-    Top = 3
+    Left = -2
+    Top = 0
     Width = 756
     Height = 619
     ActivePage = TimbreTempArea
@@ -109,7 +109,7 @@ object EditorForm: TEditorForm
         Down = True
         Caption = 'Sustain'#13#10'Enable'
         ParentShowHint = False
-        ShowHint = True
+        ShowHint = False
         OnClick = EnvModeClick
       end
       object SelPartial1Button: TSpeedButton
@@ -128,7 +128,7 @@ object EditorForm: TEditorForm
         Font.Style = [fsBold]
         ParentFont = False
         ParentShowHint = False
-        ShowHint = True
+        ShowHint = False
         OnClick = SelPartialButtonClick
       end
       object SelPartial2Button: TSpeedButton
@@ -147,7 +147,7 @@ object EditorForm: TEditorForm
         Font.Style = [fsBold]
         ParentFont = False
         ParentShowHint = False
-        ShowHint = True
+        ShowHint = False
         OnClick = SelPartialButtonClick
       end
       object SelPartial3Button: TSpeedButton
@@ -166,7 +166,7 @@ object EditorForm: TEditorForm
         Font.Style = [fsBold]
         ParentFont = False
         ParentShowHint = False
-        ShowHint = True
+        ShowHint = False
         OnClick = SelPartialButtonClick
       end
       object SelPartial4Button: TSpeedButton
@@ -185,7 +185,7 @@ object EditorForm: TEditorForm
         Font.Style = [fsBold]
         ParentFont = False
         ParentShowHint = False
-        ShowHint = True
+        ShowHint = False
         OnClick = SelPartialButtonClick
       end
       object Partials_label: TLabel
@@ -434,7 +434,7 @@ object EditorForm: TEditorForm
           MaxLength = 3
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 1
           Text = '0'
           OnExit = PEnvLevel1_valueExit
@@ -454,7 +454,7 @@ object EditorForm: TEditorForm
           MaxLength = 3
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 2
           Text = '0'
           OnExit = PEnvLevel2_valueExit
@@ -474,7 +474,7 @@ object EditorForm: TEditorForm
           MaxLength = 3
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 3
           Text = '0'
           OnExit = PEnvSustain_valueExit
@@ -494,7 +494,7 @@ object EditorForm: TEditorForm
           MaxLength = 3
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 4
           Text = '0'
           OnExit = PEnvEnd_valueExit
@@ -515,7 +515,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 5
           Text = '0'
           OnExit = PEnvTime1_valueExit
@@ -536,7 +536,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 6
           Text = '0'
           OnKeyPress = PEnvTime2_valueKeyPress
@@ -556,7 +556,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 7
           Text = '0'
           OnKeyPress = PEnvTime3_valueKeyPress
@@ -576,7 +576,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 8
           Text = '0'
           OnKeyPress = PEnvTime4_valueKeyPress
@@ -596,7 +596,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 10
           Text = '0'
           OnExit = PEnvDepth_valueExit
@@ -616,7 +616,7 @@ object EditorForm: TEditorForm
           MaxLength = 3
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 0
           Text = '0'
           OnExit = PEnvLevel0_valueExit
@@ -637,7 +637,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 12
           Text = '0'
           OnExit = PEnvVelSens_valueExit
@@ -658,7 +658,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 11
           Text = '0'
           OnExit = PEnvTimeKeyFollow_valueExit
@@ -669,7 +669,6 @@ object EditorForm: TEditorForm
           Top = 209
           Width = 42
           Height = 42
-          Hint = 'Envelope delay time to point 1'
           Max = 100
           OnChange = PEnvTime1Change
           StartAngle = 135
@@ -680,7 +679,6 @@ object EditorForm: TEditorForm
           Top = 209
           Width = 42
           Height = 42
-          Hint = 'Envelope delay time to point 2'
           Max = 100
           OnChange = PEnvTime2Change
           StartAngle = 135
@@ -691,7 +689,6 @@ object EditorForm: TEditorForm
           Top = 209
           Width = 42
           Height = 42
-          Hint = 'Envelope delay time to Sustain point'
           Max = 100
           OnChange = PEnvTime3Change
           StartAngle = 135
@@ -702,7 +699,6 @@ object EditorForm: TEditorForm
           Top = 209
           Width = 42
           Height = 42
-          Hint = 'Envelope delay time to End/Release point'
           Max = 100
           OnChange = PEnvTime4Change
           StartAngle = 135
@@ -768,7 +764,6 @@ object EditorForm: TEditorForm
             Top = 80
             Width = 40
             Height = 40
-            Hint = 'Depth of Low Frequency Oscillator'#13#10'(affecting pitch)'
             Max = 100
             OnChange = PEnvLFODepthChange
             StartAngle = 135
@@ -789,7 +784,7 @@ object EditorForm: TEditorForm
             NumbersOnly = True
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 1
             Text = '0'
             OnExit = PEnvLFODepth_valueExit
@@ -800,7 +795,6 @@ object EditorForm: TEditorForm
             Top = 135
             Width = 40
             Height = 40
-            Hint = 'LFO Depth sensitivity to Mod Wheel input'#13#10'(affecting pitch)'
             Max = 100
             OnChange = PEnvLFOModSensChange
             StartAngle = 135
@@ -821,7 +815,7 @@ object EditorForm: TEditorForm
             NumbersOnly = True
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 2
             Text = '0'
             OnExit = PEnvLFOModSens_valueExit
@@ -832,7 +826,6 @@ object EditorForm: TEditorForm
             Top = 27
             Width = 40
             Height = 40
-            Hint = 'Speed of Low Frequency Oscillator'#13#10'(affecting pitch)'
             Max = 100
             OnChange = PEnvLFORateChange
             StartAngle = 135
@@ -853,7 +846,7 @@ object EditorForm: TEditorForm
             NumbersOnly = True
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 0
             Text = '0'
             OnExit = PEnvLFORate_valueExit
@@ -1301,7 +1294,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 1
           Text = '0'
           OnExit = TVFLevel2_valueExit
@@ -1322,7 +1315,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 2
           Text = '0'
           OnExit = TVFLevel3_valueExit
@@ -1343,7 +1336,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 3
           Text = '0'
           OnExit = TVFSustain_valueExit
@@ -1364,7 +1357,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 0
           Text = '0'
           OnExit = TVFLevel1_valueExit
@@ -1385,7 +1378,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 4
           Text = '0'
           OnExit = TVFTime1_valueExit
@@ -1406,7 +1399,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 5
           Text = '0'
           OnExit = TVFTime2_valueExit
@@ -1427,7 +1420,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 6
           Text = '0'
           OnExit = TVFTime3_valueExit
@@ -1448,7 +1441,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 7
           Text = '0'
           OnExit = TVFTime4_valueExit
@@ -1520,7 +1513,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 8
           Text = '0'
           OnExit = TVFTime5_valueExit
@@ -1541,7 +1534,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 10
           Text = '0'
           OnExit = TVFDepth_valueExit
@@ -1562,7 +1555,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 11
           Text = '0'
           OnExit = TVFVelSens_valueExit
@@ -1583,7 +1576,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 12
           Text = '0'
           OnExit = TVFTimeKeyFollow_valueExit
@@ -1604,7 +1597,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 13
           Text = '0'
           OnExit = TVFDepthKeyFollow_valueExit
@@ -1624,7 +1617,7 @@ object EditorForm: TEditorForm
           MaxLength = 2
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 15
           Text = '0'
           OnExit = TVFBiasLevel_valueExit
@@ -1644,7 +1637,7 @@ object EditorForm: TEditorForm
           ItemIndex = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 14
           Text = '< A0'
           OnChange = TVFBiasPointChange
@@ -1841,7 +1834,7 @@ object EditorForm: TEditorForm
             NumbersOnly = True
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 1
             Text = '0'
             OnExit = TVFResonance_valueExit
@@ -1862,7 +1855,7 @@ object EditorForm: TEditorForm
             NumbersOnly = True
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 0
             Text = '0'
             OnExit = TVFCutoff_valueExit
@@ -2353,7 +2346,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 1
           Text = '0'
           OnExit = TVALevel2_valueExit
@@ -2374,7 +2367,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 2
           Text = '0'
           OnExit = TVALevel3_valueExit
@@ -2395,7 +2388,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 3
           Text = '0'
           OnExit = TVASustain_valueExit
@@ -2416,7 +2409,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 0
           Text = '0'
           OnExit = TVALevel1_valueExit
@@ -2437,7 +2430,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 4
           Text = '0'
           OnExit = TVATime1_valueExit
@@ -2458,7 +2451,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 5
           Text = '0'
           OnExit = TVATime2_valueExit
@@ -2479,7 +2472,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 6
           Text = '0'
           OnExit = TVATime3_valueExit
@@ -2500,7 +2493,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 7
           Text = '0'
           OnExit = TVATime4_valueExit
@@ -2572,7 +2565,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 8
           Text = '0'
           OnExit = TVATime5_valueExit
@@ -2592,7 +2585,7 @@ object EditorForm: TEditorForm
           MaxLength = 3
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 10
           Text = '0'
           OnExit = TVAVelSens_valueExit
@@ -2613,7 +2606,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 11
           Text = '0'
           OnExit = TVATimeKeyFollow_valueExit
@@ -2634,7 +2627,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 12
           Text = '0'
           OnExit = TVAVelKeyFollow_valueExit
@@ -2654,7 +2647,7 @@ object EditorForm: TEditorForm
           ItemIndex = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 13
           Text = '< A0'
           OnChange = TVABiasPoint1Change
@@ -2802,7 +2795,7 @@ object EditorForm: TEditorForm
           MaxLength = 3
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 14
           Text = '0'
           OnExit = TVABiasLevel1_valueExit
@@ -2848,7 +2841,7 @@ object EditorForm: TEditorForm
             NumbersOnly = True
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 0
             Text = '0'
             OnExit = TVAAmplifier_valueExit
@@ -2886,7 +2879,7 @@ object EditorForm: TEditorForm
           ItemIndex = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 15
           Text = '< A0'
           OnChange = TVABiasPoint2Change
@@ -3034,7 +3027,7 @@ object EditorForm: TEditorForm
           MaxLength = 3
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 16
           Text = '0'
           OnExit = TVABiasLevel2_valueExit
@@ -3042,7 +3035,7 @@ object EditorForm: TEditorForm
         end
         object TVALevel1: TSynthSlider
           Left = 17
-          Top = 31
+          Top = 36
           Width = 23
           Height = 70
           TrackColor = 14737632
@@ -3216,7 +3209,7 @@ object EditorForm: TEditorForm
         MaxLength = 10
         ParentFont = False
         ParentShowHint = False
-        ShowHint = True
+        ShowHint = False
         TabOrder = 0
         OnExit = TimbreNameExit
         OnKeyPress = PressedKey
@@ -3281,7 +3274,7 @@ object EditorForm: TEditorForm
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           OnClick = WGPitchBendClick
         end
         object WGCoarse_label: TLabel
@@ -3375,7 +3368,7 @@ object EditorForm: TEditorForm
             'PCM')
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 0
           OnClick = WGShapeClick
         end
@@ -3395,7 +3388,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 1
           Text = '0'
           OnExit = WGPulseWidth_valueExit
@@ -3415,7 +3408,7 @@ object EditorForm: TEditorForm
           MaxLength = 3
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 2
           Text = '0'
           OnExit = WGVelSens_valueExit
@@ -3436,7 +3429,7 @@ object EditorForm: TEditorForm
           NumbersOnly = True
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 3
           Text = '36'
           OnExit = WGCoarse_valueExit
@@ -3456,7 +3449,7 @@ object EditorForm: TEditorForm
           MaxLength = 3
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 4
           Text = '0'
           OnExit = WGFine_valueExit
@@ -3607,7 +3600,7 @@ object EditorForm: TEditorForm
             '127: Bass & Snare loop')
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 5
           OnClick = WGSampleClick
         end
@@ -3616,7 +3609,6 @@ object EditorForm: TEditorForm
           Top = 24
           Width = 107
           Height = 29
-          Hint = 'Pulse Width of the partial'#39's waveform'
           Orientation = stoHorizontal
           TrackColor = 14737632
           FillColor = 16751121
@@ -3635,7 +3627,6 @@ object EditorForm: TEditorForm
           Top = 66
           Width = 107
           Height = 21
-          Hint = 'Note velocity sensitivity of the waveform pulse width'
           Min = -7
           Max = 7
           Orientation = stoHorizontal
@@ -3786,7 +3777,7 @@ object EditorForm: TEditorForm
           Caption = '1'
           Checked = True
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           State = cbChecked
           TabOrder = 0
           OnClick = PartialMuteClick
@@ -3799,7 +3790,7 @@ object EditorForm: TEditorForm
           Height = 17
           Caption = '2'
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 1
           OnClick = PartialMuteClick
         end
@@ -3811,7 +3802,7 @@ object EditorForm: TEditorForm
           Height = 17
           Caption = '3'
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 2
           OnClick = PartialMuteClick
         end
@@ -3823,7 +3814,7 @@ object EditorForm: TEditorForm
           Height = 17
           Caption = '4'
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 3
           OnClick = PartialMuteClick
         end
@@ -3840,7 +3831,7 @@ object EditorForm: TEditorForm
           Style = csDropDownList
           ItemIndex = 0
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 4
           Text = '(P1 + P2)'
           OnChange = PartialStruct1Change
@@ -3864,7 +3855,7 @@ object EditorForm: TEditorForm
           Style = csDropDownList
           ItemIndex = 0
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 5
           Text = '(P3 + P4)'
           OnChange = PartialStruct2Change
@@ -3942,7 +3933,7 @@ object EditorForm: TEditorForm
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           OnClick = PtRevButtonClick
         end
         object PtBendRange_label: TLabel
@@ -3988,7 +3979,7 @@ object EditorForm: TEditorForm
           ItemIndex = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 0
           Text = 'Part 1'
           OnChange = CurPartChange
@@ -4019,7 +4010,7 @@ object EditorForm: TEditorForm
           ItemIndex = 1
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 1
           Text = '2'
           OnChange = PtMidiChanChange
@@ -4058,7 +4049,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 2
           Value = 12
           OnChange = PtBendRangeChange
@@ -4078,7 +4069,7 @@ object EditorForm: TEditorForm
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 3
           WordWrap = True
           OnClick = SaveTmbMemButtonClick
@@ -4130,7 +4121,7 @@ object EditorForm: TEditorForm
         Font.Style = []
         ParentFont = False
         ParentShowHint = False
-        ShowHint = True
+        ShowHint = False
         TabOrder = 7
         WordWrap = True
         OnClick = InitTimbreButtonClick
@@ -4565,7 +4556,7 @@ object EditorForm: TEditorForm
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           OnClick = PtReverbClick
         end
         object Pt1Output_label: TLabel
@@ -4629,7 +4620,7 @@ object EditorForm: TEditorForm
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           OnClick = PtEnableClick
         end
         object Pt1Bend_label: TLabel
@@ -4652,7 +4643,6 @@ object EditorForm: TEditorForm
           Top = 152
           Width = 30
           Height = 30
-          Hint = 'Panning'
           Min = -7
           Max = 7
           OnChange = PtPanChange
@@ -4676,7 +4666,7 @@ object EditorForm: TEditorForm
           MinValue = -7
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 1
           Value = 0
           OnChange = PtPan_valueChange
@@ -4698,7 +4688,7 @@ object EditorForm: TEditorForm
           MinValue = 1
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 2
           Value = 1
           OnChange = PtChanChange
@@ -4720,7 +4710,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 3
           Value = 0
           OnChange = PtOutput_valueChange
@@ -4742,7 +4732,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 4
           Value = 0
           OnChange = PtBend_valueChange
@@ -4753,7 +4743,6 @@ object EditorForm: TEditorForm
           Top = 103
           Width = 30
           Height = 30
-          Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
           Max = 24
           OnChange = PtBendChange
           StartAngle = 135
@@ -5099,7 +5088,6 @@ object EditorForm: TEditorForm
           Top = 202
           Width = 48
           Height = 335
-          Hint = 'Volume output level'
           TrackColor = 14737632
           FillColor = 16751121
           ThumbColor = 14120960
@@ -5150,7 +5138,7 @@ object EditorForm: TEditorForm
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           OnClick = PtReverbClick
         end
         object Pt2Output_label: TLabel
@@ -5215,7 +5203,7 @@ object EditorForm: TEditorForm
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           OnClick = PtEnableClick
         end
         object Pt2Bend_label: TLabel
@@ -5239,7 +5227,6 @@ object EditorForm: TEditorForm
           Top = 152
           Width = 30
           Height = 30
-          Hint = 'Panning'
           Min = -7
           Max = 7
           OnChange = PtPanChange
@@ -5264,7 +5251,7 @@ object EditorForm: TEditorForm
           MinValue = -7
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 1
           Value = 0
           OnChange = PtPan_valueChange
@@ -5287,7 +5274,7 @@ object EditorForm: TEditorForm
           MinValue = 1
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 2
           Value = 1
           OnChange = PtChanChange
@@ -5310,7 +5297,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 3
           Value = 0
           OnChange = PtOutput_valueChange
@@ -5333,7 +5320,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 4
           Value = 0
           OnChange = PtBend_valueChange
@@ -5345,7 +5332,6 @@ object EditorForm: TEditorForm
           Top = 103
           Width = 30
           Height = 30
-          Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
           Max = 24
           OnChange = PtBendChange
           StartAngle = 135
@@ -5750,7 +5736,7 @@ object EditorForm: TEditorForm
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           OnClick = PtReverbClick
         end
         object Pt3Output_label: TLabel
@@ -5815,7 +5801,7 @@ object EditorForm: TEditorForm
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           OnClick = PtEnableClick
         end
         object Pt3Bend_label: TLabel
@@ -5839,7 +5825,6 @@ object EditorForm: TEditorForm
           Top = 152
           Width = 30
           Height = 30
-          Hint = 'Panning'
           Min = -7
           Max = 7
           OnChange = PtPanChange
@@ -5864,7 +5849,7 @@ object EditorForm: TEditorForm
           MinValue = -7
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 1
           Value = 0
           OnChange = PtPan_valueChange
@@ -5887,7 +5872,7 @@ object EditorForm: TEditorForm
           MinValue = 1
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 2
           Value = 1
           OnChange = PtChanChange
@@ -5910,7 +5895,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 3
           Value = 0
           OnChange = PtOutput_valueChange
@@ -5933,7 +5918,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 4
           Value = 0
           OnChange = PtBend_valueChange
@@ -5945,7 +5930,6 @@ object EditorForm: TEditorForm
           Top = 103
           Width = 30
           Height = 30
-          Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
           Max = 24
           OnChange = PtBendChange
           StartAngle = 135
@@ -6350,7 +6334,7 @@ object EditorForm: TEditorForm
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           OnClick = PtReverbClick
         end
         object Pt4Output_label: TLabel
@@ -6415,7 +6399,7 @@ object EditorForm: TEditorForm
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           OnClick = PtEnableClick
         end
         object Pt4Bend_label: TLabel
@@ -6439,7 +6423,6 @@ object EditorForm: TEditorForm
           Top = 152
           Width = 30
           Height = 30
-          Hint = 'Panning'
           Min = -7
           Max = 7
           OnChange = PtPanChange
@@ -6464,7 +6447,7 @@ object EditorForm: TEditorForm
           MinValue = -7
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 1
           Value = 0
           OnChange = PtPan_valueChange
@@ -6487,7 +6470,7 @@ object EditorForm: TEditorForm
           MinValue = 1
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 2
           Value = 1
           OnChange = PtChanChange
@@ -6510,7 +6493,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 3
           Value = 0
           OnChange = PtOutput_valueChange
@@ -6533,7 +6516,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 4
           Value = 0
           OnChange = PtBend_valueChange
@@ -6545,7 +6528,6 @@ object EditorForm: TEditorForm
           Top = 103
           Width = 30
           Height = 30
-          Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
           Max = 24
           OnChange = PtBendChange
           StartAngle = 135
@@ -6950,7 +6932,7 @@ object EditorForm: TEditorForm
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           OnClick = PtReverbClick
         end
         object Pt5Output_label: TLabel
@@ -7015,7 +6997,7 @@ object EditorForm: TEditorForm
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           OnClick = PtEnableClick
         end
         object Pt5Bend_label: TLabel
@@ -7039,7 +7021,6 @@ object EditorForm: TEditorForm
           Top = 152
           Width = 30
           Height = 30
-          Hint = 'Panning'
           Min = -7
           Max = 7
           OnChange = PtPanChange
@@ -7064,7 +7045,7 @@ object EditorForm: TEditorForm
           MinValue = -7
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 1
           Value = 0
           OnChange = PtPan_valueChange
@@ -7087,7 +7068,7 @@ object EditorForm: TEditorForm
           MinValue = 1
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 2
           Value = 1
           OnChange = PtChanChange
@@ -7110,7 +7091,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 3
           Value = 0
           OnChange = PtOutput_valueChange
@@ -7133,7 +7114,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 4
           Value = 0
           OnChange = PtBend_valueChange
@@ -7145,7 +7126,6 @@ object EditorForm: TEditorForm
           Top = 103
           Width = 30
           Height = 30
-          Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
           Max = 24
           OnChange = PtBendChange
           StartAngle = 135
@@ -7550,7 +7530,7 @@ object EditorForm: TEditorForm
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           OnClick = PtReverbClick
         end
         object Pt6Output_label: TLabel
@@ -7615,7 +7595,7 @@ object EditorForm: TEditorForm
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           OnClick = PtEnableClick
         end
         object Pt6Bend_label: TLabel
@@ -7639,7 +7619,6 @@ object EditorForm: TEditorForm
           Top = 152
           Width = 30
           Height = 30
-          Hint = 'Panning'
           Min = -7
           Max = 7
           OnChange = PtPanChange
@@ -7664,7 +7643,7 @@ object EditorForm: TEditorForm
           MinValue = -7
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 1
           Value = 0
           OnChange = PtPan_valueChange
@@ -7687,7 +7666,7 @@ object EditorForm: TEditorForm
           MinValue = 1
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 2
           Value = 1
           OnChange = PtChanChange
@@ -7710,7 +7689,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 3
           Value = 0
           OnChange = PtOutput_valueChange
@@ -7733,7 +7712,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 4
           Value = 0
           OnChange = PtBend_valueChange
@@ -7745,7 +7724,6 @@ object EditorForm: TEditorForm
           Top = 103
           Width = 30
           Height = 30
-          Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
           Max = 24
           OnChange = PtBendChange
           StartAngle = 135
@@ -8150,7 +8128,7 @@ object EditorForm: TEditorForm
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           OnClick = PtReverbClick
         end
         object Pt7Output_label: TLabel
@@ -8215,7 +8193,7 @@ object EditorForm: TEditorForm
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           OnClick = PtEnableClick
         end
         object Pt7Bend_label: TLabel
@@ -8239,7 +8217,6 @@ object EditorForm: TEditorForm
           Top = 152
           Width = 30
           Height = 30
-          Hint = 'Panning'
           Min = -7
           Max = 7
           OnChange = PtPanChange
@@ -8264,7 +8241,7 @@ object EditorForm: TEditorForm
           MinValue = -7
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 1
           Value = 0
           OnChange = PtPan_valueChange
@@ -8287,7 +8264,7 @@ object EditorForm: TEditorForm
           MinValue = 1
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 2
           Value = 1
           OnChange = PtChanChange
@@ -8310,7 +8287,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 3
           Value = 0
           OnChange = PtOutput_valueChange
@@ -8333,7 +8310,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 4
           Value = 0
           OnChange = PtBend_valueChange
@@ -8345,7 +8322,6 @@ object EditorForm: TEditorForm
           Top = 103
           Width = 30
           Height = 30
-          Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
           Max = 24
           OnChange = PtBendChange
           StartAngle = 135
@@ -8750,7 +8726,7 @@ object EditorForm: TEditorForm
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           OnClick = PtReverbClick
         end
         object Pt8Output_label: TLabel
@@ -8815,7 +8791,7 @@ object EditorForm: TEditorForm
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           OnClick = PtEnableClick
         end
         object Pt8Bend_label: TLabel
@@ -8839,7 +8815,6 @@ object EditorForm: TEditorForm
           Top = 152
           Width = 30
           Height = 30
-          Hint = 'Panning'
           Min = -7
           Max = 7
           OnChange = PtPanChange
@@ -8864,7 +8839,7 @@ object EditorForm: TEditorForm
           MinValue = -7
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 1
           Value = 0
           OnChange = PtPan_valueChange
@@ -8887,7 +8862,7 @@ object EditorForm: TEditorForm
           MinValue = 1
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 2
           Value = 1
           OnChange = PtChanChange
@@ -8910,7 +8885,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 3
           Value = 0
           OnChange = PtOutput_valueChange
@@ -8933,7 +8908,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 4
           Value = 0
           OnChange = PtBend_valueChange
@@ -8945,7 +8920,6 @@ object EditorForm: TEditorForm
           Top = 103
           Width = 30
           Height = 30
-          Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
           Max = 24
           OnChange = PtBendChange
           StartAngle = 135
@@ -9379,7 +9353,7 @@ object EditorForm: TEditorForm
           Font.Style = []
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           OnClick = PtEnableClick
         end
         object PtRBend_label: TLabel
@@ -9414,7 +9388,7 @@ object EditorForm: TEditorForm
           MinValue = 1
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 0
           Value = 1
           OnChange = PtChanChange
@@ -9437,7 +9411,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 1
           Value = 0
           OnChange = PtOutput_valueChange
@@ -9460,7 +9434,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 2
           Value = 0
           OnChange = PtBend_valueChange
@@ -9472,7 +9446,6 @@ object EditorForm: TEditorForm
           Top = 103
           Width = 30
           Height = 30
-          Hint = 'Pitch Bender Range'#13#10'(up to 2 octaves)'
           Max = 24
           OnChange = PtBendChange
           StartAngle = 135
@@ -9908,7 +9881,6 @@ object EditorForm: TEditorForm
         Top = 67
         Width = 286
         Height = 33
-        Hint = 'Master Tune setting for the whole synth (all Parts affected)'
         Max = 127
         Orientation = stoHorizontal
         CenterMark = True
@@ -9948,9 +9920,6 @@ object EditorForm: TEditorForm
         Top = 256
         Width = 283
         Height = 40
-        Hint = 
-          'Reverb time setting for the whole synth (every Part with reverb ' +
-          'enabled will be affected)'
         Max = 7
         Orientation = stoHorizontal
         TrackColor = 14737632
@@ -9969,9 +9938,6 @@ object EditorForm: TEditorForm
         Top = 370
         Width = 283
         Height = 40
-        Hint = 
-          'Reverb level setting or the whole synth (every Part with reverb ' +
-          'enabled will be affected)'
         Max = 7
         Orientation = stoHorizontal
         TrackColor = 14737632
@@ -10411,6 +10377,8 @@ object EditorForm: TEditorForm
     MaxValue = 100
     MinValue = 0
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     TabOrder = 2
     Value = 0
     OnChange = MasterVolume_valueChange
@@ -10421,7 +10389,6 @@ object EditorForm: TEditorForm
     Top = 259
     Width = 49
     Height = 329
-    Hint = 'Master volume output of the MT-32'
     TrackColor = 14737632
     FillColor = 16751121
     ThumbColor = 14120960
@@ -10442,7 +10409,7 @@ object EditorForm: TEditorForm
     Hint = 'Import a SYX file'
     Caption = 'Import'
     ParentShowHint = False
-    ShowHint = True
+    ShowHint = False
     TabOrder = 4
     WordWrap = True
     OnClick = OpenSyxButtonClick
@@ -10455,7 +10422,7 @@ object EditorForm: TEditorForm
     Hint = 'Export a SYX file'
     Caption = 'Export'
     ParentShowHint = False
-    ShowHint = True
+    ShowHint = False
     TabOrder = 5
     WordWrap = True
     OnClick = SaveSyxButtonClick
