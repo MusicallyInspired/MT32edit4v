@@ -71,7 +71,7 @@ object EditorForm: TEditorForm
     Top = 0
     Width = 756
     Height = 619
-    ActivePage = TimbreTempArea
+    ActivePage = PatchTempArea
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -4290,7 +4290,7 @@ object EditorForm: TEditorForm
           ItemIndex = 9
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 0
           Text = '10'
           OnChange = RhyMidiChanChange
@@ -4330,7 +4330,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 1
           Value = 12
           OnChange = RhyBendRangeChange
@@ -4354,7 +4354,7 @@ object EditorForm: TEditorForm
           MinValue = -50
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 2
           Value = 0
           OnChange = RhyFineChange
@@ -4378,7 +4378,7 @@ object EditorForm: TEditorForm
           MinValue = -24
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 3
           Value = 0
           OnChange = RhyKeyChange
@@ -4406,7 +4406,7 @@ object EditorForm: TEditorForm
           ItemIndex = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 4
           Text = '(S)  FIFO'
           OnChange = RhyPolyChange
@@ -4435,7 +4435,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 5
           Value = 0
           OnChange = RhyPtlReserveChange
@@ -4476,7 +4476,7 @@ object EditorForm: TEditorForm
           MinValue = 0
           ParentFont = False
           ParentShowHint = False
-          ShowHint = True
+          ShowHint = False
           TabOrder = 7
           Value = 0
           OnChange = RhyOutput_valueChange
@@ -4860,7 +4860,7 @@ object EditorForm: TEditorForm
             ItemIndex = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 0
             Text = 'Preset A'
             OnChange = PtBankChange
@@ -4899,7 +4899,7 @@ object EditorForm: TEditorForm
             MinValue = -50
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 2
             Value = 0
             OnChange = PtFine_valueChange
@@ -4936,7 +4936,7 @@ object EditorForm: TEditorForm
             MinValue = -24
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 4
             Value = 0
             OnChange = PtKey_valueChange
@@ -4959,7 +4959,7 @@ object EditorForm: TEditorForm
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 5
             OnChange = PtTimbreChange
             Items.Strings = (
@@ -5049,7 +5049,7 @@ object EditorForm: TEditorForm
             ItemIndex = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 6
             Text = '(S)  FIFO'
             OnChange = PtPolyChange
@@ -5077,7 +5077,7 @@ object EditorForm: TEditorForm
             MinValue = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 7
             Value = 0
             OnChange = PtPtlReserveChange
@@ -5450,7 +5450,7 @@ object EditorForm: TEditorForm
             ItemIndex = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 0
             Text = 'Preset A'
             OnChange = PtBankChange
@@ -5466,7 +5466,6 @@ object EditorForm: TEditorForm
             Top = 176
             Width = 30
             Height = 30
-            Hint = 'Pitch Fine Tune'
             Min = -50
             Max = 50
             OnChange = PtFineChange
@@ -5491,7 +5490,7 @@ object EditorForm: TEditorForm
             MinValue = -50
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 2
             Value = 0
             OnChange = PtFine_valueChange
@@ -5503,9 +5502,6 @@ object EditorForm: TEditorForm
             Top = 176
             Width = 30
             Height = 30
-            Hint = 
-              'Key Shift = Transposes the Part up to'#13#10'two octaves higher or low' +
-              'er'
             Min = -24
             Max = 24
             OnChange = PtKeyChange
@@ -5530,7 +5526,7 @@ object EditorForm: TEditorForm
             MinValue = -24
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 4
             Value = 0
             OnChange = PtKey_valueChange
@@ -5554,7 +5550,7 @@ object EditorForm: TEditorForm
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 5
             OnChange = PtTimbreChange
             Items.Strings = (
@@ -5645,7 +5641,7 @@ object EditorForm: TEditorForm
             ItemIndex = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 6
             Text = '(S)  FIFO'
             OnChange = PtPolyChange
@@ -5674,7 +5670,7 @@ object EditorForm: TEditorForm
             MinValue = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 7
             Value = 0
             OnChange = PtPtlReserveChange
@@ -6048,7 +6044,7 @@ object EditorForm: TEditorForm
             ItemIndex = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 0
             Text = 'Preset A'
             OnChange = PtBankChange
@@ -6064,7 +6060,6 @@ object EditorForm: TEditorForm
             Top = 176
             Width = 30
             Height = 30
-            Hint = 'Pitch Fine Tune'
             Min = -50
             Max = 50
             OnChange = PtFineChange
@@ -6089,7 +6084,7 @@ object EditorForm: TEditorForm
             MinValue = -50
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 2
             Value = 0
             OnChange = PtFine_valueChange
@@ -6101,9 +6096,6 @@ object EditorForm: TEditorForm
             Top = 176
             Width = 30
             Height = 30
-            Hint = 
-              'Key Shift = Transposes the Part up to'#13#10'two octaves higher or low' +
-              'er'
             Min = -24
             Max = 24
             OnChange = PtKeyChange
@@ -6128,7 +6120,7 @@ object EditorForm: TEditorForm
             MinValue = -24
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 4
             Value = 0
             OnChange = PtKey_valueChange
@@ -6152,7 +6144,7 @@ object EditorForm: TEditorForm
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 5
             OnChange = PtTimbreChange
             Items.Strings = (
@@ -6243,7 +6235,7 @@ object EditorForm: TEditorForm
             ItemIndex = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 6
             Text = '(S)  FIFO'
             OnChange = PtPolyChange
@@ -6272,7 +6264,7 @@ object EditorForm: TEditorForm
             MinValue = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 7
             Value = 0
             OnChange = PtPtlReserveChange
@@ -6646,7 +6638,7 @@ object EditorForm: TEditorForm
             ItemIndex = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 0
             Text = 'Preset A'
             OnChange = PtBankChange
@@ -6662,7 +6654,6 @@ object EditorForm: TEditorForm
             Top = 176
             Width = 30
             Height = 30
-            Hint = 'Pitch Fine Tune'
             Min = -50
             Max = 50
             OnChange = PtFineChange
@@ -6687,7 +6678,7 @@ object EditorForm: TEditorForm
             MinValue = -50
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 2
             Value = 0
             OnChange = PtFine_valueChange
@@ -6699,9 +6690,6 @@ object EditorForm: TEditorForm
             Top = 176
             Width = 30
             Height = 30
-            Hint = 
-              'Key Shift = Transposes the Part up to'#13#10'two octaves higher or low' +
-              'er'
             Min = -24
             Max = 24
             OnChange = PtKeyChange
@@ -6726,7 +6714,7 @@ object EditorForm: TEditorForm
             MinValue = -24
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 4
             Value = 0
             OnChange = PtKey_valueChange
@@ -6750,7 +6738,7 @@ object EditorForm: TEditorForm
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 5
             OnChange = PtTimbreChange
             Items.Strings = (
@@ -6841,7 +6829,7 @@ object EditorForm: TEditorForm
             ItemIndex = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 6
             Text = '(S)  FIFO'
             OnChange = PtPolyChange
@@ -6870,7 +6858,7 @@ object EditorForm: TEditorForm
             MinValue = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 7
             Value = 0
             OnChange = PtPtlReserveChange
@@ -7244,7 +7232,7 @@ object EditorForm: TEditorForm
             ItemIndex = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 0
             Text = 'Preset A'
             OnChange = PtBankChange
@@ -7260,7 +7248,6 @@ object EditorForm: TEditorForm
             Top = 176
             Width = 30
             Height = 30
-            Hint = 'Pitch Fine Tune'
             Min = -50
             Max = 50
             OnChange = PtFineChange
@@ -7285,7 +7272,7 @@ object EditorForm: TEditorForm
             MinValue = -50
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 2
             Value = 0
             OnChange = PtFine_valueChange
@@ -7297,9 +7284,6 @@ object EditorForm: TEditorForm
             Top = 176
             Width = 30
             Height = 30
-            Hint = 
-              'Key Shift = Transposes the Part up to'#13#10'two octaves higher or low' +
-              'er'
             Min = -24
             Max = 24
             OnChange = PtKeyChange
@@ -7324,7 +7308,7 @@ object EditorForm: TEditorForm
             MinValue = -24
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 4
             Value = 0
             OnChange = PtKey_valueChange
@@ -7348,7 +7332,7 @@ object EditorForm: TEditorForm
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 5
             OnChange = PtTimbreChange
             Items.Strings = (
@@ -7439,7 +7423,7 @@ object EditorForm: TEditorForm
             ItemIndex = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 6
             Text = '(S)  FIFO'
             OnChange = PtPolyChange
@@ -7468,7 +7452,7 @@ object EditorForm: TEditorForm
             MinValue = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 7
             Value = 0
             OnChange = PtPtlReserveChange
@@ -7842,7 +7826,7 @@ object EditorForm: TEditorForm
             ItemIndex = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 0
             Text = 'Preset A'
             OnChange = PtBankChange
@@ -7858,7 +7842,6 @@ object EditorForm: TEditorForm
             Top = 176
             Width = 30
             Height = 30
-            Hint = 'Pitch Fine Tune'
             Min = -50
             Max = 50
             OnChange = PtFineChange
@@ -7883,7 +7866,7 @@ object EditorForm: TEditorForm
             MinValue = -50
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 2
             Value = 0
             OnChange = PtFine_valueChange
@@ -7895,9 +7878,6 @@ object EditorForm: TEditorForm
             Top = 176
             Width = 30
             Height = 30
-            Hint = 
-              'Key Shift = Transposes the Part up to'#13#10'two octaves higher or low' +
-              'er'
             Min = -24
             Max = 24
             OnChange = PtKeyChange
@@ -7922,7 +7902,7 @@ object EditorForm: TEditorForm
             MinValue = -24
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 4
             Value = 0
             OnChange = PtKey_valueChange
@@ -7946,7 +7926,7 @@ object EditorForm: TEditorForm
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 5
             OnChange = PtTimbreChange
             Items.Strings = (
@@ -8037,7 +8017,7 @@ object EditorForm: TEditorForm
             ItemIndex = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 6
             Text = '(S)  FIFO'
             OnChange = PtPolyChange
@@ -8066,7 +8046,7 @@ object EditorForm: TEditorForm
             MinValue = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 7
             Value = 0
             OnChange = PtPtlReserveChange
@@ -8440,7 +8420,7 @@ object EditorForm: TEditorForm
             ItemIndex = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 0
             Text = 'Preset A'
             OnChange = PtBankChange
@@ -8456,7 +8436,6 @@ object EditorForm: TEditorForm
             Top = 176
             Width = 30
             Height = 30
-            Hint = 'Pitch Fine Tune'
             Min = -50
             Max = 50
             OnChange = PtFineChange
@@ -8481,7 +8460,7 @@ object EditorForm: TEditorForm
             MinValue = -50
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 2
             Value = 0
             OnChange = PtFine_valueChange
@@ -8493,9 +8472,6 @@ object EditorForm: TEditorForm
             Top = 176
             Width = 30
             Height = 30
-            Hint = 
-              'Key Shift = Transposes the Part up to'#13#10'two octaves higher or low' +
-              'er'
             Min = -24
             Max = 24
             OnChange = PtKeyChange
@@ -8520,7 +8496,7 @@ object EditorForm: TEditorForm
             MinValue = -24
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 4
             Value = 0
             OnChange = PtKey_valueChange
@@ -8544,7 +8520,7 @@ object EditorForm: TEditorForm
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 5
             OnChange = PtTimbreChange
             Items.Strings = (
@@ -8635,7 +8611,7 @@ object EditorForm: TEditorForm
             ItemIndex = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 6
             Text = '(S)  FIFO'
             OnChange = PtPolyChange
@@ -8664,7 +8640,7 @@ object EditorForm: TEditorForm
             MinValue = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 7
             Value = 0
             OnChange = PtPtlReserveChange
@@ -9038,7 +9014,7 @@ object EditorForm: TEditorForm
             ItemIndex = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 0
             Text = 'Preset A'
             OnChange = PtBankChange
@@ -9054,7 +9030,6 @@ object EditorForm: TEditorForm
             Top = 176
             Width = 30
             Height = 30
-            Hint = 'Pitch Fine Tune'
             Min = -50
             Max = 50
             OnChange = PtFineChange
@@ -9079,7 +9054,7 @@ object EditorForm: TEditorForm
             MinValue = -50
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 2
             Value = 0
             OnChange = PtFine_valueChange
@@ -9091,9 +9066,6 @@ object EditorForm: TEditorForm
             Top = 176
             Width = 30
             Height = 30
-            Hint = 
-              'Key Shift = Transposes the Part up to'#13#10'two octaves higher or low' +
-              'er'
             Min = -24
             Max = 24
             OnChange = PtKeyChange
@@ -9118,7 +9090,7 @@ object EditorForm: TEditorForm
             MinValue = -24
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 4
             Value = 0
             OnChange = PtKey_valueChange
@@ -9142,7 +9114,7 @@ object EditorForm: TEditorForm
             Font.Style = []
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 5
             OnChange = PtTimbreChange
             Items.Strings = (
@@ -9233,7 +9205,7 @@ object EditorForm: TEditorForm
             ItemIndex = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 6
             Text = '(S)  FIFO'
             OnChange = PtPolyChange
@@ -9262,7 +9234,7 @@ object EditorForm: TEditorForm
             MinValue = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 7
             Value = 0
             OnChange = PtPtlReserveChange
@@ -9533,7 +9505,6 @@ object EditorForm: TEditorForm
             Top = 176
             Width = 30
             Height = 30
-            Hint = 'Pitch Fine Tune'
             Min = -50
             Max = 50
             OnChange = PtFineChange
@@ -9558,7 +9529,7 @@ object EditorForm: TEditorForm
             MinValue = -50
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 1
             Value = 0
             OnChange = PtFine_valueChange
@@ -9570,9 +9541,6 @@ object EditorForm: TEditorForm
             Top = 176
             Width = 30
             Height = 30
-            Hint = 
-              'Key Shift = Transposes the Part up to'#13#10'two octaves higher or low' +
-              'er'
             Min = -24
             Max = 24
             OnChange = PtKeyChange
@@ -9597,7 +9565,7 @@ object EditorForm: TEditorForm
             MinValue = -24
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 3
             Value = 0
             OnChange = PtKey_valueChange
@@ -9625,7 +9593,7 @@ object EditorForm: TEditorForm
             ItemIndex = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 4
             Text = '(S)  FIFO'
             OnChange = PtPolyChange
@@ -9654,7 +9622,7 @@ object EditorForm: TEditorForm
             MinValue = 0
             ParentFont = False
             ParentShowHint = False
-            ShowHint = True
+            ShowHint = False
             TabOrder = 5
             Value = 0
             OnChange = PtPtlReserveChange
